@@ -1,0 +1,87 @@
+# Site settings
+title : Your awesome title
+description : > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+url : http://enkhee-Osiris.github.io # the base hostname & protocol for your site
+author :
+  name : Enkherdene Bolormaa
+  email : enkhee.ag@gmail.com
+  tumblr : enkhee-Osiris
+  github : enkhee-Osiris
+  facebook : enkhee-Osiris
+  instagram : enkhee-Osiris
+  google_plus : enkhee-Osiris
+  feedburner : feedname
+# hmm
+collections :
+  my_categories :
+    output : true
+    permalink: /blog/category/:name/
+  my_tags :
+    output : true
+    permalink : /blog/tag/:name/
+
+# Handling Reading
+exclude: [Gemfile, README.md]
+
+# Plugins
+gems :
+  - jekyll-coffeescript
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+
+# Outputting
+permalink : /:categories/:year/:month/:day/:title
+timezone : Asia/Ulaanbaatar
+
+# assets
+BASE_PATH : false
+ASSET_PATH : false
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  -
+    scope:
+      path: ""
+      type: my_categories
+    values:
+      layout: blog_by_category
+  -
+    scope:
+      path: ""
+      type: my_tags
+    values:
+      layout: blog_by_tag
+
+
+# Settings for comments
+comments :
+  facebook :
+    appid : 1184490104906355
+    num_posts: 5
+    width: 580
+    colorscheme: light
+
+# Settings for analytics helper
+analytics :
+  google :
+    tracking_id : 'UA-80597159-1'
+
+# Build settings
+markdown : kramdown

@@ -1,0 +1,4 @@
+---
+slug: beginner
+name: Beginner
+---
