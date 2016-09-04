@@ -77,8 +77,21 @@ table td {
 .intro .site-heading {
     padding: 200px 0;
 }
-.intro .site-heading a h2{
+.intro .site-heading a{
+    display: inline-block;
     color: #25ba84;
+    padding: .6em;
+    margin-top: 2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #25ba84;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+}
+.intro .site-heading a:hover{
+    color: #fff;
+    background-color: #25ba84;
 }
 .intro .site-heading h1 {
     color: #fff;
@@ -101,7 +114,7 @@ table td {
     float: left;
     padding-top: 0.3em;
     margin: 0;
-}
+}  
 
 .blogs article {
     position: relative;
@@ -319,7 +332,7 @@ canvas {
 .overlay ul li a:hover:after,
 .overlay ul li a:focus:after,
 .overlay ul li a:active:after {
-    width: 100%;
+    width: 110%;
 } 
 
 .overlay ul li a:after {
