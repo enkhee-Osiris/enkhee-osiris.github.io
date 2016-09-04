@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About
+title: Миний Тухай
+group: navigation
 permalink: /about/
 ---
 

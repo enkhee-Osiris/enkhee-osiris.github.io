@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://enkhee-Osiris.github.io/test/2016/08/30/Enhee-Osiris-%25D0%259A%25D1%2580%25D0%25B8%25D0%25BB%25D0%25BB-%25D0%25B1%25D0%25B8%25D1%2582%25D1%2587</loc>
+<lastmod>2016-08-30T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://enkhee-Osiris.github.io/blog/2016/07/23/welcome-to-jekyll</loc>
 <lastmod>2016-07-23T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://enkhee-Osiris.github.io/test/2015/04/20/Test-2</loc>
+<lastmod>2015-04-20T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://enkhee-Osiris.github.io/test/yeay/2015/04/20/Hello-world</loc>
+<lastmod>2015-04-20T00:00:00+09:00</lastmod>
 </url>
 <url>
 <loc>http://enkhee-Osiris.github.io/about/</loc>
@@ -14,12 +26,24 @@
 <loc>http://enkhee-Osiris.github.io/blog/category/blog/</loc>
 </url>
 <url>
+<loc>http://enkhee-Osiris.github.io/blog/category/test/</loc>
+</url>
+<url>
+<loc>http://enkhee-Osiris.github.io/blog/category/yeay/</loc>
+</url>
+<url>
 <loc>http://enkhee-Osiris.github.io/blog/tag/beginner/</loc>
 </url>
 <url>
 <loc>http://enkhee-Osiris.github.io/blog/tag/github/</loc>
 </url>
 <url>
+<loc>http://enkhee-Osiris.github.io/blog/tag/intro/</loc>
+</url>
+<url>
 <loc>http://enkhee-Osiris.github.io/blog/tag/jekyll/</loc>
+</url>
+<url>
+<loc>http://enkhee-Osiris.github.io/blog/tag/test/</loc>
 </url>
 </urlset>

@@ -1,7 +1,25 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px;
+}
+pre {
+    border: none;
+}
+blockquote {
+    font-style: italic;
+}
+
 .blog-footer {
-    padding: 40px 0;
-    color: #999;
+    margin-top: 40px;
+    height: 60px;
+    color: #cdcdcd;
     text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 ul.inline {
@@ -24,41 +42,61 @@ a:hover {
     border-color: #bbb;
 }
 
-
 /**
- * 
+ *  Table
  */
-
-.page {
-    overflow: visible;
-    height: auto;
-    min-height: 100vh;
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
-    border-width: 5.831rem 2.499rem 2.499rem;
-    border-style: solid;
-    border-color: #000;
+table {
+    font-size: 20px;
+    margin-bottom: 20px;
 }
-
-.page::before {
-    position: fixed;
-    z-index: 200;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2.499rem;
-    content: '';
-    background: #000
+table thead {
+    background-color: #e3e3e3;
+    border-radius: 2px;
 }
-
+table th {
+    padding: 10px 25px;
+}
+table td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e3e3e3;
+}
 
 /**
  *   Blog Style
  */
-
+.intro {
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: #000;
+}
+.intro .row {
+    margin: 0;
+}
+.intro .site-heading {
+    padding: 200px 0;
+}
+.intro .site-heading a h2{
+    color: #25ba84;
+}
+.intro .site-heading h1 {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.intro .site-heading h2 {
+    font-weight: 700;
+    color: #fff;
+}
+.blogs {
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin-bottom: -60px;
+    padding-bottom: 60px;
+}
 .blogs h2 {
-    color: #d2d2d2;
+    color: #cdcdcd;
     display: inline-block;
     float: left;
     padding-top: 0.3em;
@@ -74,7 +112,7 @@ a:hover {
 }
 
 .blogs article > span {
-    color: #d2d2d2;
+    color: #cdcdcd;
     margin-top: 0.6em;
     position: absolute;
     left: 0;
@@ -84,26 +122,53 @@ a:hover {
 .blog-article .article-title {
     margin: 0;
     line-height: 1.1;
+    max-width: 646px;
     margin-bottom: 0.1em;
+}
+.blog-article .article-title a:visited {
+    color: #cdcdcd;
 }
 
 .blog-article {}
 
-.blog-article .article-meta {}
+.blog-article .article-meta {
+    color: #cdcdcd;
+}
 
 .blog-article .article-meta a {
     border: none;
 }
 
-
+/**
+ * navbar
+ */
+.navbar {
+    height: 75px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 100;
+}
+.navbar a {
+    position: absolute;
+    top: 1.3328rem;
+    left: 1.3328rem;
+    text-decoration: none;
+    border: none;
+}
+.navbar a img{
+    width: auto;
+    height: 40px;
+}
 /**
  *   Hamburg menu
  */
 
 .button_container {
-    position: fixed;
-    top: 5%;
-    right: 2%;
+    position: absolute;
+    top: 1.3328rem;
+    right: 1.3328rem;
     height: 27px;
     width: 35px;
     cursor: pointer;
@@ -161,7 +226,6 @@ canvas {
     z-index: -10;
 }
 
-
 /**
  *   Overlay FullScreen menu Style
  */
@@ -181,7 +245,7 @@ canvas {
 }
 
 .overlay.open {
-    opacity: .9;
+    opacity: 1;
     visibility: visible;
     height: 100%;
     z-index: 10;
@@ -239,19 +303,24 @@ canvas {
 }
 
 .overlay ul li a {
-    display: block;
     border: none;
     position: relative;
     color: #25ba84;
+    font-weight: 700;
     text-decoration: none;
     overflow: hidden;
+    -webkit-transition: color 0.35s ease;
+    transition: color 0.35s ease;
+}
+.overlay ul li a:hover {
+    color: #fff;
 }
 
 .overlay ul li a:hover:after,
 .overlay ul li a:focus:after,
 .overlay ul li a:active:after {
     width: 100%;
-}
+} 
 
 .overlay ul li a:after {
     content: '';
@@ -329,8 +398,7 @@ h4 {
 }
 
 .h5,
-h5,
-table th {
+h5{
     font-size: 1.121rem
 }
 
@@ -346,7 +414,7 @@ h6 {
     }
     .date span {
         font-size: 12px;
-        color: #d2d2d2;
+        color: #cdcdcd;
     }
     pre code {
         font-size: 12px;
@@ -366,7 +434,7 @@ h6 {
     }
     .date span {
         font-size: 13px;
-        color: #d2d2d2;
+        color: #cdcdcd;
     }
     pre code {
         font-size: 14px;
@@ -399,7 +467,7 @@ h6 {
     }
     .date span {
         font-size: 17px;
-        color: #d2d2d2;
+        color: #cdcdcd;
     }
     pre code {
         font-size: 16px;
@@ -422,7 +490,7 @@ h6 {
     }
     .date span {
         font-size: 17px;
-        color: #d2d2d2;
+        color: #cdcdcd;
     }
     pre code {
         font-size: 16px;
@@ -445,7 +513,7 @@ h6 {
     }
     .date span {
         font-size: 19px;
-        color: #d2d2d2;
+        color: #cdcdcd;
     }
     pre code {
         font-size: 16px;
