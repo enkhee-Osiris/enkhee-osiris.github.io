@@ -4,25 +4,21 @@ title: Hello World!
 group: navigation
 ---
 <header class="intro">
-  <div class="row">
-      <div class="col-lg-6 col-lg-offset-1 col-md-7 col-md-offset-1">
-          <div class="site-heading">
-              <h1>
-                  Тавтай морилно уу!
-              </h1>
-              <h2>
-                Намайг <font color="#25ba84">Энх-Эрдэнэ</font> гэдэг.
-                МХТС-д Програм Хангамжийн инженер мэргэжлээр 4-ээр курст сурдаг. 
-                Вэб болон мобайл апп хөгжүүлэх сонирхолтой. 
-              </h2>
-              <a href="/about">Дэлгэрэнгүй &rarr;</a>
-          </div>
-      </div>
+  <div class="site-heading col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1">
+    <h1>
+        Тавтай морилно уу!
+    </h1>
+    <h2>
+      Намайг <font color="#25ba84">Энх-Эрдэнэ</font> гэдэг.
+      МХТС-д Програм Хангамжийн инженер мэргэжлээр 4-ээр курст сурдаг. 
+      Вэб болон мобайл апп хөгжүүлэх сонирхолтой. 
+    </h2>
+    <a class="more" href="/about">Дэлгэрэнгүй &rarr;</a>
   </div>
 </header>
 <!-- Main content -->
 <div class="container">
-  <section class="blogs">
+  <section class="blogs col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
     {% for post in site.posts %}
       {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
       {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
@@ -50,7 +46,7 @@ group: navigation
         {% endcase %}
         {{ post.date | date: "%-d" }}
       </span> 
-      <div class="blog-article">
+      <div class="blog-article ">
         <h1 class="article-title">
           <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
         </h1>

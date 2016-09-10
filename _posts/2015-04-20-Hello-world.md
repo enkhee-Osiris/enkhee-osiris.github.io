@@ -1,6 +1,6 @@
 ---
 layout: post
-category : [test, yeay]
+category : test
 tagline: "Nothing"
 tags : test
 ---

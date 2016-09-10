@@ -2,13 +2,76 @@
 layout: default
 ---
 {% include setup %}
-<div class="container">
-  <div class="page-header">
-      <h1><a href="/">&larr;</a>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+<header class="intro" 
+  {% if page.cover %} 
+    style="background-image: url(/images/post_covers/{{ page.cover }})"
+  {% endif %} 
+  >
+  <div class="site-heading col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2" 
+    {% if page.color %}
+      style="color: {{ page.color }}"
+    {% endif %}>
+      {% unless page.tags == empty %}
+        <div class="tags">
+        {% for tag in page.tags %}
+          {% assign tag_post = site.my_tags| where: "slug", tag %}
+          {% assign tag_post = tag_post[0] %}
+          {% if tag_post %}
+            <a href="{{ tag_post.url }}">
+            {{ tag_post.name | capitalize }}</a>
+          {% endif %}
+        {% endfor %}
+        </div>
+      {% endunless %}
+      <h1>
+        {{ page.title }}
+      </h1>
+      <h3>
+        {{ page.date | date: "%Y" }}
+        {% assign m = page.date | date: "%-m" %}
+        {% case m %}
+          {% when '1' %}1-р сар
+          {% when '2' %}2-р сар
+          {% when '3' %}3-р сар
+          {% when '4' %}4-р сар
+          {% when '5' %}5-р сар
+          {% when '6' %}6-р сар
+          {% when '7' %}7-р сар
+          {% when '8' %}8-р сар
+          {% when '9' %}9-р сар
+          {% when '10' %}10-р сар
+          {% when '11' %}11-р сар
+          {% when '12' %}12-р сар
+        {% endcase %}
+        {{ page.date | date: "%-d" }}-нд
+        
+        {% unless page.categories == empty %}
+          {% for category in page.categories %}
+            {% assign category_post = site.my_categories | where: "slug", category %}
+            {% assign category_post = category_post[0] %}
+              {% if category_post %}
+                <a href="{{ category_post.url }}">
+                {{ category_post.name | join: "/" | capitalize }}
+                </a>
+                ангилалд
+              {% endif %}
+          {% endfor %}
+        {% endunless %} 
+        нийтэлсэн.
+        <span class="eta">
+          
+        </span>
+      </h3>
   </div>
-  <div class="row-fluid post-full">
+</header>
+<!-- Main content -->
+<div class="container">
+  <!--div class="page-header">
+      <h1><a href="/">&larr;</a>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+  </div-->
+  <div class="post-full col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
       <div class="span12">
-          <div class="date">
+          <!--div class="date">
               <span>
               {{ page.date | date: "%Y" }}
               {% assign m = page.date | date: "%-m" %}
@@ -28,10 +91,11 @@ layout: default
               {% endcase %}
               {{ page.date | date: "%-d" }}
               </span>
-          </div>
+          </div-->
           <div class="content">
               {{ content }}
           </div>
+          <!--
           {% unless page.categories == empty %}
           <ul class="tag_box inline">
               Ангилал: 
@@ -45,7 +109,9 @@ layout: default
               {% include tags_list %}
           </ul>
           {% endunless %}
+          -->
           {% include comments %}
+          
       </div>
   </div>
 </div>

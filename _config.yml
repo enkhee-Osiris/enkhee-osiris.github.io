@@ -8,13 +8,13 @@ url : http://enkhee-Osiris.github.io # the base hostname & protocol for your sit
 author :
   name : Enkherdene Bolormaa
   email : enkhee.ag@gmail.com
-  tumblr : enkhee-Osiris
+  tumblr : lodrosiris
   github : enkhee-Osiris
-  facebook : enkhee-Osiris
-  instagram : enkhee-Osiris
+  facebook : Ag.Enkhee
+  instagram : osiris.ag
   google_plus : enkhee-Osiris
   feedburner : feedname
-# hmm
+
 collections :
   my_categories :
     output : true

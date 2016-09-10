@@ -52,20 +52,7 @@
 
 <div class="text-justify">
   
-    
-      
-      
-        <h3 class="m-t-3 m-b-1">2015</h3>
-        <div class="list-group">
-      
-      
-      <a href="/test/yeay/2015/04/20/Hello-world" class="list-group-item">
-        <h4 class="list-group-item-heading h6">Hello World</h4>
-      </a>
-      
-        </div>
-      
-    
+    <p>There are no posts in this category.</p>
   
 </div>
 
@@ -114,6 +101,15 @@
   
             </ul>
         </nav>
+        <div class="social-icons">
+            <ul>
+                <li><a href="http://facebook.com/Ag.Enkhee"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://lodrosiris.tumblr.com/"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://plus.google.com/enkhee-Osiris"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://github.com/enkhee-Osiris"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+                <li><a href="mailto:enkhee.ag@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
     </div>
     <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -127,12 +123,32 @@
   })();
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/assets/js/flowtype.js"></script>
+    <script src="/assets/js/readingTime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
     $(function() {
+        /*
+            Reading Time in post
+         */
+        $('.content').readingTime({
+            wordsPerMinute: 250,
+            lang: 'mn',
+            error: function(message) {
+                console.log(message);
+            }
+        });
+
+        /*
+            
+         */
+
+        /*
+            For articles
+         */
         var isTouchDevice = 'ontouchstart' in document.documentElement;
         if (isTouchDevice)
             return;
@@ -206,9 +222,6 @@
         }
     });
     </script>
-    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
 </body>
 
 </html>

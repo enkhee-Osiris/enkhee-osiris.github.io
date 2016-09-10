@@ -6,8 +6,8 @@
 </description>
     <link>http://enkhee-Osiris.github.io/</link>
     <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Sep 2016 08:49:03 +0900</pubDate>
-    <lastBuildDate>Mon, 05 Sep 2016 08:49:03 +0900</lastBuildDate>
+    <pubDate>Fri, 09 Sep 2016 21:03:37 +0900</pubDate>
+    <lastBuildDate>Fri, 09 Sep 2016 21:03:37 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -35,6 +35,8 @@
       <item>
         <title>Welcome To Jekyll</title>
         <description>
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, ducimus labore! In, enim quae odio! Tempora similique, dolorem nam tenetur accusantium quidem, qui fugiat! Quia dolore similique nemo blanditiis adipisci!&lt;/p&gt;
+
 &lt;p&gt;This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
 Directly following the intro we’ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
 
@@ -992,15 +994,13 @@ As noted, our main programming constraint is the fact that our API is limited to
 or jump right into &lt;a href=&quot;&quot;&gt;Usage&lt;/a&gt; if you’d like.&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Apr 2015 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/test/yeay/2015/04/20/Hello-world</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/test/yeay/2015/04/20/Hello-world</guid>
+        <link>http://enkhee-Osiris.github.io/test/2015/04/20/Hello-world</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/test/2015/04/20/Hello-world</guid>
         
         <category>test</category>
         
         
         <category>test</category>
-        
-        <category>yeay</category>
         
       </item>
     

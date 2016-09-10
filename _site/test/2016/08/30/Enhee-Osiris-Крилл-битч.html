@@ -42,13 +42,75 @@
     
 
   
-<div class="container">
-  <div class="page-header">
-      <h1><a href="/">&larr;</a>Enhee Osiris Крилл битч <small>Nothing</small></h1>
+<header class="intro" 
+   
+  >
+  <div class="site-heading col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2" 
+    >
+      
+        <div class="tags">
+        
+          
+          
+          
+            <a href="/blog/tag/test/">
+            Test</a>
+          
+        
+          
+          
+          
+            <a href="/blog/tag/jekyll/">
+            Jekyll</a>
+          
+        
+          
+          
+          
+        
+          
+          
+          
+        
+        </div>
+      
+      <h1>
+        Enhee Osiris Крилл битч
+      </h1>
+      <h3>
+        2016
+        
+        8-р сар
+          
+        30-нд
+        
+        
+          
+            
+            
+              
+                <a href="/blog/category/test/">
+                Test
+                </a>
+                ангилалд
+              
+          
+         
+        нийтэлсэн.
+        <span class="eta">
+          
+        </span>
+      </h3>
   </div>
-  <div class="row-fluid post-full">
+</header>
+<!-- Main content -->
+<div class="container">
+  <!--div class="page-header">
+      <h1><a href="/">&larr;</a>Enhee Osiris Крилл битч <small>Nothing</small></h1>
+  </div-->
+  <div class="post-full col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
       <div class="span12">
-          <div class="date">
+          <!--div class="date">
               <span>
               2016
               
@@ -56,12 +118,13 @@
                 
               30
               </span>
-          </div>
+          </div-->
           <div class="content">
               
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam ad modi, corrupti ducimus optio, magni nobis error sit dolor impedit sequi. Voluptatibus fugiat possimus mollitia, facilis voluptas dignissimos illum fugit!</p>
 
           </div>
+          <!--
           
           <ul class="tag_box inline">
               Ангилал: 
@@ -107,6 +170,7 @@
 
           </ul>
           
+          -->
           <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -116,6 +180,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="fb-comments" data-href="http://enkhee-Osiris.github.io/test/2016/08/30/Enhee-Osiris-%D0%9A%D1%80%D0%B8%D0%BB%D0%BB-%D0%B1%D0%B8%D1%82%D1%87" data-num-posts="5" data-width="100%" data-colorscheme="light"></div>
+          
       </div>
   </div>
 </div>
@@ -164,6 +229,15 @@
   
             </ul>
         </nav>
+        <div class="social-icons">
+            <ul>
+                <li><a href="http://facebook.com/Ag.Enkhee"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://lodrosiris.tumblr.com/"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://plus.google.com/enkhee-Osiris"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://github.com/enkhee-Osiris"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+                <li><a href="mailto:enkhee.ag@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
     </div>
     <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -177,12 +251,32 @@
   })();
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/assets/js/flowtype.js"></script>
+    <script src="/assets/js/readingTime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
     $(function() {
+        /*
+            Reading Time in post
+         */
+        $('.content').readingTime({
+            wordsPerMinute: 250,
+            lang: 'mn',
+            error: function(message) {
+                console.log(message);
+            }
+        });
+
+        /*
+            
+         */
+
+        /*
+            For articles
+         */
         var isTouchDevice = 'ontouchstart' in document.documentElement;
         if (isTouchDevice)
             return;
@@ -256,9 +350,6 @@
         }
     });
     </script>
-    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
 </body>
 
 </html>

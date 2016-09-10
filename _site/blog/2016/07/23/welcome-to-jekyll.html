@@ -42,13 +42,80 @@
     
 
   
-<div class="container">
-  <div class="page-header">
-      <h1><a href="/">&larr;</a>Welcome To Jekyll <small>Supporting tagline</small></h1>
+<header class="intro" 
+   
+    style="background-image: url(/images/post_covers/cover_test.jpeg)"
+   
+  >
+  <div class="site-heading col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2" 
+    >
+      
+        <div class="tags">
+        
+          
+          
+          
+            <a href="/blog/tag/intro/">
+            Intro</a>
+          
+        
+          
+          
+          
+            <a href="/blog/tag/beginner/">
+            Beginner</a>
+          
+        
+          
+          
+          
+            <a href="/blog/tag/jekyll/">
+            Jekyll</a>
+          
+        
+          
+          
+          
+        
+        </div>
+      
+      <h1>
+        Welcome To Jekyll
+      </h1>
+      <h3>
+        2016
+        
+        7-р сар
+          
+        23-нд
+        
+        
+          
+            
+            
+              
+                <a href="/blog/category/blog/">
+                Blog
+                </a>
+                ангилалд
+              
+          
+         
+        нийтэлсэн.
+        <span class="eta">
+          
+        </span>
+      </h3>
   </div>
-  <div class="row-fluid post-full">
+</header>
+<!-- Main content -->
+<div class="container">
+  <!--div class="page-header">
+      <h1><a href="/">&larr;</a>Welcome To Jekyll <small>Supporting tagline</small></h1>
+  </div-->
+  <div class="post-full col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
       <div class="span12">
-          <div class="date">
+          <!--div class="date">
               <span>
               2016
               
@@ -56,9 +123,11 @@
                 
               23
               </span>
-          </div>
+          </div-->
           <div class="content">
               
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, ducimus labore! In, enim quae odio! Tempora similique, dolorem nam tenetur accusantium quidem, qui fugiat! Quia dolore similique nemo blanditiis adipisci!</p>
+
 <p>This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
 Directly following the intro we’ll learn exactly <em>how</em> Jekyll does what it does.</p>
 
@@ -479,6 +548,7 @@ As noted, our main programming constraint is the fact that our API is limited to
 or jump right into <a href="">Usage</a> if you’d like.</p>
 
           </div>
+          <!--
           
           <ul class="tag_box inline">
               Ангилал: 
@@ -524,6 +594,7 @@ or jump right into <a href="">Usage</a> if you’d like.</p>
 
           </ul>
           
+          -->
           <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -533,6 +604,7 @@ or jump right into <a href="">Usage</a> if you’d like.</p>
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="fb-comments" data-href="http://enkhee-Osiris.github.io/blog/2016/07/23/welcome-to-jekyll" data-num-posts="5" data-width="100%" data-colorscheme="light"></div>
+          
       </div>
   </div>
 </div>
@@ -581,6 +653,15 @@ or jump right into <a href="">Usage</a> if you’d like.</p>
   
             </ul>
         </nav>
+        <div class="social-icons">
+            <ul>
+                <li><a href="http://facebook.com/Ag.Enkhee"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://lodrosiris.tumblr.com/"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://plus.google.com/enkhee-Osiris"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://github.com/enkhee-Osiris"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+                <li><a href="mailto:enkhee.ag@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
     </div>
     <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -594,12 +675,32 @@ or jump right into <a href="">Usage</a> if you’d like.</p>
   })();
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/assets/js/flowtype.js"></script>
+    <script src="/assets/js/readingTime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
     $(function() {
+        /*
+            Reading Time in post
+         */
+        $('.content').readingTime({
+            wordsPerMinute: 250,
+            lang: 'mn',
+            error: function(message) {
+                console.log(message);
+            }
+        });
+
+        /*
+            
+         */
+
+        /*
+            For articles
+         */
         var isTouchDevice = 'ontouchstart' in document.documentElement;
         if (isTouchDevice)
             return;
@@ -673,9 +774,6 @@ or jump right into <a href="">Usage</a> if you’d like.</p>
         }
     });
     </script>
-    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
 </body>
 
 </html>

@@ -2,9 +2,12 @@
 layout: post
 category : blog
 tagline: "Supporting tagline"
+cover: cover_test.jpeg
 tags : [intro, beginner, jekyll, tutorial]
 ---
 {% include setup %}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, ducimus labore! In, enim quae odio! Tempora similique, dolorem nam tenetur accusantium quidem, qui fugiat! Quia dolore similique nemo blanditiis adipisci!
 
 This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
 Directly following the intro we'll learn exactly _how_ Jekyll does what it does.
