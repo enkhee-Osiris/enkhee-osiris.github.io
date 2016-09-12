@@ -557,6 +557,28 @@ canvas {
 }
 
 /**
+ *   Page styling
+ */
+.text-xs-center{
+    text-align: center;
+}
+.archive-header {
+    height: 300px;
+    padding: 75px 0;
+    color: #fff;
+    background-color: #000;
+}
+.archive-header h1 {
+    font-weight: 700;
+    line-height: 60px;
+}
+.archive-header p {
+    margin-top: 5px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.999rem;
+}
+/**
  *   Typography Style
  */
 .h1,
