@@ -16,23 +16,21 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwsome -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- PrimeCSS -->
+    <link href="/assets/css/prime.css" rel="stylesheet">
     <!-- Custom font -->
     <link href="https://fonts.googleapis.com/css?family=Tinos:400,400i,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!-- Custom styles -->
     <link href="/assets/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <!-- Fav and touch icons -->
-    <!-- Update these with your own images
-      <link rel="shortcut icon" href="images/favicon.ico">
-      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-    -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
     <!-- atom & rss feed -->
     <link href="" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
@@ -101,10 +99,8 @@
           
          
         нийтэлсэн.
-        <span class="eta">
-          
-        </span>
       </h3>
+      <h3 class="eta"></h3>
   </div>
 </header>
 <!-- Main content -->
@@ -113,18 +109,18 @@
       <h1><a href="/">&larr;</a>Test 2 <small>Nothing</small></h1>
   </div-->
   <div class="post-full col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      <div class="span12">
-          <!--div class="date">
-              <span>
-              2015
-              
-              4-р сар
-                
-              20
-              </span>
-          </div-->
-          <div class="content">
-              
+      
+    <!--div class="date">
+        <span>
+        2015
+        
+        4-р сар
+          
+        20
+        </span>
+    </div-->
+    <div class="content">
+        
 <p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
 
 <p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
@@ -154,13 +150,80 @@
   <li>Or pluses</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">"JavaScript syntax highlighting"</span><span class="p">;</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+<div class="language-javascript line-numbers highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">self</span> <span class="o">===</span> <span class="s1">'undefined'</span> <span class="o">||</span> <span class="o">!</span><span class="nx">self</span><span class="p">.</span><span class="nx">Prism</span> <span class="o">||</span> <span class="o">!</span><span class="nx">self</span><span class="p">.</span><span class="nb">document</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Prism</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'complete'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">env</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">env</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// works only for &lt;code&gt; wrapped inside &lt;pre&gt; (not inline)</span>
+	<span class="kd">var</span> <span class="nx">pre</span> <span class="o">=</span> <span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">clsReg</span> <span class="o">=</span> <span class="sr">/</span><span class="se">\s</span><span class="sr">*</span><span class="se">\b</span><span class="sr">line-numbers</span><span class="se">\b\s</span><span class="sr">*/</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span>
+		<span class="o">!</span><span class="nx">pre</span> <span class="o">||</span> <span class="o">!</span><span class="sr">/pre/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">pre</span><span class="p">.</span><span class="nx">nodeName</span><span class="p">)</span> <span class="o">||</span>
+			<span class="c1">// Abort only if nor the &lt;pre&gt; nor the &lt;code&gt; have the class</span>
+		<span class="p">(</span><span class="o">!</span><span class="nx">clsReg</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">pre</span><span class="p">.</span><span class="nx">className</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">clsReg</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">))</span>
+	<span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".line-numbers-rows"</span><span class="p">))</span> <span class="p">{</span>
+		<span class="c1">// Abort if line numbers already exists</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">clsReg</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">))</span> <span class="p">{</span>
+		<span class="c1">// Remove the class "line-numbers" from the &lt;code&gt;</span>
+		<span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">clsReg</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">clsReg</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">pre</span><span class="p">.</span><span class="nx">className</span><span class="p">))</span> <span class="p">{</span>
+		<span class="c1">// Add the class "line-numbers" to the &lt;pre&gt;</span>
+		<span class="nx">pre</span><span class="p">.</span><span class="nx">className</span> <span class="o">+=</span> <span class="s1">' line-numbers'</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="kd">var</span> <span class="nx">match</span> <span class="o">=</span> <span class="nx">env</span><span class="p">.</span><span class="nx">code</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\n(?!</span><span class="sr">$</span><span class="se">)</span><span class="sr">/g</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">linesNum</span> <span class="o">=</span> <span class="nx">match</span> <span class="p">?</span> <span class="nx">match</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">lineNumbersWrapper</span><span class="p">;</span>
+
+	<span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">linesNum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+	<span class="nx">lines</span> <span class="o">=</span> <span class="nx">lines</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'&lt;span&gt;&lt;/span&gt;'</span><span class="p">);</span>
+
+	<span class="nx">lineNumbersWrapper</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'span'</span><span class="p">);</span>
+	<span class="nx">lineNumbersWrapper</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
+	<span class="nx">lineNumbersWrapper</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'line-numbers-rows'</span><span class="p">;</span>
+	<span class="nx">lineNumbersWrapper</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">lines</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">pre</span><span class="p">.</span><span class="nx">hasAttribute</span><span class="p">(</span><span class="s1">'data-start'</span><span class="p">))</span> <span class="p">{</span>
+		<span class="nx">pre</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">counterReset</span> <span class="o">=</span> <span class="s1">'linenumber '</span> <span class="o">+</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">pre</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-start'</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">lineNumbersWrapper</span><span class="p">);</span>
+
+<span class="p">});</span>
+
+<span class="p">}());</span>
 </code></pre>
 </div>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">"Python syntax highlighting"</span>
 <span class="k">print</span> <span class="n">s</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>s = "Python syntax highlighting"
+print s
+{: .line-numbers}
+</code></pre>
+</div>
+
+<div class="language-ruby line-numbers highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">what?</span>
+  <span class="mi">42</span>
+<span class="k">end</span>
 </code></pre>
 </div>
 
@@ -203,13 +266,13 @@ But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
 This line is part of the same quote.</p>
 </blockquote>
 
-          </div>
-          <!--
-          
-          <ul class="tag_box inline">
-              Ангилал: 
-               
-              
+    </div>
+    <!--
+    
+    <ul class="tag_box inline">
+        Ангилал: 
+         
+        
      
     	<li><a href="#test-ref">
     		Test 
@@ -217,12 +280,12 @@ This line is part of the same quote.</p>
     
   
 
-          </ul>
-           
-          <ul class="tag_box inline">
-              Шошго: 
-               
-                
+    </ul>
+     
+    <ul class="tag_box inline">
+        Шошго: 
+         
+          
      
     	<li><a href="#test-ref">Test</a>
       
@@ -248,10 +311,10 @@ This line is part of the same quote.</p>
     
   
 
-          </ul>
-          
-          -->
-          <div id="fb-root"></div>
+    </ul>
+    
+    -->
+    <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -261,7 +324,6 @@ This line is part of the same quote.</p>
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="fb-comments" data-href="http://enkhee-Osiris.github.io/test/2015/04/20/Test-2" data-num-posts="5" data-width="100%" data-colorscheme="light"></div>
           
-      </div>
   </div>
 </div>
     <footer class="blog-footer">
@@ -316,6 +378,7 @@ This line is part of the same quote.</p>
                 <li><a href="http://plus.google.com/enkhee-Osiris"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 <li><a href="http://github.com/enkhee-Osiris"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
                 <li><a href="mailto:enkhee.ag@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://http://enkhee-Osiris.github.io/rss.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>
@@ -333,6 +396,7 @@ This line is part of the same quote.</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/assets/js/flowtype.js"></script>
     <script src="/assets/js/readingTime.js"></script>
+    <script src="/assets/js/prime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');

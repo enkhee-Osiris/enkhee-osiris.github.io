@@ -201,13 +201,13 @@ Licensed under the MIT license
 
 						//set reading time by the minute
 						$(s.readingTimeTarget).text(s.prependTimeString + readingTimeMinutes + ' ' + minShortForm);
-						$(s.readingTimeTarget).prepend('<i class="fa fa-eye" aria-hidden="true"></i>');
+						//$(s.readingTimeTarget).prepend('<i class="fa fa-eye" aria-hidden="true"></i>');
 
 					} else {
 
 						//set reading time as less than a minute
 						$(s.readingTimeTarget).text(s.prependTimeString + lessThanAMinute);
-						$(s.readingTimeTarget).prepend('<i class="fa fa-eye" aria-hidden="true"></i>');
+						//$(s.readingTimeTarget).prepend('<i class="fa fa-eye" aria-hidden="true"></i>');
 
 					}
 

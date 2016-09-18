@@ -2,13 +2,12 @@
 layout: default
 ---
 {% include setup %}
-<div class="container">
-	<div class="page-header">
-	  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
-	</div>
 
-	<div class="row-fluid">
-	  <div class="span12">
+{% include title_header title=page.title %}
+
+<div class="container">
+	<div class="post-full col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+	  <div class="content">
 	    {{ content }}
 	  </div>
 	</div>
