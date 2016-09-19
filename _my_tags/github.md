@@ -1,4 +1,4 @@
 ---
 slug: github
-name: github
+name: Github
 ---
