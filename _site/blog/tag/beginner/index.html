@@ -18,6 +18,8 @@
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
     <!-- PrimeCSS -->
     <link href="/assets/css/prime.css" rel="stylesheet">
+    <!-- Venobox -->
+    <link href="/assets/css/venobox.css" rel="stylesheet">
     <!-- Custom font -->
     <link href="https://fonts.googleapis.com/css?family=Tinos:400,400i,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!-- Custom styles -->
@@ -122,6 +124,7 @@
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/assets/js/flowtype.js"></script>
+    <script src="/assets/js/venobox.min.js"></script>
     <script src="/assets/js/readingTime.js"></script>
     <script src="/assets/js/prime.js"></script>
     <script>
@@ -129,7 +132,10 @@
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
-    $(function() {
+    var $ =jQuery.noConflict();
+    $(document).ready(function(){
+        // Venobox init
+        $('.venobox').venobox(); 
         /*
             Reading Time in post
          */

@@ -18,6 +18,8 @@
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
     <!-- PrimeCSS -->
     <link href="/assets/css/prime.css" rel="stylesheet">
+    <!-- Venobox -->
+    <link href="/assets/css/venobox.css" rel="stylesheet">
     <!-- Custom font -->
     <link href="https://fonts.googleapis.com/css?family=Tinos:400,400i,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!-- Custom styles -->
@@ -61,7 +63,7 @@
           
           
             <a href="/blog/tag/hello-world/">
-            Hello-world</a>
+            Hello world</a>
           
         
         </div>
@@ -70,7 +72,7 @@
         Блог нээгдлээ
       </h1>
       <h3>
-        2016
+        2016 оны
         
         7-р сар
           
@@ -82,7 +84,7 @@
             
               
                 <a href="/blog/category/blog/">
-                Blog
+                Блог
                 </a>
                 ангилалд
               
@@ -114,8 +116,6 @@
 
 <p><a href="http://furtive.co">Furtive</a> гэх нэртэй бяцхан framework-г frontend дээр ашигласан бөгөөд маш авсаархан, хялбар санагдсан.</p>
 
-<p>Мөн өөрийн товч танилцуулга дээр <a href="http://typed.js.github.io">Typed.js</a>-г ашигласан байгаа.</p>
-
 <p>Блогын өнгөний хувьд саарал, цагаан болон ногоон өнгөнүүдийг сонгож авсан.</p>
 
 <table>
@@ -142,6 +142,12 @@
 </table>
 
 <p>Холбоо барихыг хүсвэл доор сошиал хаягууд маань байрлаж байгаа &lt;3.</p>
+
+<hr />
+
+<p><strong>Шинэчлэл 2016-09-18</strong></p>
+
+<p>Хуучин блогын кодыг харахыг хүсвэл <a href="https://github.com/enkhee-Osiris/enkhee-Osiris.github.io-old">энд</a> дарна уу.</p>
 
     </div>
     <!--
@@ -260,6 +266,7 @@
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/assets/js/flowtype.js"></script>
+    <script src="/assets/js/venobox.min.js"></script>
     <script src="/assets/js/readingTime.js"></script>
     <script src="/assets/js/prime.js"></script>
     <script>
@@ -267,7 +274,10 @@
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
-    $(function() {
+    var $ =jQuery.noConflict();
+    $(document).ready(function(){
+        // Venobox init
+        $('.venobox').venobox(); 
         /*
             Reading Time in post
          */

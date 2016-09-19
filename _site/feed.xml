@@ -2,23 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Энх-Эрдэнэ -н хувийн блог</title>
-    <description>Програм хангамжийн инженер мэргэжлээр суралцагч оюутан бөгөөд чөлөөт цагаараа вэб, мобайл програмчлал болон системийн аюулгүй байдал сонирхдог.
+    <description>Програм хангамжийн инженер мэргэжлээр суралцагч оюутан бөгөөд вэб, мобайл програмчлал болон системийн аюулгүй байдал сонирхдог.
 </description>
     <link>http://enkhee-Osiris.github.io/</link>
     <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Sep 2016 11:50:16 +0900</pubDate>
-    <lastBuildDate>Mon, 19 Sep 2016 11:50:16 +0900</lastBuildDate>
+    <pubDate>Mon, 19 Sep 2016 21:40:49 +0900</pubDate>
+    <lastBuildDate>Mon, 19 Sep 2016 21:40:49 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>Блог шинэчлэл</title>
-        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus autem voluptatum placeat sunt laborum dolores totam voluptates ullam reprehenderit pariatur, aut quia earum accusamus, doloribus cumque optio quo delectus labore!&lt;/p&gt;
+        <description>&lt;p&gt;Блогын загвар болон архитектурын хувьд шинэчлэл хийлээ.&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi consequuntur quasi in dignissimos facere magni tempora quis ipsa ut architecto quae officia, adipisci, assumenda numquam error odit deserunt ad cumque!&lt;/p&gt;
+&lt;p&gt;Шинээр нэмэгдсэн зүйлс&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ангилал&lt;/li&gt;
+  &lt;li&gt;Шошго буюу tag&lt;/li&gt;
+  &lt;li&gt;Нийтлэл болгонд ковэр зураг оруулах боломж&lt;/li&gt;
+  &lt;li&gt;Нийтлэл уншихад зарцуулах хугацаа&lt;/li&gt;
+  &lt;li&gt;Фэйсбүүк сэтгэгдэл бичих хэсэг&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Зэрэг зүйлсийг нэмсэн. Хэрэв хуучин блогын кодыг харахыг хүсвэл &lt;a href=&quot;https://github.com/enkhee-Osiris/enkhee-Osiris.github.io-old&quot;&gt;энд&lt;/a&gt; дарна уу.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18626152/c2d1a93a-7e85-11e6-80b4-55092ca34512.gif&quot; alt=&quot;wave&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;venobox&quot; href=&quot;image01-big.jpg&quot;&gt;&lt;img src=&quot;image01-small.jpg&quot; alt=&quot;image alt&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class=&quot;venobox&quot;&gt;&lt;a href=&quot;https://cloud.githubusercontent.com/assets/14227502/18626525/30db5064-7e88-11e6-8aa9-323ce03d3b0f.png&quot;&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18626525/30db5064-7e88-11e6-8aa9-323ce03d3b0f.png&quot; alt=&quot;sound1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;venobox&quot; href=&quot;https://cloud.githubusercontent.com/assets/14227502/18626525/30db5064-7e88-11e6-8aa9-323ce03d3b0f.png&quot;&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18626525/30db5064-7e88-11e6-8aa9-323ce03d3b0f.png&quot; alt=&quot;test&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/blog/2016/09/19/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/blog/2016/09/19/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</guid>
+        <pubDate>Sun, 18 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/blog/2016/09/18/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/blog/2016/09/18/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</guid>
         
         <category>github</category>
         
@@ -36,8 +54,6 @@
         <description>&lt;p&gt;За эцэст нь нэг юм өөрийн хувийн блогоо нээлээ. &lt;a href=&quot;https://pages.github.com&quot;&gt;Github Page&lt;/a&gt; болон &lt;a href=&quot;http://jekyllrb.com&quot;&gt;jekyll&lt;/a&gt;-г ашиглан хийсэн байгаа. Та ч өөрийн гэсэн блогоо нээхийг хүсвэл энэ &lt;a href=&quot;http://jmcglone.com/guides/github-pages/&quot;&gt;хичээл&lt;/a&gt;-г үзээрэй гэж зөвлөх байна.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://furtive.co&quot;&gt;Furtive&lt;/a&gt; гэх нэртэй бяцхан framework-г frontend дээр ашигласан бөгөөд маш авсаархан, хялбар санагдсан.&lt;/p&gt;
-
-&lt;p&gt;Мөн өөрийн товч танилцуулга дээр &lt;a href=&quot;http://typed.js.github.io&quot;&gt;Typed.js&lt;/a&gt;-г ашигласан байгаа.&lt;/p&gt;
 
 &lt;p&gt;Блогын өнгөний хувьд саарал, цагаан болон ногоон өнгөнүүдийг сонгож авсан.&lt;/p&gt;
 
@@ -65,6 +81,12 @@
 &lt;/table&gt;
 
 &lt;p&gt;Холбоо барихыг хүсвэл доор сошиал хаягууд маань байрлаж байгаа &amp;lt;3.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Шинэчлэл 2016-09-18&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Хуучин блогын кодыг харахыг хүсвэл &lt;a href=&quot;https://github.com/enkhee-Osiris/enkhee-Osiris.github.io-old&quot;&gt;энд&lt;/a&gt; дарна уу.&lt;/p&gt;
 </description>
         <pubDate>Sat, 09 Jul 2016 00:00:00 +0900</pubDate>
         <link>http://enkhee-Osiris.github.io/blog/2016/07/09/%D0%91%D0%BB%D0%BE%D0%B3-%D0%BD%D1%8D%D1%8D%D0%B3%D0%B4%D0%BB%D1%8D%D1%8D</link>

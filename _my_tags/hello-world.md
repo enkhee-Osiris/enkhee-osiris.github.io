@@ -1,4 +1,4 @@
 ---
 slug: hello-world
-name: Hello-World
+name: Hello World
 ---

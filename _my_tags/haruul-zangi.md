@@ -1,4 +1,4 @@
 ---
 slug: haruul-zangi
-name: Haruul Zangi
+name: Харуул Занги
 ---

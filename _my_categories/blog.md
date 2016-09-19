@@ -1,4 +1,4 @@
 ---
 slug: blog
-name: Blog
+name: Блог
 ---
