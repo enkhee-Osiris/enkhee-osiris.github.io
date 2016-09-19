@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Миний Тухай
+subtitle: Би хэн бэ?
 group: navigation
 permalink: /about/
 ---
