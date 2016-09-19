@@ -1,4 +1,0 @@
----
-slug: intro
-name: Intro
----
