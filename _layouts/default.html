@@ -17,8 +17,6 @@
     <link href="{{ ASSET_PATH }}/css/font-awesome.min.css" rel="stylesheet">
     <!-- PrimeCSS -->
     <link href="{{ ASSET_PATH }}/css/prime.css" rel="stylesheet">
-    <!-- Venobox -->
-    <link href="{{ ASSET_PATH }}/css/venobox.css" rel="stylesheet">
     <!-- Custom font -->
     <link href="https://fonts.googleapis.com/css?family=Tinos:400,400i,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!-- Custom styles -->
@@ -33,8 +31,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
     <!-- atom & rss feed -->
-    <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+    <link href="{{ BASE_PATH }}/feed.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
 </head>
 
 <body>
@@ -69,14 +66,13 @@
                 <li><a href="http://plus.google.com/{{ site.author.google_plus }}"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 <li><a href="http://github.com/{{ site.author.github }}"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
                 <li><a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
-                <li><a href="http://{{ site.url }}/rss.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://{{ site.url }}/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>
     {% include analytics %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="{{ ASSET_PATH }}/js/flowtype.js"></script>
-    <script src="{{ ASSET_PATH }}/js/venobox.min.js"></script>
     <script src="{{ ASSET_PATH }}/js/readingTime.js"></script>
     <script src="{{ ASSET_PATH }}/js/prime.js"></script>
     <script>
@@ -84,10 +80,7 @@
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
-    var $ =jQuery.noConflict();
     $(document).ready(function(){
-        // Venobox init
-        $('.venobox').venobox(); 
         /*
             Reading Time in post
          */

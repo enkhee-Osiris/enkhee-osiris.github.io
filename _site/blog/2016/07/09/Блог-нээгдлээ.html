@@ -18,8 +18,6 @@
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
     <!-- PrimeCSS -->
     <link href="/assets/css/prime.css" rel="stylesheet">
-    <!-- Venobox -->
-    <link href="/assets/css/venobox.css" rel="stylesheet">
     <!-- Custom font -->
     <link href="https://fonts.googleapis.com/css?family=Tinos:400,400i,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!-- Custom styles -->
@@ -34,8 +32,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
     <!-- atom & rss feed -->
-    <link href="" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+    <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
 </head>
 
 <body>
@@ -249,7 +246,7 @@
                 <li><a href="http://plus.google.com/enkhee-Osiris"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 <li><a href="http://github.com/enkhee-Osiris"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
                 <li><a href="mailto:enkhee.ag@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
-                <li><a href="http://http://enkhee-Osiris.github.io/rss.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://http://enkhee-Osiris.github.io/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>
@@ -266,7 +263,6 @@
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/assets/js/flowtype.js"></script>
-    <script src="/assets/js/venobox.min.js"></script>
     <script src="/assets/js/readingTime.js"></script>
     <script src="/assets/js/prime.js"></script>
     <script>
@@ -274,10 +270,7 @@
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
-    var $ =jQuery.noConflict();
     $(document).ready(function(){
-        // Venobox init
-        $('.venobox').venobox(); 
         /*
             Reading Time in post
          */
