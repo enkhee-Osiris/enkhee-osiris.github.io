@@ -6,8 +6,8 @@
 </description>
     <link>http://enkhee-Osiris.github.io/</link>
     <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Sep 2016 20:24:34 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Sep 2016 20:24:34 +0900</lastBuildDate>
+    <pubDate>Tue, 20 Sep 2016 21:05:48 +0900</pubDate>
+    <lastBuildDate>Tue, 20 Sep 2016 21:05:48 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -44,6 +44,57 @@
         <category>writeup</category>
         
         <category>web</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
+    
+      <item>
+        <title>Mr. Robot 20 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; НоёН РоБоТ &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;
+&lt;strong&gt;Файл:&lt;/strong&gt; flag.pgp, mr.robot.gif&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat mr.robot.gif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;гэж харвал private key block харагдана. 
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669390/69731afc-7f6d-11e6-86bd-c27ddf210772.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Private key block-г ямар нэг текст эдитор дээр хуулаад &lt;code class=&quot;highlighter-rouge&quot;&gt;.asc&lt;/code&gt; өргөтгөлтэй хадгална. 
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669391/69745728-7f6d-11e6-9e01-0c4971ba6e8f.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Үүсгэсэн key-ийг gpg дээр импорт хийнэ.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gpg --import private.asc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669393/6978b9d0-7f6d-11e6-8341-bde8f0d262e3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Key жагсаалтыг харвал.
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669392/69778ede-7f6d-11e6-86ba-94ced6737766.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;flag-аа дэкрипт хийе.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gpg -d flag.pgp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Нууц үг mr.robot гэж оруулна.&lt;/p&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{T4n!! tv!khvvR ug MR.R0b0T}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>Crypto</category>
         
         
         <category>information-security</category>
