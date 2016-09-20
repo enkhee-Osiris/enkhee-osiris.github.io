@@ -6,9 +6,217 @@
 </description>
     <link>http://enkhee-Osiris.github.io/</link>
     <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Sep 2016 22:21:12 +0900</pubDate>
-    <lastBuildDate>Mon, 19 Sep 2016 22:21:12 +0900</lastBuildDate>
+    <pubDate>Tue, 20 Sep 2016 18:02:23 +0900</pubDate>
+    <lastBuildDate>Tue, 20 Sep 2016 18:02:23 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Plainscript 20 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;Даалгаврын нэр: Plainscript &lt;br /&gt;
+Хандах хаяг: http://103.48.116.193:8003/ &lt;br /&gt;
+Оноо: 20 оноо&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Өгөгдсөн хаяг руу хандвал &lt;a href=&quot;http://jsfuck.com&quot;&gt;JSFuck&lt;/a&gt; ашиглан энкод хийсэн javascript-г харж болно.&lt;/p&gt;
+
+&lt;p&gt;Үүнийг дэкод хийхийн тулд би өөрийн өмнө хийж байсан онлайн дэкодэроо ашиглахаар шийдэв. &lt;a href=&quot;https://enkhee-osiris.github.io/Decoder-JSFuck/&quot;&gt;Линк&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Өгөгдсөн скриптийг хуулж дэкод хийвэл&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/986399aa5a5a52d979d8cf7d708231dd.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;дээрх javascript харагдана. Үүнээс тугийг харж болно.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if(true){console.log(&#39;HZ{JS00JS00JS}&#39;)}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{JS00JS00JS}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Plainscript-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Plainscript-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>web</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
+    
+      <item>
+        <title>Hexor 40 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;Даалгаврын нэр: Hexor &lt;br /&gt;
+Оноо: 40 оноо &lt;br /&gt;
+Файл: image.hex&lt;/p&gt;
+
+&lt;p&gt;Файлыг ямар нэгэн эдитор ашиглан нээж үзвэл hex код харагдана.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;screen&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18659409/08935006-7f3d-11e6-970c-68baf2625f84.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Эдгээр өгөгдлөөс зөвхөн хэксийг ялган авахын тулд python script бичье.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/0562750c1f67570b38873a47624dbb43.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Ажиллуулахын тулд өгөгдсөн &lt;code class=&quot;highlighter-rouge&quot;&gt;image.hex&lt;/code&gt; файлыг script-н гадна талын хавтсанд хийнэ.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python hex-to-png.py 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Python script ялгаж авсан хэксээ хэвлээд &lt;code class=&quot;highlighter-rouge&quot;&gt;img.png&lt;/code&gt; файлыг үүсгэнэ.&lt;/p&gt;
+
+&lt;p&gt;Үүссэн файлыг нээж харвал 
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18659515/bb85a1f0-7f3d-11e6-9493-2fcbfcf3843d.png&quot; alt=&quot;img&quot; /&gt;
+тугыг харуулсан зураг байна.&lt;/p&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{11001011_flag_01001011}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>forensic</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
+    
+      <item>
+        <title>Bttf 40 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;Даалгаврын нэр: Back To The Future &lt;br /&gt;
+Хандах хаяг: http://103.48.116.193:8004/ &lt;br /&gt;
+Тайлбар: Өнгөрсөн, одоо, ирээдүй 3 цагт аялж 7 хоногийн аль өдөрт очсоноо хэлээрэй. Нэгэнт та цаг хугацаагаар аялж чадаж байгаа тул 2 секундын дотор мэдээллээ оруулна уу. /Та грегорийн тооллоор өдрийг тодорхойлон гарагийн нэрийг оруулна уу. Жнь: даваа … г.м/ &lt;br /&gt;
+Оноо: 40 оноо&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Өгөгдсөн хаяг руу хандвал өнгөрсөн, одоо, ирээдүйн 3-н өдрийг харуулсан байна. Тайлбар дээр өгөгдсөнөөр эдгээр өдрүүд 7-н хоногийн хэд дэх өдөр байсныг олох даалгавар бололтой.&lt;/p&gt;
+
+&lt;p&gt;Энэ даалгаврыг шийдэхийн тулд python скрипт бичихээр шийдлээ.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/bc05be2c8ab0134264a229c92509c243.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Скриптээ ажиллуулъя&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python back-future.py 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;скрипт ажиллаж 3 өдрийг хэд дэх гариг болохыг хэвлээд серверээс ирж байгаа хариуг хэвлэнэ.&lt;/p&gt;
+
+&lt;p&gt;Хариуг харвал &lt;code class=&quot;highlighter-rouge&quot;&gt;chi martygaas tuslamj avch chadjee token is YOUREMEETMARTYMCFLY&lt;/code&gt; гэсэн байна.&lt;/p&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{YOUREMEETMARTYMCFLY}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>web</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
+    
+      <item>
+        <title>Байгуулалт 40 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;Даалгаврын нэр: Байгуулалт &lt;br /&gt;
+Тайлбар: https://en.wikipedia.org/wiki/Portable_Network_Graphics &lt;br /&gt;
+Оноо: 40 оноо &lt;br /&gt;
+Файл: corrupt&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ file corrupt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;хийж үзтэл ямар нэгэн файлын төрөл гарч ирсэнгүй тиймээс &lt;a href=&quot;https://en.wikipedia.org/wiki/Hex_editor&quot;&gt;hex editor&lt;/a&gt;-р нээж үзье.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;399&quot; alt=&quot;ihex1&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18637342/a7fde20c-7ebe-11e6-977a-a501edd7ad50.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Эхний 11 байтыг хархад хэдэн байтыг устгасан байгааг мэдэж болно.
+PNG файлын эхний 8байтыг эндээс харж болно &lt;a href=&quot;http://www.garykessler.net/library/file_sigs.html&quot;&gt;File signatures&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18637856/77668f48-7ec0-11e6-912a-889c8e38e276.png&quot; alt=&quot;ihex2&quot; /&gt;
+Устгасан байтуудыг нөхөж бичив.&lt;/p&gt;
+
+&lt;p&gt;Даанч файл маань алдаатай хэвээрээ л байлаа iHex-рүү буцаж очоод төгсгөлийн мөрийг харвал мөн л хэдэн байтыг устгасан байлаа.
+&lt;img width=&quot;398&quot; alt=&quot;ihex3&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18638072/4fe8ae46-7ec1-11e6-84c4-54c336a73fc7.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4944AE42 6082&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;49454E44 AE426082&lt;/code&gt; болгож гүйцээсэн бөгөөд файлаа хадгалаад зургийг нээж үзэхэд
+&lt;img width=&quot;644&quot; alt=&quot;flag&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18637990/e8e188da-7ec0-11e6-99be-4fa8f65e2022.png&quot; /&gt; 
+тугыг харуулсан зураг харагдах болно.&lt;/p&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{YOU_G0T_PNG}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>forensic</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
+    
+      <item>
+        <title>Sound 30 оноо</title>
+        <description>&lt;p&gt;За Харуул-Занги 2016-ын эхний шат амжилттай өндөрлөлөө. Эхний шат нийт 5 цаг үргэлжилсэн бөгөөд нийт онооны дүнгээр манай баг (&lt;a href=&quot;https://ctftime.org/team/29811&quot;&gt;Шуурга&lt;/a&gt;) маань 5р байранд орсон.&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;Даалгаврын нэр: Sound &lt;br /&gt;
+Оноо: 30 оноо &lt;br /&gt;
+Файл: sound.wav&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Эхлээд өгөгдсөн файлыг &lt;code class=&quot;highlighter-rouge&quot;&gt;sound.wav&lt;/code&gt; &lt;a href=&quot;http://www.audacityteam.org/download/&quot;&gt;audacity&lt;/a&gt; дээр оруулна.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18636668/3e6b2766-7ebc-11e6-9066-cc4071e72b48.png&quot; alt=&quot;sound1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Spectogram (Зүүн талд байгаа sound дээр дараад сонгоно) логыг дарахад туг харагдана.
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18636674/41421292-7ebc-11e6-803b-02bf60843ad6.png&quot; alt=&quot;sound2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{HELLO}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/19/Sound-30-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/19/Sound-30-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>forensic</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
     
       <item>
         <title>Блог шинэчлэл</title>
