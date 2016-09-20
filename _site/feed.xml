@@ -6,9 +6,57 @@
 </description>
     <link>http://enkhee-Osiris.github.io/</link>
     <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Sep 2016 21:05:48 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Sep 2016 21:05:48 +0900</lastBuildDate>
+    <pubDate>Tue, 20 Sep 2016 21:43:42 +0900</pubDate>
+    <lastBuildDate>Tue, 20 Sep 2016 21:43:42 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Cat Flag 30 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Cat Flag &lt;br /&gt;
+&lt;strong&gt;Тайлбар:&lt;/strong&gt; host: 103.48.116.193
+			port: 8001
+			user: cat
+			pass: catflag
+&lt;strong&gt;Оноо:&lt;/strong&gt; 30 оноо &lt;br /&gt;
+&lt;strong&gt;Файл:&lt;/strong&gt; flag.pgp, mr.robot.gif&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Эхлээд &lt;a href=&quot;&quot;&gt;Secure Shell&lt;/a&gt; ашиглаад сервер лүү холбогдъё.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh -p 8001 cat@103.48.116.193
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Нууц үг: catflag&lt;/p&gt;
+
+&lt;p&gt;Үүний дараа &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt; хийж харвал &lt;code class=&quot;highlighter-rouge&quot;&gt;flag.txt&lt;/code&gt; харагдана.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat flag.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Хийтэл ажилласангүй тэгвэл &lt;code class=&quot;highlighter-rouge&quot;&gt;help&lt;/code&gt; командыг ашиглаж харцгаая. Серверт python суусан байна тэгвэл скрипт бичиж үзэцгээе.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python -c &#39;print open(&quot;flag.txt&quot;,&quot;r&quot;).read()&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Тиймээ тугийг бидэнд хэвлэж өглөө &lt;code class=&quot;highlighter-rouge&quot;&gt;HZ{0101023234}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{0101023234}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/cat-flag-30-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/cat-flag-30-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>misc</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
     
       <item>
         <title>Plainscript 20 оноо</title>
@@ -62,22 +110,23 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;гэж харвал private key block харагдана. 
-&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669390/69731afc-7f6d-11e6-86bd-c27ddf210772.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669390/69731afc-7f6d-11e6-86bd-c27ddf210772.jpg&quot; alt=&quot;ss1&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Private key block-г ямар нэг текст эдитор дээр хуулаад &lt;code class=&quot;highlighter-rouge&quot;&gt;.asc&lt;/code&gt; өргөтгөлтэй хадгална. 
-&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669391/69745728-7f6d-11e6-9e01-0c4971ba6e8f.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669639/911dd1cc-7f6e-11e6-8e18-8ab6fbdc8d33.jpg&quot; alt=&quot;ss2&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Үүсгэсэн key-ийг gpg дээр импорт хийнэ.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gpg --import private.asc
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669393/6978b9d0-7f6d-11e6-8341-bde8f0d262e3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669391/69745728-7f6d-11e6-9e01-0c4971ba6e8f.jpg&quot; alt=&quot;ss3&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Key жагсаалтыг харвал.
-&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669392/69778ede-7f6d-11e6-86ba-94ced6737766.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669393/6978b9d0-7f6d-11e6-8341-bde8f0d262e3.jpg&quot; alt=&quot;ss4&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;flag-аа дэкрипт хийе.&lt;/p&gt;
+&lt;p&gt;flag-аа дэкрипт хийе.
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18669392/69778ede-7f6d-11e6-86ba-94ced6737766.jpg&quot; alt=&quot;ss5&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gpg -d flag.pgp
 &lt;/code&gt;&lt;/pre&gt;
@@ -94,7 +143,7 @@
         
         <category>writeup</category>
         
-        <category>Crypto</category>
+        <category>crypto</category>
         
         
         <category>information-security</category>
@@ -373,58 +422,6 @@ PNG файлын эхний 8байтыг эндээс харж болно &lt;a
         <category>web</category>
         
         <category>jekyll</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Блог нээгдлээ</title>
-        <description>&lt;p&gt;За эцэст нь нэг юм хувийн блогоо нээлээ. &lt;a href=&quot;https://pages.github.com&quot;&gt;Github Page&lt;/a&gt; болон &lt;a href=&quot;http://jekyllrb.com&quot;&gt;jekyll&lt;/a&gt;-г ашиглан хийсэн байгаа. Та ч өөрийн гэсэн блогоо нээхийг хүсвэл энэ &lt;a href=&quot;http://jmcglone.com/guides/github-pages/&quot;&gt;хичээл&lt;/a&gt;-г үзээрэй гэж зөвлөх байна.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://furtive.co&quot;&gt;Furtive&lt;/a&gt; гэх нэртэй бяцхан framework-г frontend дээр ашигласан бөгөөд маш авсаархан, хялбар санагдсан.&lt;/p&gt;
-
-&lt;p&gt;Блогын өнгөний хувьд саарал, цагаан болон ногоон өнгөнүүдийг сонгож авсан.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Өнгө&lt;/th&gt;
-      &lt;th&gt;Хэкс&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Саарал&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#333333&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Цагаан&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#ffffff&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ногоон&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#25ba84&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Холбоо барихыг хүсвэл доор сошиал хаягууд маань байрлаж байгаа &amp;lt;3.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;Шинэчлэл 2016-09-18&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Хуучин блогын кодыг харахыг хүсвэл &lt;a href=&quot;https://github.com/enkhee-Osiris/enkhee-Osiris.github.io-old&quot;&gt;энд&lt;/a&gt; дарна уу.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Jul 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/blog/2016/07/09/%D0%91%D0%BB%D0%BE%D0%B3-%D0%BD%D1%8D%D1%8D%D0%B3%D0%B4%D0%BB%D1%8D%D1%8D</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/blog/2016/07/09/%D0%91%D0%BB%D0%BE%D0%B3-%D0%BD%D1%8D%D1%8D%D0%B3%D0%B4%D0%BB%D1%8D%D1%8D</guid>
-        
-        <category>github</category>
-        
-        <category>hello-world</category>
         
         
         <category>blog</category>
