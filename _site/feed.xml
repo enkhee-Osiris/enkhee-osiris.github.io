@@ -6,16 +6,16 @@
 </description>
     <link>http://enkhee-Osiris.github.io/</link>
     <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Sep 2016 18:20:03 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Sep 2016 18:20:03 +0900</lastBuildDate>
+    <pubDate>Tue, 20 Sep 2016 18:22:59 +0900</pubDate>
+    <lastBuildDate>Tue, 20 Sep 2016 18:22:59 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>Plainscript 20 оноо</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;Даалгаврын нэр: Plainscript &lt;br /&gt;
-Хандах хаяг: http://103.48.116.193:8003/ &lt;br /&gt;
-Оноо: 20 оноо&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Plainscript &lt;br /&gt;
+&lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8003/ &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -53,9 +53,9 @@
       <item>
         <title>Hexor 40 оноо</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;Даалгаврын нэр: Hexor &lt;br /&gt;
-Оноо: 40 оноо &lt;br /&gt;
-Файл: image.hex&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Hexor &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;
+&lt;strong&gt;Файл:&lt;/strong&gt; image.hex&lt;/p&gt;
 
 &lt;p&gt;Файлыг ямар нэгэн эдитор ашиглан нээж үзвэл hex код харагдана.&lt;/p&gt;
 
@@ -96,10 +96,10 @@
       <item>
         <title>Bttf 40 оноо</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;Даалгаврын нэр: Back To The Future &lt;br /&gt;
-Хандах хаяг: http://103.48.116.193:8004/ &lt;br /&gt;
-Тайлбар: Өнгөрсөн, одоо, ирээдүй 3 цагт аялж 7 хоногийн аль өдөрт очсоноо хэлээрэй. Нэгэнт та цаг хугацаагаар аялж чадаж байгаа тул 2 секундын дотор мэдээллээ оруулна уу. /Та грегорийн тооллоор өдрийг тодорхойлон гарагийн нэрийг оруулна уу. Жнь: даваа … г.м/ &lt;br /&gt;
-Оноо: 40 оноо&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Back To The Future &lt;br /&gt;
+&lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8004/ &lt;br /&gt;
+&lt;strong&gt;Тайлбар:&lt;/strong&gt; Өнгөрсөн, одоо, ирээдүй 3 цагт аялж 7 хоногийн аль өдөрт очсоноо хэлээрэй. Нэгэнт та цаг хугацаагаар аялж чадаж байгаа тул 2 секундын дотор мэдээллээ оруулна уу. /Та грегорийн тооллоор өдрийг тодорхойлон гарагийн нэрийг оруулна уу. Жнь: даваа … г.м/ &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -139,10 +139,10 @@
       <item>
         <title>Байгуулалт 40 оноо</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;Даалгаврын нэр: Байгуулалт &lt;br /&gt;
-Тайлбар: https://en.wikipedia.org/wiki/Portable_Network_Graphics &lt;br /&gt;
-Оноо: 40 оноо &lt;br /&gt;
-Файл: corrupt&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Байгуулалт &lt;br /&gt;
+&lt;strong&gt;Тайлбар:&lt;/strong&gt; https://en.wikipedia.org/wiki/Portable_Network_Graphics &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;
+&lt;strong&gt;Файл:&lt;/strong&gt; corrupt&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -188,9 +188,9 @@ PNG файлын эхний 8байтыг эндээс харж болно &lt;a
         <description>&lt;p&gt;За Харуул-Занги 2016-ын эхний шат амжилттай өндөрлөлөө. Эхний шат нийт 5 цаг үргэлжилсэн бөгөөд нийт онооны дүнгээр манай баг (&lt;a href=&quot;https://ctftime.org/team/29811&quot;&gt;Шуурга&lt;/a&gt;) 5р байранд орсон.&lt;/p&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;Даалгаврын нэр: Sound &lt;br /&gt;
-Оноо: 30 оноо &lt;br /&gt;
-Файл: sound.wav&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Sound &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 30 оноо &lt;br /&gt;
+&lt;strong&gt;Файл:&lt;/strong&gt; sound.wav&lt;/p&gt;
 
 &lt;hr /&gt;
 
