@@ -6,8 +6,8 @@
 </description>
     <link>http://enkhee-Osiris.github.io/</link>
     <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Sep 2016 20:02:34 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Sep 2016 20:02:34 +0900</lastBuildDate>
+    <pubDate>Tue, 20 Sep 2016 20:24:34 +0900</pubDate>
+    <lastBuildDate>Tue, 20 Sep 2016 20:24:34 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -70,7 +70,7 @@
 
 &lt;p&gt;Өгөгдлийн тайлбарыг эргэн санавал &lt;strong&gt;Julian Date&lt;/strong&gt; гэж өгөгдсөн байгаа. Гарч ирсэн тоонуудыг хөрвүүлбэл 1939 оны 09 сарын 01 ны 08 цаг 00 мин 00 сек болж байна. &lt;a href=&quot;http://www.onlineconversion.com/julian_date.htm&quot;&gt;Онлайн хөрвүүлэгч&lt;/a&gt; ашиглан хөрвүүлэхэд &lt;code class=&quot;highlighter-rouge&quot;&gt;2429507.83333&lt;/code&gt; гэсэн утга гарч ирлээ.&lt;/p&gt;
 
-&lt;p&gt;Эцэст нь туг: HZ{2429507.83333}&lt;/p&gt;
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{2429507.83333}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Жич: Энэ даалгаврыг амжиж хийгээгүй тул туг буруу байж болзошгүй :D.&lt;/em&gt;&lt;/p&gt;
 
@@ -134,6 +134,45 @@
       </item>
     
       <item>
+        <title>Certificate 20 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Certificate &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;
+&lt;strong&gt;Файл:&lt;/strong&gt; certificate.p12, password.txt&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Certificate.p12 файл руу ssl ээр хандаж үзье.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ openssl pkcs12 -in certificate.p12 -nokeys -nomacver
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18668293/25d7c26c-7f67-11e6-99b5-e19bc313ec98.jpg&quot; alt=&quot;out&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;password.txt&lt;/code&gt; хоосон байсан бөгөөд нууц үг дээр &lt;strong&gt;password&lt;/strong&gt; гэж хийсэн.&lt;/p&gt;
+
+&lt;p&gt;Гаралтаас тугийг CommonName гэж эхэндээ бодсон боловч &lt;code class=&quot;highlighter-rouge&quot;&gt;Name: certificateusage&lt;/code&gt; гэдгээс туг болохыг мэдсэн.&lt;/p&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{certificateusage}&lt;/strong&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>misc</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
+    
+      <item>
         <title>Bttf 40 оноо</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Back To The Future &lt;br /&gt;
@@ -170,46 +209,6 @@
         <category>writeup</category>
         
         <category>web</category>
-        
-        
-        <category>information-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Jd 20 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; JD &lt;br /&gt;
-&lt;strong&gt;Тайлбар:&lt;/strong&gt; Julian Date &lt;br /&gt;
-&lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;
-&lt;strong&gt;Файл:&lt;/strong&gt; jd.txt&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Өгөгдсөн файлыг нээж үзээд эхэндээ ямар нэгэн энкод хийсэн текст байна гэж бодтол үгүй байлаа. Маш сайн анзаарвал дотроо тоонууд агуулсан байх бөгөөд тэдгээр тоонуудыг хайя.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat JD.txt | grep -o &#39;[0-9]*&#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18667413/05c09868-7f63-11e6-9335-89a1de8c57e7.png&quot; alt=&quot;ss&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Өгөгдлийн тайлбарыг эргэн санавал &lt;strong&gt;Julian Date&lt;/strong&gt; гэж өгөгдсөн байгаа. Гарч ирсэн тоонуудыг хөрвүүлбэл 1939 оны 09 сарын 01 ны 08 цаг 00 мин 00 сек болж байна. &lt;a href=&quot;http://www.onlineconversion.com/julian_date.htm&quot;&gt;Онлайн хөрвүүлэгч&lt;/a&gt; ашиглан хөрвүүлэхэд &lt;code class=&quot;highlighter-rouge&quot;&gt;2429507.83333&lt;/code&gt; гэсэн утга гарч ирлээ.&lt;/p&gt;
-
-&lt;p&gt;Эцэст нь туг: HZ{2429507.83333}&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Жич: Энэ даалгаврыг амжиж хийгээгүй тул туг буруу байж болзошгүй :D.&lt;/em&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
-        
-        <category>haruul-zangi</category>
-        
-        <category>writeup</category>
-        
-        <category>misc</category>
         
         
         <category>information-security</category>

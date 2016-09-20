@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jd 20 оноо</title>
+    <title>Certificate 20 оноо</title>
     
     <meta name="author" content="Enkherdene Osiris">
     <!-- Enable responsive viewport -->
@@ -41,7 +41,7 @@
   
 <header class="intro post" 
    
-    style="background-image: url(https://cloud.githubusercontent.com/assets/14227502/18667419/0bcfbf04-7f63-11e6-9474-5172e4389a3a.jpg)"
+    style="background-image: url(https://cloud.githubusercontent.com/assets/14227502/18668223/d4695e4a-7f66-11e6-9330-6fb72106de4b.jpg)"
    
   >
   <div class="site-heading col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12" 
@@ -73,7 +73,7 @@
         </div>
       
       <h1>
-        Jd 20 оноо
+        Certificate 20 оноо
       </h1>
       <h3>
         2016 оны
@@ -102,7 +102,7 @@
 <!-- Main content -->
 <div class="container">
   <!--div class="page-header">
-      <h1><a href="/">&larr;</a>Jd 20 оноо </h1>
+      <h1><a href="/">&larr;</a>Certificate 20 оноо </h1>
   </div-->
   <div class="post-full col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
       
@@ -117,26 +117,25 @@
     </div-->
     <div class="content">
         <h2 id="section">Өгөгдөл</h2>
-<p><strong>Даалгаврын нэр:</strong> JD <br />
-<strong>Тайлбар:</strong> Julian Date <br />
+<p><strong>Даалгаврын нэр:</strong> Certificate <br />
 <strong>Оноо:</strong> 20 оноо <br />
-<strong>Файл:</strong> jd.txt</p>
+<strong>Файл:</strong> certificate.p12, password.txt</p>
 
 <hr />
 
-<p>Өгөгдсөн файлыг нээж үзээд эхэндээ ямар нэгэн энкод хийсэн текст байна гэж бодтол үгүй байлаа. Маш сайн анзаарвал дотроо тоонууд агуулсан байх бөгөөд тэдгээр тоонуудыг хайя.</p>
+<p>Certificate.p12 файл руу ssl ээр хандаж үзье.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cat JD.txt | grep -o '[0-9]*'
+<div class="highlighter-rouge"><pre class="highlight"><code>$ openssl pkcs12 -in certificate.p12 -nokeys -nomacver
 </code></pre>
 </div>
 
-<p><img src="https://cloud.githubusercontent.com/assets/14227502/18667413/05c09868-7f63-11e6-9335-89a1de8c57e7.png" alt="ss" /></p>
+<p><img src="https://cloud.githubusercontent.com/assets/14227502/18668293/25d7c26c-7f67-11e6-99b5-e19bc313ec98.jpg" alt="out" /></p>
 
-<p>Өгөгдлийн тайлбарыг эргэн санавал <strong>Julian Date</strong> гэж өгөгдсөн байгаа. Гарч ирсэн тоонуудыг хөрвүүлбэл 1939 оны 09 сарын 01 ны 08 цаг 00 мин 00 сек болж байна. <a href="http://www.onlineconversion.com/julian_date.htm">Онлайн хөрвүүлэгч</a> ашиглан хөрвүүлэхэд <code class="highlighter-rouge">2429507.83333</code> гэсэн утга гарч ирлээ.</p>
+<p><code class="highlighter-rouge">password.txt</code> хоосон байсан бөгөөд нууц үг дээр <strong>password</strong> гэж хийсэн.</p>
 
-<p>Эцэст нь туг: <strong>HZ{2429507.83333}</strong></p>
+<p>Гаралтаас тугийг CommonName гэж эхэндээ бодсон боловч <code class="highlighter-rouge">Name: certificateusage</code> гэдгээс туг болохыг мэдсэн.</p>
 
-<p><em>Жич: Энэ даалгаврыг амжиж хийгээгүй тул туг буруу байж болзошгүй :D.</em></p>
+<p>Эцэст нь туг: <strong>HZ{certificateusage}</strong></p>
 
 
     </div>
@@ -189,7 +188,7 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1184490104906355";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-comments" data-href="http://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE" data-num-posts="5" data-width="100%" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE" data-num-posts="5" data-width="100%" data-colorscheme="light"></div>
           
   </div>
 </div>
