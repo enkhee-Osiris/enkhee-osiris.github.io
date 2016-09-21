@@ -14,8 +14,12 @@
     <meta property="fb:app_id" content="{{ site.comments.facebook.appid }}"/>
     <meta property="og:site_name" content="Энх-Эрдэнэ -н блог"/>
     <meta property="og:title" content="{{ page.title }}"/>
-     <meta property="og:type" content="website"/> 
-    <meta property="og:description" content="{{ site.description }}"/>
+    <meta property="og:type" content="website"/> 
+    {% if page.title %}
+        <meta property="og:description" content="{{ site.description }}"/>
+    {% else %}
+        <meta property="og:description" content="{{ post.content | strip_html | truncatewords: 50 }}"/>
+    {% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
     <meta property="og:image" content="{{ site.url }}/images/icon.png"/>
     <!-- Enable responsive viewport -->
