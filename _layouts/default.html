@@ -21,7 +21,12 @@
         <meta property="og:description" content="{{ page.content | strip_html | truncatewords: 50 }}"/>
     {% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
-    <meta property="og:image" content="{{ site.url }}/images/icon.png"/>
+    {% if page.cover %}
+        <meta property="og:image" content="{{ page.cover }}"/>
+    {% else %}
+        <meta property="og:image" content="{{ site.url }}/images/icon.jpg"/>
+    }
+    {% endif %}
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap styles -->
