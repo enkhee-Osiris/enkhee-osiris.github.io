@@ -15,7 +15,5 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-<!--div class="fb-comments" data-href="{{ site.url }}{{ page.url }}" data-num-posts="{{ site.comments.facebook.num_posts }}" data-width="100%" data-colorscheme="{{ site.comments.facebook.colorscheme }}"></div-->
-
-<div><fb:comments expr:href="data:post.url" expr:title="data:post.title" expr:xid="data:post.id" width="100%"/></div>
+<div class="fb-comments" data-href="{{ site.url }}{{ page.url }}" data-num-posts="{{ site.comments.facebook.num_posts }}" data-width="100%" data-colorscheme="{{ site.comments.facebook.colorscheme }}"></div>
 
