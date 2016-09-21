@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ page.title }}</title>
     {% if page.description %}
-    <meta name="description" content="{{ page.description }}">{% endif %}
+        <meta name="description" content="{{ page.description }}">
+    {% endif %}
     <meta name="author" content="{{ site.author.name }}">
     <!-- Some facebook comments meta -->
     <meta property="fb:admins" content="100003629098903"/>
@@ -25,7 +26,6 @@
         <meta property="og:image" content="{{ page.cover }}"/>
     {% else %}
         <meta property="og:image" content="{{ site.url }}/images/icon.jpg"/>
-    }
     {% endif %}
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
