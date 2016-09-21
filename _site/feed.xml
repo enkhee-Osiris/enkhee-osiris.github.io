@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Энх-Эрдэнэ -н хувийн блог</title>
+    <title>Осирисийн хувийн блог</title>
     <description>Програм хангамжийн инженер мэргэжлээр суралцагч оюутан бөгөөд вэб, мобайл програмчлал болон системийн аюулгүй байдал сонирхдог.
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Sep 2016 00:12:05 +0900</pubDate>
-    <lastBuildDate>Thu, 22 Sep 2016 00:12:05 +0900</lastBuildDate>
+    <pubDate>Thu, 22 Sep 2016 00:17:21 +0900</pubDate>
+    <lastBuildDate>Thu, 22 Sep 2016 00:17:21 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
