@@ -2,7 +2,7 @@
 
   
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,12 @@
     <title>Mr. Robot 20 оноо</title>
     
     <meta name="author" content="Enkherdene Osiris">
+    <!-- Some facebook comments meta -->
+    <meta property="fb:admins" content="https://www.facebook.com/Ag.Enkhee"/>
+    <meta property="fb:app_id" content="1184490104906355"/>
+    <meta property="og:site_name" content="Энх-Эрдэнэ -н блог"/>
+    <meta property="og:image" content="/images/icon.png"/>
+    <meta property="og:type" content="content"/>
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap styles -->
@@ -101,20 +107,7 @@
 </header>
 <!-- Main content -->
 <div class="container">
-  <!--div class="page-header">
-      <h1><a href="/">&larr;</a>Mr. Robot 20 оноо </h1>
-  </div-->
   <div class="post-full col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-      
-    <!--div class="date">
-        <span>
-        2016
-        
-        9-р сар
-          
-        20
-        </span>
-    </div-->
     <div class="content">
         <h2 id="section">Өгөгдөл</h2>
 <p><strong>Даалгаврын нэр:</strong> НоёН РоБоТ <br />
@@ -152,57 +145,28 @@
 <p>Эцэст нь туг: <strong>HZ{T4n!! tv!khvvR ug MR.R0b0T}</strong></p>
 
     </div>
-    <!--
-    
-    <ul class="tag_box inline">
-        Ангилал: 
-         
-        
-     
-    	<li><a href="#information-security-ref">
-    		Information-security 
-    	</a></li>
-    
-  
-
-    </ul>
-     
-    <ul class="tag_box inline">
-        Шошго: 
-         
-          
-     
-    	<li><a href="#haruul-zangi-ref">Haruul-zangi</a>
-      
-        ,
-      
-      </li>
-     
-    	<li><a href="#writeup-ref">Writeup</a>
-      
-        ,
-      
-      </li>
-     
-    	<li><a href="#crypto-ref">Crypto</a>
-      
-      </li>
-    
-  
-
-    </ul>
-    
-    -->
     <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1184490104906355";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-comments" data-href="http://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE" data-num-posts="5" data-width="100%" data-colorscheme="light"></div>
-          
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1184490104906355',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!--div class="fb-comments" data-href="https://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE" data-num-posts="5" data-width="100%" data-colorscheme="light"></div-->
+
+<div><fb:comments expr:href="data:post.url" expr:title="data:post.title" expr:xid="data:post.id" width="100%"/></div>
+
+
   </div>
 </div>
     <footer class="blog-footer">
@@ -257,7 +221,7 @@
                 <li><a href="http://plus.google.com/enkhee-Osiris"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 <li><a href="http://github.com/enkhee-Osiris"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
                 <li><a href="mailto:enkhee.ag@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
-                <li><a href="http://http://enkhee-Osiris.github.io/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
+                <li><a href="http://https://enkhee-Osiris.github.io/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>

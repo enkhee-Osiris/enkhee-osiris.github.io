@@ -4,10 +4,10 @@
     <title>Энх-Эрдэнэ -н хувийн блог</title>
     <description>Програм хангамжийн инженер мэргэжлээр суралцагч оюутан бөгөөд вэб, мобайл програмчлал болон системийн аюулгүй байдал сонирхдог.
 </description>
-    <link>http://enkhee-Osiris.github.io/</link>
-    <atom:link href="http://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Sep 2016 21:43:42 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Sep 2016 21:43:42 +0900</lastBuildDate>
+    <link>https://enkhee-Osiris.github.io/</link>
+    <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 21 Sep 2016 15:19:53 +0900</pubDate>
+    <lastBuildDate>Wed, 21 Sep 2016 15:19:53 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -17,12 +17,12 @@
 &lt;strong&gt;Тайлбар:&lt;/strong&gt; host: 103.48.116.193
 			port: 8001
 			user: cat
-			pass: catflag
+			pass: catflag&lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 30 оноо &lt;br /&gt;
 &lt;strong&gt;Файл:&lt;/strong&gt; flag.pgp, mr.robot.gif&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;Эхлээд &lt;a href=&quot;&quot;&gt;Secure Shell&lt;/a&gt; ашиглаад сервер лүү холбогдъё.&lt;/p&gt;
+&lt;p&gt;Эхлээд &lt;a href=&quot;https://en.wikipedia.org/wiki/Secure_Shell&quot;&gt;Secure Shell&lt;/a&gt; ашиглаад сервер лүү холбогдъё.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh -p 8001 cat@103.48.116.193
 &lt;/code&gt;&lt;/pre&gt;
@@ -44,8 +44,8 @@
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{0101023234}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/cat-flag-30-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/cat-flag-30-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/cat-flag-30-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/cat-flag-30-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -84,8 +84,8 @@
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{JS00JS00JS}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Plainscript-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Plainscript-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/Plainscript-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/Plainscript-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -136,8 +136,8 @@
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{T4n!! tv!khvvR ug MR.R0b0T}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/Mr.-Robot-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -176,8 +176,8 @@
 
 </description>
         <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -219,8 +219,8 @@
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{11001011_flag_01001011}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -258,8 +258,8 @@
 
 </description>
         <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -301,8 +301,8 @@
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{YOUREMEETMARTYMCFLY}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -348,8 +348,8 @@ PNG файлын эхний 8байтыг эндээс харж болно &lt;a
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{YOU_G0T_PNG}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -383,8 +383,8 @@ PNG файлын эхний 8байтыг эндээс харж болно &lt;a
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{HELLO}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/information-security/2016/09/19/Sound-30-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/information-security/2016/09/19/Sound-30-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/19/Sound-30-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/19/Sound-30-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
         
         <category>haruul-zangi</category>
         
@@ -414,8 +414,8 @@ PNG файлын эхний 8байтыг эндээс харж болно &lt;a
 &lt;p&gt;Зэрэг зүйлсийг нэмсэн. Хэрэв хуучин блогын кодыг харахыг хүсвэл &lt;a href=&quot;https://github.com/enkhee-Osiris/enkhee-Osiris.github.io-old&quot;&gt;энд&lt;/a&gt; дарна уу.&lt;/p&gt;
 </description>
         <pubDate>Sun, 18 Sep 2016 00:00:00 +0900</pubDate>
-        <link>http://enkhee-Osiris.github.io/blog/2016/09/18/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</link>
-        <guid isPermaLink="true">http://enkhee-Osiris.github.io/blog/2016/09/18/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</guid>
+        <link>https://enkhee-Osiris.github.io/blog/2016/09/18/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/blog/2016/09/18/%D0%91%D0%BB%D0%BE%D0%B3-%D1%88%D0%B8%D0%BD%D1%8D%D1%87%D0%BB%D1%8D%D0%BB</guid>
         
         <category>github</category>
         
