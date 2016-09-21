@@ -1,8 +1,8 @@
 {% include setup %}
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
 
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ page.title }}</title>
@@ -14,6 +14,7 @@
     <meta property="fb:app_id" content="{{ site.comments.facebook.appid }}"/>
     <meta property="og:site_name" content="Энх-Эрдэнэ -н блог"/>
     <meta property="og:title" content="{{ page.title }}"/>
+     <meta property="og:type" content="website"/> 
     <meta property="og:description" content="{{ site.description }}"/>
     <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
     <meta property="og:image" content="{{ site.url }}/images/icon.png"/>
