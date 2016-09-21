@@ -18,7 +18,7 @@
     {% if page.layout != 'post' %}
         <meta property="og:description" content="{{ site.description }}"/>
     {% else %}
-        <meta property="og:description" content="{{ post.content | strip_html | truncatewords: 50 }}"/>
+        <meta property="og:description" content="{{ page.content | strip_html | truncatewords: 50 }}"/>
     {% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
     <meta property="og:image" content="{{ site.url }}/images/icon.png"/>
