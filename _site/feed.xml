@@ -6,9 +6,54 @@
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Sep 2016 23:24:20 +0900</pubDate>
-    <lastBuildDate>Thu, 22 Sep 2016 23:24:20 +0900</lastBuildDate>
+    <pubDate>Thu, 22 Sep 2016 23:43:20 +0900</pubDate>
+    <lastBuildDate>Thu, 22 Sep 2016 23:43:20 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Prime Number 40 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Prime Number &lt;br /&gt;
+&lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8006/ &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Өгөгдсөн хаяг руу хандаж үзвэл &lt;a href=&quot;https://enkhee-osiris.github.io/information-security/2016/09/22/Find-Summation-20-оноо&quot;&gt;Find-Summation&lt;/a&gt;-тэй адилхан даалгавар бөгөөд ялгаа нь гэвэл 10000 тоо өгөгдсөн бөгөөд тоо тус бүрийн хамгийн бага анхны тоон хуваагчдийн нийлбэрийг олох даалгавар байлаа.&lt;/p&gt;
+
+&lt;p&gt;Өмнө бичсэн скриптээ бага зэрэг өөрчилье.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/444470d4996a08351061ca581fe20567.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;За скриптээ ажиллуулъя.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python prime-number.py 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Ирсэн хариу:
+&lt;img width=&quot;835&quot; alt=&quot;screenshot&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18752570/69acfc96-8115-11e6-86af-02a853719a94.png&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+Баяр хүргье. Flag is HZ{y0u_f0und_this_s3cr3t_d@t@}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{y0u_f0und_this_s3cr3t_d@t@}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 22 Sep 2016 00:00:00 +0900</pubDate>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/22/Prime-Number-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/22/Prime-Number-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>programming</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
     
       <item>
         <title>Find Summation 20 оноо</title>
@@ -397,49 +442,6 @@
         <category>writeup</category>
         
         <category>misc</category>
-        
-        
-        <category>information-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Bttf 40 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Back To The Future &lt;br /&gt;
-&lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8004/ &lt;br /&gt;
-&lt;strong&gt;Тайлбар:&lt;/strong&gt; Өнгөрсөн, одоо, ирээдүй 3 цагт аялж 7 хоногийн аль өдөрт очсоноо хэлээрэй. Нэгэнт та цаг хугацаагаар аялж чадаж байгаа тул 2 секундын дотор мэдээллээ оруулна уу. /Та грегорийн тооллоор өдрийг тодорхойлон гарагийн нэрийг оруулна уу. Жнь: даваа … г.м/ &lt;br /&gt;
-&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Өгөгдсөн хаяг руу хандвал өнгөрсөн, одоо, ирээдүйн 3-н өдрийг харуулсан байна. Тайлбар дээр өгөгдсөнөөр эдгээр өдрүүд 7-н хоногийн хэд дэх өдөр байсныг олох даалгавар бололтой.&lt;/p&gt;
-
-&lt;p&gt;Энэ даалгаврыг шийдэхийн тулд python скрипт бичихээр шийдлээ.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/bc05be2c8ab0134264a229c92509c243.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;Скриптээ ажиллуулъя&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python back-future.py 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;скрипт ажиллаж 3 өдрийг хэд дэх гариг болохыг хэвлээд серверээс ирж байгаа хариуг хэвлэнэ.&lt;/p&gt;
-
-&lt;p&gt;Хариуг харвал &lt;code class=&quot;highlighter-rouge&quot;&gt;chi martygaas tuslamj avch chadjee token is YOUREMEETMARTYMCFLY&lt;/code&gt; гэсэн байна.&lt;/p&gt;
-
-&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{YOUREMEETMARTYMCFLY}&lt;/strong&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/BTTF-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
-        
-        <category>haruul-zangi</category>
-        
-        <category>writeup</category>
-        
-        <category>web</category>
         
         
         <category>information-security</category>
