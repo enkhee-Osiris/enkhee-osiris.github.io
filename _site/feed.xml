@@ -6,8 +6,8 @@
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Sep 2016 23:23:28 +0900</pubDate>
-    <lastBuildDate>Thu, 22 Sep 2016 23:23:28 +0900</lastBuildDate>
+    <pubDate>Thu, 22 Sep 2016 23:24:20 +0900</pubDate>
+    <lastBuildDate>Thu, 22 Sep 2016 23:24:20 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -23,16 +23,14 @@
 
 &lt;p&gt;&lt;strong&gt;Тайлбар:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-Та өгөгдсөн тоонуудын нийлбэрийг олно уу? GET[&#39;solution&#39;] request авна 2 сек.
-
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Та өгөгдсөн тоонуудын нийлбэрийг олно уу? GET[&#39;solution&#39;] request авна 2 сек.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Манай баг өгөгдсөн даалгаварт зориулж &lt;a href=&quot;https://www.python.org&quot;&gt;python&lt;/a&gt; скрипт бичихээр шийдсэн.&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/6acdaf7f48d64c42efbb95c7b34ed8ba.js&quot;&gt; &lt;/script&gt;
 
-&lt;p&gt;Бичсэн скрипт маань өгөгдсөн хаяг руу хандаж өгөгдлийг ялган авч нийлбэрийг олоод сервер лүү дахин хүсэлт явуулж ирсэн хариуг хэвлэдэг байгаа.&lt;/p&gt;
+&lt;p&gt;Бичсэн скрипт маань өгөгдсөн хаяг руу хандаж өгөгдлийг ялган авч нийлбэрийг олоод, сервер лүү &lt;code class=&quot;highlighter-rouge&quot;&gt;solution&lt;/code&gt; параметрээр хүсэлт явуулж ирсэн хариуг хэвлэнэ.&lt;/p&gt;
 
 &lt;p&gt;Уг даалгаврыг хийхэд анхаарах ёстой нэг зүйл нь күүки байсан бөгөөд даалгаврын үеэр манай баг нэлээн будлиж эцэст нь учрыг олсон.&lt;/p&gt;
 
