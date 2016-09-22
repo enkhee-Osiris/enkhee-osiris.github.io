@@ -6,9 +6,67 @@
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Sep 2016 00:39:00 +0900</pubDate>
-    <lastBuildDate>Thu, 22 Sep 2016 00:39:00 +0900</lastBuildDate>
+    <pubDate>Thu, 22 Sep 2016 23:23:28 +0900</pubDate>
+    <lastBuildDate>Thu, 22 Sep 2016 23:23:28 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Find Summation 20 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Find Summation &lt;br /&gt;
+&lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8005/ &lt;br /&gt;
+&lt;strong&gt;Тайлбар:&lt;/strong&gt;  GET parameter=solution&lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Өгөгдсөн хаяг руу хандаж үзвэл тайлбар болон 1000 бүхэл тоонууд өгөгдсөн байна.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Тайлбар:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Та өгөгдсөн тоонуудын нийлбэрийг олно уу? GET[&#39;solution&#39;] request авна 2 сек.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Манай баг өгөгдсөн даалгаварт зориулж &lt;a href=&quot;https://www.python.org&quot;&gt;python&lt;/a&gt; скрипт бичихээр шийдсэн.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/6acdaf7f48d64c42efbb95c7b34ed8ba.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Бичсэн скрипт маань өгөгдсөн хаяг руу хандаж өгөгдлийг ялган авч нийлбэрийг олоод сервер лүү дахин хүсэлт явуулж ирсэн хариуг хэвлэдэг байгаа.&lt;/p&gt;
+
+&lt;p&gt;Уг даалгаврыг хийхэд анхаарах ёстой нэг зүйл нь күүки байсан бөгөөд даалгаврын үеэр манай баг нэлээн будлиж эцэст нь учрыг олсон.&lt;/p&gt;
+
+&lt;p&gt;За скриптээ ажиллуулж үзье.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python summ.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Ирсэн хариу:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;843&quot; alt=&quot;screenshot&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18751846/1b273804-8113-11e6-8062-9d3cd6bf1073.png&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+Баяр хүргье. Flag is HZ{c0mput3r_sci3nc3_is_v3ry_c0mp3titiv3}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{c0mput3r_sci3nc3_is_v3ry_c0mp3titiv3}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 22 Sep 2016 00:00:00 +0900</pubDate>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/22/Find-Summation-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/22/Find-Summation-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>programming</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
     
       <item>
         <title>Riddle Transfer 30 оноо</title>
@@ -66,7 +124,7 @@
 
 &lt;p&gt;Дараах хүснэгтээс морз код бүрийг хөрвүүлнэ.
 &lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18713557/551d79ac-8045-11e6-98e7-42677d60e837.png&quot; alt=&quot;xmorse-codes&quot; /&gt;
-Хөрвүүлж дуусахад &lt;code class=&quot;highlighter-rouge&quot;&gt;congratulations&lt;/code&gt; гэсэн үг үүсснэ.&lt;/p&gt;
+Хөрвүүлж дуусахад &lt;code class=&quot;highlighter-rouge&quot;&gt;our flag congratulations&lt;/code&gt; гэсэн өгүүлбэр болно.&lt;/p&gt;
 
 &lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{congratulations}&lt;/strong&gt;&lt;/p&gt;
 </description>
@@ -384,53 +442,6 @@
         <category>writeup</category>
         
         <category>web</category>
-        
-        
-        <category>information-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Байгуулалт 40 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Байгуулалт &lt;br /&gt;
-&lt;strong&gt;Тайлбар:&lt;/strong&gt; https://en.wikipedia.org/wiki/Portable_Network_Graphics &lt;br /&gt;
-&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;
-&lt;strong&gt;Файл:&lt;/strong&gt; corrupt&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ file corrupt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;хийж үзтэл ямар нэгэн файлын төрөл гарч ирсэнгүй тиймээс &lt;a href=&quot;https://en.wikipedia.org/wiki/Hex_editor&quot;&gt;hex editor&lt;/a&gt;-р нээж үзье.&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;399&quot; alt=&quot;ihex1&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18637342/a7fde20c-7ebe-11e6-977a-a501edd7ad50.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Эхний 11 байтыг хархад хэдэн байтыг устгасан байгааг мэдэж болно.
-PNG файлын эхний 8байтыг эндээс харж болно &lt;a href=&quot;http://www.garykessler.net/library/file_sigs.html&quot;&gt;File signatures&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18637856/77668f48-7ec0-11e6-912a-889c8e38e276.png&quot; alt=&quot;ihex2&quot; /&gt;
-Устгасан байтуудыг нөхөж бичив.&lt;/p&gt;
-
-&lt;p&gt;Даанч файл маань алдаатай хэвээрээ л байлаа iHex-рүү буцаж очоод төгсгөлийн мөрийг харвал мөн л хэдэн байтыг устгасан байлаа.
-&lt;img width=&quot;398&quot; alt=&quot;ihex3&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18638072/4fe8ae46-7ec1-11e6-84c4-54c336a73fc7.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4944AE42 6082&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;49454E44 AE426082&lt;/code&gt; болгож гүйцээсэн бөгөөд файлаа хадгалаад зургийг нээж үзэхэд
-&lt;img width=&quot;644&quot; alt=&quot;flag&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18637990/e8e188da-7ec0-11e6-99be-4fa8f65e2022.png&quot; /&gt; 
-тугыг харуулсан зураг харагдах болно.&lt;/p&gt;
-
-&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{YOU_G0T_PNG}&lt;/strong&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
-        <link>https://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/19/%D0%91%D0%B0%D0%B9%D0%B3%D1%83%D1%83%D0%BB%D0%B0%D0%BB%D1%82-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
-        
-        <category>haruul-zangi</category>
-        
-        <category>writeup</category>
-        
-        <category>forensic</category>
         
         
         <category>information-security</category>
