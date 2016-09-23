@@ -6,9 +6,84 @@
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Sep 2016 23:43:20 +0900</pubDate>
-    <lastBuildDate>Thu, 22 Sep 2016 23:43:20 +0900</lastBuildDate>
+    <pubDate>Fri, 23 Sep 2016 23:24:55 +0800</pubDate>
+    <lastBuildDate>Fri, 23 Sep 2016 23:24:55 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Толгой 40 оноо</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Толгой &lt;br /&gt;
+&lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8008/ &lt;br /&gt;
+&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Энэ даалгаврын хувьд тэмцээний үеэр хийж чадаагүй бөгөөд толгой (Header) дээрээс ямар нэгэн зүйл олохоос өөр санаа байсангүй.&lt;/p&gt;
+
+&lt;p&gt;Тэмцээний маргааш нь &lt;a href=&quot;https://curl.haxx.se&quot;&gt;curl&lt;/a&gt; ашиглаж header-үүдийг харж болохыг мэдсэн бөгөөд тугийг олж чадсан юм.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -I http://103.48.116.193:8008/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;асуулт 1: Харуул Занги эхний тэмцээн болсон он? /хариултаа илээр явуулна уу. ‘answer_level_one’ /&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;гэсэн хариу ирэх бөгөөд илээр гэдэг нь &lt;em&gt;get&lt;/em&gt; хүсэлтийг хэлж байна. Харуул занги анхны тэмцээн 2013 онд болсон бөгөөд дахин &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt; ашиглаж үзье.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -I http://103.48.116.193:8008/?answer_level_one=2013
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Найдвар: aDRydVVMLVpAbkcxXzIwMTY= /хариултыг илээр явуулна уу. ‘answer_next_one’/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Өгөгдсөн &lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;base64&lt;/a&gt;-г тайлъя.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ base64 -D &amp;lt;&amp;lt;&amp;lt; &quot;aDRydVVMLVpAbkcxXzIwMTY=&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;h4ruUL-Z@nG1_2016&lt;/code&gt; гэсэн тэмдэгт мөр гарч ирлээ.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -I http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Учрыг ол : hint php strcmp() /хариултыг далдаар явуулна уу. ‘answer_level_last_one’/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016&quot;&gt;http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016&lt;/a&gt; хаяг руу хандаж үзвэл input форм харагдана. Өгөгдсөн hint-г уншвал шалгалтаа strcmp() функц ашиглаж хийдэг бололтой. strcmp-г bypass хийхийн тулд тэмдэгт мөр хэлбэрээр хүсэлт явуулахад л болно.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -d &quot;answer_level_last_one[]=a&quot; http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;FLAG: HZ{0nly_4rrAy_p4$$_1t}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{0nly_4rrAy_p4$$_1t}&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 23 Sep 2016 00:00:00 +0900</pubDate>
+        <link>https://enkhee-Osiris.github.io/information-security/2016/09/23/%D0%A2%D0%BE%D0%BB%D0%B3%D0%BE%D0%B9-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/23/%D0%A2%D0%BE%D0%BB%D0%B3%D0%BE%D0%B9-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>writeup</category>
+        
+        <category>web</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
     
       <item>
         <title>Prime Number 40 оноо</title>
@@ -403,45 +478,6 @@
         <category>writeup</category>
         
         <category>forensic</category>
-        
-        
-        <category>information-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Certificate 20 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Certificate &lt;br /&gt;
-&lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;
-&lt;strong&gt;Файл:&lt;/strong&gt; certificate.p12, password.txt&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Certificate.p12 файл руу ssl ээр хандаж үзье.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ openssl pkcs12 -in certificate.p12 -nokeys -nomacver
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18668293/25d7c26c-7f67-11e6-99b5-e19bc313ec98.jpg&quot; alt=&quot;out&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;password.txt&lt;/code&gt; хоосон байсан бөгөөд нууц үг дээр &lt;strong&gt;password&lt;/strong&gt; гэж хийсэн.&lt;/p&gt;
-
-&lt;p&gt;Гаралтаас тугийг CommonName гэж эхэндээ бодсон боловч &lt;code class=&quot;highlighter-rouge&quot;&gt;Name: certificateusage&lt;/code&gt; гэдгээс туг болохыг мэдсэн.&lt;/p&gt;
-
-&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{certificateusage}&lt;/strong&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/Certificate-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
-        
-        <category>haruul-zangi</category>
-        
-        <category>writeup</category>
-        
-        <category>misc</category>
         
         
         <category>information-security</category>
