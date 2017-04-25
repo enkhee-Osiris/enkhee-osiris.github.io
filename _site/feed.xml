@@ -6,13 +6,13 @@
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 23 Sep 2016 23:24:55 +0800</pubDate>
-    <lastBuildDate>Fri, 23 Sep 2016 23:24:55 +0800</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Tue, 25 Apr 2017 17:54:08 +0800</pubDate>
+    <lastBuildDate>Tue, 25 Apr 2017 17:54:08 +0800</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
     
       <item>
-        <title>Толгой 40 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Толгой 40 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Толгой &lt;br /&gt;
 &lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8008/ &lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;&lt;/p&gt;
@@ -86,8 +86,8 @@
       </item>
     
       <item>
-        <title>Prime Number 40 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Prime Number 40 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Prime Number &lt;br /&gt;
 &lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8006/ &lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;&lt;/p&gt;
@@ -131,8 +131,8 @@
       </item>
     
       <item>
-        <title>Find Summation 20 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Find Summation 20 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Find Summation &lt;br /&gt;
 &lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8005/ &lt;br /&gt;
 &lt;strong&gt;Тайлбар:&lt;/strong&gt;  GET parameter=solution&lt;br /&gt;
@@ -143,7 +143,7 @@
 
 &lt;p&gt;&lt;strong&gt;Тайлбар:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Та өгөгдсөн тоонуудын нийлбэрийг олно уу? GET[&#39;solution&#39;] request авна 2 сек.
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Та өгөгдсөн тоонуудын нийлбэрийг олно уу? GET['solution'] request авна 2 сек.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Манай баг өгөгдсөн даалгаварт зориулж &lt;a href=&quot;https://www.python.org&quot;&gt;python&lt;/a&gt; скрипт бичихээр шийдсэн.&lt;/p&gt;
@@ -187,8 +187,8 @@
       </item>
     
       <item>
-        <title>Riddle Transfer 30 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Riddle Transfer 30 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Riddle Transfer &lt;br /&gt;
 &lt;strong&gt;Өгөгдсөн хаяг:&lt;/strong&gt; http://goo.gl/bxv8aR &lt;br /&gt;
 &lt;strong&gt;Тайлбар:&lt;/strong&gt; Порталаар аялан ангид очно. Ангиас гарч тусгай ангийн самбар дээрээс түлхүүр үг олно.&lt;br /&gt;
@@ -226,8 +226,8 @@
       </item>
     
       <item>
-        <title>Morse 30 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Morse 30 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Morse &lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 30 оноо &lt;br /&gt;
 &lt;strong&gt;Файл:&lt;/strong&gt;  morsecode.wav&lt;/p&gt;
@@ -262,8 +262,8 @@
       </item>
     
       <item>
-        <title>Cat Flag 30 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Cat Flag 30 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Cat Flag &lt;br /&gt;
 &lt;strong&gt;Тайлбар:&lt;/strong&gt; host: 103.48.116.193
 			port: 8001
@@ -287,7 +287,7 @@
 &lt;/div&gt;
 &lt;p&gt;Хийтэл ажилласангүй тэгвэл &lt;code class=&quot;highlighter-rouge&quot;&gt;help&lt;/code&gt; командыг ашиглаж харцгаая. Серверт python суусан байна тэгвэл скрипт бичиж үзэцгээе.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python -c &#39;print open(&quot;flag.txt&quot;,&quot;r&quot;).read()&#39;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python -c 'print open(&quot;flag.txt&quot;,&quot;r&quot;).read()'
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Тиймээ тугийг бидэнд хэвлэж өглөө &lt;code class=&quot;highlighter-rouge&quot;&gt;HZ{0101023234}&lt;/code&gt;&lt;/p&gt;
@@ -310,8 +310,8 @@
       </item>
     
       <item>
-        <title>Plainscript 20 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Plainscript 20 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Plainscript &lt;br /&gt;
 &lt;strong&gt;Хандах хаяг:&lt;/strong&gt; http://103.48.116.193:8003/ &lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо&lt;/p&gt;
@@ -328,7 +328,7 @@
 
 &lt;p&gt;дээрх javascript харагдана. Үүнээс тугийг харж болно.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if(true){console.log(&#39;HZ{JS00JS00JS}&#39;)}
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if(true){console.log('HZ{JS00JS00JS}')}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -350,8 +350,8 @@
       </item>
     
       <item>
-        <title>Mr. Robot 20 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Mr. Robot 20 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; НоёН РоБоТ &lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;
 &lt;strong&gt;Файл:&lt;/strong&gt; flag.pgp, mr.robot.gif&lt;/p&gt;
@@ -402,8 +402,8 @@
       </item>
     
       <item>
-        <title>Jd 20 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Jd 20 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; JD &lt;br /&gt;
 &lt;strong&gt;Тайлбар:&lt;/strong&gt; Julian Date &lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;
@@ -413,7 +413,7 @@
 
 &lt;p&gt;Өгөгдсөн файлыг нээж үзээд эхэндээ ямар нэгэн энкод хийсэн текст байна гэж бодтол үгүй байлаа. Маш сайн анзаарвал дотроо тоонууд агуулсан байх бөгөөд тэдгээр тоонуудыг хайя.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat JD.txt | grep -o &#39;[0-9]*&#39;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat JD.txt | grep -o '[0-9]*'
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -442,8 +442,8 @@
       </item>
     
       <item>
-        <title>Hexor 40 оноо</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;Өгөгдөл&lt;/h2&gt;
+        <title>Hexor 40 Оноо</title>
+        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Hexor &lt;br /&gt;
 &lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;
 &lt;strong&gt;Файл:&lt;/strong&gt; image.hex&lt;/p&gt;
