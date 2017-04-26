@@ -14,8 +14,6 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwsome -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
-    <!-- PrimeCSS -->
-    <link href="/assets/css/prime.css" rel="stylesheet">
     <!-- Custom font -->
     <link href="https://fonts.googleapis.com/css?family=Tinos:400,400i,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!-- Custom styles -->
@@ -42,14 +40,14 @@
 <meta property="og:url" content="https://enkhee-osiris.github.io/blog/tag/beginner/" />
 <meta property="og:site_name" content="Осирисийн хувийн блог" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-04-25T17:54:08+08:00" />
+<meta property="article:published_time" content="2017-04-26T15:02:50+08:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Beginner",
 "author": {"@type": "Person",
 "name": {"name":"Энхээ Осирис","email":"enkhee.ag@gmail.com","tumblr":"lodrosiris","github":"enkhee-Osiris","facebook":"Ag.Enkhee","instagram":"osiris.ag","google_plus":"enkhee-Osiris","feedburner":"feedname"}},
-"datePublished": "2017-04-25T17:54:08+08:00",
+"datePublished": "2017-04-26T15:02:50+08:00",
 "description": "",
 "mainEntityOfPage": {"@type": "WebPage",
 "@id": "https://enkhee-osiris.github.io/blog/tag/beginner/"},
@@ -153,9 +151,7 @@
   })();
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/assets/js/flowtype.js"></script>
     <script src="/assets/js/readingTime.js"></script>
-    <script src="/assets/js/prime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');
@@ -182,7 +178,7 @@
         var $container = $(".blogs");
         if (!$container.length)
             return;
-        var $headers = $container.find("h2");
+        var $headers = $container.find("> h2");
         var originalPosition = $headers.css("position");
         var originalTop = $headers.css("top");
         var headerHeight;

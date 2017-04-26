@@ -14,8 +14,6 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwsome -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
-    <!-- PrimeCSS -->
-    <link href="/assets/css/prime.css" rel="stylesheet">
     <!-- Custom font -->
     <link href="https://fonts.googleapis.com/css?family=Tinos:400,400i,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!-- Custom styles -->
@@ -244,9 +242,7 @@
   })();
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/assets/js/flowtype.js"></script>
     <script src="/assets/js/readingTime.js"></script>
-    <script src="/assets/js/prime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');
@@ -273,7 +269,7 @@
         var $container = $(".blogs");
         if (!$container.length)
             return;
-        var $headers = $container.find("h2");
+        var $headers = $container.find("> h2");
         var originalPosition = $headers.css("position");
         var originalTop = $headers.css("top");
         var headerHeight;

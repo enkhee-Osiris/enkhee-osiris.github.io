@@ -6,9 +6,24 @@
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Apr 2017 17:54:08 +0800</pubDate>
-    <lastBuildDate>Tue, 25 Apr 2017 17:54:08 +0800</lastBuildDate>
+    <pubDate>Wed, 26 Apr 2017 15:02:50 +0800</pubDate>
+    <lastBuildDate>Wed, 26 Apr 2017 15:02:50 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>2017 Оны Анхний Нийтлэл</title>
+        <description>
+</description>
+        <pubDate>Tue, 25 Apr 2017 00:00:00 +0800</pubDate>
+        <link>https://enkhee-Osiris.github.io/blog/2017/04/25/2017-%D0%BE%D0%BD%D1%8B-%D0%B0%D0%BD%D1%85%D0%BD%D0%B8%D0%B9-%D0%BD%D0%B8%D0%B9%D1%82%D0%BB%D1%8D%D0%BB</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/blog/2017/04/25/2017-%D0%BE%D0%BD%D1%8B-%D0%B0%D0%BD%D1%85%D0%BD%D0%B8%D0%B9-%D0%BD%D0%B8%D0%B9%D1%82%D0%BB%D1%8D%D0%BB</guid>
+        
+        <category>hello-world</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Толгой 40 Оноо</title>
@@ -435,49 +450,6 @@
         <category>writeup</category>
         
         <category>misc</category>
-        
-        
-        <category>information-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Hexor 40 Оноо</title>
-        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; Hexor &lt;br /&gt;
-&lt;strong&gt;Оноо:&lt;/strong&gt; 40 оноо &lt;br /&gt;
-&lt;strong&gt;Файл:&lt;/strong&gt; image.hex&lt;/p&gt;
-
-&lt;p&gt;Файлыг ямар нэгэн эдитор ашиглан нээж үзвэл hex код харагдана.&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;screen&quot; src=&quot;https://cloud.githubusercontent.com/assets/14227502/18659409/08935006-7f3d-11e6-970c-68baf2625f84.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Эдгээр өгөгдлөөс зөвхөн хэксийг ялган авахын тулд python script бичье.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/0562750c1f67570b38873a47624dbb43.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;Ажиллуулахын тулд өгөгдсөн &lt;code class=&quot;highlighter-rouge&quot;&gt;image.hex&lt;/code&gt; файлыг script-н гадна талын хавтсанд хийнэ.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python hex-to-png.py 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Python script ялгаж авсан хэксээ хэвлээд &lt;code class=&quot;highlighter-rouge&quot;&gt;img.png&lt;/code&gt; файлыг үүсгэнэ.&lt;/p&gt;
-
-&lt;p&gt;Үүссэн файлыг нээж харвал 
-&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18659515/bb85a1f0-7f3d-11e6-9493-2fcbfcf3843d.png&quot; alt=&quot;img&quot; /&gt;
-тугыг харуулсан зураг байна.&lt;/p&gt;
-
-&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{11001011_flag_01001011}&lt;/strong&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/Hexor-40-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
-        
-        <category>haruul-zangi</category>
-        
-        <category>writeup</category>
-        
-        <category>forensic</category>
         
         
         <category>information-security</category>
