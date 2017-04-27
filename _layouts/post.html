@@ -2,8 +2,9 @@
 layout: default
 ---
 {% include setup %}
+{% include minute_reading %}
 <header class="intro post" 
-  {% if page.cover %} 
+  {% if page.cover %}
     style="background-image: url({{ page.cover }})"
   {% endif %} 
   >
@@ -30,18 +31,18 @@ layout: default
         {{ page.date | date: "%Y" }} оны
         {% assign m = page.date | date: "%-m" %}
         {% case m %}
-          {% when '1' %}1-р сар
-          {% when '2' %}2-р сар
-          {% when '3' %}3-р сар
-          {% when '4' %}4-р сар
-          {% when '5' %}5-р сар
-          {% when '6' %}6-р сар
-          {% when '7' %}7-р сар
-          {% when '8' %}8-р сар
-          {% when '9' %}9-р сар
-          {% when '10' %}10-р сар
-          {% when '11' %}11-р сар
-          {% when '12' %}12-р сар
+          {% when '1' %} 1-р сарын
+          {% when '2' %} 2-р сарын
+          {% when '3' %} 3-р сарын
+          {% when '4' %} 4-р сарын
+          {% when '5' %} 5-р сарын
+          {% when '6' %} 6-р сарын
+          {% when '7' %} 7-р сарын
+          {% when '8' %} 8-р сарын
+          {% when '9' %} 9-р сарын
+          {% when '10' %} 10-р сарын
+          {% when '11' %} 11-р сарын
+          {% when '12' %} 12-р сарын
         {% endcase %}
         {{ page.date | date: "%-d" }}-нд
         
@@ -59,7 +60,13 @@ layout: default
         {% endunless %} 
         нийтэлсэн.
       </h3>
-      <h3 class="eta"></h3>
+      <h3 class="eta">
+        {% if minutes == 0 %}
+          {{ site.text.less_than_minute_read }}
+        {% else %}
+          {{ minutes }} {{ site.text.minute_read }}
+        {% endif %}
+      </h3>
   </div>
 </header>
 <!-- Main content -->

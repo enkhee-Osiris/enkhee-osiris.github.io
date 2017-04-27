@@ -67,8 +67,9 @@
     
 
   
+
 <header class="intro post" 
-   
+  
     style="background-image: url(https://cloud.githubusercontent.com/assets/14227502/18790645/29fbb290-81e2-11e6-9fbf-a5650585ba6b.jpg)"
    
   >
@@ -92,7 +93,7 @@
       <h3>
         2017 оны
         
-        4-р сар
+         4-р сарын
           
         25-нд
         
@@ -110,7 +111,11 @@
          
         нийтэлсэн.
       </h3>
-      <h3 class="eta"></h3>
+      <h3 class="eta">
+        
+          Минут хүрэхгүй.
+        
+      </h3>
   </div>
 </header>
 <!-- Main content -->
@@ -216,24 +221,12 @@
   })();
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/assets/js/readingTime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
     $(document).ready(function(){
-        /*
-            Reading Time in post
-         */
-        $('.content').readingTime({
-            wordsPerMinute: 250,
-            lang: 'mn',
-            error: function(message) {
-                console.log(message);
-            }
-        });
-
         /*
             For articles
          */

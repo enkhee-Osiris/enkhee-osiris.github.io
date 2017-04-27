@@ -67,6 +67,7 @@
     
 
   
+
 <header class="intro post" 
    
   >
@@ -104,7 +105,7 @@
       <h3>
         2016 оны
         
-        9-р сар
+         9-р сарын
           
         21-нд
         
@@ -122,7 +123,11 @@
          
         нийтэлсэн.
       </h3>
-      <h3 class="eta"></h3>
+      <h3 class="eta">
+        
+          Минут хүрэхгүй.
+        
+      </h3>
   </div>
 </header>
 <!-- Main content -->
@@ -245,24 +250,12 @@
   })();
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/assets/js/readingTime.js"></script>
     <script>
     $('#toggle').click(function() {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
     });
     $(document).ready(function(){
-        /*
-            Reading Time in post
-         */
-        $('.content').readingTime({
-            wordsPerMinute: 250,
-            lang: 'mn',
-            error: function(message) {
-                console.log(message);
-            }
-        });
-
         /*
             For articles
          */

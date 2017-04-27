@@ -87,3 +87,8 @@ analytics:
 
 # Build settings
 markdown: kramdown
+
+# Some static texts
+text: 
+  minute_read: минут уншина.
+  less_than_minute_read: Минут хүрэхгүй.
