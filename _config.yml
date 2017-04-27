@@ -1,33 +1,35 @@
 # Site settings
-title : Осирисийн хувийн блог
-description : > # this means to ignore newlines until "baseurl:"
+title: Осирисийн хувийн блог
+description: > # this means to ignore newlines until "baseurl:"
   Програм хангамжийн инженер мэргэжлээр суралцагч оюутан бөгөөд
   вэб, мобайл програмчлал болон системийн аюулгүй байдал сонирхдог.
-url : https://enkhee-Osiris.github.io # the base hostname & protocol for your site
-author :
-  name : Энхээ Осирис
-  email : enkhee.ag@gmail.com
-  tumblr : lodrosiris
-  github : enkhee-Osiris
-  facebook : Ag.Enkhee
+url: https://enkhee-Osiris.github.io # the base hostname & protocol for your site
+author:
+  name: Энхээ Осирис
+  email: enkhee.ag@gmail.com
+  tumblr: lodrosiris
+  github: enkhee-Osiris
+  facebook: Ag.Enkhee
   facebook_id: 100003629098903
-  instagram : osiris.ag
-  google_plus : enkhee-Osiris
-  feedburner : feedname
+  instagram: osiris.ag
+  google_plus: enkhee-Osiris
+  feedburner: feedname
 
-collections :
-  my_categories :
-    output : true
+lang: mn_MN
+
+collections:
+  my_categories:
+    output: true
     permalink: /blog/category/:name/
-  my_tags :
-    output : true
-    permalink : /blog/tag/:name/
+  my_tags:
+    output: true
+    permalink: /blog/tag/:name/
 
 # Handling Reading
 exclude: [Gemfile, README.md]
 
 # Plugins
-gems :
+gems:
   - jekyll-coffeescript
   - jekyll-sitemap
   - jekyll-feed
@@ -35,12 +37,12 @@ gems :
 
 
 # Outputting
-permalink : /:categories/:year/:month/:day/:title
-timezone : Asia/Ulaanbaatar
+permalink: /:categories/:year/:month/:day/:title
+timezone: Asia/Ulaanbaatar
 
 # assets
-BASE_PATH : false
-ASSET_PATH : false
+BASE_PATH: false
+ASSET_PATH: false
 
 # Defaults
 defaults:
@@ -71,17 +73,17 @@ defaults:
 
 
 # Settings for comments
-comments :
-  facebook :
-    appid : 1184490104906355
+comments:
+  facebook:
+    appid: 1184490104906355
     num_posts: 5
     width: 580
     colorscheme: light
 
 # Settings for analytics helper
-analytics :
-  google :
-    tracking_id : 'UA-80597159-1'
+analytics:
+  google:
+    tracking_id: 'UA-80597159-1'
 
 # Build settings
-markdown : kramdown
+markdown: kramdown
