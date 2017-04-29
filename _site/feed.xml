@@ -6,9 +6,30 @@
 </description>
     <link>https://enkhee-Osiris.github.io/</link>
     <atom:link href="https://enkhee-Osiris.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Apr 2017 16:28:47 +0800</pubDate>
-    <lastBuildDate>Thu, 27 Apr 2017 16:28:47 +0800</lastBuildDate>
+    <pubDate>Sat, 29 Apr 2017 16:53:07 +0800</pubDate>
+    <lastBuildDate>Sat, 29 Apr 2017 16:53:07 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>U18 2017 Даалгаврууд</title>
+        <description>&lt;p&gt;За сайн байцгаана уу? Дөнгөж саяхан энэ оны &lt;a href=&quot;http://www.haruulzangi.mn/challengesu18/rules&quot;&gt;u18&lt;/a&gt; буюу &lt;a href=&quot;http://www.haruulzangi.mn/about&quot;&gt;харуул занги&lt;/a&gt;-н зохион байгуулдаг дунд сургуулийн хүрээний мэдээллийн аюулгүй байдлын тэмцээний эхний шат дууссан билээ. Миний бие уг тэмцээний эхний шатанд ирсэн бүх даалгавруудыг та бүхэнд зориулан өөрийн &lt;a href=&quot;https://github.com/enkhee-Osiris&quot;&gt;github&lt;/a&gt; дээрээ тавьж байна.&lt;/p&gt;
+
+&lt;p&gt;Харуул Занги өөрсдийн блог дээрээ бүх даалгавруудын &lt;strong&gt;writeup&lt;/strong&gt;-уудыг бичсэн бөгөөд уншихыг хүсвэл &lt;a href=&quot;http://mncert.org/blog/post/Writeup&quot;&gt;энд&lt;/a&gt; дарна уу.&lt;/p&gt;
+
+&lt;p&gt;Тэмцээнд ирсэн даалгавруудыг харахыг хүсвэл &lt;a href=&quot;https://github.com/enkhee-Osiris/u18-2017&quot;&gt;энд&lt;/a&gt; дарна уу.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 29 Apr 2017 00:00:00 +0800</pubDate>
+        <link>https://enkhee-Osiris.github.io/information-security/2017/04/29/U18-2017-%D0%B4%D0%B0%D0%B0%D0%BB%D0%B3%D0%B0%D0%B2%D1%80%D1%83%D1%83%D0%B4</link>
+        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2017/04/29/U18-2017-%D0%B4%D0%B0%D0%B0%D0%BB%D0%B3%D0%B0%D0%B2%D1%80%D1%83%D1%83%D0%B4</guid>
+        
+        <category>haruul-zangi</category>
+        
+        <category>u18</category>
+        
+        
+        <category>information-security</category>
+        
+      </item>
     
       <item>
         <title>2017 Оны Анхний Нийтлэл</title>
@@ -422,46 +443,6 @@
         <category>writeup</category>
         
         <category>crypto</category>
-        
-        
-        <category>information-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Jd 20 Оноо</title>
-        <description>&lt;h2 id=&quot;өгөгдөл&quot;&gt;Өгөгдөл&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Даалгаврын нэр:&lt;/strong&gt; JD &lt;br /&gt;
-&lt;strong&gt;Тайлбар:&lt;/strong&gt; Julian Date &lt;br /&gt;
-&lt;strong&gt;Оноо:&lt;/strong&gt; 20 оноо &lt;br /&gt;
-&lt;strong&gt;Файл:&lt;/strong&gt; jd.txt&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Өгөгдсөн файлыг нээж үзээд эхэндээ ямар нэгэн энкод хийсэн текст байна гэж бодтол үгүй байлаа. Маш сайн анзаарвал дотроо тоонууд агуулсан байх бөгөөд тэдгээр тоонуудыг хайя.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat JD.txt | grep -o '[0-9]*'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/14227502/18667413/05c09868-7f63-11e6-9335-89a1de8c57e7.png&quot; alt=&quot;ss&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Өгөгдлийн тайлбарыг эргэн санавал &lt;strong&gt;Julian Date&lt;/strong&gt; гэж өгөгдсөн байгаа. Гарч ирсэн тоонуудыг хөрвүүлбэл 1939 оны 09 сарын 01 ны 08 цаг 00 мин 00 сек болж байна. &lt;a href=&quot;http://www.onlineconversion.com/julian_date.htm&quot;&gt;Онлайн хөрвүүлэгч&lt;/a&gt; ашиглан хөрвүүлэхэд &lt;code class=&quot;highlighter-rouge&quot;&gt;2429507.83333&lt;/code&gt; гэсэн утга гарч ирлээ.&lt;/p&gt;
-
-&lt;p&gt;Эцэст нь туг: &lt;strong&gt;HZ{2429507.83333}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Жич: Энэ даалгаврыг амжиж хийгээгүй тул туг буруу байж болзошгүй :D.&lt;/em&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 20 Sep 2016 00:00:00 +0900</pubDate>
-        <link>https://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</link>
-        <guid isPermaLink="true">https://enkhee-Osiris.github.io/information-security/2016/09/20/JD-20-%D0%BE%D0%BD%D0%BE%D0%BE</guid>
-        
-        <category>haruul-zangi</category>
-        
-        <category>writeup</category>
-        
-        <category>misc</category>
         
         
         <category>information-security</category>
