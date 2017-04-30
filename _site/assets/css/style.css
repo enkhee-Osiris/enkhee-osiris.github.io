@@ -349,8 +349,11 @@ table td {
   color: #333;
 }
 
-.post-full .post-pagination-link.previous {
+.post-full .post-pagination-link.next ~ .post-pagination-link.previous {
   margin-top: 15px;
+}
+
+.post-full .post-pagination-link.previous {
   font-size: 1.3em;
 }
 
