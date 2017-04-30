@@ -75,6 +75,16 @@ layout: default
     <div class="content">
         {{ content }}
     </div>
+    <nav class="post-pagination">
+      {% if page.next.url %}
+        <a class="post-pagination-link next" href="{{page.next.url}}">
+          Дараах &rarr; <strong>{{page.next.title}}</strong>
+        </a>
+      {% endif %}
+      {% if page.previous.url %}
+        <a class="post-pagination-link previous" href="{{ page.previous.url }}">&larr; Өмнөх</a>
+      {% endif %}
+    </nav>
     {% include comments %}
   </div>
 </div>

@@ -332,6 +332,33 @@ table td {
   margin-top: 50px
 }
 
+.post-full .post-pagination {
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-full .post-pagination-link {
+  display: inline-table;
+  cursor: pointer;
+  border: none;
+  font-size: 1.7em;
+}
+
+.post-full .post-pagination-link.next > strong {
+  color: #333;
+}
+
+.post-full .post-pagination-link.previous {
+  margin-top: 15px;
+  font-size: 1.3em;
+}
+
+.post-full .post-pagination-link.next:hover, .post-full .post-pagination-link.next:hover > strong, .post-full .post-pagination-link.previous:hover {
+  background-color: #21a777;
+  color: #fff;
+}
+
 .navbar {
   position: fixed;
   margin: 0;
