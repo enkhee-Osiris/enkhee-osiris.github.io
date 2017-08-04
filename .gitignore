@@ -6,6 +6,11 @@
 # Thumbnails
 ._*
 
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-metadata
+
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
