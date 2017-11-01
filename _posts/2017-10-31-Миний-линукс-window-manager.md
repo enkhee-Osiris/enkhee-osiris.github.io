@@ -20,6 +20,9 @@ tags : [archlinux, window-manager, linux]
 
 Өөрийн ашиглаж байгаа тохиргоог Github дээрээ тавьсан бөгөөд [эндээс үзээрэй](https://github.com/enkhee-Osiris/xmonad-config).
 
+## Сануулга
+
+`ghc --version` хэрэв `8.2.1` бол _Xmobar_ зарим үед алдаа заах болно шүү. Энэ алдааг засахын тулд [xmobar-git](https://aur.archlinux.org/packages/xmobar-git/) гит дээрх хувилбарыг `--enable-debug-info=1 `-тай компайл хийж ашиглаарай.
 
 Эцэст нь HAPPY HALLOWEEN!
 
