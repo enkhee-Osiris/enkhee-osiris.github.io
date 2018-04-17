@@ -73,6 +73,7 @@ ul.inline li {
 }
 
 a {
+  outline: 0;
   color: #25ba84;
   border-bottom: 1px solid #ededed
 }
@@ -81,6 +82,11 @@ a:hover {
   color: #21a777;
   text-decoration: none;
   border-color: #bbb
+  outline: 0;
+}
+
+a:active, a:focus {
+  outline: 0;
 }
 
 table thead {
@@ -532,13 +538,15 @@ canvas {
 }
 
 .overlay .overlay-menu ul li a:hover,
-.social-icons ul li a:hover {
+.social-icons ul li a:hover,
+.overlay .overlay-menu ul li.active a {
   color: #fff
 }
 
 .overlay .overlay-menu ul li a:active:after,
 .overlay .overlay-menu ul li a:focus:after,
-.overlay .overlay-menu ul li a:hover:after {
+.overlay .overlay-menu ul li a:hover:after,
+.overlay .overlay-menu ul li.active a::after {
   width: 110%
 }
 
