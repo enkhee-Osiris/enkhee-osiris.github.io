@@ -12,7 +12,7 @@ layout: default
     {% for post in site.categories[page.slug] %}
       {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
       {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-      
+
       {% if forloop.first %}
         <h2>{{this_year}}</h2>
       {% endif %}
@@ -35,13 +35,13 @@ layout: default
           {% when '12' %}12-р сар
         {% endcase %}
         {{ post.date | date: "%-d" }}
-      </span> 
+      </span>
       <div class="blog-article ">
         <h1 class="article-title">
           <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
         </h1>
         <span class="article-meta">
-          Ангилал: 
+          Ангилал:
 
           {% unless post.categories == empty %}
             {% for category in post.categories %}
@@ -50,13 +50,13 @@ layout: default
                 {% if category_post %}
                   {% unless forloop.first != false %}
                   ,
-                  {% endunless %} 
+                  {% endunless %}
                   <a href="{{ category_post.url }}">
                   {{ category_post.name | join: "/" | capitalize }}
                   </a>
                 {% endif %}
             {% endfor %}
-          {% endunless %} 
+          {% endunless %}
           &nbsp; &nbsp; &nbsp;
           {% unless post.tags == empty %}
             Шошго:
@@ -66,12 +66,12 @@ layout: default
               {% if tag_post %}
                 {% unless forloop.first != false %}
                 ,
-                {% endunless %} 
+                {% endunless %}
                 <a href="{{ tag_post.url }}">
                 {{ tag_post.name | capitalize }}</a>
               {% endif %}
             {% endfor %}
-          {% endunless %}  
+          {% endunless %}
         </span>
       </div>
       </article>

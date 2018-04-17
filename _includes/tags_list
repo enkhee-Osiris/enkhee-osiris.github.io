@@ -1,18 +1,18 @@
-  {% if tags_list.first[0] == null %}
-    {% for tag in tags_list %} 
-    	<li><a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref">{{ tag | capitalize}}</a>
-      {% if forloop.last == false %}
-        ,
-      {% endif %}
-      </li>
-    {% endfor %}
-  {% else %}
-    {% for tag in tags_list %} 
-    	<li><a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">{{ tag[0] | capitalize}}</a>
-      {% if forloop.last == false %}
-        ,
-      {% endif %}
-      </li>
-    {% endfor %}
-  {% endif %}
+{% if tags_list.first[0] == null %}
+  {% for tag in tags_list %} 
+  	<li><a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref">{{ tag | capitalize}}</a>
+    {% if forloop.last == false %}
+      ,
+    {% endif %}
+    </li>
+  {% endfor %}
+{% else %}
+  {% for tag in tags_list %} 
+  	<li><a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">{{ tag[0] | capitalize}}</a>
+    {% if forloop.last == false %}
+      ,
+    {% endif %}
+    </li>
+  {% endfor %}
+{% endif %}
 {% assign tags_list = nil %}

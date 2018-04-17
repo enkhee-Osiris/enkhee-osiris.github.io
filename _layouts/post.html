@@ -3,12 +3,12 @@ layout: default
 ---
 {% include setup %}
 {% include minute_reading %}
-<header class="intro post" 
+<header class="intro post"
   {% if page.cover %}
     style="background-image: url({{ page.cover }})"
-  {% endif %} 
+  {% endif %}
   >
-  <div class="site-heading col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12" 
+  <div class="site-heading col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12"
     {% if page.color %}
       style="color: {{ page.color }}"
     {% endif %}>
@@ -45,7 +45,7 @@ layout: default
           {% when '12' %} 12-р сарын
         {% endcase %}
         {{ page.date | date: "%-d" }}-нд
-        
+
         {% unless page.categories == empty %}
           {% for category in page.categories %}
             {% assign category_post = site.my_categories | where: "slug", category %}
@@ -57,7 +57,7 @@ layout: default
                 ангилалд
               {% endif %}
           {% endfor %}
-        {% endunless %} 
+        {% endunless %}
         нийтэлсэн.
       </h3>
       <h3 class="eta">
