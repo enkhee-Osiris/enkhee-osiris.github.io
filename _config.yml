@@ -30,7 +30,7 @@ collections:
 exclude: [Gemfile, README.md]
 
 # Plugins
-gems:
+plugins:
   - jekyll-coffeescript
   - jekyll-sitemap
   - jekyll-feed
@@ -90,6 +90,6 @@ analytics:
 markdown: kramdown
 
 # Some static texts
-text: 
+text:
   minute_read: минут уншина.
   less_than_minute_read: Минут хүрэхгүй.
