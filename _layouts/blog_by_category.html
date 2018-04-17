@@ -8,80 +8,78 @@ layout: default
 
 <div class="container">
   <section class="blogs col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-  {% if site.categories[page.slug] %}
-    {% for post in site.categories[page.slug] %}
-      {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-      {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+    {% if site.categories[page.slug] %}
+      {% for post in site.categories[page.slug] %}
+        {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+        {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 
-      {% if forloop.first %}
-        <h2>{{this_year}}</h2>
-      {% endif %}
-
-      <article>
-      <span class="hidden-xs">
-        {% assign m = post.date | date: "%-m" %}
-        {% case m %}
-          {% when '1' %}1-р сар
-          {% when '2' %}2-р сар
-          {% when '3' %}3-р сар
-          {% when '4' %}4-р сар
-          {% when '5' %}5-р сар
-          {% when '6' %}6-р сар
-          {% when '7' %}7-р сар
-          {% when '8' %}8-р сар
-          {% when '9' %}9-р сар
-          {% when '10' %}10-р сар
-          {% when '11' %}11-р сар
-          {% when '12' %}12-р сар
-        {% endcase %}
-        {{ post.date | date: "%-d" }}
-      </span>
-      <div class="blog-article ">
-        <h1 class="article-title">
-          <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-        </h1>
-        <span class="article-meta">
-          Ангилал:
-
-          {% unless post.categories == empty %}
-            {% for category in post.categories %}
-              {% assign category_post = site.my_categories | where: "slug", category %}
-              {% assign category_post = category_post[0] %}
-                {% if category_post %}
-                  {% unless forloop.first != false %}
-                  ,
-                  {% endunless %}
-                  <a href="{{ category_post.url }}">
-                  {{ category_post.name | join: "/" | capitalize }}
-                  </a>
-                {% endif %}
-            {% endfor %}
-          {% endunless %}
-          &nbsp; &nbsp; &nbsp;
-          {% unless post.tags == empty %}
-            Шошго:
-            {% for tag in post.tags %}
-              {% assign tag_post = site.my_tags| where: "slug", tag %}
-              {% assign tag_post = tag_post[0] %}
-              {% if tag_post %}
-                {% unless forloop.first != false %}
-                ,
-                {% endunless %}
-                <a href="{{ tag_post.url }}">
-                {{ tag_post.name | capitalize }}</a>
-              {% endif %}
-            {% endfor %}
-          {% endunless %}
-        </span>
-      </div>
-      </article>
-
-      {% if forloop.last == false %}
-        {% if this_year != next_year %}
-          <h2>{{next_year}}</h2>
+        {% if forloop.first %}
+          <h2>{{this_year}}</h2>
         {% endif %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
+
+        <article>
+          <span class="hidden-xs">
+            {% assign m = post.date | date: "%-m" %}
+            {% case m %}
+              {% when '1' %}1-р сар
+              {% when '2' %}2-р сар
+              {% when '3' %}3-р сар
+              {% when '4' %}4-р сар
+              {% when '5' %}5-р сар
+              {% when '6' %}6-р сар
+              {% when '7' %}7-р сар
+              {% when '8' %}8-р сар
+              {% when '9' %}9-р сар
+              {% when '10' %}10-р сар
+              {% when '11' %}11-р сар
+              {% when '12' %}12-р сар
+            {% endcase %}
+            {{ post.date | date: "%-d" }}
+          </span>
+          <div class="blog-article ">
+            <h1 class="article-title">
+              <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+            </h1>
+            <span class="article-meta">
+              Ангилал:
+
+              {% unless post.categories == empty %}
+                {% for category in post.categories %}
+                  {% assign category_post = site.my_categories | where: "slug", category %}
+                  {% assign category_post = category_post[0] %}
+                  {% if category_post %}
+                    {% unless forloop.first != false %}
+                      ,
+                    {% endunless %}
+                    <a href="{{ category_post.url }}">
+                    {{ category_post.name | join: "/" | capitalize }}
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              {% endunless %}
+              &nbsp; &nbsp; &nbsp;
+              {% unless post.tags == empty %}
+                Шошго:
+                {% for tag in post.tags %}
+                  {% assign tag_post = site.my_tags| where: "slug", tag %}
+                  {% assign tag_post = tag_post[0] %}
+                  {% if tag_post %}
+                    {% unless forloop.first != false %}
+                      ,
+                    {% endunless %}
+                    <a href="{{ tag_post.url }}"> {{ tag_post.name | capitalize }}</a>
+                  {% endif %}
+                {% endfor %}
+              {% endunless %}
+            </span>
+          </div>
+        </article>
+        {% if forloop.last == false %}
+          {% if this_year != next_year %}
+            <h2>{{next_year}}</h2>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </section>
 </div>
