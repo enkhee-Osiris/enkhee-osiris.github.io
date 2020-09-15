@@ -1,0 +1,138 @@
+---
+layout: compress
+---
+{% include setup %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta property="article:author" content="https://www.facebook.com/{{ site.author.facebook_id }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#25ba84" />
+    <link href="{{ ASSET_PATH }}/css/font.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link rel="icon" type="image/png" href="{{ ASSET_PATH }}/images/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="{{ ASSET_PATH }}/images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ ASSET_PATH }}/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ ASSET_PATH }}/images/apple-touch-icon-114x114.png" />
+    <link href="{{ BASE_PATH }}/feed.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed" />
+    {% seo %}
+    {% if page.cover %}
+      <meta property="og:image" content="{{ page.cover }}" />
+    {% else %}
+      <meta property="og:image" content="{{ ASSET_PATH }}/images/icon.jpg" />
+    {% endif %}
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <h2><a href="{{ BASE_PATH }}">enkhee-Osiris</a></h2>
+          <ul>
+            {% for node in site.pages %}
+              {% if node.title and node.group == 'navigation' %}
+                {% if node.url == page.url %}
+                  <li class="active"><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+                {% else %}
+                  <li><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            <li><a href="http://github.com/{{ site.author.github }}">github</a></li>
+            <li><a href="{{ BASE_PATH }}/curriculum_vitae">resume</a></li>
+            <li>
+              <button id="theme-toggle">
+                <svg id="theme-icon" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+                  <path d='M160,136c0-30.62,4.51-61.61,16-88C99.57,81.27,48,159.32,48,248c0,119.29,96.71,216,216,216,88.68,0,166.73-51.57,200-128-26.39,11.49-57.38,16-88,16C256.71,352,160,255.29,160,136Z' />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      {{ content }}
+
+      <footer>
+        <center>
+          <p>
+            Crafted with <span class="with_color">&hearts;</span> by <a href="http://github.com/{{ site.author.github }}">Osiris</a>.
+          </p>
+          <p>
+            <a href="#">Back to top</a>
+          </p>
+        </center>
+      </footer>
+
+    </div>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(["_setAccount", '{{ site.analytics.google.tracking_id }}']);
+      _gaq.push(["_trackPageview"]);
+
+      (function() {
+        var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+        ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="text/javascript">
+      const moonIcon = "<path d='M160,136c0-30.62,4.51-61.61,16-88C99.57,81.27,48,159.32,48,248c0,119.29,96.71,216,216,216,88.68,0,166.73-51.57,200-128-26.39,11.49-57.38,16-88,16C256.71,352,160,255.29,160,136Z'/>";
+      const sunIcon = "<line x1='256' y1='48' x2='256' y2='96'/><line x1='256' y1='416' x2='256' y2='464'/><line x1='403.08' y1='108.92' x2='369.14' y2='142.86'/><line x1='142.86' y1='369.14' x2='108.92' y2='403.08'/><line x1='464' y1='256' x2='416' y2='256'/><line x1='96' y1='256' x2='48' y2='256'/><line x1='403.08' y1='403.08' x2='369.14' y2='369.14'/><line x1='142.86' y1='142.86' x2='108.92' y2='108.92'/><circle cx='256' cy='256' r='80'/>";
+
+      const themeBtn = document.querySelector("#theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
+      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function applyThemeChange (theme) {
+        if (document.querySelector("link[rel*='shortcut icon']")) {
+          document.querySelector("link[rel*='shortcut icon']").remove()
+        }
+
+        const link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+        const themeIcon = document.querySelector("#theme-icon");
+        const metaThemeColor = document.querySelector("meta[name='theme-color']");
+        link.rel = "shortcut icon";
+
+        if (theme === "dark") {
+          link.href = "{{ ASSET_PATH }}/images/favicon-dark.png";
+          themeIcon.innerHTML = sunIcon;
+          metaThemeColor.setAttribute("content", "#ccf52a");
+        } else {
+          link.href = "{{ ASSET_PATH }}/images/favicon.png";
+          themeIcon.innerHTML = moonIcon;
+          metaThemeColor.setAttribute("content", "#25ba84");
+        }
+
+        document.getElementsByTagName("head")[0].appendChild(link);
+      }
+
+      if (currentTheme === "dark") {
+        applyThemeChange("dark");
+        document.body.classList.toggle("dark-theme");
+      } else {
+        applyThemeChange("light");
+        document.body.classList.toggle("light-theme");
+      }
+
+      themeBtn.addEventListener("click", function() {
+        if (prefersDarkScheme.matches) {
+          document.body.classList.toggle("light-theme");
+          var theme = document.body.classList.contains("light-theme") ? "light" : "dark";
+        } else {
+          document.body.classList.toggle("dark-theme");
+          var theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+        }
+
+        applyThemeChange(theme);
+        localStorage.setItem("theme", theme);
+      });
+    </script>
+  </body>
+</html>
