@@ -1,4 +1,0 @@
----
-slug: cartoon
-name: Cartoon
----

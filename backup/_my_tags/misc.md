@@ -1,4 +1,0 @@
----
-slug: misc
-name: Misc
----

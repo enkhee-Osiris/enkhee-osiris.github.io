@@ -1,4 +1,0 @@
----
-slug: beginner
-name: Beginner
----

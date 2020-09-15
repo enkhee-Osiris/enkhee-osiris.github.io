@@ -1,4 +1,0 @@
-<header class="text-xs-center archive-header">
-  <h1 class="text-uppercase">{{ include.title }}</h1>
-  <p>{{ include.subtitle }}</p>
-</header>

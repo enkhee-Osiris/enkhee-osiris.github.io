@@ -1,4 +1,0 @@
----
-slug: writeup
-name: Writeup
----
