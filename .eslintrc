@@ -1,0 +1,75 @@
+{
+  "root": true,
+  "env": { "node": true, "browser": true, "es2021": true },
+  "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "next", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["node_modules", "coverage", ".cache", ".log", "out", ".turbo", "_next"],
+  "rules": {
+    "max-lines": ["error", { "max": 100, "skipBlankLines": true, "skipComments": true }],
+    "no-console": "off",
+    "quotes": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "project": "./tsconfig.eslint.json"
+      },
+      "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb-typescript",
+        "prettier",
+        "next",
+        "plugin:react/jsx-runtime"
+      ],
+      "plugins": ["react", "@typescript-eslint"],
+      "rules": {
+        "@typescript-eslint/quotes": ["off"],
+        "import/no-extraneous-dependencies": [
+          "error",
+          { "packageDir": ["./", "./sites/personal"] }
+        ],
+        "import/order": [
+          "error",
+          {
+            "alphabetize": { "caseInsensitive": true, "order": "asc" },
+            "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+            "newlines-between": "always",
+            "pathGroups": [
+              { "group": "external", "pattern": "react", "position": "before" },
+              { "group": "parent", "pattern": "@/**", "position": "before" }
+            ],
+            "pathGroupsExcludedImportTypes": ["react"]
+          }
+        ],
+        "max-lines": ["error", { "max": 100, "skipBlankLines": true, "skipComments": true }],
+        "no-console": "off",
+        "quotes": "off",
+        "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+        "react/jsx-props-no-spreading": "off",
+        "react/no-array-index-key": "off",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/require-default-props": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
