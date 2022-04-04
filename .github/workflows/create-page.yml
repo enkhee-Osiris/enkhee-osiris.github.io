@@ -1,10 +1,9 @@
-name: GitHub Pages
+name: Deploy GitHub Page
 
 on:
   push:
     branches:
       - master
-  pull_request:
 
 jobs:
   deploy:

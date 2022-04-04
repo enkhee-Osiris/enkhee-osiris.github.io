@@ -13,6 +13,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["scripts/*.ts"],
+  "include": ["**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx"],
   "exclude": ["node_modules"]
 }
