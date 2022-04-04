@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+/* eslint-disable import/no-extraneous-dependencies, no-console */
 const process = require("process");
 const path = require("path");
 const { realpathSync, existsSync } = require("fs");

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+/* eslint-disable import/no-extraneous-dependencies, no-console */
 const path = require("path");
 const process = require("process");
 const { existsSync, readdirSync, realpathSync } = require("fs");
@@ -21,6 +22,7 @@ const sitePaths = getDirectories(path.join("./", "sites"));
 (async () => {
   log("Export Starting");
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const sitePath of sitePaths) {
     if (!existsSync(`${sitePath}/out`)) {
       log("Export Failed");
