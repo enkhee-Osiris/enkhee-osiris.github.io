@@ -22,6 +22,7 @@ const sitePaths = getDirectories(path.join("./", "sites"));
 (async () => {
   log("Export Starting");
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const sitePath of sitePaths) {
     if (!existsSync(`${sitePath}/out`)) {
       log("Export Failed");
