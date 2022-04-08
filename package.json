@@ -6,6 +6,7 @@
   "scripts": {
     "format": "npm run pretty --write && npm run lint --fix",
     "lint": "eslint ./ --ext ts,tsx,js,jsx",
+    "type-check": "tsc --noEmit",
     "pretty": "prettier -c -u ./",
     "personal": "npm run --workspace=personal",
     "test": "echo \"Error: no test specified\" && exit 1",
