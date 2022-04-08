@@ -40,7 +40,7 @@ jobs:
         run: npm ci --no-audit
 
   lint:
-    name: Lint and type check
+    name: Lint
     needs: install
     runs-on: ubuntu-latest
 
@@ -67,6 +67,3 @@ jobs:
           eslint: true
           eslint_extensions: "js,ts,jsx,tsx"
           prettier: true
-
-      - name: Type check
-        run: npm run type-check
