@@ -4,7 +4,7 @@
   "description": "enkhee-Osiris's personal websites",
   "private": true,
   "scripts": {
-    "format": "npm run pretty --write && npm run lint --fix",
+    "format": "npm run pretty --write && npm run lint -- --fix",
     "lint": "eslint ./ --ext ts,tsx,js,jsx",
     "type-check": "tsc --noEmit",
     "pretty": "prettier -c -u ./",
@@ -32,9 +32,12 @@
     "sites/*"
   ],
   "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "@stitches/react": "^1.2.7",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "usehooks-ts": "^2.4.2"
   },
   "devDependencies": {
     "@actions/core": "^1.6.0",
