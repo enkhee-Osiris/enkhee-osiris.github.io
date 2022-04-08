@@ -31,9 +31,10 @@
         "plugin:react/recommended",
         "airbnb",
         "airbnb-typescript",
-        "prettier",
+        "airbnb/hooks",
         "next",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        "prettier"
       ],
       "plugins": ["react", "@typescript-eslint"],
       "rules": {
