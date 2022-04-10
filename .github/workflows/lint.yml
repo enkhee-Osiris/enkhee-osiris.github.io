@@ -53,6 +53,14 @@ jobs:
         with:
           node-version: "16"
 
+      - name: Cache Turbo
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ github.ref_name }}-
+
       - name: Cache node_modules
         uses: actions/cache@v3
         with:
@@ -62,7 +70,7 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Lint
-        run: npm run lint
+        run: npm run lint -- --cache-dir=".turbo"
 
       - name: Type check
-        run: npm run type-check
+        run: npm run type-check -- --cache-dir=".turbo"
