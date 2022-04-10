@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "packages/ui"
+      - "sites/**"
 
 jobs:
   install:
@@ -32,48 +35,13 @@ jobs:
         with:
           path: |
             node_modules
+            packages/*/node_modules
             sites/*/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci --no-audit
-
-  lint:
-    name: Lint
-    needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Git repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-
-      - name: Cache Turbo
-        uses: actions/cache@v3
-        with:
-          path: .turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
-
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            sites/*/node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
-
-      - name: Lint
-        run: npm run lint -- --cache-dir=".turbo"
-
-      - name: Type check
-        run: npm run type-check -- --cache-dir=".turbo"
 
   build:
     name: Build websites
@@ -105,6 +73,7 @@ jobs:
         with:
           path: |
             node_modules
+            packages/*/node_modules
             sites/*/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
