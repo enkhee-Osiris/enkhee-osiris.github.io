@@ -9,7 +9,7 @@ const Text = styled("p", {
 
 function ThemeToggle() {
   const isClient = useIsClient();
-  const { isDarkMode, toggle } = useDarkMode(false);
+  const { isDarkMode, toggle } = useDarkMode(true);
 
   if (isClient) {
     return (
