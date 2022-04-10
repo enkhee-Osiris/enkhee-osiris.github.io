@@ -1,0 +1,11 @@
+{
+  "name": "@enkhee-Osiris/tsconfigs",
+  "description": "Tsconfigs for enkhee-osiris.github.io",
+  "version": "1.0.0",
+  "author": "enkhee-Osiris",
+  "license": "MIT",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}

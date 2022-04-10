@@ -62,8 +62,7 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Lint
-        uses: wearerequired/lint-action@v1.12.0
-        with:
-          eslint: true
-          eslint_extensions: "js,ts,jsx,tsx"
-          prettier: true
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check

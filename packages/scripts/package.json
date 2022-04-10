@@ -1,0 +1,18 @@
+{
+  "name": "@enkhee-Osiris/scripts",
+  "description": "Scripts for enkhee-osiris.github.io",
+  "version": "1.0.0",
+  "author": "enkhee-Osiris",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./ --ext ts,tsx,js,jsx"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@actions/core": "^1.6.0",
+    "@enkhee-Osiris/configs": "*",
+    "@enkhee-Osiris/tsconfigs": "*",
+    "shelljs": "^0.8.5"
+  }
+}

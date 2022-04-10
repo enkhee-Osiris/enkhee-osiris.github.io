@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /* eslint-disable import/no-extraneous-dependencies, no-console */
+const { existsSync, readdirSync, realpathSync } = require("fs");
 const path = require("path");
 const process = require("process");
-const { existsSync, readdirSync, realpathSync } = require("fs");
 
 const { cp, mkdir } = require("shelljs");
 

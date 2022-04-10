@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /* eslint-disable import/no-extraneous-dependencies, no-console */
-const process = require("process");
-const path = require("path");
-const { realpathSync, existsSync } = require("fs");
 const { execSync } = require("child_process");
+const { realpathSync, existsSync } = require("fs");
+const path = require("path");
+const process = require("process");
 
 const { cp, mkdir, rm } = require("shelljs");
 
@@ -67,7 +67,7 @@ const execOptions = {
         `git -c user.name="${gitUserName}" -c user.email="${gitUserEmail}" commit --allow-empty -m "Update github page" --author="enkhee-Osiris <enkhee.ag@gmail.com>"`,
         { ...execOptions, cwd: TMP_WORK_PATH }
       );
-    } catch {
+    } catch (e) {
       log("Using default git config");
       gitUserName = "github-actions";
       gitUserEmail = "github-actions@github.com";
