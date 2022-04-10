@@ -12,7 +12,7 @@ const { log } = require("./helper");
 
 const date = new Date();
 const BRANCH = "gh-pages";
-const APP_PATH = realpathSync(path.resolve(__dirname, ".."));
+const APP_PATH = realpathSync(path.resolve(__dirname, "../.."));
 const BUILD_PATH = path.join(APP_PATH, "out");
 const TMP_WORK_PATH = path.join(APP_PATH, `tmp_work_dir_${date.getTime()}`);
 

@@ -9,7 +9,7 @@ const { cp, mkdir } = require("shelljs");
 
 const { log } = require("./helper");
 
-const APP_PATH = realpathSync(path.resolve(__dirname, ".."));
+const APP_PATH = realpathSync(path.resolve(__dirname, "../.."));
 
 function getDirectories(inputPath) {
   return readdirSync(inputPath, { withFileTypes: true })
