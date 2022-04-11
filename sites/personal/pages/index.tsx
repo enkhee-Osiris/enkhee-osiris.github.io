@@ -32,7 +32,7 @@ function Home() {
       </Head>
 
       <>
-        <Text as="h1">Hello, from Stitches.</Text>
+        <Text as="h1">Hello this is root.</Text>
         <ThemeToggle />
       </>
     </>
