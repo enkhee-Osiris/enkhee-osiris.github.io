@@ -1,6 +1,5 @@
-import Head from "next/head";
-
 import { Text, ThemeToggle } from "@enkhee-Osiris/ui";
+import Head from "next/head";
 
 function Home() {
   return (
