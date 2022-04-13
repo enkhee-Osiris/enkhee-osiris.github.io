@@ -1,26 +1,5 @@
+import { Text, ThemeToggle } from "@enkhee-Osiris/ui";
 import Head from "next/head";
-import { useDarkMode, useIsClient } from "usehooks-ts";
-
-import { styled } from "@/stitches.config";
-
-const Text = styled("p", {
-  color: "$gray12",
-});
-
-function ThemeToggle() {
-  const isClient = useIsClient();
-  const { isDarkMode, toggle } = useDarkMode(true);
-
-  if (isClient) {
-    return (
-      <button type="button" onClick={toggle}>
-        {isDarkMode ? "Show me the light" : "Nooo it's too bright"}
-      </button>
-    );
-  }
-
-  return null;
-}
 
 function Home() {
   return (

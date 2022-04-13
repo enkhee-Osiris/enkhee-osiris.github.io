@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@enkhee-Osiris/configs": "*",
-    "@enkhee-Osiris/tsconfigs": "*"
+    "@enkhee-Osiris/tsconfigs": "*",
+    "@enkhee-Osiris/ui": "*"
   }
 }

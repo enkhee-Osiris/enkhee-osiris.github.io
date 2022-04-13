@@ -31,6 +31,7 @@ const RULES = {
       pathGroupsExcludedImportTypes: ["react"],
     },
   ],
+  "import/prefer-default-export": "off",
   "max-lines": ["error", { max: 100, skipBlankLines: true, skipComments: true }],
   "no-console": "off",
   quotes: "off",
