@@ -1,3 +1,5 @@
+const withTM = require("next-transpile-modules")(["@enkhee-Osiris/ui"]);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -16,6 +18,7 @@ const nextConfig = {
       },
     ];
   },
+  swcMinify: true,
 };
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig);
