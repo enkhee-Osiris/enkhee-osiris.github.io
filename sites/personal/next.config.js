@@ -19,6 +19,7 @@ const nextConfig = {
     ];
   },
   swcMinify: true,
+  trailingSlash: true,
 };
 
 module.exports = withTM(nextConfig);
