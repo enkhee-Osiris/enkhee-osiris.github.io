@@ -61,6 +61,10 @@ const globalStyles = globalCss({
   html: {
     boxSizing: "border-box",
     fontSize: "16px",
+    fontFamily: "'IBM Plex Sans', sans-serif",
+  },
+  "html, body, div#__next, div#__next > div": {
+    height: "100%",
   },
   "*, *::before, *::after": { boxSizing: "inherit" },
   "body, h1, h2, h3, h4, h5, h6, p, ol, ul": {
