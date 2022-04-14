@@ -1,4 +1,4 @@
-import { Button, Nav, Page, Text, ThemeToggle } from "@enkhee-Osiris/ui";
+import { Nav, Page } from "@enkhee-Osiris/ui";
 import Head from "next/head";
 
 function Home() {
