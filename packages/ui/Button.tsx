@@ -17,6 +17,12 @@ export const StyledButton = styled("button", {
     color: "$gray11",
     cursor: "not-allowed",
   },
+  "&:disabled:hover": {
+    backgroundColor: "$gray3",
+  },
+  "&:disabled:active": {
+    backgroundColor: "$gray3",
+  },
 
   variants: {
     variant: {
@@ -44,7 +50,7 @@ export const StyledButton = styled("button", {
       },
       outlined: {
         pY: "10px",
-        backgroundColor: "$blue1",
+        backgroundColor: "transparent",
         borderColor: "$blue7",
         borderStyle: "solid",
         borderWidth: "2px",
