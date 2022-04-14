@@ -5,11 +5,10 @@ const Svg = styled("svg");
 
 export type IconProps = Omit<StitchesComponentProp<typeof Svg>, "name"> & {
   name: keyof typeof ICONS;
-  width?: number;
-  height?: number;
+  size?: number;
 };
 
-export function Icon({ name, width = 24, height = 24, ...rest }: IconProps) {
+export function Icon({ name, size = 24, ...rest }: IconProps) {
   if (!Object.prototype.hasOwnProperty.call(ICONS, name)) {
     return null;
   }
@@ -18,8 +17,8 @@ export function Icon({ name, width = 24, height = 24, ...rest }: IconProps) {
 
   return (
     <Svg
-      width={width}
-      height={height}
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
