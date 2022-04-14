@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST={__rewrites:{beforeFiles:[],afterFiles:[{source:"/curriculum_vitae"},{source:"/blogs"}],fallback:[]},"/":["static/chunks/pages/index-85d12b6ab989d0e0.js"],"/_error":["static/chunks/pages/_error-e0cbd9aa1699d90b.js"],sortedPages:["/","/_app","/_error"]},self.__BUILD_MANIFEST_CB&&self.__BUILD_MANIFEST_CB()
