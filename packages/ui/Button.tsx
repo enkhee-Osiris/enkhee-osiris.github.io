@@ -14,7 +14,7 @@ export const StyledButton = styled("button", {
   pY: "12px",
   "&:disabled": {
     backgroundColor: "$gray3",
-    color: "$gray11",
+    color: "$gray8",
     cursor: "not-allowed",
   },
   "&:disabled:hover": {
@@ -27,36 +27,36 @@ export const StyledButton = styled("button", {
   variants: {
     variant: {
       primary: {
-        backgroundColor: "$blue3",
+        backgroundColor: "$orange3",
         border: "none",
-        color: "$blue11",
+        color: "$orange11",
         "&:hover": {
-          backgroundColor: "$blue4",
+          backgroundColor: "$orange4",
         },
         "&:active": {
-          backgroundColor: "$blue5",
+          backgroundColor: "$orange5",
         },
       },
       secondary: {
         backgroundColor: "transparent",
         border: "none",
-        color: "$blue11",
+        color: "$orange11",
         "&:hover": {
-          backgroundColor: "$blue4",
+          backgroundColor: "$orange4",
         },
         "&:active": {
-          backgroundColor: "$blue5",
+          backgroundColor: "$orange5",
         },
       },
       outlined: {
         pY: "10px",
         backgroundColor: "transparent",
-        borderColor: "$blue7",
+        borderColor: "$orange7",
         borderStyle: "solid",
         borderWidth: "2px",
-        color: "$blue11",
+        color: "$orange11",
         "&:hover": {
-          borderColor: "$blue8",
+          borderColor: "$orange8",
         },
       },
     },

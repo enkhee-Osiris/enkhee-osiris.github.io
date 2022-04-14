@@ -1,6 +1,7 @@
 export * from "./stitches.config";
 export * from "./Container";
 export * from "./Page";
+export * from "./Nav";
 export * from "./Icon";
 export * from "./Button";
 export * from "./Text";
