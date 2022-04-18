@@ -46,16 +46,6 @@ const { styled, globalCss, getCssText, createTheme } = createStitches({
       52: "52px",
       84: "84px",
     },
-    fontSizes: {
-      10: "10px",
-      12: "12px",
-      14: "14px",
-      16: "16px",
-      20: "20px",
-      24: "24px",
-      32: "32px",
-      64: "64px",
-    },
   },
   media: {
     sm: "(min-width: 640px)",

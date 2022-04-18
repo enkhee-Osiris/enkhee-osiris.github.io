@@ -15,8 +15,14 @@ export function ThemeToggler() {
   if (isClient) {
     return (
       <StyledButton type="button" onClick={toggle}>
-        <Icon css={{ ".dark-theme &": { display: "none" }, color: "$gray10" }} name="moon" />
-        <Icon css={{ ".light-theme &": { display: "none" }, color: "$orange10" }} name="sun" />
+        <Icon
+          css={{ ".dark-theme &": { display: "none" }, color: "$gray10", cursor: "pointer" }}
+          name="moon"
+        />
+        <Icon
+          css={{ ".light-theme &": { display: "none" }, color: "$orange10", cursor: "pointer" }}
+          name="sun"
+        />
       </StyledButton>
     );
   }
