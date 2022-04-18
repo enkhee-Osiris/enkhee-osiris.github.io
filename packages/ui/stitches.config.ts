@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import {
   gray,
   blue,
@@ -20,6 +21,30 @@ const { styled, globalCss, getCssText, createTheme } = createStitches({
       ...red,
       ...grass,
       ...orange,
+    },
+    space: {
+      // Linear 8, 16, 24, 32, 40, 48, 56, 64
+      0: "0",
+      1: "1px",
+      4: "4px",
+      8: "8px",
+      16: "16px",
+      24: "24px",
+      32: "32px",
+      40: "40px",
+      48: "48px",
+      56: "56px",
+      64: "64px",
+
+      // Golden ratio 10, 14, 20, 40, 64
+      10: "10px",
+      14: "14px",
+      20: "20px",
+
+      // 8, 12, 20, 32, 52, 84
+      12: "12px",
+      52: "52px",
+      84: "84px",
     },
   },
   media: {

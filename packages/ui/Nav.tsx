@@ -1,4 +1,6 @@
+import clsx from "clsx";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { Icon, IconProps } from "./Icon";
 import { styled } from "./stitches.config";
@@ -20,6 +22,11 @@ const StyledA = styled("a", {
 
   "&:hover": { color: "$orange9" },
   "&:active": { color: "$orange10" },
+
+  "&.active": {
+    cursor: "default",
+    color: "$orange10",
+  },
 });
 
 function NavItem({
@@ -31,10 +38,14 @@ function NavItem({
   url: string;
   iconName?: IconProps["name"];
 }) {
+  const { pathname } = useRouter();
+
   return (
     <Link href={url} passHref>
-      <StyledA>
-        {iconName && <Icon css={{ marginRight: "8px" }} name={iconName} />}
+      <StyledA
+        className={clsx(url.replaceAll("/", "") === pathname.replaceAll("/", "") && "active")}
+      >
+        {iconName && <Icon css={{ marginRight: "$space$8" }} name={iconName} />}
         {text}
       </StyledA>
     </Link>

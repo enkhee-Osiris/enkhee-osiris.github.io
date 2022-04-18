@@ -1,4 +1,4 @@
-import { Nav, Page } from "@enkhee-Osiris/ui";
+import { Page, Text } from "@enkhee-Osiris/ui";
 import Head from "next/head";
 
 function Home() {
@@ -10,7 +10,9 @@ function Home() {
       </Head>
 
       <Page>
-        <Nav />
+        <Text variant="text" size="md">
+          The quick brown fox jumps over the lazy dog.
+        </Text>
       </Page>
     </>
   );
