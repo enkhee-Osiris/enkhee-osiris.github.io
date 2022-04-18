@@ -10,7 +10,7 @@ export type PageProps = {
 };
 
 const Background = styled("main", {
-  backgroundColor: "$gray1",
+  backgroundColor: "$gray3",
   height: "100%",
   pY: "$space$32",
   "@sm": { pY: "$space$48" },
