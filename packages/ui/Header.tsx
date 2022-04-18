@@ -11,7 +11,7 @@ export type HeaderProps = {
 
 export function Header({ heading }: HeaderProps) {
   return (
-    <Container as="header" css={{ mb: "$space$64" }}>
+    <Container as="header" css={{ mb: "$space$84" }}>
       <Grid columns={{ "@initial": 1, "@md": 2 }} align="center" justify="between" gap={32}>
         <Nav />
 

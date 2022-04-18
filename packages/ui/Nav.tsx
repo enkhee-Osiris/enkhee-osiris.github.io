@@ -12,7 +12,7 @@ const StyledUl = styled("ul", {
 });
 
 const StyledA = styled("a", {
-  color: "$gray12",
+  color: "$gray11",
   display: "inline-flex",
   alignItems: "center",
   fontSize: "30px",
@@ -20,7 +20,7 @@ const StyledA = styled("a", {
   letterSpacing: "-0.02em",
   fontWeight: "500",
 
-  "&:hover": { color: "$orange9" },
+  "&:hover": { color: "$gray12" },
   "&:active": { color: "$orange10" },
 
   "&.active": {
