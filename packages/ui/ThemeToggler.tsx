@@ -1,14 +1,23 @@
 import { useDarkMode, useIsClient } from "usehooks-ts";
 
-export function ThemeToggle() {
+import { Icon } from "./Icon";
+import { styled } from "./stitches.config";
+
+const StyledButton = styled("button", {
+  backgroundColor: "transparent",
+  border: "none",
+});
+
+export function ThemeToggler() {
   const isClient = useIsClient();
-  const { isDarkMode, toggle } = useDarkMode(true);
+  const { toggle } = useDarkMode(true);
 
   if (isClient) {
     return (
-      <button type="button" onClick={toggle}>
-        {isDarkMode ? "Show me the light" : "Nooo it's too bright"}
-      </button>
+      <StyledButton type="button" onClick={toggle}>
+        <Icon css={{ ".dark-theme &": { display: "none" }, color: "$gray10" }} name="moon" />
+        <Icon css={{ ".light-theme &": { display: "none" }, color: "$orange10" }} name="sun" />
+      </StyledButton>
     );
   }
 

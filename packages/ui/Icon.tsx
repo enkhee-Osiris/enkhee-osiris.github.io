@@ -1,9 +1,11 @@
+import type { ComponentProps } from "react";
+
 import ICONS from "./icons";
 import { styled } from "./stitches.config";
 
 const Svg = styled("svg");
 
-export type IconProps = Omit<StitchesComponentProp<typeof Svg>, "name"> & {
+export type IconProps = ComponentProps<typeof Svg> & {
   name: keyof typeof ICONS;
   size?: number;
 };

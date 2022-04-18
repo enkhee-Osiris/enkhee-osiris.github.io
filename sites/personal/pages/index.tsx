@@ -1,4 +1,4 @@
-import { Nav, Page } from "@enkhee-Osiris/ui";
+import { Header, Page } from "@enkhee-Osiris/ui";
 import Head from "next/head";
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
       </Head>
 
       <Page>
-        <Nav />
+        <Header heading="Hello, I'm Enkherdene." />
       </Page>
     </>
   );

@@ -1,3 +1,5 @@
+import type { ComponentProps } from "react";
+
 import { Icon, IconProps } from "./Icon";
 import { styled } from "./stitches.config";
 
@@ -66,7 +68,7 @@ export const StyledButton = styled("button", {
   },
 });
 
-export type ButtonProps = StitchesComponentProp<typeof StyledButton> & {
+export type ButtonProps = ComponentProps<typeof StyledButton> & {
   text: string;
   leadingIcon?: IconProps["name"];
   trailingIcon?: IconProps["name"];
@@ -75,9 +77,9 @@ export type ButtonProps = StitchesComponentProp<typeof StyledButton> & {
 export function Button({ text, leadingIcon, trailingIcon, ...rest }: ButtonProps) {
   return (
     <StyledButton {...rest}>
-      {leadingIcon && <Icon name={leadingIcon} width={16} height={16} />}
+      {leadingIcon && <Icon name={leadingIcon} size={16} />}
       {text}
-      {trailingIcon && <Icon name={trailingIcon} width={16} height={16} />}
+      {trailingIcon && <Icon name={trailingIcon} size={16} />}
     </StyledButton>
   );
 }
