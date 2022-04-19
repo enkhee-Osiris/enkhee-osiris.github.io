@@ -21,11 +21,11 @@ function Home() {
                 Hey, I am <strong>Enkherdene</strong> (enkhee-Osiris), freelancer.
               </Text>
               <Text variant="text" size="lg">
-                I am front-end developer living in <strong>Ulaanbaatar</strong> (Mongolia). I focus
-                on solve problems and create seamless experiences.
+                I am a front-end developer, living in <strong>Ulaanbaatar</strong> (Mongolia).
+                Coding is my passion. I love trying modern technologies and learning new things.
               </Text>
               <Text variant="text" size="lg">
-                I enjoy taking photography with film cameras.
+                And in my spare time, I enjoy taking photos with film cameras.
                 <br />
                 <Anchor url="/about/" text="More about me" />
               </Text>
@@ -39,7 +39,7 @@ function Home() {
               </Box>
 
               <Text variant="text" size="lg">
-                <Anchor url="/contact/" text="If you'd like to work with me" />
+                <Anchor url="/connect/" text="If you'd like to work with me" />
               </Text>
             </Col>
           </Grid>

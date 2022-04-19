@@ -13,6 +13,7 @@ export * from "./Img";
 export * from "./Nav";
 export * from "./Page";
 export * from "./Row";
+export * from "./SocialLink";
 export * from "./Text";
 export * from "./ThemeProvider";
 export * from "./ThemeToggler";

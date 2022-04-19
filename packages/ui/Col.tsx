@@ -35,5 +35,5 @@ export type ColProps = ComponentProps<typeof StyledCol> & {
 };
 
 export function Col(props: ColProps) {
-  return <Flex align="stretch" direction="column" justify="start" wrap="wrap" {...props} />;
+  return <StyledCol align="stretch" direction="column" justify="start" wrap="wrap" {...props} />;
 }

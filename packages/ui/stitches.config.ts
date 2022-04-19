@@ -89,7 +89,7 @@ const globalStyles = globalCss({
     fontFamily: "'IBM Plex Sans', sans-serif",
   },
   "html, body, div#__next, div#__next > div": {
-    height: "100%",
+    minHeight: "100vh",
   },
   "*, *::before, *::after": { boxSizing: "inherit" },
   "body, h1, h2, h3, h4, h5, h6, p, ol, ul": {
