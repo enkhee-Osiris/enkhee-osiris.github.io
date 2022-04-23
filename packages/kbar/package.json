@@ -1,0 +1,33 @@
+{
+  "name": "kbar",
+  "description": "clone from https://github.com/timc1/kbar",
+  "version": "1.0.0",
+  "author": "Tim Chang <timchang.tcc@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./ --ext ts,tsx,js,jsx",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@radix-ui/react-portal": "0.1.5-rc.3",
+    "command-score": "^0.1.2",
+    "fast-equals": "^3.0.1",
+    "tiny-invariant": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@enkhee-Osiris/configs": "*",
+    "@enkhee-Osiris/tsconfigs": "*",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^14.1.1",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1"
+  }
+}

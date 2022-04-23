@@ -9,8 +9,7 @@ const StyledA = styled("a", {
   display: "inline-flex",
   textDecoration: "none",
 
-  "&:hover": { color: "$orange10", textDecoration: "underline" },
-  "&:active": { color: "$orange10", textDecoration: "underline" },
+  "&:hover, &:active": { color: "$orange10" },
 });
 
 export function SocialLink({
