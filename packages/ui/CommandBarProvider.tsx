@@ -287,7 +287,14 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
   );
 
   return (
-    <KBarProvider actions={actions}>
+    <KBarProvider
+      actions={actions}
+      options={{
+        disableDocumentLock: false,
+        disableScrollbarManagement: true,
+        enableHistory: false,
+      }}
+    >
       <ThemeActions />
 
       <KBarPortal>

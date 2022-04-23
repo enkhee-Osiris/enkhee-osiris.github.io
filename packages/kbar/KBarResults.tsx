@@ -122,8 +122,10 @@ export function KBarResults(props: KBarResultsProps) {
       ref={parentRef}
       style={{
         maxHeight: props.maxHeight || 400,
-        position: "relative",
         overflow: "auto",
+        position: "relative",
+        paddingTop: "12px",
+        paddingBottom: "12px",
       }}
     >
       <div
