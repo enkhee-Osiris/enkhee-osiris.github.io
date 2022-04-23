@@ -1,0 +1,5 @@
+{
+  "extends": "@enkhee-Osiris/tsconfigs/react.json",
+  "include": ["./types.d.ts", "."],
+  "exclude": ["dist", "build", "node_modules"]
+}

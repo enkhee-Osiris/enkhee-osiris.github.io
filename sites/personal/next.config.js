@@ -1,4 +1,4 @@
-const withTM = require("next-transpile-modules")(["@enkhee-Osiris/ui"]);
+const withTM = require("next-transpile-modules")(["kbar", "@enkhee-Osiris/ui"]);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

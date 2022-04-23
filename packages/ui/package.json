@@ -8,9 +8,12 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "scripts": {
-    "lint": "eslint ./ --ext ts,tsx,js,jsx"
+    "lint": "eslint ./ --ext ts,tsx,js,jsx",
+    "type-check": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "kbar": "*"
+  },
   "devDependencies": {
     "@enkhee-Osiris/configs": "*",
     "@enkhee-Osiris/tsconfigs": "*"

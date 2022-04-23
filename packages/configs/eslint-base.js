@@ -3,7 +3,7 @@ module.exports = {
   extends: ["airbnb-base", "prettier"],
   ignorePatterns: ["node_modules", "coverage", ".cache", ".log", "dist", "out", ".turbo"],
   rules: {
-    "max-lines": ["error", { max: 100, skipBlankLines: true, skipComments: true }],
+    "max-lines": ["error", { max: 300, skipBlankLines: true, skipComments: true }],
     "no-console": "off",
     quotes: "off",
     "import/order": [
