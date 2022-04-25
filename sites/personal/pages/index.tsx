@@ -13,7 +13,7 @@ function Home() {
       <Page>
         <Article>
           <Grid
-            css={{ gridTemplateColumns: "1fr", "@md": { gridTemplateColumns: "1fr 320px" } }}
+            css={{ gridTemplateColumns: "1fr", "@md": { gridTemplateColumns: "1fr 290px" } }}
             gap={32}
           >
             <Col>
@@ -21,8 +21,8 @@ function Home() {
                 Hey, I am <strong>Enkherdene</strong> (enkhee-Osiris), freelancer.
               </Text>
               <Text variant="text" size="lg">
-                I am a front-end developer, living in <strong>Ulaanbaatar</strong> (Mongolia).
-                Coding is my passion. I love trying modern technologies and learning new things.
+                I am a front-end developer, living in <strong>Ulaanbaatar</strong> (Mongolia). I
+                love trying modern technologies and learning new things.
               </Text>
               <Text variant="text" size="lg">
                 And in my spare time, I enjoy taking photos with film cameras.
