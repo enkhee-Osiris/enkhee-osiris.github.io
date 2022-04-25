@@ -13,6 +13,7 @@ import {
   useMatches,
   useRegisterActions,
 } from "kbar";
+import { Action } from "kbar/types";
 import { useRouter } from "next/router";
 import { useDarkMode } from "usehooks-ts";
 
@@ -22,7 +23,6 @@ import { Grid } from "./Grid";
 import { Icon } from "./Icon";
 import { Row } from "./Row";
 import { css, styled } from "./stitches.config";
-import { Action } from "kbar/types";
 
 const animator = css({
   background: "$gray2",
@@ -173,7 +173,7 @@ function RenderResults() {
     ({ item, active }) => {
       if (typeof item === "string") {
         if (item === "") {
-          return <></>;
+          return null;
         }
 
         return <SectionHeader>{item}</SectionHeader>;

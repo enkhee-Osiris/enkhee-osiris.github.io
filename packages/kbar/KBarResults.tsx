@@ -14,7 +14,7 @@ interface RenderParams<T = ActionImpl | string> {
 
 export interface KBarResultsProps {
   items: any[];
-  onRender: (params: RenderParams) => React.ReactElement;
+  onRender: (params: RenderParams) => React.ReactElement | null;
   maxHeight?: number;
 }
 
