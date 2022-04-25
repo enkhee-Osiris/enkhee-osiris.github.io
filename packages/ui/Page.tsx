@@ -16,6 +16,10 @@ const Background = styled("main", {
   pY: "$space$32",
   "@sm": { pY: "$space$48" },
   "@lg": { pY: "$space$64" },
+
+  ".dark-theme &": {
+    backgroundColor: "$gray1",
+  },
 });
 
 export function Page({ children, heading = "Hello, I'm Enkherdene." }: PageProps) {
