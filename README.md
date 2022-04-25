@@ -6,6 +6,6 @@ Monorepo project for enkhee-Osiris's personal web sites.
 
 ```text
 ├── blog
-├── curriculum_vitae
+├── resume
 └── personal
 ```

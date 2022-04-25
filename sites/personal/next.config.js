@@ -9,7 +9,7 @@ const nextConfig = {
   rewrites: () => {
     return [
       {
-        source: "/curriculum_vitae",
+        source: "/resume",
         destination: "http://localhost:3001",
       },
       {
