@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 
 import { Col, Page, Row, Text } from "@enkhee-Osiris/ui";
-//import formatDistance from "date-fns/formatDistance";
 import formatDistanceStrict from "date-fns/formatDistanceStrict";
 import parse from "date-fns/parse";
 import Head from "next/head";
