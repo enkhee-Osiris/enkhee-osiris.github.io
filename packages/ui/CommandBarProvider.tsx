@@ -13,6 +13,7 @@ import {
   useMatches,
   useRegisterActions,
 } from "kbar";
+import { Action } from "kbar/types";
 import { useRouter } from "next/router";
 import { useDarkMode } from "usehooks-ts";
 
@@ -24,7 +25,7 @@ import { Row } from "./Row";
 import { css, styled } from "./stitches.config";
 
 const animator = css({
-  background: "$gray1",
+  background: "$gray2",
   borderRadius: "8px",
   color: "$gray12",
   fontFamily: "'IBM Plex Sans', sans-serif",
@@ -38,7 +39,7 @@ const animator = css({
 });
 
 const search = css({
-  background: "$gray2",
+  background: "$gray3",
   border: "none",
   color: "$gray12",
   fontFamily: "'IBM Plex Sans', sans-serif",
@@ -63,6 +64,7 @@ const ItemContainer = styled("div", {
   alignItems: "center",
   background: "transparent",
   borderLeft: "2px solid transparent",
+  color: "$gray12",
   cursor: "pointer",
   display: "flex",
   justifyContent: "space-between",
@@ -70,13 +72,12 @@ const ItemContainer = styled("div", {
   pY: "$space$8",
 
   "&.active": {
-    background: "$gray2",
+    background: "$gray3",
     borderLeft: "2px solid $gray12",
   },
 });
 
 const Title = styled("span", {
-  color: "$gray12",
   fontSize: "14px",
   fontWeight: "500",
   lineHeight: "24px",
@@ -149,7 +150,12 @@ const ResultItem = forwardRef(
           </Col>
         </Row>
         {action.shortcut?.length && (
-          <Grid aria-hidden flow="column" gap={4}>
+          <Grid
+            css={{ display: "none", "@lg": { display: "grid" } }}
+            aria-hidden
+            flow="column"
+            gap={4}
+          >
             {action.shortcut.map((sc) => (
               <StyledKbd key={sc}>{sc}</StyledKbd>
             ))}
@@ -166,6 +172,10 @@ function RenderResults() {
   const handleRender: KBarResultsProps["onRender"] = useCallback(
     ({ item, active }) => {
       if (typeof item === "string") {
+        if (item === "") {
+          return null;
+        }
+
         return <SectionHeader>{item}</SectionHeader>;
       }
 
@@ -234,7 +244,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
     push("/connect");
   }, [push]);
 
-  const actions = useMemo(
+  const actions: Action[] = useMemo(
     () => [
       {
         id: "homeAction",
@@ -243,6 +253,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
         keywords: "back",
         section: "Navigation",
         perform: handleHomeAction,
+        icon: <Icon name="home" size={20} />,
       },
       {
         id: "aboutAction",
@@ -251,6 +262,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
         keywords: "who enkhee osiris",
         section: "Navigation",
         perform: handleAboutAction,
+        icon: <Icon name="person" size={20} />,
       },
       {
         id: "blogsAction",
@@ -259,6 +271,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
         keywords: "write note",
         section: "Navigation",
         perform: handleBlogsAction,
+        icon: <Icon name="document" size={20} />,
       },
       {
         id: "resumeAction",
@@ -267,6 +280,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
         keywords: "education experiences",
         section: "Navigation",
         perform: handleResumeAction,
+        icon: <Icon name="person-work" size={20} />,
       },
       {
         id: "connectAction",
@@ -275,6 +289,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
         keywords: "contact info email hello",
         section: "Navigation",
         perform: handleConnectAction,
+        icon: <Icon name="email" size={20} />,
       },
     ],
     [
@@ -287,7 +302,14 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
   );
 
   return (
-    <KBarProvider actions={actions}>
+    <KBarProvider
+      actions={actions}
+      options={{
+        disableDocumentLock: false,
+        disableScrollbarManagement: true,
+        enableHistory: false,
+      }}
+    >
       <ThemeActions />
 
       <KBarPortal>

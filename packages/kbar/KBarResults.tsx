@@ -14,7 +14,7 @@ interface RenderParams<T = ActionImpl | string> {
 
 export interface KBarResultsProps {
   items: any[];
-  onRender: (params: RenderParams) => React.ReactElement;
+  onRender: (params: RenderParams) => React.ReactElement | null;
   maxHeight?: number;
 }
 
@@ -122,8 +122,10 @@ export function KBarResults(props: KBarResultsProps) {
       ref={parentRef}
       style={{
         maxHeight: props.maxHeight || 400,
-        position: "relative",
         overflow: "auto",
+        position: "relative",
+        paddingTop: "12px",
+        paddingBottom: "12px",
       }}
     >
       <div
