@@ -9,6 +9,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
+        <meta name="theme-color" content="hsl(24, 94.0%, 50.0%)" />
       </Head>
       <body className={darkTheme.className}>
         <Main />

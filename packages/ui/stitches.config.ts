@@ -88,6 +88,11 @@ const globalStyles = globalCss({
     fontSize: "16px",
     fontFamily: "'IBM Plex Sans', sans-serif",
   },
+  "::-moz-selection, ::selection": {
+    backgroundColor: "$orange9",
+    color: "$gray12",
+    textShadow: "none",
+  },
   "html, body, div#__next, div#__next > div": {
     minHeight: "100vh",
   },
