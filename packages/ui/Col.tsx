@@ -7,6 +7,7 @@ const StyledCol = styled("div", Flex, {
   [`& > * + *`]: { paddingTop: 0 },
   variants: {
     gap: {
+      0: { [`& > * + *`]: { paddingTop: 0 } },
       1: { [`& > * + *`]: { paddingTop: "$space$1" } },
       4: { [`& > * + *`]: { paddingTop: "$space$4" } },
       8: { [`& > * + *`]: { paddingTop: "$space$8" } },

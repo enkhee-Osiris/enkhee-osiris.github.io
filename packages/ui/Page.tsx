@@ -13,6 +13,7 @@ const Background = styled("main", {
   backgroundColor: "$gray3",
   height: "100%",
   minHeight: "100vh",
+  overflow: "scroll",
   pY: "$space$32",
   "@sm": { pY: "$space$48" },
   "@lg": { pY: "$space$64" },

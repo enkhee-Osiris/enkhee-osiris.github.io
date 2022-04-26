@@ -10,6 +10,9 @@
     "type-check": "tsc --noEmit",
     "export": "next export"
   },
+  "dependencies": {
+    "@enkhee-Osiris/ui": "*"
+  },
   "devDependencies": {
     "@enkhee-Osiris/configs": "*",
     "@enkhee-Osiris/tsconfigs": "*"

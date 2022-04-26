@@ -1,8 +1,4 @@
-import { useMemo } from "react";
-
-import { Col, Page, Row, Text } from "@enkhee-Osiris/ui";
-import formatDistanceStrict from "date-fns/formatDistanceStrict";
-import parse from "date-fns/parse";
+import { CareerItem, Page, Text } from "@enkhee-Osiris/ui";
 import Head from "next/head";
 
 function Title({ children }: { children: React.ReactText }) {
@@ -10,58 +6,6 @@ function Title({ children }: { children: React.ReactText }) {
     <Text as="h3" variant="display" size="sm" css={{ mt: "$space$32", mb: "$space$16" }}>
       {children}
     </Text>
-  );
-}
-
-function CareerItem({
-  dates,
-  name,
-  position,
-  location,
-}: {
-  dates: string;
-  name?: string;
-  position: string;
-  location: string;
-}) {
-  const dateDistance = useMemo(() => {
-    const [startDateStr, endDateStr] = dates.split(" - ");
-    const startDate = parse(startDateStr, "LLL yyyy", new Date());
-    const endDate = endDateStr === "present" ? null : parse(endDateStr, "LLL yyyy", new Date());
-
-    if (endDate) {
-      return ` (${formatDistanceStrict(startDate, endDate, { unit: "month" })}),`;
-    }
-
-    return ",";
-  }, [dates]);
-
-  return (
-    <Col
-      gap={8}
-      css={{ "& + &": { mt: "$space$16", pt: "$space$16", borderTop: "1px solid $gray5" } }}
-    >
-      <Row gap={8}>
-        <Text as="span" weight="medium">
-          {position}
-        </Text>
-        {Boolean(name) && (
-          <>
-            <Text as="span">&ndash;</Text>
-            <Text as="span" weight="bold">
-              {name}
-            </Text>
-          </>
-        )}
-      </Row>
-
-      <Row gap={8}>
-        <Text as="span" css={{ color: "$gray11" }}>{`${dates}${dateDistance}`}</Text>
-        <Text as="span" css={{ color: "$gray11" }} weight="medium">
-          {location}
-        </Text>
-      </Row>
-    </Col>
   );
 }
 
