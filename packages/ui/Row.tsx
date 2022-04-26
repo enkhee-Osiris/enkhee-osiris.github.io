@@ -7,6 +7,7 @@ const StyledRow = styled("div", Flex, {
   [`& > * + *`]: { paddingLeft: 0 },
   variants: {
     gap: {
+      0: { [`& > * + *`]: { paddingLeft: 0 } },
       1: { [`& > * + *`]: { paddingLeft: "$space$1" } },
       4: { [`& > * + *`]: { paddingLeft: "$space$4" } },
       8: { [`& > * + *`]: { paddingLeft: "$space$8" } },

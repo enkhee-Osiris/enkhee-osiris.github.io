@@ -3,6 +3,7 @@ export * from "./Anchor";
 export * from "./Article";
 export * from "./Box";
 export * from "./Button";
+export * from "./CareerItem";
 export * from "./Col";
 export * from "./CommandBarProvider";
 export * from "./Container";

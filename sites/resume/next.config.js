@@ -1,3 +1,5 @@
+const withTM = require("next-transpile-modules")(["kbar", "@enkhee-Osiris/ui"]);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -8,4 +10,4 @@ const nextConfig = {
   trailingSlash: true,
 };
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig);
