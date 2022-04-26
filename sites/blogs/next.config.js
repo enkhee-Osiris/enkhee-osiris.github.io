@@ -6,6 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
+  basePath: "/blogs",
 };
 
 module.exports = nextConfig;
