@@ -8,6 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
+  basePath: "/resume",
 };
 
 module.exports = withTM(nextConfig);
