@@ -36,8 +36,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Enkherdene&apos;s resume</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Resume ▮ enkhee-Osiris</title>
       </Head>
 
       <Page heading="">

@@ -5,8 +5,7 @@ function Contact() {
   return (
     <>
       <Head>
-        <title>enkhee-Osiris || Find me</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Find me ▮ enkhee-Osiris</title>
       </Head>
 
       <Page heading="Find me on">

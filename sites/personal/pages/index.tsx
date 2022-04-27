@@ -6,8 +6,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>enkhee-Osiris || personal website</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Hey, I&apos;m Enkherdene ▮ enkhee-Osiris</title>
       </Head>
 
       <Page>
@@ -34,7 +33,7 @@ function Home() {
             <Col>
               <Box css={{ width: "100%", mb: "$space$16", borderRadius: 4, overflow: "hidden" }}>
                 <AspectRatio.Root ratio={6 / 3}>
-                  <Img src="/me.jpg" alt="Enkherdene" />
+                  <Img src="/me.webp" alt="Enkherdene" />
                 </AspectRatio.Root>
               </Box>
 

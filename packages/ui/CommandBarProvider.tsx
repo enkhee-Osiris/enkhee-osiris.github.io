@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React, { forwardRef, useCallback, useMemo } from "react";
 
 import clsx from "clsx";
@@ -222,27 +223,47 @@ function ThemeActions() {
 }
 
 export function CommandBarProvider({ children }: { children: React.ReactNode }) {
-  const { push } = useRouter();
+  const { basePath, push } = useRouter();
 
   const handleHomeAction = useCallback(() => {
-    push("/");
-  }, [push]);
+    if (basePath === "") {
+      push("/");
+    } else {
+      window.location.pathname = "/";
+    }
+  }, [basePath, push]);
 
   const handleAboutAction = useCallback(() => {
-    push("/about");
-  }, [push]);
+    if (basePath === "") {
+      push("/about");
+    } else {
+      window.location.pathname = "/about";
+    }
+  }, [basePath, push]);
 
   const handleBlogsAction = useCallback(() => {
-    push("/blogs");
-  }, [push]);
+    if (basePath === "/blogs") {
+      push("/");
+    } else {
+      window.location.pathname = "/blogs";
+    }
+  }, [basePath, push]);
 
   const handleResumeAction = useCallback(() => {
-    push("/resume");
-  }, [push]);
+    if (basePath === "/resume") {
+      push("/");
+    } else {
+      window.location.pathname = "/resume";
+    }
+  }, [basePath, push]);
 
   const handleConnectAction = useCallback(() => {
-    push("/connect");
-  }, [push]);
+    if (basePath === "") {
+      push("/connect");
+    } else {
+      window.location.pathname = "/connect";
+    }
+  }, [basePath, push]);
 
   const actions: Action[] = useMemo(
     () => [
