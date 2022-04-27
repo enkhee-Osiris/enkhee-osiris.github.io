@@ -10,11 +10,11 @@ const nextConfig = {
     return [
       {
         source: "/resume",
-        destination: "http://localhost:3001",
+        destination: "http://localhost:3001/resume",
       },
       {
         source: "/blogs",
-        destination: "http://localhost:3002",
+        destination: "http://localhost:3002/blogs",
       },
     ];
   },
