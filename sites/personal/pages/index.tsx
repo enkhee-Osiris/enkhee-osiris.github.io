@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Hey, I'm Enkherdene ▮ enkhee-Osiris</title>
+        <title>Hey, I&apos;m Enkherdene ▮ enkhee-Osiris</title>
       </Head>
 
       <Page>
