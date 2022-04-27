@@ -13,8 +13,7 @@ function About() {
   return (
     <>
       <Head>
-        <title>enkhee-Osiris || personal website</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>About ▮ enkhee-Osiris</title>
       </Head>
 
       <Page heading="Hey">
