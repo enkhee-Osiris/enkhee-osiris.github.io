@@ -334,6 +334,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
       handleHomeAction,
       handleAboutAction,
       handleBlogsAction,
+      handleProjectAction,
       handleResumeAction,
       handleConnectAction,
     ]
