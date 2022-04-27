@@ -249,6 +249,14 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
     }
   }, [basePath, push]);
 
+  const handleProjectAction = useCallback(() => {
+    if (basePath === "") {
+      push("/projects");
+    } else {
+      window.location.pathname = "/projects";
+    }
+  }, [basePath, push]);
+
   const handleResumeAction = useCallback(() => {
     if (basePath === "/resume") {
       push("/");
@@ -293,6 +301,15 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
         section: "Navigation",
         perform: handleBlogsAction,
         icon: <Icon name="document" size={20} />,
+      },
+      {
+        id: "projectsAction",
+        name: "Projects",
+        shortcut: ["p"],
+        keywords: "hobby",
+        section: "Navigation",
+        perform: handleProjectAction,
+        icon: <Icon name="folder" size={20} />,
       },
       {
         id: "resumeAction",

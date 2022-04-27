@@ -1,0 +1,22 @@
+[
+  {
+    "name": "enkhee-osiris.github.io",
+    "url": "https://github.com/enkhee-Osiris/enkhee-osiris.github.io",
+    "description": "Personal portfolio and blog built with Turborepo and NextJS"
+  },
+  {
+    "name": "About stitches",
+    "url": "https://github.com/enkhee-Osiris/about-stitches",
+    "description": "Stitches online presentation built with Spectacle and ReactJS"
+  },
+  {
+    "name": "Curriculum Vitae",
+    "url": "https://github.com/enkhee-Osiris/curriculum_vitae",
+    "description": "Old online CV built with CRA"
+  },
+  {
+    "name": "Forture Cowsay",
+    "url": "https://github.com/enkhee-Osiris/fortune-cowsay",
+    "description": "Cute cow will say fortune"
+  }
+]

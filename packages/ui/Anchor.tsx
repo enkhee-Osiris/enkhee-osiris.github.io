@@ -8,9 +8,9 @@ const StyledA = styled("a", {
   color: "$orange11",
   display: "inline-flex",
   textDecoration: "none",
+  fontWeight: "bold",
 
-  "&:hover": { color: "$orange12", textDecoration: "underline" },
-  "&:active": { color: "$orange12", textDecoration: "underline" },
+  "&:hover, &:active": { textDecoration: "underline" },
 });
 
 export function Anchor({ text, url }: { text?: string; url: string }) {

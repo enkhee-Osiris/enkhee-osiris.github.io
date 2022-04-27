@@ -12,18 +12,18 @@ function Home() {
       <Page>
         <Article>
           <Grid
-            css={{ gridTemplateColumns: "1fr", "@md": { gridTemplateColumns: "1fr 290px" } }}
+            css={{ gridTemplateColumns: "1fr", "@md": { gridTemplateColumns: "1fr 300px" } }}
             gap={32}
           >
             <Col>
-              <Text variant="text" size="lg">
+              <Text size="lg">
                 Hey, I am <strong>Enkherdene</strong> (enkhee-Osiris), freelancer.
               </Text>
-              <Text variant="text" size="lg">
+              <Text size="lg">
                 I am a front-end developer, living in <strong>Ulaanbaatar</strong> (Mongolia). I
                 love trying modern technologies and learning new things.
               </Text>
-              <Text variant="text" size="lg">
+              <Text size="lg">
                 And in my spare time, I enjoy taking photos with film cameras.
                 <br />
                 <Anchor url="/about/" text="More about me" />
@@ -37,7 +37,7 @@ function Home() {
                 </AspectRatio.Root>
               </Box>
 
-              <Text variant="text" size="lg">
+              <Text size="lg">
                 <Anchor url="/connect/" text="If you'd like to work with me" />
               </Text>
             </Col>
