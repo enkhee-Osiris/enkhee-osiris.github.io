@@ -60,6 +60,7 @@ export function Header({ heading }: HeaderProps) {
         align={{ "@initial": "center", "@md": "start" }}
       >
         <Text
+          as="h1"
           variant="display"
           size="sm"
           weight="bold"

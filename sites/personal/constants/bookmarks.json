@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Dev",
+    "links": [
+      {
+        "name": "Regex 101",
+        "url": "https://regex101.com/",
+        "description": "Debug and test regex"
+      },
+
+      {
+        "name": "transform",
+        "url": "https://transform.tools/",
+        "description": "Code transformer e.g SVG to JSX"
+      }
+    ]
+  },
+  {
+    "name": "UI/UX",
+    "links": [
+      {
+        "name": "Mobbin Design",
+        "url": "https://mobbin.design/",
+        "description": "Screenshots of apps"
+      }
+    ]
+  },
+  {
+    "name": "CSS",
+    "links": [
+      {
+        "name": "1 Line layout",
+        "url": "https://1linelayouts.glitch.me/",
+        "description": "Modern CSS techniques"
+      }
+    ]
+  }
+]

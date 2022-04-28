@@ -33,7 +33,7 @@ function ProjectItem({
     <StyledA href={url}>
       <Col gap={8}>
         <Text
-          as="h1"
+          as="h3"
           weight="bold"
           size="lg"
           css={{ color: "$gray12", display: "inline-flex", alignItems: "center" }}

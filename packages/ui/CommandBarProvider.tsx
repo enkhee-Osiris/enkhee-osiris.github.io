@@ -257,6 +257,14 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
     }
   }, [basePath, push]);
 
+  const handleBookmarksAction = useCallback(() => {
+    if (basePath === "") {
+      push("/bookmarks");
+    } else {
+      window.location.pathname = "/bookmarks";
+    }
+  }, [basePath, push]);
+
   const handleResumeAction = useCallback(() => {
     if (basePath === "/resume") {
       push("/");
@@ -311,6 +319,16 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
         perform: handleProjectAction,
         icon: <Icon name="folder" size={20} />,
       },
+
+      {
+        id: "bookmarksAction",
+        name: "Bookmarks",
+        shortcut: ["m"],
+        keywords: "saved",
+        section: "Navigation",
+        perform: handleBookmarksAction,
+        icon: <Icon name="bookmarks" size={20} />,
+      },
       {
         id: "resumeAction",
         name: "Resume",
@@ -335,6 +353,7 @@ export function CommandBarProvider({ children }: { children: React.ReactNode }) 
       handleAboutAction,
       handleBlogsAction,
       handleProjectAction,
+      handleBookmarksAction,
       handleResumeAction,
       handleConnectAction,
     ]
