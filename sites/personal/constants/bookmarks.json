@@ -22,6 +22,16 @@
         "name": "Mobbin Design",
         "url": "https://mobbin.design/",
         "description": "Screenshots of apps"
+      },
+      {
+        "name": "A Typographic Scale Calculator",
+        "url": "https://www.layoutgridcalculator.com/typographic-scale/",
+        "description": "Will help you to choose right font size"
+      },
+      {
+        "name": "A Typographic scale tool",
+        "url": "https://type-scale.com/",
+        "description": "A visual type scale tool"
       }
     ]
   },
