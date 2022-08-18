@@ -10,7 +10,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@actions/core": "^1.6.0",
+    "@actions/core": "^1.9.1",
     "@enkhee-Osiris/configs": "*",
     "@enkhee-Osiris/tsconfigs": "*",
     "shelljs": "^0.8.5"
