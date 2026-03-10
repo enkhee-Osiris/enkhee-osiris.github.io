@@ -1,0 +1,45 @@
+---
+import { AUTHOR } from "@/constants";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-copyright">&copy; {year} {AUTHOR}</p>
+  </div>
+</footer>
+
+<style>
+  /* -------------------------
+   * Theme — Local Variables
+   * ------------------------- */
+  :root {
+    --footer-padding-y: 4rem;
+    --footer-font-size: 0.875rem;
+  }
+
+  /* -------------------------
+   * Layout — Footer
+   * ------------------------- */
+  .site-footer {
+    border-block-start: 1px solid var(--color-border);
+    padding-block: var(--footer-padding-y);
+  }
+
+  /* -------------------------
+   * Module — Content
+   * ------------------------- */
+  .footer-content {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 48rem;
+  }
+
+  .footer-copyright {
+    color: var(--color-surface-600);
+    font-size: var(--footer-font-size);
+    line-height: 1.5;
+    text-align: center;
+  }
+</style>

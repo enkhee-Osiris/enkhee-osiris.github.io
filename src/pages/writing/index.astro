@@ -1,0 +1,95 @@
+---
+import FloatingNav from "@/components/FloatingNav.astro";
+import FullscreenNav from "@/components/FullscreenNav.astro";
+import Head from "@/components/Head.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import WritingsByYear from "@/components/WritingsByYear.astro";
+import { DESCRIPTIONS, TITLES } from "@/constants";
+import { getPublishedWritings, getWritingsByYear } from "@/utils/data";
+
+const allWritings = await getPublishedWritings();
+const writingsByYear = getWritingsByYear(allWritings);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={TITLES.writings} description={DESCRIPTIONS.writings} />
+  </head>
+
+  <body>
+    <SkipLink />
+    <main id="main-content" data-pagefind-ignore="all">
+      <section class="container" aria-label="All writings">
+        <h1 class="heading">Writings</h1>
+
+        <WritingsByYear writingsByYear={writingsByYear} />
+      </section>
+    </main>
+    <FloatingNav />
+    <FullscreenNav />
+  </body>
+</html>
+
+<style>
+  /* -------------------------
+   * Theme — Local Variables
+   * ------------------------- */
+  :root {
+    --writings-padding-y: 8rem;
+    --writings-section-gap: 6rem;
+    --writings-content-width: 36rem;
+  }
+
+  /* -------------------------
+   * Layout — Page Container
+   * ------------------------- */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--writings-section-gap);
+    margin-inline: auto;
+    padding-block: var(--writings-padding-y);
+    width: 100%;
+    max-width: 48rem;
+  }
+
+  .heading {
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--writings-content-width);
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  /* -------------------------
+   * State — Responsive
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    .container {
+      padding-inline: 1.5rem;
+    }
+
+    :global(.writings-list) {
+      margin-inline: auto;
+      width: 100%;
+      max-width: var(--writings-content-width);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --writings-padding-y: 5rem;
+      --writings-section-gap: 3rem;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .heading {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,444 @@
+---
+import FloatingNav from "@/components/FloatingNav.astro";
+import FullscreenNav from "@/components/FullscreenNav.astro";
+import Head from "@/components/Head.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import { AUTHOR, DESCRIPTIONS, EXPERIENCES, PROJECTS, SOCIAL, TITLES } from "@/constants";
+
+const githubIcon = await import("@/assets/icons/github.svg?raw");
+const linkedinIcon = await import("@/assets/icons/linkedin.svg?raw");
+const mailIcon = await import("@/assets/icons/mail.svg?raw");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={TITLES.about} description={DESCRIPTIONS.about} />
+  </head>
+
+  <body>
+    <SkipLink />
+    <main id="main-content" data-pagefind-ignore="all">
+      <div class="container">
+        <section class="section" aria-label="About me">
+          <h1 class="name">{AUTHOR}</h1>
+
+          <div class="bio">
+            <p>
+              I'm a software engineer with a focus on design. I believe the best digital products
+              are built at the intersection of engineering precision and visual craft — where every
+              interaction is intentional and every detail earns its place.
+            </p>
+            <p>
+              My work spans frontend architecture, design systems, and the quiet details of
+              typography and motion that shape how people experience the web. I care about
+              accessibility, performance, and writing code that is as readable as it is effective.
+            </p>
+            <p>
+              Outside of work I write about things that sit at the boundary of design and
+              engineering. This site is a place for those thoughts.
+            </p>
+          </div>
+
+          <ul class="social-list" role="list" aria-label="Social links">
+            <li>
+              <a class="social-link" href={SOCIAL.github} target="_blank" rel="noopener noreferrer">
+                <span class="social-icon" aria-hidden="true">
+                  <Fragment set:html={githubIcon.default} />
+                </span>
+                <span>GitHub</span>
+                <span class="sr-only"> (opens in new tab)</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="social-link"
+                href={SOCIAL.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="social-icon" aria-hidden="true">
+                  <Fragment set:html={linkedinIcon.default} />
+                </span>
+                <span>LinkedIn</span>
+                <span class="sr-only"> (opens in new tab)</span>
+              </a>
+            </li>
+
+            <li>
+              <a class="social-link" href={SOCIAL.email}>
+                <span class="social-icon" aria-hidden="true">
+                  <Fragment set:html={mailIcon.default} />
+                </span>
+                <span>Email</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" aria-labelledby="experience-heading">
+          <h2 class="section-heading" id="experience-heading">Experience</h2>
+
+          <ul class="experience-list" role="list">
+            {
+              EXPERIENCES.map(exp => (
+                <li class="experience-item">
+                  <div class="exp-icon" aria-hidden="true">
+                    {exp.icon ? (
+                      <Fragment set:html={exp.icon} />
+                    ) : (
+                      <span class="exp-initial">{exp.company.charAt(0)}</span>
+                    )}
+                  </div>
+
+                  <div class="exp-content">
+                    <div class="exp-header">
+                      <h3 class="exp-company">{exp.company}</h3>
+                      <p class="exp-period">
+                        <time datetime={exp.start}>{exp.start}</time>
+                        {" — "}
+                        {exp.end ? <time datetime={exp.end}>{exp.end}</time> : "Present"}
+                      </p>
+                    </div>
+
+                    <p class="exp-role">{exp.role}</p>
+                    <p class="exp-description">{exp.description}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="section" aria-labelledby="projects-heading">
+          <h2 class="section-heading" id="projects-heading">Projects</h2>
+
+          <ul class="projects-list" role="list">
+            {
+              PROJECTS.map(project => (
+                <li>
+                  <article class="project-card">
+                    <h3 class="project-name">
+                      <a
+                        class="project-link"
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {project.name}
+                        <span class="sr-only"> (opens in new tab)</span>
+                      </a>
+                    </h3>
+
+                    <p class="project-description">{project.description}</p>
+
+                    {project.tags.length > 0 && (
+                      <ul class="project-tags" role="list">
+                        {project.tags.map(tag => (
+                          <li class="project-tag">{tag}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </article>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <FloatingNav />
+    <FullscreenNav />
+  </body>
+</html>
+
+<style>
+  /* -------------------------
+   * Theme — Local Variables
+   * ------------------------- */
+  :root {
+    --about-padding-y: 8rem;
+    --about-content-width: 36rem;
+    --about-section-gap: 6rem;
+  }
+
+  /* -------------------------
+   * Layout — Page Container
+   * ------------------------- */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--about-section-gap);
+    margin-inline: auto;
+    padding-block: var(--about-padding-y);
+    max-width: var(--about-content-width);
+  }
+
+  /* -------------------------
+   * Module — Bio
+   * Name heading, paragraphs, and social links
+   * ------------------------- */
+  .name {
+    margin-block-end: 2rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .bio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-block-end: 2.5rem;
+    color: var(--color-surface-700);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  /* -------------------------
+   * Module — Social Links
+   * Icon + label pairs; subtle hover color transition
+   * ------------------------- */
+  .social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color var(--transition);
+    color: var(--color-surface-600);
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .social-icon {
+    display: flex;
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .social-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* -------------------------
+   * Module — Section Heading
+   * Small-caps label for Experience / Projects sections
+   * ------------------------- */
+  .section-heading {
+    margin-block-end: 1.5rem;
+    color: var(--color-surface-600);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--letter-spacing-caps);
+    text-transform: uppercase;
+  }
+
+  /* -------------------------
+   * Module — Experience List
+   * Icon badge + company / role / period layout
+   * ------------------------- */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .experience-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  /* Icon badge — shows SVG icon or company initial */
+  .exp-icon {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background: var(--color-surface-100);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .exp-icon :global(svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .exp-initial {
+    color: var(--color-surface-600);
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: var(--font-display);
+    user-select: none;
+    text-transform: uppercase;
+  }
+
+  .exp-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-block-end: 0.25rem;
+  }
+
+  .exp-company {
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.4;
+  }
+
+  .exp-period {
+    flex-shrink: 0;
+    color: var(--color-surface-500);
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  .exp-role {
+    margin-block-end: 0.5rem;
+    color: var(--color-surface-600);
+    font-size: 0.875rem;
+  }
+
+  .exp-description {
+    color: var(--color-surface-700);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  /* -------------------------
+   * Module — Projects List
+   * Bordered cards with title link, description, and tech tags
+   * ------------------------- */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-card {
+    position: relative;
+    transition: border-color var(--transition);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .project-name {
+    margin-block-end: 1rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .project-link {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .project-link::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+  }
+
+  .project-description {
+    margin-block-end: 2.25rem;
+    color: var(--color-surface-700);
+    font-size: 1.0625rem;
+    line-height: 1.53;
+  }
+
+  /* Tech tag pills */
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-tag {
+    border-radius: 9999px;
+    background: var(--color-surface-100);
+    padding: 0.4rem 0.8rem;
+    color: var(--color-surface-700);
+    font-size: 0.875rem;
+    line-height: 1;
+  }
+
+  /* -------------------------
+   * State — Interactive
+   * ------------------------- */
+  .social-link:hover,
+  .social-link:focus-visible {
+    color: var(--color-text);
+  }
+
+  .social-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+  }
+
+  .project-card:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .project-card:focus-within {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: 0.75rem;
+  }
+
+  .project-link:focus {
+    outline: none;
+  }
+
+  /* -------------------------
+   * State — Responsive
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    .container {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --about-padding-y: 5rem;
+    }
+
+    .exp-icon {
+      display: none;
+    }
+
+    .exp-header {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .name {
+      font-size: 2rem;
+    }
+  }
+</style>

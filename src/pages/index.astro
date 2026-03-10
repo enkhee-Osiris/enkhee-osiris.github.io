@@ -1,0 +1,513 @@
+---
+import FloatingNav from "@/components/FloatingNav.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import FullscreenNav from "@/components/FullscreenNav.astro";
+import Head from "@/components/Head.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import {
+  DESCRIPTIONS,
+  HOME_FEATURED_WRITINGS_LIMIT,
+  HOME_LATEST_WRITINGS_LIMIT,
+  SOCIAL,
+  TITLES,
+  URLS,
+} from "@/constants";
+import { getFeaturedWritings, getNonFeaturedWritings, getPublishedWritings } from "@/utils/data";
+
+const githubIcon = await import("@/assets/icons/github.svg?raw");
+const arrowRightIcon = await import("@/assets/icons/arrow-right.svg?raw");
+const linkedinIcon = await import("@/assets/icons/linkedin.svg?raw");
+const mailIcon = await import("@/assets/icons/mail.svg?raw");
+
+const allWritings = await getPublishedWritings();
+
+const featuredWritings = getFeaturedWritings(allWritings, HOME_FEATURED_WRITINGS_LIMIT);
+
+const latestWritings = getNonFeaturedWritings(allWritings, HOME_LATEST_WRITINGS_LIMIT);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={TITLES.home} description={DESCRIPTIONS.home} />
+  </head>
+
+  <body>
+    <SkipLink />
+    <main id="main-content" data-pagefind-ignore="all">
+      <div class="container">
+        <section class="intro" aria-label="Introduction">
+          <div class="intro-content">
+            <h1 class="intro-title">Enkherdene Bolormaa</h1>
+            <p class="intro-bio">
+              Software engineer exploring design, focused on building clear, simple, and thoughtful
+              digital experiences.
+            </p>
+          </div>
+
+          <ul class="intro-social" role="list">
+            <li>
+              <a
+                class="intro-social-link"
+                href={SOCIAL.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Fragment set:html={githubIcon.default} />
+                <span class="sr-only">GitHub (opens in new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="intro-social-link"
+                href={SOCIAL.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Fragment set:html={linkedinIcon.default} />
+                <span class="sr-only">LinkedIn (opens in new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="intro-social-link" href={SOCIAL.email}>
+                <Fragment set:html={mailIcon.default} />
+                <span class="sr-only">Email</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        {
+          featuredWritings.length > 0 && (
+            <section class="featured-writings" aria-label="Featured writings">
+              <ul class="featured-list" role="list">
+                {featuredWritings.map(writing => (
+                  <li>
+                    <article class="featured-card">
+                      <a class="featured-card-link" href={URLS.writing(writing.id)}>
+                        <h2 class="featured-title">{writing.data.title}</h2>
+
+                        <p class="featured-description">{writing.data.description}</p>
+                      </a>
+
+                      {Array.isArray(writing.data.tags) && writing.data.tags.length > 0 && (
+                        <ul class="featured-tags tags" role="list">
+                          {writing.data.tags.map(tag => (
+                            <li>
+                              <a href={URLS.tag(tag)}>{tag}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </article>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        {
+          latestWritings.length > 0 && (
+            <section class="latest-writings" aria-labelledby="latest-heading">
+              <h2 class="latest-heading" id="latest-heading">
+                <a class="latest-heading-link" href={URLS.writings}>
+                  Writings
+                  <span class="latest-icon" aria-hidden="true">
+                    <Fragment set:html={arrowRightIcon.default} />
+                  </span>
+                </a>
+              </h2>
+
+              <ul class="latest-list" role="list">
+                {latestWritings.map(writing => (
+                  <li>
+                    <a class="latest-link" href={URLS.writing(writing.id)}>
+                      <FormattedDate
+                        date={writing.data.pubDatetime}
+                        formatOptions={{ year: "2-digit", month: "numeric", day: "numeric" }}
+                      />
+                      <span class="latest-title">{writing.data.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+      </div>
+    </main>
+    <FloatingNav />
+    <FullscreenNav />
+  </body>
+</html>
+
+<style>
+  /* -------------------------
+   * Theme — Local Variables
+   * ------------------------- */
+  :root {
+    --home-padding-y: 8rem;
+    --home-section-gap: 6rem;
+    --home-content-width: 36rem;
+    --home-card-gap: 2.25rem;
+  }
+
+  /* -------------------------
+   * Layout — Page Container
+   * Vertically stacked sections with generous spacing
+   * ------------------------- */
+  .container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--home-section-gap);
+    margin-inline: auto;
+    padding-block: var(--home-padding-y);
+    max-width: 48rem;
+  }
+
+  /* -------------------------
+   * Module — Intro
+   * Name, bio, and social links; narrower than container for visual hierarchy
+   * ------------------------- */
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--home-content-width);
+  }
+
+  .intro-title {
+    margin-block-end: 2rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .intro-bio {
+    color: var(--color-surface-700);
+    font-size: 1.5rem;
+    line-height: 1.3333;
+  }
+
+  /* Social icon links */
+  .intro-social {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .intro-social-link {
+    display: block;
+    transition: color var(--transition);
+    color: var(--color-surface-400);
+  }
+
+  .intro-social-link :global(svg) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .intro-social-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+    color: var(--color-text);
+  }
+
+  .intro-social-link:hover {
+    color: var(--color-text);
+  }
+
+  /* -------------------------
+   * Module — Featured Writings
+   * Two side-by-side writing cards with title, description, and tag pills
+   * ------------------------- */
+  .featured-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--home-card-gap);
+  }
+
+  /* Card */
+  .featured-card {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2.25rem;
+    transition: border-color var(--transition);
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    padding-inline: 1.25rem;
+    padding-block: 1.75rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  .featured-card:focus-within {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: 1.25rem; /* matches card shape */
+  }
+
+  .featured-card:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  /* Card link */
+  .featured-card-link {
+    text-decoration: none;
+  }
+
+  .featured-card-link::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+  }
+
+  .featured-card-link:focus {
+    outline: none;
+  }
+
+  /* Card title */
+  .featured-title {
+    margin-block-end: 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3333;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  /* Card description */
+  .featured-description {
+    color: var(--color-surface-700);
+    font-size: 1.0625rem;
+    line-height: 1.53;
+  }
+
+  /* Tag pills */
+  .featured-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    z-index: 2;
+  }
+
+  .featured-tags li {
+    display: inline-block;
+  }
+
+  .featured-tags li a {
+    display: block;
+    border-radius: 9999px;
+    background: var(--color-surface-100);
+    padding: 0.4rem 0.8rem;
+    color: var(--color-surface-700);
+    font-size: 0.875rem;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .featured-tags li a::before {
+    margin-inline-end: 1px;
+    content: "#";
+  }
+
+  .featured-tags li a:hover,
+  .featured-tags li a:focus-visible {
+    background: var(--color-surface-200);
+    color: var(--color-surface-900);
+  }
+
+  .featured-tags li a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-sm);
+  }
+
+  /* -------------------------
+   * Module — Latest Writings
+   * "Writings →" heading link + writing title list
+   * ------------------------- */
+  .latest-writings {
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--home-content-width);
+  }
+
+  .latest-heading {
+    margin-block-end: 1.5rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--letter-spacing-caps);
+    text-transform: uppercase;
+  }
+
+  .latest-heading-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition:
+      color var(--transition),
+      gap var(--transition-motion);
+    color: var(--color-surface-600);
+    text-decoration: none;
+  }
+
+  .latest-heading-link:hover,
+  .latest-heading-link:focus-visible {
+    color: var(--color-accent);
+  }
+
+  .latest-heading-link:hover {
+    gap: 1rem;
+  }
+
+  .latest-heading-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+  }
+
+  .latest-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .latest-icon :global(svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Writing list */
+  .latest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .latest-link {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .latest-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-lg);
+    border-radius: var(--focus-radius);
+  }
+
+  .latest-title {
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3333;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .latest-link:link .latest-title {
+    color: var(--color-text);
+  }
+
+  .latest-link:visited .latest-title {
+    color: var(--color-surface-400);
+  }
+
+  .latest-link:hover .latest-title,
+  .latest-link:focus-visible .latest-title {
+    color: var(--color-accent);
+  }
+
+  .latest-link :global(time) {
+    position: absolute;
+    opacity: 0;
+    transition: opacity var(--transition);
+    margin-inline-end: 1rem;
+    inset-inline-end: 100%;
+    padding-block-start: 0.5625rem;
+    color: var(--color-surface-700);
+    font-size: 0.875rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .latest-link:hover :global(time),
+  .latest-link:focus-visible :global(time) {
+    opacity: 1;
+  }
+
+  /* -------------------------
+   * State — Responsive
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    :root {
+      --home-card-gap: 1.5rem;
+    }
+
+    .container {
+      padding-inline: 1.5rem;
+    }
+
+    .featured-writings {
+      margin-inline: auto;
+      width: 100%;
+      max-width: var(--home-content-width);
+    }
+
+    .featured-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --home-padding-y: 5rem;
+    }
+
+    .latest-link {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    /* Show dates inline on touch devices where hover is unavailable */
+    .latest-link :global(time) {
+      display: block;
+      position: static;
+      opacity: 1;
+      margin-inline-end: 0;
+      margin-block-start: 0.25rem;
+      padding-block-start: 0;
+      color: var(--color-text);
+      font-weight: 700;
+      white-space: normal;
+    }
+
+    .latest-link:link :global(time) {
+      color: var(--color-text);
+    }
+
+    .latest-link:visited :global(time) {
+      color: var(--color-surface-400);
+    }
+
+    .latest-link:hover :global(time),
+    .latest-link:focus-visible :global(time) {
+      color: var(--color-accent);
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .intro-title {
+      font-size: 2rem;
+    }
+  }
+</style>

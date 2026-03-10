@@ -1,0 +1,33 @@
+---
+import { Image as BaseImage, type LocalImageProps, type RemoteImageProps } from "astro:assets";
+
+type Props = (LocalImageProps | RemoteImageProps) & {
+  caption?: string;
+};
+
+const { caption, ...props } = Astro.props;
+---
+
+<figure>
+  <BaseImage {...props} />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  /* -------------------------
+   * Module — Figure
+   * Image wrapper with optional caption
+   * ------------------------- */
+  figure {
+    margin-block: 1.5rem;
+  }
+
+  figure :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  figure :global(figcaption) {
+    margin-block: 1rem;
+  }
+</style>

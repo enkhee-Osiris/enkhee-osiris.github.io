@@ -1,0 +1,99 @@
+/*
+  Modern CSS Reset
+  Based on Josh Comeau's Custom CSS Reset and Andy Bell's Modern CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+  https://andy-bell.co.uk/a-more-modern-css-reset/
+*/
+
+/* Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding, inherit fonts */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Avoid text overflows */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+/* Improve link defaults */
+a {
+  color: currentColor;
+  text-decoration-skip-ink: auto;
+}
+
+/* Remove list styles on ul, ol with a list role */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Balance headings across multiple lines */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Text emphasis */
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* Improve paragraph readability */
+p {
+  text-wrap: pretty;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}

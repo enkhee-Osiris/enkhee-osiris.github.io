@@ -1,0 +1,745 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+
+import BackLink from "@/components/BackLink.astro";
+import FloatingNav from "@/components/FloatingNav.astro";
+import Footer from "@/components/Footer.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import FullscreenNav from "@/components/FullscreenNav.astro";
+import Head from "@/components/Head.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import TagChip from "@/components/TagChip.astro";
+import { TITLES, DESCRIPTIONS, FULL_URL, URLS, RELATED_WRITINGS_LIMIT } from "@/constants";
+import { getPublishedWritings, getRelatedWritings } from "@/utils/data";
+
+const quoteIcon = await import("@/assets/icons/quote.svg?raw");
+const svgDataUri = `url("data:image/svg+xml,${encodeURIComponent(quoteIcon.default)}")`;
+
+export async function getStaticPaths() {
+  const writings = await getPublishedWritings();
+
+  return writings.map(writing => ({
+    params: { slug: writing.id },
+    props: writing,
+  }));
+}
+
+type Props = CollectionEntry<"writing">;
+
+const writing = Astro.props;
+const publishedDate = writing.data.pubDatetime;
+const ogImageUrl = new URL(`og/${writing.id}.png`, FULL_URL).href;
+const allWritings = await getPublishedWritings();
+const relatedWritings = getRelatedWritings(writing, allWritings, RELATED_WRITINGS_LIMIT);
+
+const { Content } = await render(writing);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head
+      title={TITLES.writing(writing.data.title)}
+      description={DESCRIPTIONS.writing(writing.data.description)}
+      image={ogImageUrl}
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <style set:html={`.prose blockquote::after { mask-image: ${svgDataUri}; }`}></style>
+  </head>
+
+  <body>
+    <SkipLink />
+    <main id="main-content">
+      <article class="container">
+        <div class="article-header">
+          <BackLink href={URLS.writings} label="Back to writings" />
+
+          <div class="article-meta">
+            <FormattedDate date={publishedDate} />
+
+            <h1 class="article-title">{writing.data.title}</h1>
+
+            <ul class="article-tags" role="list">
+              {
+                writing.data.tags.map(tag => (
+                  <li>
+                    <TagChip tag={tag} />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        {
+          relatedWritings.length > 0 && (
+            <section class="related-writings" aria-label="Related writings">
+              <h2 class="related-heading">More writings</h2>
+
+              <ul class="related-list" role="list">
+                {relatedWritings.map(writing => (
+                  <li class="related-item">
+                    <a href={URLS.writing(writing.id)} class="related-link">
+                      <FormattedDate
+                        date={writing.data.pubDatetime}
+                        formatOptions={{ year: "2-digit", month: "numeric", day: "numeric" }}
+                      />
+                      <span class="related-title">{writing.data.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+      </article>
+    </main>
+
+    <FloatingNav />
+    <FullscreenNav />
+    <Footer />
+  </body>
+</html>
+
+<script>
+  const backLink = document.querySelector<HTMLAnchorElement>(".back-link");
+  const backLinkText = document.querySelector<HTMLElement>(".back-link-text");
+
+  if (backLink && backLinkText && document.referrer) {
+    const ref = new URL(document.referrer);
+
+    if (ref.origin === location.origin) {
+      const base = import.meta.env.BASE_URL;
+
+      const tagMatch = ref.pathname.match(/\/tag\/([^/]+)\/?$/);
+      const isTagsPage = /\/tag\/?$/.test(ref.pathname);
+      const isSearchPage = /\/search\/?$/.test(ref.pathname);
+      const isHomePage = ref.pathname === base || ref.pathname === base.replace(/\/$/, "");
+
+      if (tagMatch) {
+        backLink.href = ref.pathname;
+        backLinkText.textContent = `Back to #${tagMatch[1]}`;
+      } else if (isTagsPage) {
+        backLink.href = ref.pathname;
+        backLinkText.textContent = "Back to tags";
+      } else if (isSearchPage) {
+        backLink.href = ref.pathname + ref.search;
+        backLinkText.textContent = "Back to search";
+      } else if (isHomePage) {
+        backLink.href = ref.pathname;
+        backLinkText.textContent = "Back to home";
+      }
+    }
+  }
+</script>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>(".heading-anchor").forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      e.preventDefault();
+      const url = new URL(anchor.href, location.href);
+      history.pushState(null, "", url.hash);
+      navigator.clipboard.writeText(url.href);
+    });
+  });
+</script>
+
+<style>
+  /* -------------------------
+   * Theme — Local Variables
+   * ------------------------- */
+  :root {
+    --article-padding-y: 8rem;
+    --article-max-width: 55rem;
+    --article-heading-spacing-h1: 4rem;
+    --article-heading-spacing-h2: 3rem;
+    --article-heading-spacing-h3: 2.5rem;
+    --article-heading-spacing-h4: 2rem;
+    --article-heading-spacing-h5: 1.75rem;
+    --article-heading-spacing-h6: 1.5rem;
+    --article-font-size-md: 1.0625rem;
+    --article-font-size-sm: 0.875rem;
+  }
+
+  /* -------------------------
+   * Layout — Article Container
+   * ------------------------- */
+  .container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-inline: auto;
+    padding-block: var(--article-padding-y);
+    width: 100%;
+    max-width: var(--article-max-width);
+  }
+
+  /* -------------------------
+   * Module — Article Header
+   * ------------------------- */
+  .article-header {
+    /* Pulls BackLink up into the top padding zone so the heading aligns with the tag index page */
+    margin-block-start: var(--back-link-offset);
+    margin-block-end: 3rem;
+    border-block-end: 1px solid var(--color-border);
+    padding-block-end: 3rem;
+    width: 100%;
+  }
+
+  .article-meta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: flex-start;
+    gap: 1rem 2rem;
+  }
+
+  .article-meta :global(time) {
+    grid-row: 1;
+    padding-block: 0.45rem;
+    color: var(--color-surface-600);
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .article-title {
+    grid-row: 1;
+    order: -1;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .article-tags {
+    display: flex;
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .article-tags li {
+    display: inline-block;
+  }
+
+  /* -------------------------
+   * Module — Prose Content
+   * Scoped :global() styles for all markdown-rendered elements
+   * ------------------------- */
+  .prose :global(> :last-child) {
+    margin-block-end: 0;
+  }
+
+  /* Headings */
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3),
+  .prose :global(h4),
+  .prose :global(h5),
+  .prose :global(h6) {
+    position: relative;
+    font-weight: 700;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .prose :global(.heading-anchor) {
+    display: inline-flex;
+    position: absolute;
+    align-items: center;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    inset-block-start: 50%;
+    inset-inline-start: -2rem;
+    color: var(--color-surface-500);
+    text-decoration: none;
+  }
+
+  .prose :global(h1:hover .heading-anchor),
+  .prose :global(h2:hover .heading-anchor),
+  .prose :global(h3:hover .heading-anchor),
+  .prose :global(h4:hover .heading-anchor),
+  .prose :global(h5:hover .heading-anchor),
+  .prose :global(h6:hover .heading-anchor) {
+    opacity: 1;
+  }
+
+  .prose :global(.heading-anchor:hover) {
+    color: var(--color-accent);
+  }
+
+  .prose :global(.heading-anchor:focus-visible) {
+    opacity: 1;
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-sm);
+    border-radius: var(--focus-radius);
+  }
+
+  .prose :global(h1) {
+    margin-block: var(--article-heading-spacing-h1) 1.5rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .prose :global(h2) {
+    margin-block: var(--article-heading-spacing-h2) 1.25rem;
+    font-size: 2.0625rem;
+    line-height: 1.21;
+  }
+
+  .prose :global(h3) {
+    margin-block: var(--article-heading-spacing-h3) 1rem;
+    font-size: 1.75rem;
+    line-height: 1.29;
+  }
+
+  .prose :global(h4) {
+    margin-block: var(--article-heading-spacing-h4) 1rem;
+    font-size: 1.5rem;
+    line-height: 1.3333;
+  }
+
+  .prose :global(h5) {
+    margin-block: var(--article-heading-spacing-h5) 1rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .prose :global(h6) {
+    margin-block: var(--article-heading-spacing-h6) 1rem;
+    font-size: var(--article-font-size-md);
+    line-height: 1.41;
+  }
+
+  /* Paragraphs */
+  .prose :global(p) {
+    margin-block-end: 1rem;
+  }
+
+  /* Horizontal rule */
+  .prose :global(hr) {
+    margin-block: 3rem;
+    border: none;
+    border-block-start: 1px solid var(--color-border);
+  }
+
+  /* Text emphasis */
+  .prose :global(strong) {
+    font-weight: 700;
+  }
+
+  .prose :global(em) {
+    font-style: italic;
+  }
+
+  .prose :global(del) {
+    text-decoration: line-through;
+  }
+
+  /* Blockquote */
+  .prose :global(blockquote) {
+    position: relative;
+    margin-block: 1.2rem;
+    padding-inline-start: 2rem;
+    color: var(--color-surface-700);
+    font-style: italic;
+  }
+
+  .prose :global(blockquote > p) {
+    margin-block-end: 0.5rem;
+  }
+
+  .prose :global(blockquote > p:last-child) {
+    margin-block-end: 0;
+  }
+
+  .prose :global(blockquote cite) {
+    font-size: 0.875rem;
+  }
+
+  .prose :global(blockquote::before) {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 6px;
+    background: linear-gradient(
+      to bottom,
+      var(--color-border) calc(50% - 0.75rem),
+      transparent calc(50% - 0.75rem),
+      transparent calc(50% + 0.75rem),
+      var(--color-border) calc(50% + 0.75rem)
+    );
+    width: 4px;
+    content: "";
+  }
+
+  .prose :global(blockquote::after) {
+    position: absolute;
+    z-index: 1;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    inset-block-start: calc(50% - 0.5rem);
+    inset-inline-start: 0;
+    background-color: var(--color-text);
+    width: 1rem;
+    height: 1rem;
+    content: "";
+  }
+
+  .prose :global(blockquote blockquote) {
+    margin-block-start: 0.8rem;
+  }
+
+  /* Links */
+  .prose :global(a) {
+    text-decoration: underline;
+    text-decoration-color: var(--color-border-hover);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15rem;
+  }
+
+  .prose :global(a:hover),
+  .prose :global(a:focus-visible) {
+    color: var(--color-accent);
+  }
+
+  .prose :global(a:focus-visible) {
+    outline: var(--focus-outline);
+    outline-offset: 0.15rem; /* matches text-underline-offset: 0.15rem */
+    border-radius: var(--focus-radius);
+  }
+
+  /* Images */
+  .prose :global(img) {
+    margin-block: 1.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .prose :global(figure) {
+    margin-block: 1.5rem;
+    width: 100%;
+  }
+
+  .prose :global(figure img) {
+    margin-block: 0;
+  }
+
+  .prose :global(figcaption) {
+    color: var(--color-surface-600);
+    font-style: italic;
+    font-size: var(--article-font-size-sm);
+    text-align: center;
+  }
+
+  /* Tables */
+  .prose :global(.table-scroll) {
+    margin-block: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .prose :global(table) {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .prose :global(th) {
+    border-block-end: 1px solid var(--color-border);
+    padding: 0.5rem 0.75rem;
+    color: var(--color-surface-800);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--letter-spacing-caps);
+    text-align: start;
+    text-transform: uppercase;
+  }
+
+  .prose :global(td) {
+    border-block-end: 1px solid var(--color-border);
+    padding: 0.5rem 0.75rem;
+    color: var(--color-surface-700);
+  }
+
+  .prose :global(tr:last-child td) {
+    border-block-end: none;
+  }
+
+  /* Inline code */
+  .prose :global(:not(pre) > code) {
+    border-radius: 0.25rem;
+    background: var(--color-code-bg);
+    padding: 0.15rem 0.5rem;
+    color: var(--color-code-text);
+    font-size: var(--article-font-size-sm);
+    line-height: 1.41;
+  }
+
+  /* Code blocks (expressive-code) */
+  .prose :global(.expressive-code) {
+    margin-block: 1.5rem;
+  }
+
+  /* Lists */
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-block: 1rem;
+    padding-inline-start: 1.5rem;
+  }
+
+  .prose :global(ul) {
+    list-style-type: disc;
+  }
+
+  .prose :global(ol) {
+    list-style-type: decimal;
+  }
+
+  .prose :global(li) {
+    margin-block-end: 0.3rem;
+  }
+
+  .prose :global(li ul),
+  .prose :global(li ol) {
+    margin-block: 0.3rem;
+  }
+
+  /* Task list (checkboxes) */
+  .prose :global(ul:has(input[type="checkbox"])) {
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .prose :global(li:has(> input[type="checkbox"])) {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  /* Other inline elements */
+  .prose :global(abbr[title]) {
+    cursor: help;
+    text-decoration: underline dotted;
+  }
+
+  .prose :global(kbd) {
+    display: inline-block;
+    box-shadow: 0 1px 0 var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.4rem;
+    font-size: var(--article-font-size-sm);
+    line-height: 1.4;
+  }
+
+  .prose :global(mark) {
+    border-radius: 0.15rem;
+    background: var(--color-mark-bg);
+    padding-inline: 0.15rem;
+    color: var(--color-mark-text);
+  }
+
+  .prose :global(sub),
+  .prose :global(sup) {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 0.75rem;
+    line-height: 0;
+  }
+
+  .prose :global(sub a),
+  .prose :global(sup a) {
+    text-decoration-thickness: 1px;
+  }
+
+  .prose :global(sup) {
+    inset-block-start: -0.5rem;
+  }
+
+  .prose :global(sub) {
+    inset-block-end: -0.25rem;
+  }
+
+  /* Footnotes */
+  .prose :global(.footnotes p) {
+    margin-inline: 0;
+    margin-block-end: 0;
+    max-width: none;
+  }
+
+  .prose :global(.footnotes ul),
+  .prose :global(.footnotes ol) {
+    margin-inline: 0;
+    max-width: none;
+  }
+
+  /* -------------------------
+   * Module — Related Writings
+   * ------------------------- */
+  .related-writings {
+    margin-block-start: 3rem;
+    border-block-start: 1px solid var(--color-border);
+    padding-block-start: 3rem;
+    width: 100%;
+  }
+
+  .related-heading {
+    margin-block-end: 1.5rem;
+    color: var(--color-surface-600);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .related-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .related-link {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .related-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-lg);
+    border-radius: var(--focus-radius);
+  }
+
+  .related-title {
+    display: block;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3333;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .related-link:link .related-title {
+    color: var(--color-text);
+  }
+
+  .related-link:visited .related-title {
+    color: var(--color-surface-400);
+  }
+
+  .related-link:hover .related-title,
+  .related-link:focus-visible .related-title {
+    color: var(--color-accent);
+  }
+
+  .related-link :global(time) {
+    position: absolute;
+    opacity: 0;
+    transition: opacity var(--transition-motion);
+    margin-inline-end: 1rem;
+    inset-inline-end: 100%;
+    padding-block-start: 0.5625rem;
+    color: var(--color-surface-700);
+    font-size: var(--article-font-size-sm);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .related-link:hover :global(time),
+  .related-link:focus-visible :global(time) {
+    opacity: 1;
+  }
+
+  /* -------------------------
+   * State — Responsive
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    .container {
+      padding-inline: 1.5rem;
+    }
+
+    .article-meta {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .article-meta :global(time) {
+      grid-row: auto;
+      order: 1;
+      padding-block: 0;
+      font-size: 1rem;
+    }
+
+    .article-title {
+      grid-row: auto;
+      order: 0;
+      font-size: 2rem;
+    }
+
+    .article-tags {
+      grid-row: auto;
+      grid-column: auto;
+      order: 2;
+    }
+
+    .related-link {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .related-link :global(time) {
+      display: block;
+      position: static;
+      opacity: 1;
+      margin-inline-end: 0;
+      margin-block-start: 0.25rem;
+      padding-block-start: 0;
+      color: var(--color-text);
+      font-weight: 700;
+      white-space: normal;
+    }
+
+    .related-link:link :global(time) {
+      color: var(--color-text);
+    }
+
+    .related-link:visited :global(time) {
+      color: var(--color-surface-400);
+    }
+
+    .related-link:hover :global(time),
+    .related-link:focus-visible :global(time) {
+      color: var(--color-accent);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --article-padding-y: 5rem;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .prose :global(h2) {
+      font-size: 1.625rem;
+    }
+
+    .prose :global(h3) {
+      font-size: 1.375rem;
+    }
+
+    .prose :global(h4) {
+      font-size: 1.25rem;
+    }
+  }
+</style>

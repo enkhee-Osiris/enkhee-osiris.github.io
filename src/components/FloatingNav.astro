@@ -1,0 +1,232 @@
+---
+import { URLS } from "@/constants";
+
+const menuIcon = await import("@/assets/icons/menu.svg?raw");
+const searchIcon = await import("@/assets/icons/search.svg?raw");
+const closeIcon = await import("@/assets/icons/close.svg?raw");
+const moonIcon = await import("@/assets/icons/moon.svg?raw");
+const sunIcon = await import("@/assets/icons/sun.svg?raw");
+---
+
+<nav class="floating-nav" aria-label="Site navigation">
+  <button
+    id="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-label="Open menu"
+    aria-controls="fullscreen-nav"></button>
+
+  <a href={URLS.search} aria-label="Search">
+    <Fragment set:html={searchIcon.default} />
+  </a>
+
+  <button id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"
+  ></button>
+</nav>
+
+<template id="icon-menu"><Fragment set:html={menuIcon.default} /></template>
+<template id="icon-close"><Fragment set:html={closeIcon.default} /></template>
+<template id="icon-moon"><Fragment set:html={moonIcon.default} /></template>
+<template id="icon-sun"><Fragment set:html={sunIcon.default} /></template>
+
+<style>
+  /* -------------------------
+   * Layout — Nav Container
+   * Fixed to vertical center of viewport, right edge
+   * ------------------------- */
+  .floating-nav {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    flex-direction: column;
+    gap: 1rem;
+    transform: translateY(-50%);
+    z-index: 100;
+    inset-inline-end: 1.5rem;
+  }
+
+  /* -------------------------
+   * Module — Nav Items
+   * Circular icon buttons and links
+   * ------------------------- */
+  .floating-nav button,
+  .floating-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 9999px;
+    background: none;
+    width: 3rem;
+    height: 3rem;
+    color: var(--color-surface-600);
+  }
+
+  /* -------------------------
+   * State — Interactive
+   * ------------------------- */
+  .floating-nav button:hover,
+  .floating-nav a:hover {
+    background-color: var(--color-surface-100);
+    color: var(--color-text);
+  }
+
+  .floating-nav button:focus-visible,
+  .floating-nav a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: 9999px;
+    color: var(--color-text);
+  }
+
+  /* -------------------------
+   * Module — Icons
+   * ------------------------- */
+  .floating-nav :global(svg) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* -------------------------
+   * State — Small screens
+   * Move to bottom-left corner, horizontal layout, smaller icons
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    .floating-nav {
+      top: 1.25rem;
+      bottom: auto;
+      flex-direction: row;
+      transform: none;
+      inset-inline-end: 1.25rem;
+      inset-inline-start: auto;
+    }
+
+    .floating-nav button,
+    .floating-nav a {
+      background-color: var(--color-surface-100);
+      color: var(--color-surface-600);
+    }
+
+    .floating-nav button:active,
+    .floating-nav a:active {
+      background-color: var(--color-surface-200);
+      color: var(--color-text);
+    }
+
+    .floating-nav button,
+    .floating-nav a {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .floating-nav :global(svg) {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+  }
+</style>
+
+<script>
+  const themeToggle = document.getElementById("theme-toggle") as HTMLButtonElement;
+  const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement;
+
+  const menuTemplate = document.getElementById("icon-menu") as HTMLTemplateElement;
+  const closeTemplate = document.getElementById("icon-close") as HTMLTemplateElement;
+  const moonTemplate = document.getElementById("icon-moon") as HTMLTemplateElement;
+  const sunTemplate = document.getElementById("icon-sun") as HTMLTemplateElement;
+
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Resolve active theme: explicit data-theme attr wins, otherwise fall back to OS preference
+  function getEffectiveTheme(): "light" | "dark" {
+    const attr = document.documentElement.getAttribute("data-theme");
+
+    if (attr === "light" || attr === "dark") return attr;
+
+    return systemDark.matches ? "dark" : "light";
+  }
+
+  // Swap the icon template and update aria-label/aria-pressed to reflect state
+  function updateThemeToggle() {
+    const current = getEffectiveTheme();
+    const template = current === "dark" ? sunTemplate : moonTemplate;
+
+    themeToggle.replaceChildren(template.content.cloneNode(true));
+    themeToggle.setAttribute(
+      "aria-label",
+      current === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    );
+    themeToggle.setAttribute("aria-pressed", current === "dark" ? "true" : "false");
+  }
+
+  // Swap menu/close icon and update aria-label based on expanded state
+  function updateMenuToggle() {
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+    const template = expanded ? closeTemplate : menuTemplate;
+
+    menuToggle.replaceChildren(template.content.cloneNode(true));
+    menuToggle.setAttribute("aria-label", expanded ? "Close menu" : "Open menu");
+  }
+
+  updateThemeToggle();
+  updateMenuToggle();
+
+  themeToggle.addEventListener("click", () => {
+    const next = getEffectiveTheme() === "dark" ? "light" : "dark";
+
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateThemeToggle();
+  });
+
+  systemDark.addEventListener("change", () => {
+    if (!document.documentElement.hasAttribute("data-theme")) {
+      updateThemeToggle();
+    }
+  });
+
+  const fullscreenNav = document.getElementById("fullscreen-nav");
+
+  function openMenu() {
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.documentElement.setAttribute("data-menu-open", "");
+    updateMenuToggle();
+
+    document.querySelectorAll("main, footer").forEach(el => {
+      el.setAttribute("inert", "");
+    });
+
+    fullscreenNav?.removeAttribute("aria-hidden");
+    fullscreenNav?.querySelector<HTMLElement>("a")?.focus();
+  }
+
+  function closeMenu() {
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.documentElement.removeAttribute("data-menu-open");
+    updateMenuToggle();
+
+    document.querySelectorAll("main, footer").forEach(el => {
+      el.removeAttribute("inert");
+    });
+
+    fullscreenNav?.setAttribute("aria-hidden", "true");
+    menuToggle.focus();
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+
+    if (expanded) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+    }
+  });
+</script>

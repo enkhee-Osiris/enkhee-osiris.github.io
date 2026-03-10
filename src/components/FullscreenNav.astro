@@ -1,0 +1,301 @@
+---
+import FormattedDate from "@/components/FormattedDate.astro";
+import { SOCIAL, URLS } from "@/constants";
+import { getPublishedWritings, getSortedWritings } from "@/utils/data";
+
+const githubIcon = await import("@/assets/icons/github.svg?raw");
+const linkedinIcon = await import("@/assets/icons/linkedin.svg?raw");
+const mailIcon = await import("@/assets/icons/mail.svg?raw");
+
+const allWritings = await getPublishedWritings();
+const latestWritings = getSortedWritings(allWritings).slice(0, 3);
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav id="fullscreen-nav" class="fullscreen-nav" aria-label="Main menu" aria-hidden="true">
+  <div class="nav-inner">
+    <!-- LEFT: latest writings + social -->
+    <div class="nav-left">
+      {
+        latestWritings.length > 0 && (
+          <div class="nav-writings">
+            <p class="nav-writings-label" aria-hidden="true">
+              Latest writings
+            </p>
+            <ul class="nav-writings-list" role="list">
+              {latestWritings.map(writing => (
+                <li>
+                  <a class="nav-writing-link" href={URLS.writing(writing.id)}>
+                    <span class="nav-writing-title">{writing.data.title}</span>
+                    <FormattedDate
+                      date={writing.data.pubDatetime}
+                      formatOptions={{ year: "numeric", month: "short" }}
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      <ul class="nav-social" role="list" aria-label="Social links">
+        <li>
+          <a class="nav-social-link" href={SOCIAL.github} aria-label="GitHub">
+            <Fragment set:html={githubIcon.default} />
+          </a>
+        </li>
+        <li>
+          <a class="nav-social-link" href={SOCIAL.linkedin} aria-label="LinkedIn">
+            <Fragment set:html={linkedinIcon.default} />
+          </a>
+        </li>
+        <li>
+          <a class="nav-social-link" href={SOCIAL.email} aria-label="Email">
+            <Fragment set:html={mailIcon.default} />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: page nav links -->
+    <ul class="nav-links" role="list">
+      <li>
+        <a href={URLS.home} aria-current={currentPath === URLS.home ? "page" : undefined}>Home</a>
+      </li>
+      <li>
+        <a
+          href={URLS.writings}
+          aria-current={currentPath.startsWith(URLS.writings) ? "page" : undefined}
+        >
+          Writings
+        </a>
+      </li>
+      <li>
+        <a href={URLS.tags} aria-current={currentPath.startsWith(URLS.tags) ? "page" : undefined}>
+          Tags
+        </a>
+      </li>
+      <li>
+        <a href={URLS.about} aria-current={currentPath === URLS.about ? "page" : undefined}>
+          About
+        </a>
+      </li>
+      <li>
+        <a href={URLS.search} aria-current={currentPath === URLS.search ? "page" : undefined}>
+          Search
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  /* -------------------------
+   * Layout — Nav Container
+   * Full-viewport overlay, hidden by default
+   * ------------------------- */
+  .fullscreen-nav {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 90;
+    transition:
+      opacity var(--transition),
+      visibility var(--transition);
+    inset: 0;
+    background: var(--color-bg);
+    padding: 4rem;
+  }
+
+  /* -------------------------
+   * State — Menu Open
+   * Triggered by html[data-menu-open] attribute set by FloatingNav
+   * ------------------------- */
+  :global(html[data-menu-open]) {
+    overflow: hidden;
+  }
+
+  :global(html[data-menu-open]) .fullscreen-nav {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* -------------------------
+   * Layout — Inner Grid
+   * Two-column layout: writings left, nav links right
+   * ------------------------- */
+  .nav-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    width: 100%;
+    max-width: 56rem;
+  }
+
+  /* -------------------------
+   * Module — Left Panel
+   * Writings at top, social pinned to bottom
+   * ------------------------- */
+  .nav-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  /* -------------------------
+   * Module — Writings Section Label
+   * ------------------------- */
+  .nav-writings-label {
+    margin-block-end: 1.5rem;
+    color: var(--color-surface-600);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--letter-spacing-caps);
+    text-transform: uppercase;
+  }
+
+  /* -------------------------
+   * Module — Writings List
+   * ------------------------- */
+  .nav-writings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-writing-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-decoration: none;
+  }
+
+  .nav-writing-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.4;
+    font-family: var(--font-display);
+    -webkit-box-orient: vertical;
+  }
+
+  .nav-writing-link :global(time) {
+    color: var(--color-surface-700);
+    font-size: 0.8125rem;
+  }
+
+  /* -------------------------
+   * Module — Social Links
+   * ------------------------- */
+  .nav-social {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .nav-social-link {
+    display: block;
+    transition: color var(--transition);
+    color: var(--color-surface-400);
+  }
+
+  .nav-social-link :global(svg) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* -------------------------
+   * Module — Nav Links
+   * Primary page navigation
+   * ------------------------- */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    transition: color var(--transition);
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    text-decoration: none;
+  }
+
+  /* -------------------------
+   * State — Interactive
+   * ------------------------- */
+  .nav-writing-link:hover .nav-writing-title,
+  .nav-writing-link:focus-visible .nav-writing-title {
+    color: var(--color-accent);
+  }
+
+  .nav-writing-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+  }
+
+  .nav-social-link:hover,
+  .nav-social-link:focus-visible {
+    color: var(--color-text);
+  }
+
+  .nav-social-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-links a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+  }
+
+  .nav-links a[aria-current="page"] {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+  }
+
+  /* -------------------------
+   * State — Responsive (mobile)
+   * Stack vertically: nav links first, writings + social below
+   * ------------------------- */
+  @media (max-width: 640px) {
+    .fullscreen-nav {
+      align-items: flex-start;
+      padding: 5rem 1.5rem 3rem;
+    }
+
+    .nav-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .nav-links {
+      order: -1;
+    }
+
+    .nav-links a {
+      font-size: 2rem;
+    }
+  }
+</style>

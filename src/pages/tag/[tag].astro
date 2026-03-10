@@ -1,0 +1,245 @@
+---
+import BackLink from "@/components/BackLink.astro";
+import FloatingNav from "@/components/FloatingNav.astro";
+import FullscreenNav from "@/components/FullscreenNav.astro";
+import Head from "@/components/Head.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import WritingsByYear from "@/components/WritingsByYear.astro";
+import { DESCRIPTIONS, TITLES, URLS } from "@/constants";
+import {
+  getPublishedWritings,
+  getSortedWritings,
+  getTagsWithWritings,
+  getWritingsByYear,
+} from "@/utils/data";
+
+export async function getStaticPaths() {
+  const allWritings = await getPublishedWritings();
+  const sortedWritings = getSortedWritings(allWritings);
+  const tagsWithWritings = getTagsWithWritings(sortedWritings);
+
+  return tagsWithWritings.map(({ tag, writings }) => ({
+    params: { tag },
+    props: { tag, writings, tagsWithWritings },
+  }));
+}
+
+const { tag, writings, tagsWithWritings } = Astro.props;
+const writingsByYear = getWritingsByYear(writings);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={TITLES.tag(tag)} description={DESCRIPTIONS.tag(tag)} />
+  </head>
+
+  <body>
+    <SkipLink />
+    <main id="main-content" data-pagefind-ignore="all">
+      <section class="container" aria-label={`Writings tagged with ${tag}`}>
+        <div class="tags-meta">
+          <BackLink href={URLS.tags} label="Back to tags" />
+
+          <h1 class="heading">Tags</h1>
+
+          <ul class="tag-list" role="list">
+            {
+              tagsWithWritings.map(({ tag: t, writings: w }) => (
+                <li class="tag-item">
+                  <a
+                    href={URLS.tag(t)}
+                    class="tag-link"
+                    aria-current={t === tag ? "page" : undefined}
+                  >
+                    <span class="tag-name">{t}</span>
+
+                    <span
+                      class="tag-count"
+                      aria-label={`${w.length} ${w.length === 1 ? "writing" : "writings"}`}
+                    >
+                      {w.length}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <WritingsByYear writingsByYear={writingsByYear} />
+      </section>
+    </main>
+
+    <FloatingNav />
+    <FullscreenNav />
+  </body>
+</html>
+
+<script>
+  const backLink = document.querySelector<HTMLAnchorElement>(".back-link");
+  const backLinkText = document.querySelector<HTMLElement>(".back-link-text");
+
+  if (backLink && backLinkText && document.referrer) {
+    const ref = new URL(document.referrer);
+
+    if (ref.origin === location.origin) {
+      const base = import.meta.env.BASE_URL;
+
+      const writingMatch = ref.pathname.match(/\/writing\/([^/]+)\/?$/);
+      const isHomePage = ref.pathname === base || ref.pathname === base.replace(/\/$/, "");
+
+      if (writingMatch) {
+        backLink.href = ref.pathname;
+        backLinkText.textContent = "Back to writing";
+      } else if (isHomePage) {
+        backLink.href = ref.pathname;
+        backLinkText.textContent = "Back to home";
+      }
+    }
+  }
+</script>
+
+<style>
+  /* -------------------------
+   * Theme — Local Variables
+   * ------------------------- */
+  :root {
+    --tag-padding-y: 8rem;
+    --tag-content-width: 36rem;
+    --tag-section-gap: 6rem;
+  }
+
+  /* -------------------------
+   * Layout — Page Container
+   * ------------------------- */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tag-section-gap);
+    margin-inline: auto;
+    padding-block: var(--tag-padding-y);
+    width: 100%;
+    max-width: 48rem;
+  }
+
+  .tags-meta {
+    margin-inline: auto;
+    /* Pulls BackLink up into the top padding zone so the heading aligns with the tag index page */
+    margin-block-start: var(--back-link-offset);
+    width: 100%;
+    max-width: var(--tag-content-width);
+  }
+
+  /* -------------------------
+   * Module — Heading
+   * ------------------------- */
+  .heading {
+    margin-block-end: 1.5rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  /* -------------------------
+   * Module — Tag List
+   * ------------------------- */
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* -------------------------
+   * Module — Tag Link
+   * Tag name left, count right; active tag highlighted
+   * ------------------------- */
+  .tag-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-surface-100);
+    padding-inline: 0.8rem 0.25rem;
+    padding-block: 0.25rem;
+    color: var(--color-surface-700);
+    font-size: 0.875rem;
+    line-height: 1.285;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .tag-name::before {
+    margin-inline-end: 1px;
+    content: "#";
+  }
+
+  .tag-count {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    background: var(--color-bg);
+    padding-inline: 0.5rem;
+    padding-block: 0.25rem;
+    min-width: 1.3rem;
+    font-weight: 700;
+    font-size: 0.625rem;
+  }
+
+  /* -------------------------
+   * State — Interactive
+   * ------------------------- */
+  .tag-link:hover {
+    background: var(--color-surface-200);
+    color: var(--color-surface-900);
+  }
+
+  .tag-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-sm);
+    background: var(--color-surface-200);
+    color: var(--color-surface-900);
+  }
+
+  .tag-link[aria-current="page"] {
+    order: -1;
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+  }
+
+  .tag-link[aria-current="page"] .tag-count {
+    background: var(--color-accent-text);
+    color: var(--color-accent);
+  }
+
+  /* -------------------------
+   * State — Responsive
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    .container {
+      padding-inline: 1.5rem;
+    }
+
+    :global(.writings-list) {
+      margin-inline: auto;
+      width: 100%;
+      max-width: var(--tag-content-width);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --tag-padding-y: 5rem;
+      --tag-section-gap: 3rem;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .heading {
+      font-size: 2rem;
+    }
+  }
+</style>

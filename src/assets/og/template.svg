@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="white" opacity="0.2"/>
+    </pattern>
+    <clipPath id="clip">
+      <rect width="1200" height="630"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="1200" height="630" fill="#0d0d09"/>
+    <rect width="1200" height="630" fill="url(#dots)"/>
+    <rect x="64" y="64" width="4" height="502" fill="#B45309"/>
+    <!-- Dynamic content injected here -->
+    <g id="content"/>
+  </g>
+</svg>

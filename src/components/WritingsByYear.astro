@@ -1,0 +1,171 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { URLS } from "@/constants";
+
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  writingsByYear: {
+    year: number;
+    writings: CollectionEntry<"writing">[];
+  }[];
+}
+
+// Track grid row position for year spanning
+let gridRow = 1;
+
+const { writingsByYear } = Astro.props;
+---
+
+<dl class="writings-list">
+  {
+    writingsByYear.map(({ year, writings }) => {
+      const span = writings.length;
+      const yearGridRow = gridRow;
+      gridRow += span;
+
+      return [
+        <dt class="writing-year" style={`grid-row: ${yearGridRow} / span ${span}`}>
+          {year}
+        </dt>,
+
+        ...writings.map(writing => (
+          <dd class="writing-item">
+            <a href={URLS.writing(writing.id)} class="writing-link">
+              <span class="title">{writing.data.title}</span>
+
+              <span class="date">
+                <FormattedDate
+                  date={writing.data.pubDatetime}
+                  formatOptions={{ month: "short", day: "numeric" }}
+                />
+              </span>
+            </a>
+          </dd>
+        )),
+      ];
+    })
+  }
+</dl>
+
+<style>
+  :root {
+    --writings-list-gap-row: 1rem;
+    --writings-list-gap-column: 2rem;
+  }
+
+  /* -------------------------
+   * Module — Writings List
+   * Year label + writing entries in a two-column grid
+   * ------------------------- */
+  .writings-list {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--writings-list-gap-row) var(--writings-list-gap-column);
+  }
+
+  .writing-year {
+    position: sticky;
+    top: 0;
+    grid-column: 1;
+    padding-block: 0.25rem;
+    width: 4.0625rem;
+    color: var(--color-surface-600);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    text-align: right;
+  }
+
+  .writing-item {
+    grid-column: 2;
+  }
+
+  /* -------------------------
+   * Module — Writing Link
+   * Date + title stacked vertically
+   * ------------------------- */
+  .writing-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .date {
+    display: block;
+    color: var(--color-surface-700);
+    font-size: 0.875rem;
+    line-height: 1.21;
+  }
+
+  .title {
+    display: block;
+    margin-block-end: 0.25rem;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3333;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  /* -------------------------
+   * State — Interactive
+   * ------------------------- */
+  .writing-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-lg);
+    border-radius: var(--focus-radius);
+  }
+
+  .writing-link:link .title {
+    color: var(--color-text);
+  }
+
+  .writing-link:visited .title {
+    color: var(--color-surface-400);
+  }
+
+  .writing-link:hover .title,
+  .writing-link:focus-visible .title {
+    color: var(--color-accent);
+  }
+
+  /* -------------------------
+   * State — Responsive
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    :root {
+      --writings-list-gap-column: 1rem;
+    }
+
+    .writings-list {
+      display: block;
+    }
+
+    .writing-year {
+      position: static;
+      margin-block-start: 2rem;
+      width: auto;
+      text-align: left;
+    }
+
+    .writing-year:first-child {
+      margin-block-start: 0;
+    }
+
+    .writing-item {
+      margin-block-end: var(--writings-list-gap-row);
+    }
+
+    .writing-item:last-child {
+      margin-block-end: 0;
+    }
+
+    .title {
+      font-size: 1.25rem;
+    }
+  }
+</style>

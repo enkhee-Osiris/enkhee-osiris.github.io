@@ -1,0 +1,331 @@
+---
+import FloatingNav from "@/components/FloatingNav.astro";
+import FullscreenNav from "@/components/FullscreenNav.astro";
+import Head from "@/components/Head.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import { DESCRIPTIONS, TITLES } from "@/constants";
+
+const searchIcon = await import("@/assets/icons/search.svg?raw");
+const svgDataUri = `url("data:image/svg+xml,${encodeURIComponent(searchIcon.default)}")`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={TITLES.search} description={DESCRIPTIONS.search} />
+    <style set:html={`.pagefind-ui__form::before { mask-image: ${svgDataUri}; }`}></style>
+  </head>
+
+  <body>
+    <SkipLink />
+    <main id="main-content" data-pagefind-ignore="all">
+      <div class="container">
+        <h1 class="heading">Search</h1>
+        <div id="search"></div>
+      </div>
+    </main>
+
+    <FloatingNav />
+    <FullscreenNav />
+  </body>
+</html>
+
+<script>
+  import { PagefindUI } from "@pagefind/default-ui";
+
+  const BASE = import.meta.env.BASE_URL;
+
+  const ui = new PagefindUI({
+    element: "#search",
+    bundlePath: `${BASE}pagefind/`,
+    showImages: false,
+    showSubResults: false,
+    excerptLength: 26,
+    showEmptyFilters: false,
+  });
+
+  const params = new URLSearchParams(window.location.search);
+
+  const query = params.get("q");
+
+  if (query) {
+    ui.triggerSearch(query);
+  }
+
+  const input = document.querySelector<HTMLInputElement>("#search input");
+
+  if (input) {
+    input.addEventListener("input", () => {
+      const url = new URL(window.location.href);
+      const q = input.value.trim();
+
+      if (q) {
+        url.searchParams.set("q", q);
+      } else {
+        url.searchParams.delete("q");
+      }
+
+      history.replaceState(null, "", url.toString());
+    });
+  }
+</script>
+
+<style is:global>
+  .pagefind-ui__result {
+    display: flex;
+    align-items: flex-start;
+    border-top: 1px solid var(--color-border);
+    padding-block: 1.5rem !important;
+    list-style-type: none;
+  }
+
+  .pagefind-ui__result:last-of-type {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pagefind-ui__result-inner {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagefind-ui__result-inner:focus-within {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-lg);
+    border-radius: var(--focus-radius);
+  }
+
+  .pagefind-ui__result-title {
+    margin-block-end: 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3333;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  .pagefind-ui__result-link {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .pagefind-ui__result-link:hover,
+  .pagefind-ui__result-link:focus-visible {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .pagefind-ui__result-link:focus {
+    outline: none;
+  }
+
+  .pagefind-ui__result-excerpt {
+    color: var(--color-surface-700);
+    font-size: 1.0625rem;
+    line-height: 1.53;
+  }
+
+  .pagefind-ui__result-excerpt mark {
+    border-radius: 0.15rem;
+    background: var(--color-mark-bg);
+    padding-inline: 0.15rem;
+    color: var(--color-mark-text);
+  }
+
+  .pagefind-ui {
+    width: 100%;
+  }
+
+  .pagefind-ui__hidden {
+    display: none !important;
+  }
+
+  .pagefind-ui__suppressed {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pagefind-ui__form {
+    position: relative;
+    color: var(--color-surface-600);
+  }
+
+  .pagefind-ui__form::before {
+    position: absolute;
+    z-index: 9;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    inset-block-start: 1rem;
+    inset-inline-start: 1rem;
+    background-color: var(--color-text);
+    width: 1.5rem;
+    height: 1.5rem;
+    pointer-events: none;
+    content: "";
+  }
+
+  .pagefind-ui__search-input {
+    all: unset;
+    display: flex;
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    padding-inline: 3.5rem 4.375rem;
+    padding-block: 0;
+    width: 100%;
+    height: 3.5rem;
+    font: inherit;
+    font-weight: 700;
+    font-size: 1.0625rem;
+  }
+
+  .pagefind-ui__search-input:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+  }
+
+  .pagefind-ui__search-input::placeholder {
+    opacity: 0.6;
+  }
+
+  .pagefind-ui__search-clear {
+    all: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    border-radius: 0.125rem;
+    padding-inline: 0.75rem;
+    padding-block: 0;
+    height: 3.5rem;
+    color: var(--color-surface-500);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--letter-spacing-caps);
+    text-transform: uppercase;
+  }
+
+  .pagefind-ui__search-clear:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+  }
+
+  .pagefind-ui__drawer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .pagefind-ui__results-area {
+    flex: 1000;
+    margin-block-start: 1rem;
+  }
+
+  .pagefind-ui__message {
+    display: flex;
+    align-items: center;
+    box-sizing: content-box;
+    padding-block: 1rem;
+    color: var(--color-surface-600);
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 1.3333;
+    letter-spacing: var(--letter-spacing-caps);
+    text-transform: uppercase;
+  }
+
+  .pagefind-ui__button {
+    all: unset;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    width: 100%;
+    height: 3.5rem;
+    color: var(--color-accent);
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--letter-spacing-caps);
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .pagefind-ui__button:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+  }
+
+  .pagefind-ui__button:hover {
+    border-color: var(--color-accent);
+    background-color: var(--color-surface-100);
+  }
+
+  @media (max-width: 40rem) {
+    .pagefind-ui__result-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<style>
+  /* -------------------------
+   * Theme — Local Variables
+   * ------------------------- */
+  :root {
+    --search-padding-y: 8rem;
+  }
+
+  /* -------------------------
+   * Layout — Page Container
+   * ------------------------- */
+  .container {
+    margin-inline: auto;
+    padding-block: var(--search-padding-y);
+    width: 100%;
+    max-width: 36rem;
+  }
+
+  /* -------------------------
+   * Module — Heading
+   * ------------------------- */
+  .heading {
+    margin-block-end: 1.5rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+
+  /* -------------------------
+   * State — Responsive
+   * ------------------------- */
+  @media (max-width: 64rem) {
+    .container {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --search-padding-y: 5rem;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .heading {
+      font-size: 2rem;
+    }
+  }
+</style>
