@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project
+
+This is a personal website built with Astro 5, using the [kanso](https://github.com/enkhee-Osiris/kanso) theme as a base. The site features a minimal, content-focused design with writings, tags, about page, and full-text search.
+
 ## Commands
 
 - `npm run dev` — Start dev server at localhost:4321
@@ -21,7 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Prettier** with `prettier-plugin-css-order` + `prettier-plugin-astro` — config in `.prettierrc`, 2-space indent, double quotes, `es5` trailing commas, `arrowParens: avoid`. CSS declarations are auto-sorted in `concentric-css` order (outside-in: position → box model → visual).
 - **ESLint** flat config (`eslint.config.mjs`) — `@eslint/js` + `typescript-eslint` + `eslint-plugin-astro` + `eslint-plugin-import` (enforced import ordering) + `eslint-plugin-prettier` + `eslint-config-prettier`. Config files (`*.config.js`, `*.config.mjs`) are excluded from linting.
 - **Husky + lint-staged** — Pre-commit hook runs eslint + prettier on staged files
-- **Deployment** — GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`), project site at `enkhee-Osiris.github.io/kanso`. Deploy only triggers on changes to source code, static assets, and build config (`src/`, `public/`, `astro.config.mjs`, `ec.config.mjs`, `package.json`, `package-lock.json`, `tsconfig.json`). Manual deploy available via `workflow_dispatch`.
+- **Deployment** — GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`). Deploy only triggers on changes to source code, static assets, and build config (`src/`, `public/`, `astro.config.mjs`, `ec.config.mjs`, `package.json`, `package-lock.json`, `tsconfig.json`). Manual deploy available via `workflow_dispatch`.
 - **Skills** — Project-level agent skills in `.agents/skills/`: astro, css-architecture, accessibility-compliance, best-practices
 - **Screenshots** — `screenshots/` contains 14 full-page PNGs at 1440×900 (7 pages × light + dark) taken from production preview (`npm run build && npm run preview`). When re-screenshotting, set `localStorage.setItem('theme','light')` **before** navigating (not after) so the anti-FOUC script in `Head.astro` initialises the correct theme on load.
 
@@ -53,11 +57,11 @@ This is an Astro 5 site with a minimal, content-focused design.
 - `astro-expressive-code` — Code blocks with Catppuccin Frappé (dark) / Catppuccin Latte (light) themes, JetBrains Mono font, line numbers (`ec.config.mjs`). Uses `themeCssSelector` to map theme type to `[data-theme="dark"]`/`[data-theme="light"]`.
 - `sharp` — SVG→PNG rasterisation for OG images (via librsvg/pango). Set `process.env.PANGOCAIRO_BACKEND = "fontconfig"` and `process.env.FONTCONFIG_PATH = resolve("src/assets/og")` at module top-level in `src/utils/og-image.ts` so pango uses the bundled fonts rather than CoreText on macOS. Font files live in `src/assets/og/fonts/`; `src/assets/og/fonts.conf` uses `prefix="cwd"` so paths resolve from the project root at build time.
 - **Rehype plugins** (configured in `astro.config.mjs` `markdown.rehypePlugins`, order matters): `rehypeHeadingIds` (stamp heading IDs) → `@benjc/rehype-enhanced-tables` (wrap tables in `.table-scroll` div) → `rehype-external-links` (auto `target="_blank" rel="noopener noreferrer"`) → `rehype-unwrap-images` (strip `<p>` around standalone images) → `rehype-autolink-headings` (prepend `.heading-anchor` link to headings). Heading anchors use a Radix-style 15×15 SVG icon rendered at 20×20; clicking copies the URL to clipboard via `history.pushState` + `navigator.clipboard.writeText`.
-- `pagefind` (devDep) + `@pagefind/default-ui` — Static full-text search. `pagefind` CLI runs after `astro build` to index `dist/`. Config in `pagefind.json` (`site: "dist"`, `root_selector: "main"`). Bundle lands in `dist/pagefind/` → served at `/kanso/pagefind/`. Non-writing pages (homepage, listing pages, search page itself) are excluded via `data-pagefind-ignore="all"` on `<main>`. Search page at `src/pages/search.astro` — syncs `?q=` URL param on load (`ui.triggerSearch`) and on input (`history.replaceState`). Dev workflow: `npm run dev:search` builds, copies index to `public/pagefind/` (gitignored), then starts dev server.
+- `pagefind` (devDep) + `@pagefind/default-ui` — Static full-text search. `pagefind` CLI runs after `astro build` to index `dist/`. Config in `pagefind.json` (`site: "dist"`, `root_selector: "main"`). Bundle lands in `dist/pagefind/`. Non-writing pages (homepage, listing pages, search page itself) are excluded via `data-pagefind-ignore="all"` on `<main>`. Search page at `src/pages/search.astro` — syncs `?q=` URL param on load (`ui.triggerSearch`) and on input (`history.replaceState`). Dev workflow: `npm run dev:search` builds, copies index to `public/pagefind/` (gitignored), then starts dev server.
 
 **CSS comments:** Style blocks use SMACSS-style section headers throughout. Format: `/* -------------------------\n * [Category] — [Name]\n * [Optional description]\n * ------------------------- */`. Categories: **Theme** (variables, color tokens), **Base** (element defaults), **Layout** (major structural containers), **Module** (components and sub-elements), **State** (interactive states, media queries, attribute-driven states). CSS declaration order is enforced by `prettier-plugin-css-order` (concentric-css) — do not manually reorder; run `npm run format` instead.
 
-**Styling:** Global styles in `src/styles/global.css` (imported via `Head.astro`). Fonts: Lora (display/headings) and PT Serif (body) loaded globally via Google Fonts in `Head.astro`; JetBrains Mono (code) loaded only on the writing detail page. CSS variables on `:root` for colors (`--color-surface-*`), fonts (`--font-body`, `--font-display`), and semantic tokens (`--color-bg`, `--color-text`, `--color-border`, `--color-code-bg`, `--color-code-text`, `--color-mark-bg`, `--color-mark-text`). Accent color: `--color-accent: #c2410c` (orange-700) for light theme; `#d97706` (amber-500) for dark theme. Dark mode via `prefers-color-scheme` with `html[data-theme]` override. Theme variables are defined in four blocks: `:root`, `@media (prefers-color-scheme: dark)`, `html[data-theme="light"]`, `html[data-theme="dark"]`. Component-scoped styles use `<style>` tags in `.astro` files.
+**Styling:** Global styles in `src/styles/global.css` (imported via `Head.astro`). Fonts: School Book (display/headings), PT Serif Pro (body) served from `public/fonts/` with `@font-face`; JetBrains Mono (code) loaded via Google Fonts only on the writing detail page. CSS variables on `:root` for colors (`--color-surface-*`), fonts (`--font-body`, `--font-display`), and semantic tokens (`--color-bg`, `--color-text`, `--color-border`, `--color-code-bg`, `--color-code-text`, `--color-mark-bg`, `--color-mark-text`). Accent color: `--color-accent: #c2410c` (orange-700) for light theme; `#d97706` (amber-500) for dark theme. Dark mode via `prefers-color-scheme` with `html[data-theme]` override. Theme variables are defined in four blocks: `:root`, `@media (prefers-color-scheme: dark)`, `html[data-theme="light"]`, `html[data-theme="dark"]`. Component-scoped styles use `<style>` tags in `.astro` files.
 
 **Interaction tokens** (`src/styles/global.css`, `:root` block after design tokens — use these everywhere, never hardcode or create per-page locals):
 
@@ -99,7 +103,7 @@ Focus shape conventions: circular elements (FloatingNav buttons, TagChip) use `b
 - `src/pages/og/[slug].png.ts` — static API route; generates a 1200×630 PNG for every published writing at build time using `generateOgImage()` from `src/utils/og-image.ts`
 - `src/pages/about.astro` — bio (name + paragraphs + social links), experience list (icon badge or company initial + company/role/period using `<time>`), projects list (bordered cards with title link, description, tech tags)
 
-**Links:** The site uses `base: "/kanso"` in `astro.config.mjs`. Internal links must use `import.meta.env.BASE_URL` as prefix or use `URLS` constants.
+**Links:** Internal links use `URLS` constants from `src/constants.ts` or `import.meta.env.BASE_URL` for base path prefix.
 
 **Site constants:** `src/constants.ts` exports:
 

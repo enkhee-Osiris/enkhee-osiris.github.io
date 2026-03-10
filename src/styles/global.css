@@ -24,8 +24,8 @@
   /* Layout utilities */
   --back-link-offset: -3.1625rem; /* pulls BackLink into top padding zone */
 
-  --font-body: "PT Serif", "Georgia", "Times New Roman", serif;
-  --font-display: "Lora", "Georgia", "Times New Roman", serif;
+  --font-body: "PT Serif Pro", "Georgia", "Times New Roman", serif;
+  --font-display: "School Book New", "Georgia", "Times New Roman", serif;
 
   /* Light Theme */
   --color-surface-100: #e5e5e5;

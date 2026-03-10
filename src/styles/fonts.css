@@ -1,0 +1,46 @@
+/* -------------------------
+ * Base — Fonts
+ * Local font-face declarations for self-hosted fonts
+ * ------------------------- */
+
+/* PT Serif Pro - Body font */
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/PT-Serif-Pro_Book.woff2") format("woff2");
+  font-family: "PT Serif Pro";
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/PT-Serif-Pro_Bold.woff2") format("woff2");
+  font-family: "PT Serif Pro";
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/PT-Serif-Pro_Book-Italic.woff2") format("woff2");
+  font-family: "PT Serif Pro";
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/PT-Serif-Pro_Bold-Italic.woff2") format("woff2");
+  font-family: "PT Serif Pro";
+  font-display: swap;
+}
+
+/* School Book New - Display/Heading font */
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/SchoolBook-New_Bold.woff2") format("woff2");
+  font-family: "School Book New";
+  font-display: swap;
+}
