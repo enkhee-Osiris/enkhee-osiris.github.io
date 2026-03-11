@@ -18,7 +18,41 @@ draft: false
 
 Өмнө бичсэн скриптээ бага зэрэг өөрчилье.
 
-{% gist 444470d4996a08351061ca581fe20567 %}
+```python filename="prime-number.py"
+import urllib2
+import math
+import sys
+
+def min_prime(n):
+	for i in range(2, int(math.sqrt(n) + 1)):
+		if n % i == 0:
+			return i
+			break
+	return n
+
+response = urllib2.urlopen("http://103.48.116.193:8006/index.php")
+cookie = response.info().getheader('Set-Cookie').split(" ")[0].replace(";", "")
+buffer = []
+prime_numbers = []
+
+for line in response:
+    buffer.append(line)
+
+for i in range(len(buffer)):
+	if "<pre>" in buffer[i]:
+		arr = buffer[i] + buffer[i+1]
+arr = arr.replace("<br>", "").replace("<pre>", "").replace("</pre>", "").replace(" ", "").replace("\t", "").replace("\n", "")
+numbers = arr.split(",")
+
+for number in numbers:
+	prime_numbers.append(min_prime(int(number)))
+
+summ = sum(prime_numbers)
+print "niilber: " + str(summ)
+
+content = urllib2.urlopen(urllib2.Request("http://103.48.116.193:8006/index.php?solution=" + str(summ), headers={'Cookie':cookie})).read()
+print content
+```
 
 За скриптээ ажиллуулъя.
 

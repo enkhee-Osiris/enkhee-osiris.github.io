@@ -2,7 +2,7 @@
 title: "U18 2018 programming writeups"
 description: "Өдрийн мэнд. Энэ жилийн U18-д ирсэн зарим даалгавруудын writeup-уудыг хүргэж байна."
 pubDatetime: 2018-04-22T00:00:00.000Z
-tags: ["haruul-zangi", "u--"]
+tags: ["haruul-zangi", "u18"]
 draft: false
 ---
 
@@ -28,7 +28,29 @@ draft: false
 > Уг **api**-г ашиглахын тулд мэйлээрээ бүртгүүлж нууц код авдаг юм билээ.  
 > Дараа нь мэйл болон нууц кодоо ашиглан **get** хүсэлт явуулж ашиглах боломжтой.
 
-{% gist 70c42e6b7aaea145104517b87fa70ff0 %}
+```python filename="lol.py"
+import requests
+import re
+
+response = requests.get("http://218.100.84.112:9091/")
+cookie = response.cookies['PHPSESSID']
+
+numbers = re.findall(r'[A-C]\=[a-f0-9]+', response.text)
+
+a = requests.get("http://md5decrypt.net/Api/api.php?hash=" + numbers[0].split('=')[1] + "&hash_type=md5&email=mixonunu@2ether.net&code=bf5af2048b5656bc").text
+b = requests.get("http://md5decrypt.net/Api/api.php?hash=" + numbers[1].split('=')[1] + "&hash_type=md5&email=mixonunu@2ether.net&code=bf5af2048b5656bc").text
+c = requests.get("http://md5decrypt.net/Api/api.php?hash=" + numbers[2].split('=')[1] + "&hash_type=md5&email=mixonunu@2ether.net&code=bf5af2048b5656bc").text
+
+answer = (int(a) * int(b)) / int(c)
+print "Answer is: " + str(answer)
+
+r = requests.post("http://218.100.84.112:9091/", data={'answer':int(answer), 'sum':int(answer)}, headers={'Cookie': 'PHPSESSID=' + cookie})
+# print r.text[0:100]
+flag = re.search(r'HZU18\{\S+\}', r.text)
+if flag:
+  print "FLAG IS: " + flag.group(0)
+
+```
 
 > Note: `pip install requests`
 
@@ -54,7 +76,25 @@ draft: false
 > Regex ашиглан тоонуудыг олоод, нийлбэрийг олно.  
 > Нийлбэрийг илгээхдээ өмнөх **cookie**-гээ ашиглах ёстой.
 
-{% gist 28da882a57e31d302c0e71a8fa4abd3a %}
+```python filename="sum.py"
+import re
+from decimal import Decimal
+import requests
+
+response = requests.get("http://218.100.84.112:9090/")
+cookie = response.cookies['PHPSESSID']
+
+numbers = re.findall(r'\d+\s\,', response.text)
+
+summation = sum(Decimal(i.replace(' ,', '')) for i in numbers)
+print "Niilber: " + str(summation)
+
+r = requests.post("http://218.100.84.112:9090/", data={'answer':int(summation),'sum': int(summation)}, headers={'Cookie': 'PHPSESSID=' + cookie})
+flag = re.search(r'HZU18\{{1}\S+\}{1}', r.text)
+if flag:
+    print "FLAG IS: " + flag.group(0)
+
+```
 
 > Note: `pip install requests`
 

@@ -26,7 +26,32 @@ draft: false
 ```
 
 Ашигласан код ( бага зэрэг халтуурны код болохоор битгий шоолоорой :D. )
-{% gist f29b59e5a2ebd1dcb86e4f6fcb632649 %}
+
+```python filename="а1я36.py"
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import sys
+
+cipher = u"абвгдеёжзийклмноөпрстуүфхцчшщъьыэюя"
+
+def encrypt(msg):
+    cipher_text = ""
+    for v in msg:
+        if v in cipher:
+            cipher_text += str(cipher.index(v) + 1)
+            cipher_text += "-"
+        elif v == ".":
+            cipher_text = cipher_text[:-1]
+            cipher_text += "."
+        else:
+            if cipher_text[len(cipher_text)-1] != ".":
+                cipher_text = cipher_text[:-1]
+            cipher_text += " "
+
+    return cipher_text
+
+print encrypt(sys.argv[1].decode('utf-8').lower())
+```
 
 ## _Сонирхолтой төөрөгдөл_
 

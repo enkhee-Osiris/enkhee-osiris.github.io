@@ -25,7 +25,30 @@ draft: false
 
 Манай баг өгөгдсөн даалгаварт зориулж [python](https://www.python.org) скрипт бичихээр шийдсэн.
 
-{% gist 6acdaf7f48d64c42efbb95c7b34ed8ba %}
+```python filename="summ.py"
+import urllib2
+from decimal import Decimal
+import sys
+
+response = urllib2.urlopen("http://103.48.116.193:8005/index.php?solution=1213")
+cookie = response.info().getheader('Set-Cookie').split(" ")[0].replace(";", "")
+
+buffer = []
+for line in response:
+    buffer.append(line)
+
+for i in range(len(buffer)):
+	if "<pre>" in buffer[i]:
+		arr = buffer[i] + buffer[i+1]
+arr = arr.replace("<br>", "").replace("<pre>", "").replace("</pre>", "").replace(" ", "").replace("\t", "").replace("\n", "")
+numbers = arr.split(",")
+
+summation = sum(Decimal(i) for i in numbers)
+print "niilber: " + str(summation)
+
+content = urllib2.urlopen(urllib2.Request("http://103.48.116.193:8005/index.php?solution=" + str(summation), headers={'Cookie':cookie})).read()
+print content
+```
 
 Бичсэн скрипт маань өгөгдсөн хаяг руу хандаж өгөгдлийг ялган авч нийлбэрийг олоод, сервер лүү `solution` параметрээр хүсэлт явуулж ирсэн хариуг хэвлэнэ.
 

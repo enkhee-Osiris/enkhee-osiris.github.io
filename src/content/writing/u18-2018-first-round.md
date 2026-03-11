@@ -2,7 +2,7 @@
 title: "U18 2018 эхний шатны даалгаврууд"
 description: "За сайн байцгаана уу?"
 pubDatetime: 2018-04-21T00:00:00.000Z
-tags: ["haruul-zangi", "u--"]
+tags: ["haruul-zangi", "u18"]
 draft: false
 ---
 

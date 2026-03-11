@@ -18,7 +18,24 @@ draft: false
 
 Эдгээр өгөгдлөөс зөвхөн хэксийг ялган авахын тулд python script бичье.
 
-{% gist 0562750c1f67570b38873a47624dbb43 %}
+```python filename="hex-to-png.py"
+import urllib2
+import sys
+import binascii
+
+f = open('../image.hex','r')
+
+lines =  f.readlines()
+data = ""
+for line in lines:
+	data += line[10:58]
+
+data = data.replace(" ", "")
+print data
+
+fw = open("../img.png", "w+")
+fw.write(binascii.unhexlify(data))
+```
 
 Ажиллуулахын тулд өгөгдсөн `image.hex` файлыг script-н гадна талын хавтсанд хийнэ.
 

@@ -20,7 +20,14 @@ draft: false
 
 Өгөгдсөн скриптийг хуулж дэкод хийвэл
 
-{% gist 986399aa5a5a52d979d8cf7d708231dd %}
+```javascript filename="out.js"
+alert(
+  'JSFuck is an esoteric and educational programming style based on the atomic parts of JavaScript. It uses only six different characters to write and execute code.  It does not depend on a browser, so you can even run it on Node.js.  Use the form below to convert your own script. Uncheck "eval source" to get back a plain string.'
+);
+if (true) {
+  console.log("HZ{JS00JS00JS}");
+}
+```
 
 дээрх javascript харагдана. Үүнээс тугийг харж болно.
 

@@ -1,5 +1,5 @@
 ---
-title: "RIddle Transfer 30 оноо"
+title: "Riddle Transfer 30 оноо"
 description: "## Өгөгдөл"
 pubDatetime: 2016-09-21T00:00:00.000Z
 tags: ["haruul-zangi", "writeup", "misc"]

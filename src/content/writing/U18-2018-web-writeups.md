@@ -2,7 +2,7 @@
 title: "U18 2018 web writeups"
 description: "Өдрийн мэнд. Энэ жилийн U18-д ирсэн зарим вэбийн даалгавруудын writeup-уудыг хүргэж байна."
 pubDatetime: 2018-04-22T00:00:00.000Z
-tags: ["haruul-zangi", "u--"]
+tags: ["haruul-zangi", "u18"]
 draft: false
 ---
 
@@ -24,7 +24,20 @@ draft: false
 
 Уг даалгаварт өгөгдсөн хуудасны **source**-г харвал дараах жаваскрипт байв.
 
-{% gist ea938b473e41b4ab9fc4ea82d4bef448 %}
+```javascript filename="web1.js"
+$(document).ready(function () {
+  $("#login").submit(function (e) {
+    e.preventDefault();
+    var username = $("#username").val();
+    var password = $("#password").val();
+    if (username == "admin" && password == "supersecure") {
+      document.location = "success.php";
+    } else {
+      alert("Incorrect username and password!");
+    }
+  });
+});
+```
 
 > username болон password-г зөв оруулбал  
 > success.php хуудас руу үсэрч байна.  
@@ -47,7 +60,21 @@ Here is your flag: HZU18{cl1ent_s1d3_auth_sux}
 **<!-- delete it later index.phps --!>**  
 Орж үзэхэд дараах **php** код харагдана.
 
-{% gist 52583507a663a3cb72c23fea954cbcfb %}
+```php filename="web2.php"
+<?php
+include 'flag.php';
+
+if (isset($_POST['password'])) {
+    if ($_POST['username']=='admin'  &&  md5($_POST['password'])=='86a8b9ded31796c99d3cd6336609bc88') {
+        echo '<h1 style="color:red">'.$flag.'</h1>';
+    }
+    else{
+        echo 'Username or password incorrect';
+    }
+}else{}
+?>
+
+```
 
 Өгөгдсөн `86a8b9ded31796c99d3cd6336609bc88` **md5** хашыг [энд](http://md5decrypt.net/en/)-ээс хайвал
 `SuperSecurePassword` гэж олдоно.
@@ -70,7 +97,22 @@ HZU18{you_kn0w_about_hash}
 Өгөгдсөн вэб хуудас энгийн л хэрэглэгчийн нэр болон нууц үгийн форм харагдана.  
 Мөн **php** эх код харах холбоос байв. Эх кодыг доор харуулав.
 
-{% gist 416e79519911c46cef5167bf62b2e7b8 %}
+```php filename="web3.php"
+<?php
+include'flag.php';
+if (isset($_POST['login'])) {
+    if ($_POST['username']!=$_POST['password'] && md5($_POST['username'])==md5($_POST['password'])) {
+        echo '<h1 style="color:red">'.$flag.'</h1>';
+    }
+    else{
+        $sound_id =(rand(1,10));
+        echo 'Username or password incorrect';
+        echo '<audio autoplay>
+          <source src="sound/Sound_Effect_HD_'.$sound_id.'.mp3" type="audio/mpeg">
+        </audio>';
+    }
+}
+```
 
 Уг кодыг анализ хийвэл **username** болон **password** нь өөр боловч md5 хаш нь `==` шалгалтыг давах ёстой харагдана.
 
@@ -108,7 +150,41 @@ HZU18{s1gns1gns1gnaftermd5}
 
 Уг даалгаварт өгөгдсөн шифиг доор оруулав.
 
-{% gist e1924bbb37cb226b1a06ed5640fcceab %}
+```php filename="web4.php"
+
+<html>
+<head>
+<title>BigNumber</title>
+<link rel='stylesheet' href='style.css' type='text/css'>
+</head>
+<body>
+
+<?php
+require 'flag.php';
+
+if (isset($_GET)) {
+  if (is_numeric($_GET)) {
+    if (strlen($_GET) < 4) {
+      if ($_GET > 999) die('Flag: ' . $flag);
+      else print '<p class="alert">Baga bna, Tom Bai</p>';
+    }
+    else print '<p class="alert">Tom bna, Baga bai</p>';
+  }
+  else print '<p class="alert">No Number, No Cry</p>';
+}
+
+?>
+
+<section class="login">
+<form method="get">
+<input type="text" required name="too" placeholder="Numbers Only" /><br/>
+<input type="submit"/>
+</form>
+</section>
+</body>
+</html>
+
+```
 
 Уг кодыг анализ хийвэл 999 өөс их тоо оруулах ёстой боловч орон нь 3аас их байж болохгүй.
 

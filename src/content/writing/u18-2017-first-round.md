@@ -2,7 +2,7 @@
 title: "U18 2017 эхний шатны даалгаврууд"
 description: "За сайн байцгаана уу? Дөнгөж саяхан энэ оны  дээрээ тавьж байна."
 pubDatetime: 2017-04-29T00:00:00.000Z
-tags: ["haruul-zangi", "u--"]
+tags: ["haruul-zangi", "u18"]
 draft: false
 ---
 
