@@ -1,3 +1,5 @@
+@import "vanilla-cookieconsent/dist/cookieconsent.css";
+
 /* -------------------------
  * Theme — Cookie Consent
  * Override vanilla-cookieconsent variables with site design tokens

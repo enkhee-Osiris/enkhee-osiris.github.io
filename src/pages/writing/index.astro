@@ -1,35 +1,20 @@
 ---
-import FloatingNav from "@/components/FloatingNav.astro";
-import FullscreenNav from "@/components/FullscreenNav.astro";
-import Head from "@/components/Head.astro";
-import SkipLink from "@/components/SkipLink.astro";
 import WritingsByYear from "@/components/WritingsByYear.astro";
 import { DESCRIPTIONS, TITLES } from "@/constants";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getPublishedWritings, getWritingsByYear } from "@/utils/data";
 
 const allWritings = await getPublishedWritings();
 const writingsByYear = getWritingsByYear(allWritings);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <Head title={TITLES.writings} description={DESCRIPTIONS.writings} />
-  </head>
+<BaseLayout title={TITLES.writings} description={DESCRIPTIONS.writings}>
+  <section class="container" aria-label="All writings">
+    <h1 class="heading">Writings</h1>
 
-  <body>
-    <SkipLink />
-    <main id="main-content" data-pagefind-ignore="all">
-      <section class="container" aria-label="All writings">
-        <h1 class="heading">Writings</h1>
-
-        <WritingsByYear writingsByYear={writingsByYear} />
-      </section>
-    </main>
-    <FloatingNav />
-    <FullscreenNav />
-  </body>
-</html>
+    <WritingsByYear writingsByYear={writingsByYear} />
+  </section>
+</BaseLayout>
 
 <style>
   /* -------------------------

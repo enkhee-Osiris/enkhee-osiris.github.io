@@ -119,7 +119,7 @@ function buildSvg(data: OgImageData): string {
     <text
       x="120"
       y="267"
-      font-family="Lora"
+      font-family="Lora-Bold"
       font-size="${fontSize}"
       font-weight="bold"
       fill="white"
@@ -127,7 +127,7 @@ function buildSvg(data: OgImageData): string {
     <text
       x="783"
       y="526"
-      font-family="Lora"
+      font-family="Lora-Bold"
       font-size="28"
       font-weight="bold"
       fill="white"
@@ -135,7 +135,8 @@ function buildSvg(data: OgImageData): string {
     <text
       x="120"
       y="560"
-      font-family="PT Serif"
+      font-family="PTSerif-Regular"
+      font-weight="normal"
       font-size="17"
       fill="white"
       fill-opacity="0.6"
@@ -143,7 +144,8 @@ function buildSvg(data: OgImageData): string {
     <text
       x="783"
       y="560"
-      font-family="PT Serif"
+      font-family="PTSerif-Regular"
+      font-weight="normal"
       font-size="17"
       fill="white"
       fill-opacity="0.6"

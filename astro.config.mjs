@@ -8,12 +8,66 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeEnhancedTables from "@benjc/rehype-enhanced-tables";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeUnwrapImages from "rehype-unwrap-images";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 export default defineConfig({
   site: "https://enkhee-Osiris.github.io",
   trailingSlash: "always",
   integrations: [expressiveCode(), mdx(), sitemap()],
+  fonts: [
+    {
+      name: "PT-Serif-Pro",
+      cssVariable: "--font-pt-serif-pro",
+      provider: fontProviders.local(),
+      options: {
+        variants: [
+          {
+            weight: 400,
+            style: "normal",
+            src: ["./src/assets/fonts/PT-Serif-Pro_Book.woff2"],
+          },
+          {
+            weight: 400,
+            style: "italic",
+            src: ["./src/assets/fonts/PT-Serif-Pro_Book-Italic.woff2"],
+          },
+          {
+            weight: 700,
+            style: "normal",
+            src: ["./src/assets/fonts/PT-Serif-Pro_Bold.woff2"],
+          },
+          {
+            weight: 700,
+            style: "italic",
+            src: ["./src/assets/fonts/PT-Serif-Pro_Bold-Italic.woff2"],
+          },
+        ],
+      },
+      fallbacks: ["New York", "Georgia", "serif"],
+    },
+    {
+      name: "SchoolBook New",
+      cssVariable: "--font-schoolbook-new",
+      provider: fontProviders.local(),
+      options: {
+        variants: [
+          {
+            weight: 700,
+            style: "normal",
+            src: ["./src/assets/fonts/SchoolBook-New_Bold.woff2"],
+          },
+        ],
+      },
+      fallbacks: ["Palatino Linotype", "Book Antiqua", "Palatino", "Georgia", "serif"],
+    },
+    {
+      name: "JetBrains Mono",
+      cssVariable: "--font-jetbrains-mono",
+      provider: fontProviders.fontsource(),
+      subsets: ["latin", "latin-ext"],
+      fallbacks: ["Menlo", "Consolas", "monospace"],
+    },
+  ],
   markdown: {
     rehypePlugins: [
       rehypeHeadingIds,
@@ -53,6 +107,11 @@ export default defineConfig({
         },
       ],
     ],
+  },
+  image: {
+    responsiveStyles: true,
+    domains: ["placehold.co"],
+    remotePatterns: [{ protocol: "https" }],
   },
   experimental: {
     svgo: true,

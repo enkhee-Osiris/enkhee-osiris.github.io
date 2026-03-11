@@ -1,0 +1,42 @@
+---
+import CookieConsent from "@/components/CookieConsent.astro";
+import FloatingNav from "@/components/FloatingNav.astro";
+import Footer from "@/components/Footer.astro";
+import FullscreenNav from "@/components/FullscreenNav.astro";
+import Head from "@/components/Head.astro";
+import SkipLink from "@/components/SkipLink.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  pagefindIgnore?: boolean;
+  includeFooter?: boolean;
+}
+
+const { title, description, image, pagefindIgnore = false, includeFooter = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={title} description={description} image={image} />
+
+    <slot name="head" />
+  </head>
+
+  <body>
+    <SkipLink />
+
+    <main id="main-content" data-pagefind-ignore={pagefindIgnore ? "all" : undefined}>
+      <slot />
+    </main>
+
+    {includeFooter && <Footer />}
+
+    <FloatingNav />
+    <FullscreenNav />
+
+    <CookieConsent />
+  </body>
+</html>

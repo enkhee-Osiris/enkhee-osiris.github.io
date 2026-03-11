@@ -1,4 +1,4 @@
-import { default as CookieConsent } from "vanilla-cookieconsent";
+import * as CookieConsent from "vanilla-cookieconsent";
 import type { CookieConsentConfig } from "vanilla-cookieconsent";
 
 import { GA_ID } from "@/constants";

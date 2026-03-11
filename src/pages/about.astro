@@ -1,158 +1,105 @@
 ---
-import FloatingNav from "@/components/FloatingNav.astro";
-import FullscreenNav from "@/components/FullscreenNav.astro";
-import Head from "@/components/Head.astro";
-import SkipLink from "@/components/SkipLink.astro";
-import { AUTHOR, DESCRIPTIONS, EXPERIENCES, PROJECTS, SOCIAL, TITLES } from "@/constants";
-
-const githubIcon = await import("@/assets/icons/github.svg?raw");
-const linkedinIcon = await import("@/assets/icons/linkedin.svg?raw");
-const mailIcon = await import("@/assets/icons/mail.svg?raw");
+import SocialLinks from "@/components/SocialLinks.astro";
+import { AUTHOR, DESCRIPTIONS, EXPERIENCES, PROJECTS, TITLES } from "@/constants";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <Head title={TITLES.about} description={DESCRIPTIONS.about} />
-  </head>
+<BaseLayout title={TITLES.about} description={DESCRIPTIONS.about}>
+  <div class="container">
+    <section class="section" aria-label="About me">
+      <h1 class="name">{AUTHOR}</h1>
 
-  <body>
-    <SkipLink />
-    <main id="main-content" data-pagefind-ignore="all">
-      <div class="container">
-        <section class="section" aria-label="About me">
-          <h1 class="name">{AUTHOR}</h1>
-
-          <div class="bio">
-            <p>
-              I'm a software engineer with a focus on design. I believe the best digital products
-              are built at the intersection of engineering precision and visual craft — where every
-              interaction is intentional and every detail earns its place.
-            </p>
-            <p>
-              My work spans frontend architecture, design systems, and the quiet details of
-              typography and motion that shape how people experience the web. I care about
-              accessibility, performance, and writing code that is as readable as it is effective.
-            </p>
-            <p>
-              Outside of work I write about things that sit at the boundary of design and
-              engineering. This site is a place for those thoughts.
-            </p>
-          </div>
-
-          <ul class="social-list" role="list" aria-label="Social links">
-            <li>
-              <a class="social-link" href={SOCIAL.github} target="_blank" rel="noopener noreferrer">
-                <span class="social-icon" aria-hidden="true">
-                  <Fragment set:html={githubIcon.default} />
-                </span>
-                <span>GitHub</span>
-                <span class="sr-only"> (opens in new tab)</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="social-link"
-                href={SOCIAL.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="social-icon" aria-hidden="true">
-                  <Fragment set:html={linkedinIcon.default} />
-                </span>
-                <span>LinkedIn</span>
-                <span class="sr-only"> (opens in new tab)</span>
-              </a>
-            </li>
-
-            <li>
-              <a class="social-link" href={SOCIAL.email}>
-                <span class="social-icon" aria-hidden="true">
-                  <Fragment set:html={mailIcon.default} />
-                </span>
-                <span>Email</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-
-        <section class="section" aria-labelledby="experience-heading">
-          <h2 class="section-heading" id="experience-heading">Experience</h2>
-
-          <ul class="experience-list" role="list">
-            {
-              EXPERIENCES.map(exp => (
-                <li class="experience-item">
-                  <div class="exp-icon" aria-hidden="true">
-                    {exp.icon ? (
-                      <Fragment set:html={exp.icon} />
-                    ) : (
-                      <span class="exp-initial">{exp.company.charAt(0)}</span>
-                    )}
-                  </div>
-
-                  <div class="exp-content">
-                    <div class="exp-header">
-                      <h3 class="exp-company">{exp.company}</h3>
-                      <p class="exp-period">
-                        <time datetime={exp.start}>{exp.start}</time>
-                        {" — "}
-                        {exp.end ? <time datetime={exp.end}>{exp.end}</time> : "Present"}
-                      </p>
-                    </div>
-
-                    <p class="exp-role">{exp.role}</p>
-                    <p class="exp-description">{exp.description}</p>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-
-        <section class="section" aria-labelledby="projects-heading">
-          <h2 class="section-heading" id="projects-heading">Projects</h2>
-
-          <ul class="projects-list" role="list">
-            {
-              PROJECTS.map(project => (
-                <li>
-                  <article class="project-card">
-                    <h3 class="project-name">
-                      <a
-                        class="project-link"
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {project.name}
-                        <span class="sr-only"> (opens in new tab)</span>
-                      </a>
-                    </h3>
-
-                    <p class="project-description">{project.description}</p>
-
-                    {project.tags.length > 0 && (
-                      <ul class="project-tags" role="list">
-                        {project.tags.map(tag => (
-                          <li class="project-tag">{tag}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </article>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
+      <div class="bio">
+        <p>
+          I'm a software engineer with a focus on design. I believe the best digital products are
+          built at the intersection of engineering precision and visual craft — where every
+          interaction is intentional and every detail earns its place.
+        </p>
+        <p>
+          My work spans frontend architecture, design systems, and the quiet details of typography
+          and motion that shape how people experience the web. I care about accessibility,
+          performance, and writing code that is as readable as it is effective.
+        </p>
+        <p>
+          Outside of work I write about things that sit at the boundary of design and engineering.
+          This site is a place for those thoughts.
+        </p>
       </div>
-    </main>
 
-    <FloatingNav />
-    <FullscreenNav />
-  </body>
-</html>
+      <SocialLinks />
+    </section>
+
+    <section class="section" aria-labelledby="experience-heading">
+      <h2 class="section-heading" id="experience-heading">Experience</h2>
+
+      <ul class="experience-list" role="list">
+        {
+          EXPERIENCES.map(exp => (
+            <li class="experience-item">
+              <div class="exp-icon" aria-hidden="true">
+                {exp.icon ? (
+                  <Fragment set:html={exp.icon} />
+                ) : (
+                  <span class="exp-initial">{exp.company.charAt(0)}</span>
+                )}
+              </div>
+
+              <div class="exp-content">
+                <div class="exp-header">
+                  <h3 class="exp-company">{exp.company}</h3>
+                  <p class="exp-period">
+                    <time datetime={exp.start}>{exp.start}</time>
+                    {" — "}
+                    {exp.end ? <time datetime={exp.end}>{exp.end}</time> : "Present"}
+                  </p>
+                </div>
+
+                <p class="exp-role">{exp.role}</p>
+                <p class="exp-description">{exp.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="projects-heading">
+      <h2 class="section-heading" id="projects-heading">Projects</h2>
+
+      <ul class="projects-list" role="list">
+        {
+          PROJECTS.map(project => (
+            <li>
+              <article class="project-card">
+                <h3 class="project-name">
+                  <a
+                    class="project-link"
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.name}
+                    <span class="sr-only"> (opens in new tab)</span>
+                  </a>
+                </h3>
+
+                <p class="project-description">{project.description}</p>
+
+                {project.tags.length > 0 && (
+                  <ul class="project-tags" role="list">
+                    {project.tags.map(tag => (
+                      <li class="project-tag">{tag}</li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
 
 <style>
   /* -------------------------
@@ -197,37 +144,6 @@ const mailIcon = await import("@/assets/icons/mail.svg?raw");
     color: var(--color-surface-700);
     font-size: 1.0625rem;
     line-height: 1.7;
-  }
-
-  /* -------------------------
-   * Module — Social Links
-   * Icon + label pairs; subtle hover color transition
-   * ------------------------- */
-  .social-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color var(--transition);
-    color: var(--color-surface-600);
-    font-size: 0.875rem;
-    text-decoration: none;
-  }
-
-  .social-icon {
-    display: flex;
-    width: 1.125rem;
-    height: 1.125rem;
-  }
-
-  .social-icon :global(svg) {
-    width: 100%;
-    height: 100%;
   }
 
   /* -------------------------
@@ -388,17 +304,6 @@ const mailIcon = await import("@/assets/icons/mail.svg?raw");
   /* -------------------------
    * State — Interactive
    * ------------------------- */
-  .social-link:hover,
-  .social-link:focus-visible {
-    color: var(--color-text);
-  }
-
-  .social-link:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-offset);
-    border-radius: var(--focus-radius);
-  }
-
   .project-card:hover {
     border-color: var(--color-border-hover);
   }

@@ -1,0 +1,123 @@
+---
+import { SOCIAL } from "@/constants";
+
+const githubIcon = await import("@/assets/icons/github.svg?raw");
+const linkedinIcon = await import("@/assets/icons/linkedin.svg?raw");
+const mailIcon = await import("@/assets/icons/mail.svg?raw");
+
+interface Props {
+  iconStyle?: "default" | "large";
+  includeLabels?: boolean;
+}
+
+const { iconStyle = "default", includeLabels = true } = Astro.props;
+
+const links = [
+  {
+    href: SOCIAL.github,
+    icon: githubIcon.default,
+    label: "GitHub",
+    external: true,
+  },
+  {
+    href: SOCIAL.linkedin,
+    icon: linkedinIcon.default,
+    label: "LinkedIn",
+    external: true,
+  },
+  {
+    href: SOCIAL.email,
+    icon: mailIcon.default,
+    label: "Email",
+    external: false,
+  },
+];
+---
+
+<ul
+  class:list={["social-list", iconStyle === "large" && "social-list--large"]}
+  role="list"
+  aria-label="Social links"
+>
+  {
+    links.map(link => (
+      <li>
+        <a
+          class="social-link"
+          href={link.href}
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+        >
+          <span class="social-icon" aria-hidden="true">
+            <Fragment set:html={link.icon} />
+          </span>
+          {includeLabels && <span>{link.label}</span>}
+          {link.external && includeLabels && <span class="sr-only"> (opens in new tab)</span>}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  /* -------------------------
+   * Module — Social List
+   * -------------------------
+   */
+  .social-list {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color var(--transition);
+    color: var(--color-surface-600);
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .social-icon {
+    display: flex;
+  }
+
+  .social-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* -------------------------
+   * State — Interactive
+   * -------------------------
+   */
+  .social-link:hover,
+  .social-link:focus-visible {
+    color: var(--color-text);
+  }
+
+  .social-link:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+  }
+
+  /* -------------------------
+   * State — Icon Style Variants
+   * -------------------------
+   */
+  .social-list--large {
+    flex-wrap: wrap;
+  }
+
+  .social-list--large .social-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .social-list:not(.social-list--large) .social-icon {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+</style>

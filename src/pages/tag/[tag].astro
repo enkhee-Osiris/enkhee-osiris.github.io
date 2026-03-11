@@ -1,11 +1,8 @@
 ---
 import BackLink from "@/components/BackLink.astro";
-import FloatingNav from "@/components/FloatingNav.astro";
-import FullscreenNav from "@/components/FullscreenNav.astro";
-import Head from "@/components/Head.astro";
-import SkipLink from "@/components/SkipLink.astro";
 import WritingsByYear from "@/components/WritingsByYear.astro";
 import { DESCRIPTIONS, TITLES, URLS } from "@/constants";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import {
   getPublishedWritings,
   getSortedWritings,
@@ -28,74 +25,53 @@ const { tag, writings, tagsWithWritings } = Astro.props;
 const writingsByYear = getWritingsByYear(writings);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <Head title={TITLES.tag(tag)} description={DESCRIPTIONS.tag(tag)} />
-  </head>
+<BaseLayout title={TITLES.tag(tag)} description={DESCRIPTIONS.tag(tag)}>
+  <section class="container" aria-label={`Writings tagged with ${tag}`}>
+    <div class="tags-meta">
+      <BackLink href={URLS.tags} label="Back to tags" />
 
-  <body>
-    <SkipLink />
-    <main id="main-content" data-pagefind-ignore="all">
-      <section class="container" aria-label={`Writings tagged with ${tag}`}>
-        <div class="tags-meta">
-          <BackLink href={URLS.tags} label="Back to tags" />
+      <h1 class="heading">Tags</h1>
 
-          <h1 class="heading">Tags</h1>
+      <ul class="tag-list" role="list">
+        {
+          tagsWithWritings.map(({ tag: t, writings: w }) => (
+            <li class="tag-item">
+              <a href={URLS.tag(t)} class="tag-link" aria-current={t === tag ? "page" : undefined}>
+                <span class="tag-name">{t}</span>
 
-          <ul class="tag-list" role="list">
-            {
-              tagsWithWritings.map(({ tag: t, writings: w }) => (
-                <li class="tag-item">
-                  <a
-                    href={URLS.tag(t)}
-                    class="tag-link"
-                    aria-current={t === tag ? "page" : undefined}
-                  >
-                    <span class="tag-name">{t}</span>
+                <span
+                  class="tag-count"
+                  aria-label={`${w.length} ${w.length === 1 ? "writing" : "writings"}`}
+                >
+                  {w.length}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
 
-                    <span
-                      class="tag-count"
-                      aria-label={`${w.length} ${w.length === 1 ? "writing" : "writings"}`}
-                    >
-                      {w.length}
-                    </span>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <WritingsByYear writingsByYear={writingsByYear} />
-      </section>
-    </main>
-
-    <FloatingNav />
-    <FullscreenNav />
-  </body>
-</html>
+    <WritingsByYear writingsByYear={writingsByYear} />
+  </section>
+</BaseLayout>
 
 <script>
+  import { getBackLinkFromReferrer } from "@/utils/referrer";
+
   const backLink = document.querySelector<HTMLAnchorElement>(".back-link");
   const backLinkText = document.querySelector<HTMLElement>(".back-link-text");
 
   if (backLink && backLinkText && document.referrer) {
-    const ref = new URL(document.referrer);
+    const result = getBackLinkFromReferrer(
+      document.referrer,
+      location.origin,
+      import.meta.env.BASE_URL
+    );
 
-    if (ref.origin === location.origin) {
-      const base = import.meta.env.BASE_URL;
-
-      const writingMatch = ref.pathname.match(/\/writing\/([^/]+)\/?$/);
-      const isHomePage = ref.pathname === base || ref.pathname === base.replace(/\/$/, "");
-
-      if (writingMatch) {
-        backLink.href = ref.pathname;
-        backLinkText.textContent = "Back to writing";
-      } else if (isHomePage) {
-        backLink.href = ref.pathname;
-        backLinkText.textContent = "Back to home";
-      }
+    if (result) {
+      backLink.href = result.href;
+      backLinkText.textContent = result.label;
     }
   }
 </script>

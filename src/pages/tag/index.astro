@@ -1,10 +1,7 @@
 ---
-import FloatingNav from "@/components/FloatingNav.astro";
-import FullscreenNav from "@/components/FullscreenNav.astro";
-import Head from "@/components/Head.astro";
-import SkipLink from "@/components/SkipLink.astro";
 import WritingsByYear from "@/components/WritingsByYear.astro";
 import { DESCRIPTIONS, TITLES, URLS } from "@/constants";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getPublishedWritings, getTagsWithWritings, getWritingsByYear } from "@/utils/data";
 
 const allWritings = await getPublishedWritings();
@@ -14,47 +11,34 @@ const tagsWithWritings = getTagsWithWritings(allWritings);
 const writingsByYear = getWritingsByYear(allWritings);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <Head title={TITLES.tags} description={DESCRIPTIONS.tags} />
-  </head>
+<BaseLayout title={TITLES.tags} description={DESCRIPTIONS.tags}>
+  <section class="container" aria-label="All tags">
+    <div class="tags-meta">
+      <h1 class="heading">Tags</h1>
 
-  <body>
-    <SkipLink />
-    <main id="main-content" data-pagefind-ignore="all">
-      <section class="container" aria-label="All tags">
-        <div class="tags-meta">
-          <h1 class="heading">Tags</h1>
+      <ul class="tag-list" role="list">
+        {
+          tagsWithWritings.map(({ tag, writings }) => (
+            <li class="tag-item">
+              <a href={URLS.tag(tag)} class="tag-link">
+                <span class="tag-name">{tag}</span>
 
-          <ul class="tag-list" role="list">
-            {
-              tagsWithWritings.map(({ tag, writings }) => (
-                <li class="tag-item">
-                  <a href={URLS.tag(tag)} class="tag-link">
-                    <span class="tag-name">{tag}</span>
+                <span
+                  class="tag-count"
+                  aria-label={`${writings.length} ${writings.length === 1 ? "writing" : "writings"}`}
+                >
+                  {writings.length}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
 
-                    <span
-                      class="tag-count"
-                      aria-label={`${writings.length} ${writings.length === 1 ? "writing" : "writings"}`}
-                    >
-                      {writings.length}
-                    </span>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <WritingsByYear writingsByYear={writingsByYear} />
-      </section>
-    </main>
-
-    <FloatingNav />
-    <FullscreenNav />
-  </body>
-</html>
+    <WritingsByYear writingsByYear={writingsByYear} />
+  </section>
+</BaseLayout>
 
 <style>
   /* -------------------------

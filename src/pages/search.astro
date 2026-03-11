@@ -1,34 +1,21 @@
 ---
-import FloatingNav from "@/components/FloatingNav.astro";
-import FullscreenNav from "@/components/FullscreenNav.astro";
-import Head from "@/components/Head.astro";
-import SkipLink from "@/components/SkipLink.astro";
 import { DESCRIPTIONS, TITLES } from "@/constants";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const searchIcon = await import("@/assets/icons/search.svg?raw");
 const svgDataUri = `url("data:image/svg+xml,${encodeURIComponent(searchIcon.default)}")`;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <Head title={TITLES.search} description={DESCRIPTIONS.search} />
+<BaseLayout title={TITLES.search} description={DESCRIPTIONS.search}>
+  <slot slot="head">
     <style set:html={`.pagefind-ui__form::before { mask-image: ${svgDataUri}; }`}></style>
-  </head>
+  </slot>
 
-  <body>
-    <SkipLink />
-    <main id="main-content" data-pagefind-ignore="all">
-      <div class="container">
-        <h1 class="heading">Search</h1>
-        <div id="search"></div>
-      </div>
-    </main>
-
-    <FloatingNav />
-    <FullscreenNav />
-  </body>
-</html>
+  <div class="container">
+    <h1 class="heading">Search</h1>
+    <div id="search"></div>
+  </div>
+</BaseLayout>
 
 <script>
   import { PagefindUI } from "@pagefind/default-ui";

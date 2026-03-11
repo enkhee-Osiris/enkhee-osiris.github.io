@@ -1,15 +1,12 @@
 ---
+import { Font } from "astro:assets";
 import { type CollectionEntry, render } from "astro:content";
 
 import BackLink from "@/components/BackLink.astro";
-import FloatingNav from "@/components/FloatingNav.astro";
-import Footer from "@/components/Footer.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
-import FullscreenNav from "@/components/FullscreenNav.astro";
-import Head from "@/components/Head.astro";
-import SkipLink from "@/components/SkipLink.astro";
 import TagChip from "@/components/TagChip.astro";
 import { TITLES, DESCRIPTIONS, FULL_URL, URLS, RELATED_WRITINGS_LIMIT } from "@/constants";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getPublishedWritings, getRelatedWritings } from "@/utils/data";
 
 const quoteIcon = await import("@/assets/icons/quote.svg?raw");
@@ -35,109 +32,83 @@ const relatedWritings = getRelatedWritings(writing, allWritings, RELATED_WRITING
 const { Content } = await render(writing);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <Head
-      title={TITLES.writing(writing.data.title)}
-      description={DESCRIPTIONS.writing(writing.data.description)}
-      image={ogImageUrl}
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
+<BaseLayout
+  title={TITLES.writing(writing.data.title)}
+  description={DESCRIPTIONS.writing(writing.data.description)}
+  image={ogImageUrl}
+  pagefindIgnore={false}
+  includeFooter={true}
+>
+  <slot slot="head">
+    <Font cssVariable="--font-jetbrains-mono" preload />
     <style set:html={`.prose blockquote::after { mask-image: ${svgDataUri}; }`}></style>
-  </head>
+  </slot>
 
-  <body>
-    <SkipLink />
-    <main id="main-content">
-      <article class="container">
-        <div class="article-header">
-          <BackLink href={URLS.writings} label="Back to writings" />
+  <article class="container">
+    <div class="article-header">
+      <BackLink href={URLS.writings} label="Back to writings" />
 
-          <div class="article-meta">
-            <FormattedDate date={publishedDate} />
+      <div class="article-meta">
+        <FormattedDate date={publishedDate} />
 
-            <h1 class="article-title">{writing.data.title}</h1>
+        <h1 class="article-title">{writing.data.title}</h1>
 
-            <ul class="article-tags" role="list">
-              {
-                writing.data.tags.map(tag => (
-                  <li>
-                    <TagChip tag={tag} />
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        </div>
+        <ul class="article-tags" role="list">
+          {
+            writing.data.tags.map(tag => (
+              <li>
+                <TagChip tag={tag} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
 
-        <div class="prose">
-          <Content />
-        </div>
+    <div class="prose">
+      <Content />
+    </div>
 
-        {
-          relatedWritings.length > 0 && (
-            <section class="related-writings" aria-label="Related writings">
-              <h2 class="related-heading">More writings</h2>
+    {
+      relatedWritings.length > 0 && (
+        <section class="related-writings" aria-label="Related writings">
+          <h2 class="related-heading">More writings</h2>
 
-              <ul class="related-list" role="list">
-                {relatedWritings.map(writing => (
-                  <li class="related-item">
-                    <a href={URLS.writing(writing.id)} class="related-link">
-                      <FormattedDate
-                        date={writing.data.pubDatetime}
-                        formatOptions={{ year: "2-digit", month: "numeric", day: "numeric" }}
-                      />
-                      <span class="related-title">{writing.data.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )
-        }
-      </article>
-    </main>
-
-    <FloatingNav />
-    <FullscreenNav />
-    <Footer />
-  </body>
-</html>
+          <ul class="related-list" role="list">
+            {relatedWritings.map(writing => (
+              <li class="related-item">
+                <a href={URLS.writing(writing.id)} class="related-link">
+                  <FormattedDate
+                    date={writing.data.pubDatetime}
+                    formatOptions={{ year: "2-digit", month: "numeric", day: "numeric" }}
+                  />
+                  <span class="related-title">{writing.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>
 
 <script>
+  import { getBackLinkFromReferrer } from "@/utils/referrer";
+
   const backLink = document.querySelector<HTMLAnchorElement>(".back-link");
   const backLinkText = document.querySelector<HTMLElement>(".back-link-text");
 
   if (backLink && backLinkText && document.referrer) {
-    const ref = new URL(document.referrer);
+    const result = getBackLinkFromReferrer(
+      document.referrer,
+      location.origin,
+      import.meta.env.BASE_URL
+    );
 
-    if (ref.origin === location.origin) {
-      const base = import.meta.env.BASE_URL;
-
-      const tagMatch = ref.pathname.match(/\/tag\/([^/]+)\/?$/);
-      const isTagsPage = /\/tag\/?$/.test(ref.pathname);
-      const isSearchPage = /\/search\/?$/.test(ref.pathname);
-      const isHomePage = ref.pathname === base || ref.pathname === base.replace(/\/$/, "");
-
-      if (tagMatch) {
-        backLink.href = ref.pathname;
-        backLinkText.textContent = `Back to #${tagMatch[1]}`;
-      } else if (isTagsPage) {
-        backLink.href = ref.pathname;
-        backLinkText.textContent = "Back to tags";
-      } else if (isSearchPage) {
-        backLink.href = ref.pathname + ref.search;
-        backLinkText.textContent = "Back to search";
-      } else if (isHomePage) {
-        backLink.href = ref.pathname;
-        backLinkText.textContent = "Back to home";
-      }
+    if (result) {
+      backLink.href = result.href;
+      backLinkText.textContent = result.label;
     }
   }
 </script>

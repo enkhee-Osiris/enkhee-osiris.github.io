@@ -24,8 +24,8 @@
   /* Layout utilities */
   --back-link-offset: -3.1625rem; /* pulls BackLink into top padding zone */
 
-  --font-body: "PT Serif Pro", "Georgia", "Times New Roman", serif;
-  --font-display: "School Book New", "Georgia", "Times New Roman", serif;
+  --font-body: var(--font-pt-serif-pro);
+  --font-display: var(--font-schoolbook-new);
 
   /* Light Theme */
   --color-surface-100: #e5e5e5;
@@ -163,9 +163,7 @@ main {
 }
 
 main :not(pre) > code {
-  font-family:
-    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+  font-family: var(--font-jetbrains-mono);
   white-space: nowrap;
 }
 

@@ -3,6 +3,8 @@ import "@/styles/reset.css";
 import "@/styles/global.css";
 import "@/styles/cookie.css";
 
+import { Font } from "astro:assets";
+
 import { SITE_TITLE } from "@/constants";
 
 interface Props {
@@ -40,29 +42,8 @@ const { title, description, image } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads - Local fonts -->
-<link rel="preload" href="/fonts/PT-Serif-Pro_Book.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/PT-Serif-Pro_Bold.woff2" as="font" type="font/woff2" crossorigin />
-<link
-  rel="preload"
-  href="/fonts/PT-Serif-Pro_Book-Italic.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/PT-Serif-Pro_Bold-Italic.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/SchoolBook-New_Bold.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
+<Font cssVariable="--font-pt-serif-pro" preload />
+<Font cssVariable="--font-schoolbook-new" preload />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />

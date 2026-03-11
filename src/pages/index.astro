@@ -1,23 +1,17 @@
 ---
-import FloatingNav from "@/components/FloatingNav.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
-import FullscreenNav from "@/components/FullscreenNav.astro";
-import Head from "@/components/Head.astro";
-import SkipLink from "@/components/SkipLink.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
 import {
   DESCRIPTIONS,
   HOME_FEATURED_WRITINGS_LIMIT,
   HOME_LATEST_WRITINGS_LIMIT,
-  SOCIAL,
   TITLES,
   URLS,
 } from "@/constants";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getFeaturedWritings, getNonFeaturedWritings, getPublishedWritings } from "@/utils/data";
 
-const githubIcon = await import("@/assets/icons/github.svg?raw");
 const arrowRightIcon = await import("@/assets/icons/arrow-right.svg?raw");
-const linkedinIcon = await import("@/assets/icons/linkedin.svg?raw");
-const mailIcon = await import("@/assets/icons/mail.svg?raw");
 
 const allWritings = await getPublishedWritings();
 
@@ -26,121 +20,82 @@ const featuredWritings = getFeaturedWritings(allWritings, HOME_FEATURED_WRITINGS
 const latestWritings = getNonFeaturedWritings(allWritings, HOME_LATEST_WRITINGS_LIMIT);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <Head title={TITLES.home} description={DESCRIPTIONS.home} />
-  </head>
+<BaseLayout title={TITLES.home} description={DESCRIPTIONS.home} pagefindIgnore={true}>
+  <div class="container">
+    <section class="intro" aria-label="Introduction">
+      <div class="intro-content">
+        <h1 class="intro-title">Enkherdene Bolormaa</h1>
+        <p class="intro-bio">
+          Software engineer exploring design, focused on building clear, simple, and thoughtful
+          digital experiences.
+        </p>
+      </div>
 
-  <body>
-    <SkipLink />
-    <main id="main-content" data-pagefind-ignore="all">
-      <div class="container">
-        <section class="intro" aria-label="Introduction">
-          <div class="intro-content">
-            <h1 class="intro-title">Enkherdene Bolormaa</h1>
-            <p class="intro-bio">
-              Software engineer exploring design, focused on building clear, simple, and thoughtful
-              digital experiences.
-            </p>
-          </div>
+      <ul class="intro-social" role="list">
+        <SocialLinks iconStyle="large" includeLabels={false} />
+      </ul>
+    </section>
 
-          <ul class="intro-social" role="list">
-            <li>
-              <a
-                class="intro-social-link"
-                href={SOCIAL.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Fragment set:html={githubIcon.default} />
-                <span class="sr-only">GitHub (opens in new tab)</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="intro-social-link"
-                href={SOCIAL.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Fragment set:html={linkedinIcon.default} />
-                <span class="sr-only">LinkedIn (opens in new tab)</span>
-              </a>
-            </li>
-            <li>
-              <a class="intro-social-link" href={SOCIAL.email}>
-                <Fragment set:html={mailIcon.default} />
-                <span class="sr-only">Email</span>
-              </a>
-            </li>
+    {
+      featuredWritings.length > 0 && (
+        <section class="featured-writings" aria-label="Featured writings">
+          <ul class="featured-list" role="list">
+            {featuredWritings.map(writing => (
+              <li>
+                <article class="featured-card">
+                  <a class="featured-card-link" href={URLS.writing(writing.id)}>
+                    <h2 class="featured-title">{writing.data.title}</h2>
+
+                    <p class="featured-description">{writing.data.description}</p>
+                  </a>
+
+                  {Array.isArray(writing.data.tags) && writing.data.tags.length > 0 && (
+                    <ul class="featured-tags tags" role="list">
+                      {writing.data.tags.map(tag => (
+                        <li>
+                          <a href={URLS.tag(tag)}>{tag}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              </li>
+            ))}
           </ul>
         </section>
+      )
+    }
 
-        {
-          featuredWritings.length > 0 && (
-            <section class="featured-writings" aria-label="Featured writings">
-              <ul class="featured-list" role="list">
-                {featuredWritings.map(writing => (
-                  <li>
-                    <article class="featured-card">
-                      <a class="featured-card-link" href={URLS.writing(writing.id)}>
-                        <h2 class="featured-title">{writing.data.title}</h2>
+    {
+      latestWritings.length > 0 && (
+        <section class="latest-writings" aria-labelledby="latest-heading">
+          <h2 class="latest-heading" id="latest-heading">
+            <a class="latest-heading-link" href={URLS.writings}>
+              Writings
+              <span class="latest-icon" aria-hidden="true">
+                <Fragment set:html={arrowRightIcon.default} />
+              </span>
+            </a>
+          </h2>
 
-                        <p class="featured-description">{writing.data.description}</p>
-                      </a>
-
-                      {Array.isArray(writing.data.tags) && writing.data.tags.length > 0 && (
-                        <ul class="featured-tags tags" role="list">
-                          {writing.data.tags.map(tag => (
-                            <li>
-                              <a href={URLS.tag(tag)}>{tag}</a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </article>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )
-        }
-
-        {
-          latestWritings.length > 0 && (
-            <section class="latest-writings" aria-labelledby="latest-heading">
-              <h2 class="latest-heading" id="latest-heading">
-                <a class="latest-heading-link" href={URLS.writings}>
-                  Writings
-                  <span class="latest-icon" aria-hidden="true">
-                    <Fragment set:html={arrowRightIcon.default} />
-                  </span>
+          <ul class="latest-list" role="list">
+            {latestWritings.map(writing => (
+              <li>
+                <a class="latest-link" href={URLS.writing(writing.id)}>
+                  <FormattedDate
+                    date={writing.data.pubDatetime}
+                    formatOptions={{ year: "2-digit", month: "numeric", day: "numeric" }}
+                  />
+                  <span class="latest-title">{writing.data.title}</span>
                 </a>
-              </h2>
-
-              <ul class="latest-list" role="list">
-                {latestWritings.map(writing => (
-                  <li>
-                    <a class="latest-link" href={URLS.writing(writing.id)}>
-                      <FormattedDate
-                        date={writing.data.pubDatetime}
-                        formatOptions={{ year: "2-digit", month: "numeric", day: "numeric" }}
-                      />
-                      <span class="latest-title">{writing.data.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )
-        }
-      </div>
-    </main>
-    <FloatingNav />
-    <FullscreenNav />
-  </body>
-</html>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>
 
 <style>
   /* -------------------------
@@ -201,26 +156,21 @@ const latestWritings = getNonFeaturedWritings(allWritings, HOME_LATEST_WRITINGS_
     gap: 1.5rem;
   }
 
-  .intro-social-link {
+  .intro-social :global(.social-link) {
     display: block;
     transition: color var(--transition);
     color: var(--color-surface-400);
   }
 
-  .intro-social-link :global(svg) {
-    width: 1.5rem;
-    height: 1.5rem;
+  .intro-social :global(.social-link:hover),
+  .intro-social :global(.social-link:focus-visible) {
+    color: var(--color-text);
   }
 
-  .intro-social-link:focus-visible {
+  .intro-social :global(.social-link:focus-visible) {
     outline: var(--focus-outline);
     outline-offset: var(--focus-offset);
     border-radius: var(--focus-radius);
-    color: var(--color-text);
-  }
-
-  .intro-social-link:hover {
-    color: var(--color-text);
   }
 
   /* -------------------------
