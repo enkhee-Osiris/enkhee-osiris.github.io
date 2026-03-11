@@ -1,0 +1,27 @@
+---
+title: "Morse 30 оноо"
+description: "## Өгөгдөл"
+pubDatetime: 2016-09-21T00:00:00.000Z
+tags: ["haruul-zangi", "writeup", "crypto"]
+draft: false
+---
+
+## Өгөгдөл
+
+**Даалгаврын нэр:** Morse <br/>
+**Оноо:** 30 оноо <br/>
+**Файл:** morsecode.wav
+
+---
+
+Эхлээд өгөгдсөн файлыг `morsecode.wav` [audacity](http://www.audacityteam.org/download/) дээр оруулна.
+
+Sound цэсээс `Pitch (EAC)` сонголтыг сонгоно.
+
+![screen](https://cloud.githubusercontent.com/assets/14227502/18713435/e9ccad08-8044-11e6-9735-f96845278adf.jpg)
+
+Дараах хүснэгтээс морз код бүрийг хөрвүүлнэ.
+![xmorse-codes](https://cloud.githubusercontent.com/assets/14227502/18713557/551d79ac-8045-11e6-98e7-42677d60e837.png)
+Хөрвүүлж дуусахад `our flag congratulations` гэсэн өгүүлбэр болно.
+
+Эцэст нь туг: **HZ{congratulations}**

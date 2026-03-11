@@ -1,0 +1,302 @@
+---
+title: "Markdown Style Guide"
+description: "A visual reference for every supported element — headings, prose, code, tables, lists, and more."
+pubDatetime: 2026-02-23T00:00:00.000Z
+tags: ["guide", "reference", "design-systems", "design"]
+---
+
+import Image from "@/components/Image.astro";
+
+This page documents every Markdown and MDX element supported in writings — useful for checking how things render before publishing, and for verifying styles after theme changes.
+
+---
+
+## Headings
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+---
+
+## Paragraph
+
+A paragraph is one or more consecutive lines of text separated by a blank line. It wraps naturally at the content width and maintains comfortable line lengths for reading.
+
+This is a second paragraph. Notice how the spacing above creates a clear visual break between them. Line height and measure are the two most impactful typographic decisions — both are set in the global styles.
+
+---
+
+## Emphasis
+
+This is **bold text**, _italic text_, and ~~strikethrough~~. You can also combine **_bold and italic_** together.
+
+```md
+This is **bold text**, _italic text_, and ~~strikethrough~~.
+
+You can also combine **_bold and italic_** together.
+```
+
+---
+
+## Blockquote
+
+> The details are not the details. They make the design.
+>
+> ~ <cite>Charles Eames</cite>
+
+> Nested blockquotes are supported.
+>
+> > This is a nested blockquote inside the outer one.
+
+```md
+> The details are not the details. They make the design.
+>
+> ~ <cite>Charles Eames</cite>
+
+> Nested blockquotes are supported.
+>
+> > This is a nested blockquote inside the outer one.
+```
+
+---
+
+## Links
+
+Internal links use the site's base path. External links automatically open in a new tab.
+
+[Back to writings](/kanso/writing/) — internal link
+
+[Astro documentation](https://docs.astro.build) — external link, opens in new tab
+
+```md
+[Back to writings](/kanso/writing/)
+
+[Astro documentation](https://docs.astro.build)
+```
+
+---
+
+## Footnotes
+
+An example containing a clickable footnote reference[^1] with a return link.
+
+A second reference[^2] demonstrating multiple footnotes on the same page.
+
+[^1]: First footnote — includes a return link back to the reference in the text.
+
+[^2]: Second footnote — rendered in a separate section at the end of the document.
+
+```md
+An example containing a clickable footnote reference[^1].
+
+[^1]: First footnote — includes a return link.
+```
+
+---
+
+## Image
+
+A standalone Markdown image, unwrapped from its paragraph container:
+
+![Placeholder image — 720×400](https://placehold.co/720x400)
+
+```md
+![Placeholder image — 720×400](https://placehold.co/720x400)
+```
+
+The `Image` MDX component supports captions and additional layout options:
+
+<Image
+  src="https://placehold.co/720x400"
+  alt="Placeholder image with caption"
+  caption="Figure 1. A placeholder image rendered via the Image component."
+  inferSize
+/>
+
+```mdx
+import Image from "@/components/Image.astro";
+
+<Image
+  src="https://placehold.co/720x400"
+  alt="Placeholder image with caption"
+  caption="Figure 1. A placeholder image rendered via the Image component."
+  inferSize
+/>
+```
+
+---
+
+## Table
+
+A simple table with default left-aligned columns:
+
+| Property    | Type       | Default  | Required |
+| ----------- | ---------- | -------- | -------- |
+| title       | `string`   | —        | Yes      |
+| description | `string`   | —        | Yes      |
+| pubDatetime | `Date`     | —        | Yes      |
+| author      | `string`   | `AUTHOR` | No       |
+| tags        | `string[]` | `others` | No       |
+| featured    | `boolean`  | `false`  | No       |
+| draft       | `boolean`  | `false`  | No       |
+
+A wider table to test horizontal scrolling on small screens — columns use alignment syntax:
+
+| Token                  | Light value           | Dark value            | Usage                    |
+| :--------------------- | :-------------------- | :-------------------- | :----------------------- |
+| `--color-bg`           | `--color-surface-100` | `--color-surface-900` | Page background          |
+| `--color-text`         | `--color-surface-900` | `--color-surface-100` | Body text                |
+| `--color-border`       | 15% surface-900       | 15% surface-100       | Dividers, outlines       |
+| `--color-border-hover` | 40% surface-900       | 40% surface-100       | Interactive borders      |
+| `--color-accent`       | `--color-amber-600`   | `--color-amber-400`   | Links, focus, highlights |
+| `--color-code-bg`      | `--color-surface-200` | `--color-surface-800` | Inline code background   |
+| `--color-mark-bg`      | `--color-amber-200`   | `--color-amber-900`   | `<mark>` highlight       |
+
+```md
+| Property | Type      | Default | Required |
+| -------- | --------- | ------- | -------- |
+| title    | `string`  | —       | Yes      |
+| draft    | `boolean` | `false` | No       |
+```
+
+---
+
+## Code
+
+Inline `code` uses a monospace font with a subtle background.
+
+A TypeScript block with syntax highlighting:
+
+```ts
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getPublishedWritings(): Promise<CollectionEntry<"writing">[]> {
+  return getCollection("writing", w => !w.data.draft);
+}
+```
+
+A CSS block with a filename label:
+
+```css title="global.css"
+:root {
+  --color-bg: var(--color-surface-100);
+  --color-text: var(--color-surface-900);
+  --font-body: "PT Serif", Georgia, serif;
+  --font-display: "Lora", Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--color-surface-900);
+    --color-text: var(--color-surface-100);
+  }
+}
+```
+
+A shell block:
+
+```sh
+npm run dev       # start dev server at localhost:4321
+npm run build     # astro check + astro build + pagefind
+npm run lighthouse -- --build
+```
+
+---
+
+## Lists
+
+### Ordered list
+
+1. First item
+2. Second item
+3. Third item
+   1. Nested first
+   2. Nested second
+
+```md
+1. First item
+2. Second item
+3. Third item
+   1. Nested first
+   2. Nested second
+```
+
+### Unordered list
+
+- List item one
+- List item two
+- List item three
+  - Nested item
+  - Another nested item
+
+```md
+- List item one
+- List item two
+  - Nested item
+```
+
+### Task list
+
+- [x] Schema defined in `src/content.config.ts`
+- [x] Sample writings added
+- [ ] Replace placeholder content with real data
+- [ ] Accessibility audit
+
+```md
+- [x] Completed task
+- [ ] Incomplete task
+```
+
+---
+
+## Other Elements
+
+### Abbreviation
+
+The <abbr title="HyperText Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>. Hover the abbreviation to see its expansion.
+
+```md
+The <abbr title="HyperText Markup Language">HTML</abbr> specification
+is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.
+```
+
+### Subscript and Superscript
+
+H<sub>2</sub>O is water. X<sup>2</sup> is X squared. The chemical formula for caffeine is C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>.
+
+```md
+H<sub>2</sub>O and X<sup>2</sup>
+```
+
+### Keyboard
+
+Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the command palette. Press <kbd>Esc</kbd> to close.
+
+```md
+Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the command palette.
+```
+
+### Mark
+
+Use <mark>highlighted text</mark> to draw attention to a specific term or phrase within a paragraph.
+
+```md
+Use <mark>highlighted text</mark> to draw attention to a specific term.
+```
+
+### Horizontal rule
+
+A thematic break rendered as a full-width border:
+
+---
+
+```md
+---
+```
