@@ -57,4 +57,12 @@ export default defineConfig({
   experimental: {
     svgo: true,
   },
+  vite: {
+    optimizeDeps: {
+      include: ["vanilla-cookieconsent"],
+    },
+    ssr: {
+      noExternal: ["vanilla-cookieconsent"],
+    },
+  },
 });

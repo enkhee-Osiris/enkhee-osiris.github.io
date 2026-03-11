@@ -1,5 +1,13 @@
 /// <reference types="astro/client" />
 
+interface ImportMetaEnv {
+  readonly PUBLIC_GA_ID?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
 declare module "@pagefind/default-ui" {
   interface PagefindUIOptions {
     element: string;
@@ -13,4 +21,9 @@ declare module "@pagefind/default-ui" {
     constructor(options: PagefindUIOptions);
     triggerSearch(query: string): void;
   }
+}
+
+interface Window {
+  dataLayer: Record<string, any>[];
+  gtag: (...args: any[]) => void;
 }

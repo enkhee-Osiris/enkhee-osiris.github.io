@@ -8,6 +8,8 @@ const hasTrailingSlash = BASE.endsWith("/");
 const CLEAN_BASE = hasTrailingSlash ? BASE.slice(0, -1) : BASE;
 const URL_ENDING = hasTrailingSlash ? "/" : "";
 
+export const GA_ID = "G-8EMCLEMQCQ";
+
 export const SITE_TITLE = "Enkherdene Bolormaa";
 export const SITE_DESCRIPTION =
   "Enkherdene Bolormaa is a software engineer living in Ulaanbaatar Mongolia, currently focusing on designing things.";

@@ -1,0 +1,166 @@
+/* -------------------------
+ * Theme — Cookie Consent
+ * Override vanilla-cookieconsent variables with site design tokens
+ * ------------------------- */
+:root {
+  /* Typography */
+  --cc-font-family: var(--font-body);
+
+  /* Base colors */
+  --cc-bg: var(--color-bg);
+  --cc-primary-color: var(--color-text);
+  --cc-secondary-color: var(--color-surface-700);
+
+  /* Primary button (Accept all) - transparent with accent border */
+  --cc-btn-primary-bg: transparent;
+  --cc-btn-primary-color: var(--color-accent);
+  --cc-btn-primary-border-color: var(--color-border);
+  --cc-btn-primary-hover-bg: var(--color-surface-100);
+  --cc-btn-primary-hover-color: var(--color-accent);
+  --cc-btn-primary-hover-border-color: var(--color-accent);
+
+  /* Secondary button (Reject all/Save) - transparent with dark text */
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-color: var(--color-surface-900);
+  --cc-btn-secondary-border-color: var(--color-border);
+  --cc-btn-secondary-hover-bg: var(--color-surface-100);
+  --cc-btn-secondary-hover-color: var(--color-text);
+  --cc-btn-secondary-hover-border-color: var(--color-border-hover);
+
+  /* Separator borders */
+  --cc-separator-border-color: var(--color-border);
+
+  /* Toggle switch colors */
+  --cc-toggle-on-bg: var(--color-surface-900);
+  --cc-toggle-off-bg: var(--color-surface-200);
+  --cc-toggle-on-knob-bg: var(--color-bg);
+  --cc-toggle-off-knob-bg: var(--color-bg);
+
+  /* Toggle icon colors */
+  --cc-toggle-enabled-icon-color: var(--cc-bg);
+  --cc-toggle-disabled-icon-color: var(--cc-bg);
+
+  /* Read-only toggle state */
+  --cc-toggle-readonly-bg: var(--color-surface-100);
+  --cc-toggle-readonly-knob-bg: var(--cc-cookie-category-block-bg);
+  --cc-toggle-readonly-knob-icon-color: var(--cc-toggle-readonly-bg);
+
+  /* Category block background variables */
+  --category-bg: #f2f2f2;
+  --category-bg-hover: #e8e8e8;
+
+  /* Cookie category blocks */
+  --cc-cookie-category-block-bg: var(--category-bg);
+  --cc-cookie-category-block-border: var(--color-border);
+  --cc-cookie-category-block-hover-bg: var(--category-bg-hover);
+  --cc-cookie-category-block-hover-border: var(--color-border-hover);
+  --cc-cookie-category-expanded-block-bg: var(--category-bg);
+  --cc-cookie-category-expanded-block-hover-bg: var(--category-bg-hover);
+
+  /* Overlay and scrollbar */
+  --cc-overlay-bg: rgba(0, 0, 0, 0.9) !important;
+  --cc-webkit-scrollbar-bg: var(--color-border-hover);
+  --cc-webkit-scrollbar-hover-bg: var(--color-text);
+
+  /* Footer */
+  --cc-footer-border-color: #212529;
+  --cc-footer-bg: #000;
+}
+
+/* -------------------------
+ * State — Theme: Light
+ * Category block backgrounds for light theme
+ * ------------------------- */
+html[data-theme="light"] {
+  --category-bg: #f2f2f2;
+  --category-bg-hover: #e8e8e8;
+}
+
+/* -------------------------
+ * State — Theme: Dark (prefers-color-scheme)
+ * Category block backgrounds for dark theme (system preference)
+ * ------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --category-bg: #0d0c0b;
+    --category-bg-hover: #12100f;
+  }
+}
+
+/* -------------------------
+ * State — Theme: Dark (explicit)
+ * Category block backgrounds for dark theme (user preference)
+ * ------------------------- */
+html[data-theme="dark"] {
+  --category-bg: #0d0c0b;
+  --category-bg-hover: #12100f;
+}
+
+/* -------------------------
+ * Module — Consent Modal
+ * Remove box shadow, add border matching site style
+ * ------------------------- */
+#cc-main .cm,
+#cc-main .pm {
+  box-shadow: none;
+  border: 1px solid var(--cc-separator-border-color);
+}
+
+/* -------------------------
+ * Module — Typography
+ * Bold weight for titles, links, and emphasis elements
+ * ------------------------- */
+#cc-main .cm__title,
+#cc-main a,
+#cc-main b,
+#cc-main em,
+#cc-main strong {
+  font-weight: 700;
+}
+
+/* -------------------------
+ * Module — Consent Modal Buttons
+ * Uppercase, small-caps style matching site button conventions
+ * ------------------------- */
+#cc-main .cm__btn {
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+}
+
+/* -------------------------
+ * Module — Preferences Modal Buttons
+ * Same button style as consent modal
+ * ------------------------- */
+#cc-main .pm__btn {
+  background: var(--cc-btn-primary-bg);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+}
+
+/* -------------------------
+ * Module — Section Titles
+ * Dark text for section headings in preferences modal
+ * ------------------------- */
+#cc-main .pm__section--toggle .pm__section-title {
+  color: var(--color-surface-900);
+}
+
+/* -------------------------
+ * Module — Table Headers
+ * Dark text for cookie table headers
+ * ------------------------- */
+#cc-main thead {
+  color: var(--color-surface-900);
+}
+
+/* -------------------------
+ * Module — Link
+ * Underlined links for consistency with site prose links
+ * ------------------------- */
+.cc-link {
+  text-decoration: underline;
+}
