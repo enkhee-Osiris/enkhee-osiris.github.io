@@ -14,7 +14,9 @@ const writing = defineCollection({
     featured: z.boolean().optional(),
     draft: z.boolean().optional(),
     tags: z
-      .array(z.string().regex(/^[a-z-]+$/, "Tag must contain only lowercase letters and hyphens"))
+      .array(
+        z.string().regex(/^[a-z-0-9]+$/, "Tag must contain only lowercase letters and hyphens")
+      )
       .default(["others"]),
     description: z.string(),
   }),
