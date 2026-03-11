@@ -115,6 +115,7 @@ export default defineConfig({
   },
   experimental: {
     svgo: true,
+    rustCompiler: true,
   },
   vite: {
     optimizeDeps: {
