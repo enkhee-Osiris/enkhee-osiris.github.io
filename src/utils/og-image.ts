@@ -92,14 +92,14 @@ function buildSvg(data: OgImageData): string {
   let charsPerLine: number;
 
   if (title.length <= 40) {
-    fontSize = 68;
-    charsPerLine = 24;
+    fontSize = 58;
+    charsPerLine = 28;
   } else if (title.length <= 70) {
-    fontSize = 52;
-    charsPerLine = 32;
+    fontSize = 44;
+    charsPerLine = 36;
   } else {
-    fontSize = 40;
-    charsPerLine = 40;
+    fontSize = 34;
+    charsPerLine = 44;
   }
 
   const lineHeight = fontSize * 1.25;
@@ -119,7 +119,7 @@ function buildSvg(data: OgImageData): string {
     <text
       x="120"
       y="267"
-      font-family="Lora-Bold"
+      font-family="SchoolBookNew-Bold"
       font-size="${fontSize}"
       font-weight="bold"
       fill="white"
@@ -127,7 +127,7 @@ function buildSvg(data: OgImageData): string {
     <text
       x="783"
       y="526"
-      font-family="Lora-Bold"
+      font-family="SchoolBookNew-Bold"
       font-size="28"
       font-weight="bold"
       fill="white"
@@ -135,7 +135,7 @@ function buildSvg(data: OgImageData): string {
     <text
       x="120"
       y="560"
-      font-family="PTSerif-Regular"
+      font-family="PTSerifProWeb-Book"
       font-weight="normal"
       font-size="17"
       fill="white"
@@ -144,7 +144,7 @@ function buildSvg(data: OgImageData): string {
     <text
       x="783"
       y="560"
-      font-family="PTSerif-Regular"
+      font-family="PTSerifProWeb-Book"
       font-weight="normal"
       font-size="17"
       fill="white"
