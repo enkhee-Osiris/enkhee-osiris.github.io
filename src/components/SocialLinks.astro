@@ -36,7 +36,6 @@ const links = [
 
 <ul
   class:list={["social-list", iconStyle === "large" && "social-list--large"]}
-  role="list"
   aria-label="Social links"
 >
   {
@@ -47,6 +46,13 @@ const links = [
           href={link.href}
           target={link.external ? "_blank" : undefined}
           rel={link.external ? "noopener noreferrer" : undefined}
+          aria-label={
+            includeLabels
+              ? link.label
+              : link.external
+                ? `${link.label} (opens in new tab)`
+                : link.label
+          }
         >
           <span class="social-icon" aria-hidden="true">
             <Fragment set:html={link.icon} />
@@ -67,6 +73,7 @@ const links = [
   .social-list {
     display: flex;
     gap: 1.5rem;
+    list-style: none;
   }
 
   .social-link {
