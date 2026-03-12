@@ -15,8 +15,13 @@ function loadGoogleAnalytics() {
   script.onload = () => {
     window.gtag("js", new Date());
 
+    window.gtag("set", "url_passthrough", true);
+
+    const isLocalhost = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
     window.gtag("config", GA_ID, {
       anonymize_ip: true,
+      cookie_domain: isLocalhost ? "none" : location.hostname,
     });
   };
 }
