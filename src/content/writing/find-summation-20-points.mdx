@@ -6,12 +6,15 @@ tags: ["haruul-zangi", "writeup", "programming"]
 draft: false
 ---
 
+import Image from "@/components/Image.astro";
+import screenshot from "@/assets/images/find-summation-20-points/screenshot.png";
+
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Find Summation <br/>
-**Хандах хаяг:** http://103.48.116.193:8005/ <br/>
-**Тайлбар:** GET parameter=solution<br/>
-**Оноо:** 20 оноо <br/>
+**Даалгаврын нэр:** Find Summation  
+**Хандах хаяг:** http://103.48.116.193:8005/  
+**Тайлбар:** GET parameter=solution  
+**Оноо:** 20 оноо
 
 ---
 
@@ -19,13 +22,13 @@ draft: false
 
 **Тайлбар:**
 
-```
+```text
 Та өгөгдсөн тоонуудын нийлбэрийг олно уу? GET['solution'] request авна 2 сек.
 ```
 
 Манай баг өгөгдсөн даалгаварт зориулж [python](https://www.python.org) скрипт бичихээр шийдсэн.
 
-```python filename="summ.py"
+```python title="summ.py"
 import urllib2
 from decimal import Decimal
 import sys
@@ -52,21 +55,26 @@ print content
 
 Бичсэн скрипт маань өгөгдсөн хаяг руу хандаж өгөгдлийг ялган авч нийлбэрийг олоод, сервер лүү `solution` параметрээр хүсэлт явуулж ирсэн хариуг хэвлэнэ.
 
-Уг даалгаврыг хийхэд анхаарах ёстой нэг зүйл нь күүки байсан бөгөөд даалгаврын үеэр манай баг нэлээн будлиж эцэст нь учрыг олсон.
+Уг даалгаврыг хийхэд анхаарах ёстой нэг зүйл нь күүки байсан бөгөөд даалгаврын үеэр манай баг нэлээн будлаж эцэст нь учрыг олсон.
 
 За скриптээ ажиллуулж үзье.
 
-```
-$ python summ.py
+```bash
+python summ.py
 ```
 
 Ирсэн хариу:
 
-<img width="843" alt="screenshot" src="https://cloud.githubusercontent.com/assets/14227502/18751846/1b273804-8113-11e6-8062-9d3cd6bf1073.png">
+<Image
+  src={screenshot}
+  alt="Screenshot"
+  width={843}
+  caption="Зураг 1: Скриптийн гаралт - туг олсон байна"
+/>
 
-```
+```text
 ...
 Баяр хүргье. Flag is HZ{c0mput3r_sci3nc3_is_v3ry_c0mp3titiv3}
 ```
 
-Эцэст нь туг: **HZ{c0mput3r_sci3nc3_is_v3ry_c0mp3titiv3}**
+Эцэст нь туг: `HZ{c0mput3r_sci3nc3_is_v3ry_c0mp3titiv3}`

@@ -6,21 +6,26 @@ tags: ["haruul-zangi", "writeup", "forensic"]
 draft: false
 ---
 
+import Image from "@/components/Image.astro";
+import sound1 from "@/assets/images/sound-30-points/sound1.png";
+import sound2 from "@/assets/images/sound-30-points/sound2.png";
+
 За Харуул-Занги 2016-ын эхний шат амжилттай өндөрлөлөө. Эхний шат нийт 5 цаг үргэлжилсэн бөгөөд нийт онооны дүнгээр манай баг ([Шуурга](https://ctftime.org/team/29811)) 5р байранд орсон.
 
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Sound <br/>
-**Оноо:** 30 оноо <br/>
+**Даалгаврын нэр:** Sound  
+**Оноо:** 30 оноо  
 **Файл:** sound.wav
 
 ---
 
 Эхлээд өгөгдсөн файлыг `sound.wav` [audacity](http://www.audacityteam.org/download/) дээр оруулна.
 
-![sound1](https://cloud.githubusercontent.com/assets/14227502/18636668/3e6b2766-7ebc-11e6-9066-cc4071e72b48.png)
+<Image src={sound1} alt="Sound analysis 1" caption="Зураг 1: Audacity дээрх дууны долгион" />
 
 Spectogram (Зүүн талд байгаа sound дээр дараад сонгоно) логыг дарахад туг харагдана.
-![sound2](https://cloud.githubusercontent.com/assets/14227502/18636674/41421292-7ebc-11e6-803b-02bf60843ad6.png)
 
-Эцэст нь туг: **HZ{HELLO}**
+<Image src={sound2} alt="Sound analysis 2" caption="Зураг 2: Spectrogram дээр харагдах нууц туг" />
+
+Эцэст нь туг: `HZ{HELLO}`

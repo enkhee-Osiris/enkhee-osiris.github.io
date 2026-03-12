@@ -1,0 +1,66 @@
+---
+title: "Mr. Robot 20 оноо"
+description: "## Өгөгдөл"
+pubDatetime: 2016-09-20T00:00:00.000Z
+tags: ["haruul-zangi", "writeup", "crypto"]
+draft: false
+---
+
+import Image from "@/components/Image.astro";
+import ss1 from "@/assets/images/mr-robot-20-points/ss1.jpg";
+import ss2 from "@/assets/images/mr-robot-20-points/ss2.jpg";
+import ss3 from "@/assets/images/mr-robot-20-points/ss3.jpg";
+import ss4 from "@/assets/images/mr-robot-20-points/ss4.jpg";
+import ss5 from "@/assets/images/mr-robot-20-points/ss5.jpg";
+
+## Өгөгдөл
+
+**Даалгаврын нэр:** НоёН РоБоТ  
+**Оноо:** 20 оноо  
+**Файл:** flag.pgp, mr.robot.gif
+
+---
+
+```bash
+cat mr.robot.gif
+```
+
+гэж харвал private key block харагдана.
+
+<Image
+  src={ss1}
+  alt="Screenshot 1"
+  caption="Зураг 1: mr.robot.gif файлд харагдах private key block"
+/>
+
+Private key block-г ямар нэг текст эдитор дээр хуулаад `.asc` өргөтгөлтэй хадгална.
+
+<Image
+  src={ss2}
+  alt="Screenshot 2"
+  caption="Зураг 2: Текст эдитор дээр .asc файл болгон хадгалсан private key"
+/>
+
+Үүсгэсэн key-ийг gpg дээр импорт хийнэ.
+
+```bash
+gpg --import private.asc
+```
+
+<Image src={ss3} alt="Screenshot 3" caption="Зураг 3: GPG key импорт хийх үеийн гаралт" />
+
+Key жагсаалтыг харвал.
+
+<Image src={ss4} alt="Screenshot 4" caption="Зураг 4: Импорт хийсэн түлхүүрүүдийн жагсаалт" />
+
+flag-аа дэкрипт хийе.
+
+<Image src={ss5} alt="Screenshot 5" caption="Зураг 5: Дэкрипт хийсэн тугийн агуулга" />
+
+```bash
+gpg -d flag.pgp
+```
+
+Нууц үг mr.robot гэж оруулна.
+
+Эцэст нь туг: `HZ{T4n!! tv!khvvR ug MR.R0b0T}`

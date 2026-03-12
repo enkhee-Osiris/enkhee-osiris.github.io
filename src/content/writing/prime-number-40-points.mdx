@@ -6,11 +6,14 @@ tags: ["haruul-zangi", "writeup", "programming"]
 draft: false
 ---
 
+import Image from "@/components/Image.astro";
+import screenshot from "@/assets/images/prime-number-40-points/screenshot.png";
+
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Prime Number <br/>
-**Хандах хаяг:** http://103.48.116.193:8006/ <br/>
-**Оноо:** 40 оноо <br/>
+**Даалгаврын нэр:** Prime Number  
+**Хандах хаяг:** http://103.48.116.193:8006/  
+**Оноо:** 40 оноо
 
 ---
 
@@ -18,7 +21,7 @@ draft: false
 
 Өмнө бичсэн скриптээ бага зэрэг өөрчилье.
 
-```python filename="prime-number.py"
+```python title="prime-number.py"
 import urllib2
 import math
 import sys
@@ -56,16 +59,22 @@ print content
 
 За скриптээ ажиллуулъя.
 
-```
-$ python prime-number.py
+```bash
+python prime-number.py
 ```
 
 Ирсэн хариу:
-<img width="835" alt="screenshot" src="https://cloud.githubusercontent.com/assets/14227502/18752570/69acfc96-8115-11e6-86af-02a853719a94.png">
 
-```
+<Image
+  src={screenshot}
+  alt="Screenshot"
+  width={835}
+  caption="Зураг 1: Скриптийн гаралт - туг олсон байна"
+/>
+
+```text
 ...
 Баяр хүргье. Flag is HZ{y0u_f0und_this_s3cr3t_d@t@}
 ```
 
-Эцэст нь туг: **HZ{y0u_f0und_this_s3cr3t_d@t@}**
+Эцэст нь туг: `HZ{y0u_f0und_this_s3cr3t_d@t@}`

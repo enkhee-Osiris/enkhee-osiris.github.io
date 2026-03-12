@@ -6,6 +6,9 @@ tags: ["haruul-zangi", "u18"]
 draft: false
 ---
 
+import Image from "@/components/Image.astro";
+import screenshot from "@/assets/images/u18-2018-web-writeups/screenshot.png";
+
 Өдрийн мэнд. Энэ жилийн U18-д ирсэн зарим вэбийн даалгавруудын **writeup**-уудыг хүргэж байна.
 ХаруулЗангиас тухайн шат дууссаны дараа вэб серверүүдээ шууд унтраадаг учраас тэдгээр даалгавруудыг л
 хийлээ, бусад даалгавруудыг өөрсдөө [энд](https://github.com/enkhee-Osiris/u18-2018)ээс хийж үзээрэй.
@@ -20,11 +23,11 @@ draft: false
 
 Өгөгдсөн вэб хуудсыг доорх зурагт үзүүлэв.
 
-<img width="843" alt="screenshot" src="https://user-images.githubusercontent.com/14227502/39092057-203f6f3e-4636-11e8-8bb2-267195bb8004.png">
+<Image src={screenshot} alt="Screenshot" width={843} caption="Зураг 1: Нэвтрэх форм" />
 
 Уг даалгаварт өгөгдсөн хуудасны **source**-г харвал дараах жаваскрипт байв.
 
-```javascript filename="web1.js"
+```javascript title="web1.js"
 $(document).ready(function () {
   $("#login").submit(function (e) {
     e.preventDefault();
@@ -39,11 +42,11 @@ $(document).ready(function () {
 });
 ```
 
-> username болон password-г зөв оруулбал  
-> success.php хуудас руу үсэрч байна.  
+> username болон password-г зөв оруулбал
+> success.php хуудас руу үсэрч байна.
 > Уг хуудас руу орвол туг харагдана.
 
-```
+```text
 Here is your flag: HZU18{cl1ent_s1d3_auth_sux}
 ```
 
@@ -55,12 +58,14 @@ Here is your flag: HZU18{cl1ent_s1d3_auth_sux}
 
 ---
 
-Өгөгдсөн вэб хуудас өмнөх даалгавартай яг адилхан харагдав.  
-Уг даалгаварт өгөгдсөн хуудасны **source**-г харвал дараах коммэнт байв.  
-**<!-- delete it later index.phps --!>**  
+Өгөгдсөн вэб хуудас өмнөх даалгавартай яг адилхан харагдав.
+Уг даалгаварт өгөгдсөн хуудасны **source**-г харвал дараах коммэнт байв.
+
+`<!-- delete it later index.phps -->`
+
 Орж үзэхэд дараах **php** код харагдана.
 
-```php filename="web2.php"
+```php title="web2.php"
 <?php
 include 'flag.php';
 
@@ -79,10 +84,10 @@ if (isset($_POST['password'])) {
 Өгөгдсөн `86a8b9ded31796c99d3cd6336609bc88` **md5** хашыг [энд](http://md5decrypt.net/en/)-ээс хайвал
 `SuperSecurePassword` гэж олдоно.
 
-> Олдсон username => admin  
+> Олдсон username => admin
 > password => SuperSecurePassword-аар нэвтрэхэд туг харагдах болно.
 
-```
+```text
 HZU18{you_kn0w_about_hash}
 ```
 
@@ -94,10 +99,10 @@ HZU18{you_kn0w_about_hash}
 
 ---
 
-Өгөгдсөн вэб хуудас энгийн л хэрэглэгчийн нэр болон нууц үгийн форм харагдана.  
+Өгөгдсөн вэб хуудас энгийн л хэрэглэгчийн нэр болон нууц үгийн форм харагдана.
 Мөн **php** эх код харах холбоос байв. Эх кодыг доор харуулав.
 
-```php filename="web3.php"
+```php title="web3.php"
 <?php
 include'flag.php';
 if (isset($_POST['login'])) {
@@ -116,11 +121,11 @@ if (isset($_POST['login'])) {
 
 Уг кодыг анализ хийвэл **username** болон **password** нь өөр боловч md5 хаш нь `==` шалгалтыг давах ёстой харагдана.
 
-> Үүнийг давахын тулд бяцхан заль ашиглах болно.  
-> md5 хаш нь `0e123...` тай тэнцүү байх утгуудыг ашиглая.  
+> Үүнийг давахын тулд бяцхан заль ашиглах болно.
+> md5 хаш нь `0e123...` тай тэнцүү байх утгуудыг ашиглая.
 > Энэ алдааны талаар [энд](http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html)ээс дэлгэрэнгүй уншаарай.
 
-```
+```text
 MD5 ("240610708") = 0e462097431906509019562988736854
 MD5 ("aabg7XSs") = 0e087386482136013740957780965295
 MD5 ("aaroZmOk") = 4e91292830102879cd95e9bae60460e7
@@ -131,26 +136,26 @@ MD5 ("Password147186970!") = 0e153958235710973524115407854157
 
 Дээрх жагсаалтаас дурын 2-ыг сонгон нэвтрэхэд туг гарч ирнэ.
 
-```
+```text
 password Password147186970!
 username 240610708
 ```
 
-```
+```text
 HZU18{s1gns1gns1gnaftermd5}
 ```
 
 ## Baby Web (65pts)
 
-**Хандах хаяг:** http://218.100.84.112:9004/  
-**Оноо:** 65 оноо  
+**Хандах хаяг:** http://218.100.84.112:9004/
+**Оноо:** 65 оноо
 **Зохиосон:** W01f
 
 ---
 
-Уг даалгаварт өгөгдсөн шифиг доор оруулав.
+Уг даалгаварт өгөгдсөн шифиг доор орууллав.
 
-```php filename="web4.php"
+```php title="web4.php"
 
 <html>
 <head>
@@ -188,11 +193,11 @@ if (isset($_GET)) {
 
 Уг кодыг анализ хийвэл 999 өөс их тоо оруулах ёстой боловч орон нь 3аас их байж болохгүй.
 
-> Энэ даалгаврыг хийхийн тулд  
+> Энэ даалгаврыг хийхийн тулд
 > 1000 = 10^3 = 1 \* 10^3 = 1e3 бичиглэлийг ашиглах ёстой.
 
 `1e3` гэсэн утгыг формд бөглөхөд туг гарч ирнэ.
 
-```
+```text
 Flag: HZU18{HEX_NUMBER>999}
 ```

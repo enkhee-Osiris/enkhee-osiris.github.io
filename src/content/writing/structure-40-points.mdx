@@ -6,34 +6,55 @@ tags: ["haruul-zangi", "writeup", "forensic"]
 draft: false
 ---
 
+import Image from "@/components/Image.astro";
+import ihex1 from "@/assets/images/structure-40-points/ihex1.png";
+import ihex2 from "@/assets/images/structure-40-points/ihex2.png";
+import ihex3 from "@/assets/images/structure-40-points/ihex3.png";
+import flag from "@/assets/images/structure-40-points/flag.png";
+
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Байгуулалт <br/>
-**Тайлбар:** https://en.wikipedia.org/wiki/Portable_Network_Graphics <br/>
-**Оноо:** 40 оноо <br/>
+**Даалгаврын нэр:** Байгуулалт  
+**Тайлбар:** https://en.wikipedia.org/wiki/Portable_Network_Graphics  
+**Оноо:** 40 оноо  
 **Файл:** corrupt
 
 ---
 
-```
-$ file corrupt
+```bash
+file corrupt
 ```
 
 хийж үзтэл ямар нэгэн файлын төрөл гарч ирсэнгүй тиймээс [hex editor](https://en.wikipedia.org/wiki/Hex_editor)-р нээж үзье.
 
-<img width="399" alt="ihex1" src="https://cloud.githubusercontent.com/assets/14227502/18637342/a7fde20c-7ebe-11e6-977a-a501edd7ad50.png">
+<Image
+  src={ihex1}
+  alt="Hex editor view 1"
+  width={399}
+  caption="Зураг 1: Эхний хэсэг устгагдсан байх corrupt файл"
+/>
 
 Эхний 11 байтыг хархад хэдэн байтыг устгасан байгааг мэдэж болно.
+
 PNG файлын эхний 8байтыг эндээс харж болно [File signatures](http://www.garykessler.net/library/file_sigs.html)
 
-![ihex2](https://cloud.githubusercontent.com/assets/14227502/18637856/77668f48-7ec0-11e6-912a-889c8e38e276.png)
+<Image src={ihex2} alt="Hex editor view 2" caption="Зураг 2: PNG файлын зөв header байтууд" />
+
 Устгасан байтуудыг нөхөж бичив.
 
 Даанч файл маань алдаатай хэвээрээ л байлаа iHex-рүү буцаж очоод төгсгөлийн мөрийг харвал мөн л хэдэн байтыг устгасан байлаа.
-<img width="398" alt="ihex3" src="https://cloud.githubusercontent.com/assets/14227502/18638072/4fe8ae46-7ec1-11e6-84c4-54c336a73fc7.png">
+
+<Image
+  src={ihex3}
+  alt="Hex editor view 3"
+  width={398}
+  caption="Зураг 3: Файлын төгсгөл дэх IEND chunk байтууд устсан байна"
+/>
 
 `4944AE42 6082` `49454E44 AE426082` болгож гүйцээсэн бөгөөд файлаа хадгалаад зургийг нээж үзэхэд
-<img width="644" alt="flag" src="https://cloud.githubusercontent.com/assets/14227502/18637990/e8e188da-7ec0-11e6-99be-4fa8f65e2022.png">
+
+<Image src={flag} alt="Flag image" width={644} caption="Зураг 4: Сэргээсэн PNG зураг дээрх туг" />
+
 тугыг харуулсан зураг харагдах болно.
 
-Эцэст нь туг: **HZ{YOU_G0T_PNG}**
+Эцэст нь туг: `HZ{YOU_G0T_PNG}`

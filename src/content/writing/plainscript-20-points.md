@@ -8,8 +8,8 @@ draft: false
 
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Plainscript <br/>
-**Хандах хаяг:** http://103.48.116.193:8003/ <br/>
+**Даалгаврын нэр:** Plainscript  
+**Хандах хаяг:** http://103.48.116.193:8003/  
 **Оноо:** 20 оноо
 
 ---
@@ -20,7 +20,7 @@ draft: false
 
 Өгөгдсөн скриптийг хуулж дэкод хийвэл
 
-```javascript filename="out.js"
+```javascript title="out.js"
 alert(
   'JSFuck is an esoteric and educational programming style based on the atomic parts of JavaScript. It uses only six different characters to write and execute code.  It does not depend on a browser, so you can even run it on Node.js.  Use the form below to convert your own script. Uncheck "eval source" to get back a plain string.'
 );
@@ -31,8 +31,10 @@ if (true) {
 
 дээрх javascript харагдана. Үүнээс тугийг харж болно.
 
-```
-if(true){console.log('HZ{JS00JS00JS}')}
+```javascript
+if (true) {
+  console.log("HZ{JS00JS00JS}");
+}
 ```
 
-Эцэст нь туг: **HZ{JS00JS00JS}**
+Эцэст нь туг: `HZ{JS00JS00JS}`

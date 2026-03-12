@@ -110,8 +110,6 @@ export default defineConfig({
   },
   image: {
     responsiveStyles: true,
-    domains: ["placehold.co"],
-    remotePatterns: [{ protocol: "https" }],
   },
   experimental: {
     svgo: true,

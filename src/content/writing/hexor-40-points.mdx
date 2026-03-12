@@ -6,19 +6,28 @@ tags: ["haruul-zangi", "writeup", "forensic"]
 draft: false
 ---
 
+import Image from "@/components/Image.astro";
+import screen from "@/assets/images/hexor-40-points/screen.png";
+import img from "@/assets/images/hexor-40-points/img.png";
+
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Hexor <br/>
-**Оноо:** 40 оноо <br/>
+**Даалгаврын нэр:** Hexor  
+**Оноо:** 40 оноо  
 **Файл:** image.hex
 
 Файлыг ямар нэгэн эдитор ашиглан нээж үзвэл hex код харагдана.
 
-<img width="700" alt="screen" src="https://cloud.githubusercontent.com/assets/14227502/18659409/08935006-7f3d-11e6-970c-68baf2625f84.png">
+<Image
+  src={screen}
+  alt="Screen"
+  width={700}
+  caption="Зураг 1: Hex editor дээр харагдах image.hex файлын агуулга"
+/>
 
 Эдгээр өгөгдлөөс зөвхөн хэксийг ялган авахын тулд python script бичье.
 
-```python filename="hex-to-png.py"
+```python title="hex-to-png.py"
 import urllib2
 import sys
 import binascii
@@ -39,14 +48,15 @@ fw.write(binascii.unhexlify(data))
 
 Ажиллуулахын тулд өгөгдсөн `image.hex` файлыг script-н гадна талын хавтсанд хийнэ.
 
-```
-$ python hex-to-png.py
+```bash
+python hex-to-png.py
 ```
 
 Python script ялгаж авсан хэксээ хэвлээд `img.png` файлыг үүсгэнэ.
 
 Үүссэн файлыг нээж харвал
-![img](https://cloud.githubusercontent.com/assets/14227502/18659515/bb85a1f0-7f3d-11e6-9493-2fcbfcf3843d.png)
+
+<Image src={img} alt="Result" caption="Зураг 2: Дэкод хийсэн зураг дээрх туг" />
 тугыг харуулсан зураг байна.
 
-Эцэст нь туг: **HZ{11001011_flag_01001011}**
+Эцэст нь туг: `HZ{11001011_flag_01001011}`

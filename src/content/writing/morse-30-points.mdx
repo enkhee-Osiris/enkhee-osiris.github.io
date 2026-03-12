@@ -6,10 +6,14 @@ tags: ["haruul-zangi", "writeup", "crypto"]
 draft: false
 ---
 
+import Image from "@/components/Image.astro";
+import screen from "@/assets/images/morse-30-points/screen.jpg";
+import xmorseCodes from "@/assets/images/morse-30-points/xmorse-codes.png";
+
 ## Өгөгдөл
 
-**Даалгаврын нэр:** Morse <br/>
-**Оноо:** 30 оноо <br/>
+**Даалгаврын нэр:** Morse  
+**Оноо:** 30 оноо  
 **Файл:** morsecode.wav
 
 ---
@@ -18,10 +22,12 @@ draft: false
 
 Sound цэсээс `Pitch (EAC)` сонголтыг сонгоно.
 
-![screen](https://cloud.githubusercontent.com/assets/14227502/18713435/e9ccad08-8044-11e6-9735-f96845278adf.jpg)
+<Image src={screen} alt="Screen" caption="Зураг 1: Morse код дууны Pitch (EAC) анализ" />
 
 Дараах хүснэгтээс морз код бүрийг хөрвүүлнэ.
-![xmorse-codes](https://cloud.githubusercontent.com/assets/14227502/18713557/551d79ac-8045-11e6-98e7-42677d60e837.png)
+
+<Image src={xmorseCodes} alt="Morse codes" caption="Зураг 2: Morse код хүснэгт" />
+
 Хөрвүүлж дуусахад `our flag congratulations` гэсэн өгүүлбэр болно.
 
-Эцэст нь туг: **HZ{congratulations}**
+Эцэст нь туг: `HZ{congratulations}`
