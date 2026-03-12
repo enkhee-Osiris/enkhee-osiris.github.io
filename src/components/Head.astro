@@ -30,8 +30,11 @@ const { title, description, image } = Astro.props;
   })();
 </script>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/png" href={new URL("favicon-96x96.png", fullUrl)} sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href={new URL("favicon.svg", fullUrl)} />
-<link rel="icon" href={new URL("favicon.ico", fullUrl)} />
+<link rel="shortcut icon" href={new URL("favicon.ico", fullUrl)} />
+<link rel="apple-touch-icon" sizes="180x180" href={new URL("apple-touch-icon.png", fullUrl)} />
+<meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
 <link rel="sitemap" href={new URL("sitemap-index.xml", fullUrl)} />
 <link
   rel="alternate"

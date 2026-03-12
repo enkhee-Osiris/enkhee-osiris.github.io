@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+
+<script><![CDATA[
+
+const svg = document.currentScript.parentNode
+
+const size = 1024
+const cx = size/2
+const cy = size/2
+
+const rows = 7
+const spacing = 100
+const baseR = 10
+const strength = 4.3
+
+// base (center) and outer (light orange) colors
+const centerColor = { r: 194, g: 65, b: 12 }
+const outerColor  = { r: 255, g: 160, b: 90 }
+
+const maxDist = Math.sqrt(cx*cx + cy*cy)
+
+for (let row = 0; row < rows; row++) {
+
+  const cols = row + 1
+  const offsetX = cx - (cols-1)*spacing/2
+  const y = 200 + row * spacing * 0.9
+
+  for (let col = 0; col < cols; col++) {
+
+    const x = offsetX + col * spacing
+
+    const dx = x - cx
+    const dy = y - cy
+    const dist = Math.sqrt(dx*dx + dy*dy)
+
+    const scale = 1 + strength * Math.pow(1 - dist/maxDist, 2)
+    const r = baseR * scale
+
+    // radial gradient factor
+    const t = dist / maxDist
+
+    // interpolate from center → outer (lighter orange)
+    const rr = Math.round(centerColor.r + (outerColor.r - centerColor.r) * t)
+    const gg = Math.round(centerColor.g + (outerColor.g - centerColor.g) * t)
+    const bb = Math.round(centerColor.b + (outerColor.b - centerColor.b) * t)
+
+    const color = `rgb(${rr},${gg},${bb})`
+
+    const circle = document.createElementNS("http://www.w3.org/2000/svg","circle")
+    circle.setAttribute("cx", x)
+    circle.setAttribute("cy", y)
+    circle.setAttribute("r", r)
+    circle.setAttribute("fill", color)
+
+    svg.appendChild(circle)
+  }
+}
+
+]]></script>
+
+</svg>
