@@ -14,9 +14,9 @@ function loadGoogleAnalytics() {
 
   script.onload = () => {
     window.gtag("js", new Date());
+
     window.gtag("config", GA_ID, {
       anonymize_ip: true,
-      cookie_flags: "SameSite=None;Secure",
     });
   };
 }
