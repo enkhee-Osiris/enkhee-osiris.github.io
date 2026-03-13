@@ -179,7 +179,8 @@ export const EXPERIENCES: Experience[] = [
     start: "Feb 2023",
     end: "Feb 2025",
     description:
-      "Built multiple web and mobile applications, including financial systems, ordering platforms, and internal tools. Developed several admin dashboards for managing transactions, employees, salaries, and operations. Also created an internal framework to standardize and speed up admin panel development.",
+      "Built multiple web and mobile applications, including financial systems, ordering platforms, and internal tools. Developed several admin dashboards for managing transactions, part-time employees, and operations. Also created an internal framework to standardize and speed up admin panel development.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="450" fill="none" viewBox="0 0 450 450"><path fill="#000" d="M0 0h450v450H0z"/><path fill="#fc3820" d="M79 115h282.203c7.055 0 10.551 8.565 5.509 13.502L334.546 160H79zM79 202.75h122.51c7.048 0 10.547 8.548 5.522 13.49l-32.044 31.51H79zM371.5 247.75H248.99c-7.048 0-10.547-8.548-5.522-13.49l32.044-31.51H371.5zM371.5 335.5H89.297c-7.055 0-10.55-8.565-5.51-13.502l32.167-31.498H371.5z"/></svg>`,
   },
   {
     company: "Xyyp Music Group",
@@ -188,6 +189,7 @@ export const EXPERIENCES: Experience[] = [
     end: "Mar 2022",
     description:
       "Developed web and mobile applications using React Native and Next.js. Built projects with modern tools including Tailwind CSS, Material UI, and GraphQL, and wrote unit and integration tests using Jest.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 450 450"><path fill="url(#paint0_linear_248_76)" d="M0 0h450v450H0z"/><path fill="#fff" fill-rule="evenodd" d="M225 65c88.366 0 160 71.634 160 160s-71.634 160-160 160S65 313.366 65 225 136.634 65 225 65m.711 39.822c-65.98 0-119.467 53.487-119.467 119.467s53.487 119.467 119.467 119.467 119.467-53.487 119.467-119.467q0-.642-.009-1.283c-.612-50.476-37.398-83.4-88.169-84.05-44.373-.569-72.059 29.155-80.356 44.088 37.689 0 16.356 88.178 60.445 88.178 9.103 0 18.489-7.822 18.489-18.489 0-10.666-8.534-13.511-8.534-19.911s9.956-10.666 9.956-25.6c0-14.933-9.956-22.044-9.956-22.044 51.2 0 51.2 51.911 51.2 51.911 0 66.125-72.534 66.125-72.534 66.125-79.547-1.421-79.645-78.736-79.645-78.933 0-84.868 73.264-116.586 138.692-100.705 1.583.385 2.534-1.693 1.128-2.515-17.671-10.323-38.232-16.239-60.174-16.239" clip-rule="evenodd"/><defs><linearGradient id="paint0_linear_248_76" x1="225" x2="225" y1="0" y2="450" gradientUnits="userSpaceOnUse"><stop stop-color="#f02992"/><stop offset=".5" stop-color="#f02960"/><stop offset="1" stop-color="#ef292e"/></linearGradient></defs></svg>`,
   },
   {
     company: "ANDSystems",
@@ -196,6 +198,7 @@ export const EXPERIENCES: Experience[] = [
     end: "Jul 2021",
     description:
       "Developed multiple mobile and web applications using React Native, React, and Next.js. Built internal tools including a Node.js PDF table scraper CLI and several Slack bots, while helping improve code quality standards and development practices.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="450" fill="none" viewBox="0 0 450 450"><path fill="#000" d="M0 0h450v450H0z"/><path fill="#fff" d="M138.5 169.5 83 225l55.492 55.485 27.494-27.494L138.5 225.5l28-28zM311 169l55.5 55.5-55.492 55.485-27.494-27.494L311 225l-28-28zM169.5 197.5l28-28L280 252l-28 28z"/></svg>`,
   },
   {
     company: "Nomadays",
@@ -211,6 +214,7 @@ export const EXPERIENCES: Experience[] = [
     end: "Jul 2018",
     description:
       "Worked on web development using Ruby on Rails, built a custom Slack bot, and improved development workflows with Google Apps Script.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="450" fill="none" viewBox="0 0 450 450"><path fill="#fff" d="M0 0h450v450H0z"/><path fill="#000" d="M113.3 243.929H70.992v-17.07h35.237v-5.572H70.992v-16.212h41.585v-5.571H65v49.994h48.3zM245.938 199.507l-20.831 27.068-20.971-27.068h-7.205l25.11 32.497V249.5h5.992v-17.496l25.036-32.497zM359.756 245.43a36.05 36.05 0 0 1-25.323-9.212l-4.209 4.498a43.88 43.88 0 0 0 29.176 10.283c16.262 0 25.6-6.783 25.6-15.999 0-9.855-10.557-12.782-25.75-13.996-11.77-.916-21.187-2.212-21.187-8.428 0-6.57 10.414-9.072 19.331-8.999a29.2 29.2 0 0 1 20.544 7.357l4.709-4a38.34 38.34 0 0 0-25.542-8.922c-13.34 0-25.18 5.355-25.18 14.78 0 9.856 12.769 12.786 26.109 13.927 13.48 1.141 20.828 2.642 20.828 8.712.012 6.215-7.052 9.999-19.106 9.999"/></svg>`,
   },
 ];
 

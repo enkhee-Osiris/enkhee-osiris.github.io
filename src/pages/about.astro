@@ -179,15 +179,17 @@ const ogImageUrl = new URL(`og/about.png`, FULL_URL).href;
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
     background: var(--color-surface-100);
     width: 2.5rem;
     height: 2.5rem;
+    overflow: hidden;
   }
 
   .exp-icon :global(svg) {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .exp-initial {
