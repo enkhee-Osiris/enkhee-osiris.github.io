@@ -32,7 +32,16 @@ This is a personal website built with Astro 6, using the [kanso](https://github.
 
 This is an Astro 6 site with a minimal, content-focused design.
 
-**Content system:** Writings live in `src/content/writing/` as `.md`/`.mdx` files. The collection schema is defined in `src/content.config.ts` — frontmatter requires `title`, `description`, `pubDatetime` (ISO 8601), `author` (defaults to `AUTHOR` constant), `tags` (defaults to `["others"]`), and optionally `modDatetime`, `ogImage`, `featured` (boolean), and `draft` (boolean). Tags are validated against `/^[a-z-]+$/` (lowercase letters and hyphens only — no spaces, no uppercase). Writings are queried via `getCollection('writing')` and rendered through `src/pages/writing/[...slug].astro`.
+**Content system:** Writings live in `src/content/writing/` as `.mdx` files (MDX, not markdown). The collection schema is defined in `src/content.config.ts` — frontmatter requires `title`, `description`, `pubDatetime` (ISO 8601), `author` (defaults to `AUTHOR` constant), `tags` (defaults to `["others"]`), and optionally `modDatetime`, `ogImage`, `featured` (boolean), and `draft` (boolean). Tags are validated against `/^[a-z-0-9]+$/` (lowercase letters, hyphens, and numbers only — no spaces, no uppercase, Cyrillic characters not allowed). Writings are queried via `getCollection('writing')` and rendered through `src/pages/writing/[...slug].astro`.
+
+**MDX image pattern:** All writing images use:
+
+```tsx
+import Image from "@/components/Image.astro";
+import img1 from "@/assets/images/[article]/[file].jpg";
+
+<Image src={img1} caption="Зураг 1: description" />;
+```
 
 **Data utilities:** `src/utils/data.ts` exports helper functions for querying writings:
 
@@ -41,6 +50,7 @@ This is an Astro 6 site with a minimal, content-focused design.
 - `getFeaturedWritings(writings, limit?)` — featured only, sorted by date
 - `getNonFeaturedWritings(writings, limit?)` — non-featured only, sorted by date
 - `getRelatedWritings(current, writings, limit?)` — writings sharing tags with the current entry, ranked by shared tag count then date
+- `getTags(writings)` — flat array of unique tag strings, sorted alphabetically
 - `getTagsWithWritings(writings)` — `{ tag, writings[] }` pairs for all tags, sorted by count descending then alphabetical
 - `getWritingsByYear(writings)` — `{ year, writings[] }` pairs sorted by year descending
 
@@ -52,7 +62,7 @@ This is an Astro 6 site with a minimal, content-focused design.
 - Consent modal: inline box at bottom right with "Accept all", "Reject all", "Manage preferences" buttons
 - Preferences modal: box on the right with category descriptions and GA cookie table
 - `onFirstConsent`, `onConsent`, `onChange` callbacks that update gtag consent state and load Google Analytics when analytics category is accepted
-- `loadGoogleAnalytics()` — injects gtag.js script dynamically and initializes GA4 config with `anonymize_ip: true`
+- `loadGoogleAnalytics()` — injects gtag.js script dynamically and initializes GA4 config with `anonymize_ip: true` and `cookie_domain: location.hostname` (fixes GitHub Pages cookie rejection)
 - `updateConsentState()` — calls `gtag("consent", "update", ...)` to grant/deny storage based on user choice
 
 **Navigation:** `FloatingNav.astro` is a fixed right-side bar (z-index 100) with menu toggle, search link, and theme toggle. `FullscreenNav.astro` is a full-screen overlay (z-index 90) with centered nav links (Home, Writings, About, Search) — visibility is CSS-driven via `html[data-menu-open]` (set by FloatingNav's menu toggle). Page scroll is locked when the overlay is open (`overflow: hidden` on `html`). Both components are included on every page.
@@ -93,6 +103,8 @@ Focus shape conventions: circular elements (FloatingNav buttons, TagChip) use `b
 
 **SVG icons:** Stored in `src/assets/icons/` and imported via `?raw` suffix + `set:html` directive (e.g., `const icon = await import("@/assets/icons/name.svg?raw")`). For CSS usage (e.g., blockquote decoration), SVGs are embedded as data URIs with `mask-image` so `background-color` can use CSS variables for theme-aware coloring.
 
+**Favicons and PWA:** Complete favicon set in `public/` with PWA manifest at `public/site.webmanifest`. Includes `favicon.ico` (multi-resolution), `favicon.svg`, `favicon-96x96.png`, `apple-touch-icon.png` (180×180), and web app manifest icons (192×192, 512×512). Favicon links and manifest reference added in `Head.astro`.
+
 **Layouts:**
 
 - `BaseLayout.astro` — page wrapper for all routes; includes `Head.astro`, `SkipLink.astro`, `FloatingNav.astro`, `FullscreenNav.astro`, optional `Footer.astro`. Props: `title`, `description`, `image`, `pagefindIgnore` (default: `false`), `includeFooter` (default: `false`). Provides `head` slot for page-specific additions (e.g., fonts, inline styles).
@@ -105,10 +117,10 @@ Focus shape conventions: circular elements (FloatingNav buttons, TagChip) use `b
 - `FormattedDate.astro` — renders a `<time>` element. Props: `date: Date`, optional `formatOptions: Intl.DateTimeFormatOptions` (default: `{ year: "numeric", month: "short", day: "numeric" }`).
 - `FullscreenNav.astro` — full-screen navigation overlay (z-index 90) with two-column grid: left panel shows latest 3 writings + social links, right panel has main nav links (Home, Writings, Tags, About, Search). Visibility controlled by `html[data-menu-open]` attribute set by `FloatingNav.astro`. Locks page scroll when open via `html { overflow: hidden }`. At `max-width: 640px` stacks vertically with nav links first.
 - `Head.astro` — document head with global styles, meta tags, OG/Twitter cards, font preloads, anti-FOUC theme script, cookie consent import. Props: `title`, `description`, optional `image`. Used by `BaseLayout.astro`.
-- `Image.astro` — wraps Astro's `<Image>` with `<figure>` and optional `<figcaption>`. Fills container width with `height: auto`.
+- `Image.astro` — wraps Astro's `<Image>` with `<figure>` and optional `<figcaption>`. Fills container width with `height: auto`. Use this component (not Astro's built-in `<Image>`) for all writing images. Images stored in `src/assets/images/[article-name]/` and imported as `import img1 from '@/assets/images/[article]/[file].jpg';`. Captions should use Mongolian with numbering: `caption="Зураг N: description"`.
 - `Footer.astro` — site footer with copyright line displaying `© {year} {AUTHOR}`.
 - `SkipLink.astro` — skip-to-content link targeting `#main-content`. Visually hidden until focused, z-index 200.
-- `SocialLinks.astro` — social icon links (GitHub, LinkedIn, Email) from `SOCIAL` constants. Props: `iconStyle` ("default" at 1.125rem or "large" at 1.5rem), `includeLabels` (default: `true`).
+- `SocialLinks.astro` — social icon links (GitHub, LinkedIn, Email) from `SOCIAL` constants. Props: `iconStyle` ("default" at 1.125rem or "large" at 1.5rem), `includeLabels` (default: `true`). Each link has `aria-label` for accessibility; no `role="list"` (redundant on `<ul>`).
 - `TagChip.astro` — pill-shaped tag link using `URLS.tag()`. Displays `#tag` prefix.
 - `WritingsByYear.astro` — reusable year-grouped writings list. Two-column grid with sticky year labels and writing entries (date + title). Used on writings index, tag index, and tag detail pages.
 
@@ -123,7 +135,15 @@ Focus shape conventions: circular elements (FloatingNav buttons, TagChip) use `b
 - `src/pages/about.astro` — bio section (name, paragraphs, social links), experience list (icon badge or company initial + company/role/period with `<time>`), and projects list (bordered cards with title link, description, tech tags). Uses `pagefindIgnore={true}`.
 - `src/pages/robots.txt.ts` — API route generating `robots.txt`; disallows `${base}search/` and `${base}pagefind/`; uses `FULL_URL.pathname` for the base path prefix.
 - `src/pages/rss.xml.ts` — RSS feed at `/rss.xml` using `@astrojs/rss`.
-- `src/pages/og/[slug].png.ts` — static API route; generates a 1200×630 PNG for every published writing at build time using `generateOgImage()` from `src/utils/og-image.ts`.
+- `src/pages/og/*.png.ts` — OG image generation routes:
+  - `index.png.ts` — homepage OG image
+  - `about.png.ts` — about page OG image
+  - `search.png.ts` — search page OG image
+  - `writing.png.ts` — writings index OG image
+  - `tag.png.ts` — tags index OG image
+  - `tag/[tag].png.ts` — dynamic tag OG images for each tag
+  - `writing/[...slug].png.ts` — dynamic writing OG images for each post
+- Uses `generateOgImage()` from `src/utils/og-image.ts`
 
 **Links:** Internal links use `URLS` constants from `src/constants.ts` or `import.meta.env.BASE_URL` for base path prefix.
 
@@ -135,8 +155,11 @@ Focus shape conventions: circular elements (FloatingNav buttons, TagChip) use `b
 - `FULL_URL` — resolved site URL with base path
 - `SOCIAL` — social link URLs (`github`, `linkedin`, `email`)
 - `URLS` — route map (`home`, `writings`, `writing(slug)`, `tags`, `tag(slug)`, `search`, `about`), all prefixed with `BASE_URL`
-- `TITLES` — static strings for fixed pages + `writing(title)` and `tag(tag)` functions
-- `DESCRIPTIONS` — static strings for fixed pages + `writing(description)` and `tag(tag)` functions
+- `TITLES` — uses `TitleMap` mapped type: static pages have `string` values, dynamic pages (`writing`, `tag`) have functions
+- `DESCRIPTIONS` — uses `DescriptionMap` mapped type: static pages have `string` values, dynamic pages (`writing`, `tag`) have functions
+- `OG_IMAGE_TITLE` — uses `OGImageTitleMap` mapped type for OG image titles
+- `OG_IMAGE_LABEL` — uses `OGImageLabelMap` mapped type for OG image labels (URLs or dates)
+- TypeScript interfaces: `Social`, `Urls`, `Experience`, `Project` for type safety
 
 **Type declarations:** `src/env.d.ts` holds the `/// <reference types="astro/client" />` triple-slash and any third-party module declarations that lack `@types` packages. Includes:
 
