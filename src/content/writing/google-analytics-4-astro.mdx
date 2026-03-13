@@ -1,0 +1,534 @@
+---
+title: "Configuring Google Analytics 4 for Astro with GDPR Compliance"
+description: "Learn how to set up Google Analytics 4 in your Astro site with GDPR-compliant cookie consent using vanilla-cookieconsent."
+pubDatetime: 2025-03-13T00:00:00.000Z
+tags: ["astro", "analytics", "gdpr"]
+featured: true
+draft: false
+---
+
+Google Analytics 4 (GA4) is the latest version of Google's analytics platform. In this guide, I'll show you how to integrate GA4 into your Astro site with GDPR-compliant cookie consent—the same implementation used on this site.
+
+## Step 1: Install Dependencies
+
+Install `vanilla-cookieconsent` for cookie consent management:
+
+```bash
+npm install vanilla-cookieconsent
+```
+
+## Step 2: Configure Environment Variable
+
+Create a `.env` file in your project root:
+
+```env
+PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+Replace `G-XXXXXXXXXX` with your GA4 Measurement ID.
+
+## Step 3: Create Cookie Consent Configuration
+
+Create `src/utils/cookieConfig.ts`:
+
+```typescript title="cookieConfig.ts"
+import * as CookieConsent from "vanilla-cookieconsent";
+import type { CookieConsentConfig } from "vanilla-cookieconsent";
+import { GA_ID } from "@/constants";
+
+function loadGoogleAnalytics() {
+  // Prevent duplicate script loading
+  if (document.querySelector(`script[src*="${GA_ID}"]`)) return;
+
+  const script = document.createElement("script");
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  script.async = true;
+
+  document.head.appendChild(script);
+
+  script.onload = () => {
+    window.gtag("js", new Date());
+
+    // Enable URL passthrough for GA4
+    window.gtag("set", "url_passthrough", true);
+
+    // Use "none" for localhost, otherwise use hostname
+    const isLocalhost = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
+    window.gtag("config", GA_ID, {
+      anonymize_ip: true,
+      cookie_domain: isLocalhost ? "none" : location.hostname,
+    });
+  };
+}
+
+function updateConsentState(analyticsAccepted: boolean) {
+  if (typeof window.gtag !== "function") return;
+
+  // Update consent for all relevant storage types
+  window.gtag("consent", "update", {
+    analytics_storage: analyticsAccepted ? "granted" : "denied",
+    ad_storage: analyticsAccepted ? "granted" : "denied",
+    functionality_storage: analyticsAccepted ? "granted" : "denied",
+    personalization_storage: analyticsAccepted ? "granted" : "denied",
+  });
+}
+
+export function initCookieConsent() {
+  const config = {
+    autoClearCookies: true,
+    hideFromBots: true,
+
+    cookie: {
+      name: "cc_cookie",
+      path: "/",
+      domain: location.hostname,
+      sameSite: "Lax",
+      expiresAfterDays: 365,
+    },
+
+    guiOptions: {
+      consentModal: {
+        layout: "box inline",
+        position: "bottom right",
+        equalWeightButtons: true,
+        flipButtons: false,
+      },
+      preferencesModal: {
+        layout: "box",
+        position: "right",
+        equalWeightButtons: true,
+        flipButtons: false,
+      },
+    },
+
+    onFirstConsent: () => {
+      const analyticsAccepted = CookieConsent.acceptedCategory("analytics");
+      updateConsentState(analyticsAccepted);
+      if (analyticsAccepted) loadGoogleAnalytics();
+    },
+
+    onConsent: () => {
+      const analyticsAccepted = CookieConsent.acceptedCategory("analytics");
+      updateConsentState(analyticsAccepted);
+      if (analyticsAccepted) loadGoogleAnalytics();
+    },
+
+    onChange: ({ changedCategories }: { changedCategories?: string[] }) => {
+      if (changedCategories?.includes("analytics")) {
+        const analyticsAccepted = CookieConsent.acceptedCategory("analytics");
+        updateConsentState(analyticsAccepted);
+        if (analyticsAccepted) {
+          loadGoogleAnalytics();
+        }
+      }
+    },
+
+    categories: {
+      necessary: {
+        enabled: true,
+        readOnly: true,
+      },
+      analytics: {
+        enabled: false,
+        readOnly: false,
+        // Auto-clear GA cookies when consent is revoked
+        autoClear: {
+          cookies: [{ name: /^_ga/ }, { name: "_gid" }, { name: "_gat" }],
+        },
+      },
+    },
+
+    language: {
+      default: "en",
+      translations: {
+        en: {
+          consentModal: {
+            title: "We use cookies",
+            description:
+              "We use cookies to enhance your browsing experience and analyze site traffic via Google Analytics.",
+            acceptAllBtn: "Accept all",
+            acceptNecessaryBtn: "Reject all",
+            showPreferencesBtn: "Manage preferences",
+          },
+          preferencesModal: {
+            title: "Cookie Preferences",
+            acceptAllBtn: "Accept all",
+            acceptNecessaryBtn: "Reject all",
+            savePreferencesBtn: "Save preferences",
+            closeIconLabel: "Close",
+            sections: [
+              {
+                title: "Cookie Usage",
+                description:
+                  "We use cookies to ensure core site functionality and to understand how people use our site.",
+              },
+              {
+                title: "Strictly Necessary Cookies",
+                description:
+                  "These cookies are required for the website to function and cannot be disabled.",
+                linkedCategory: "necessary",
+              },
+              {
+                title: "Analytics & Performance",
+                description:
+                  "These cookies help us understand visitor behaviour via Google Analytics (GA4).",
+                linkedCategory: "analytics",
+                cookieTable: {
+                  headers: {
+                    name: "Cookie",
+                    domain: "Domain",
+                    expiration: "Expiration",
+                    description: "Description",
+                  },
+                  body: [
+                    {
+                      name: "_ga",
+                      domain: location.hostname,
+                      expiration: "2 years",
+                      description: "Distinguishes unique users.",
+                    },
+                    {
+                      name: `_ga_*`,
+                      domain: location.hostname,
+                      expiration: "2 years",
+                      description: "Maintains GA4 session state.",
+                    },
+                    {
+                      name: "_gid",
+                      domain: location.hostname,
+                      expiration: "24 hours",
+                      description: "Distinguishes users.",
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      },
+    },
+  } satisfies CookieConsentConfig;
+
+  CookieConsent.run(config);
+}
+```
+
+## Step 4: Add GA_ID to Constants
+
+In `src/constants.ts`:
+
+```typescript title="constants.ts" ins={1}
+export const GA_ID = import.meta.env.PUBLIC_GA_ID || "";
+```
+
+This allows the GA_ID to be configurable via environment variable.
+
+## Step 5: Create Cookie Consent Component
+
+Create `src/components/CookieConsent.astro`:
+
+```astro title="CookieConsent.astro"
+---
+// No frontmatter needed
+---
+
+<script is:inline>
+  // Initialize dataLayer and gtag with default denied consent
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+
+  window.gtag = gtag;
+
+  // Set default consent state to denied
+  gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    security_storage: "granted",
+    wait_for_update: 500,
+  });
+</script>
+
+<script>
+  import { initCookieConsent } from "@/utils/cookieConfig";
+
+  initCookieConsent();
+</script>
+```
+
+**Key points:**
+
+- The inline script runs immediately to set default consent
+- Regular script imports and runs the cookie consent initialization
+- Using `is:inline` ensures the consent runs before any analytics
+
+## Step 6: Include in Base Layout
+
+In `src/layouts/BaseLayout.astro`, add the CookieConsent component at the end of the `<body>` tag:
+
+```astro title="BaseLayout.astro" ins={7}
+<html lang="en">
+  <head>
+    <!-- Your head content -->
+  </head>
+  <body>
+    <slot />
+    <CookieConsent />
+  </body>
+</html>
+```
+
+## Step 7: Add TypeScript Types
+
+In `src/env.d.ts`:
+
+```typescript title="env.d.ts"
+interface Window {
+  dataLayer: Record<string, any>[];
+  gtag: (...args: any[]) => void;
+}
+```
+
+## Step 8: Configure Vite
+
+In `astro.config.mjs`, add the package to Vite's configuration:
+
+```javascript title="astro.config.mjs" ins={1-8}
+vite: {
+  optimizeDeps: {
+    include: ["vanilla-cookieconsent"],
+  },
+  ssr: {
+    noExternal: ["vanilla-cookieconsent"],
+  },
+},
+```
+
+This ensures vanilla-cookieconsent is properly bundled and handled during SSR.
+
+## Step 9: Add Cookie Consent Styles
+
+You can directly import `css` files in `astro` (BaseLayout.astro or Header.astro) file.
+
+```astro ins={1}
+import "vanilla-cookieconsent/dist/cookieconsent.css" import "@/styles/reset.css"; import
+"@/styles/global.css";
+```
+
+Or you can create `src/styles/cookie.css` to style the cookie consent banners and modals:
+
+```css title="cookie.css"
+@import "vanilla-cookieconsent/dist/cookieconsent.css";
+
+/* -------------------------
+ * Theme — Cookie Consent
+ * Override vanilla-cookieconsent variables with site design tokens
+ * ------------------------- */
+:root {
+  /* Typography */
+  --cc-font-family: var(--font-body);
+
+  /* Base colors */
+  --cc-bg: var(--color-bg);
+  --cc-primary-color: var(--color-text);
+  --cc-secondary-color: var(--color-surface-700);
+
+  /* Primary button (Accept all) - transparent with accent border */
+  --cc-btn-primary-bg: transparent;
+  --cc-btn-primary-color: var(--color-accent);
+  --cc-btn-primary-border-color: var(--color-border);
+  --cc-btn-primary-hover-bg: var(--color-surface-100);
+  --cc-btn-primary-hover-color: var(--color-accent);
+  --cc-btn-primary-hover-border-color: var(--color-accent);
+
+  /* Secondary button (Reject all/Save) - transparent with dark text */
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-color: var(--color-surface-900);
+  --cc-btn-secondary-border-color: var(--color-border);
+  --cc-btn-secondary-hover-bg: var(--color-surface-100);
+  --cc-btn-secondary-hover-color: var(--color-text);
+  --cc-btn-secondary-hover-border-color: var(--color-border-hover);
+
+  /* Separator borders */
+  --cc-separator-border-color: var(--color-border);
+
+  /* Toggle switch colors */
+  --cc-toggle-on-bg: var(--color-surface-900);
+  --cc-toggle-off-bg: var(--color-surface-200);
+  --cc-toggle-on-knob-bg: var(--color-bg);
+  --cc-toggle-off-knob-bg: var(--color-bg);
+
+  /* Toggle icon colors */
+  --cc-toggle-enabled-icon-color: var(--cc-bg);
+  --cc-toggle-disabled-icon-color: var(--cc-bg);
+
+  /* Read-only toggle state */
+  --cc-toggle-readonly-bg: var(--color-surface-100);
+  --cc-toggle-readonly-knob-bg: var(--cc-cookie-category-block-bg);
+  --cc-toggle-readonly-knob-icon-color: var(--cc-toggle-readonly-bg);
+
+  /* Category block background variables */
+  --category-bg: #f2f2f2;
+  --category-bg-hover: #e8e8e8;
+
+  /* Cookie category blocks */
+  --cc-cookie-category-block-bg: var(--category-bg);
+  --cc-cookie-category-block-border: var(--color-border);
+  --cc-cookie-category-block-hover-bg: var(--category-bg-hover);
+  --cc-cookie-category-block-hover-border: var(--color-border-hover);
+  --cc-cookie-category-expanded-block-bg: var(--category-bg);
+  --cc-cookie-category-expanded-block-hover-bg: var(--category-bg-hover);
+
+  /* Overlay and scrollbar */
+  --cc-overlay-bg: rgba(0, 0, 0, 0.9) !important;
+  --cc-webkit-scrollbar-bg: var(--color-border-hover);
+  --cc-webkit-scrollbar-hover-bg: var(--color-text);
+
+  /* Footer */
+  --cc-footer-border-color: #212529;
+  --cc-footer-bg: #000;
+}
+
+/* -------------------------
+ * State — Theme: Light
+ * Category block backgrounds for light theme
+ * ------------------------- */
+html[data-theme="light"] {
+  --category-bg: #f2f2f2;
+  --category-bg-hover: #e8e8e8;
+}
+
+/* -------------------------
+ * State — Theme: Dark (prefers-color-scheme)
+ * Category block backgrounds for dark theme (system preference)
+ * ------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --category-bg: #0d0c0b;
+    --category-bg-hover: #12100f;
+  }
+}
+
+/* -------------------------
+ * State — Theme: Dark (explicit)
+ * Category block backgrounds for dark theme (user preference)
+ * ------------------------- */
+html[data-theme="dark"] {
+  --category-bg: #0d0c0b;
+  --category-bg-hover: #12100f;
+}
+
+/* -------------------------
+ * Module — Consent Modal
+ * Remove box shadow, add border matching site style
+ * ------------------------- */
+#cc-main .cm,
+#cc-main .pm {
+  box-shadow: none;
+  border: 1px solid var(--cc-separator-border-color);
+}
+
+/* -------------------------
+ * Module — Typography
+ * Bold weight for titles, links, and emphasis elements
+ * ------------------------- */
+#cc-main .cm__title,
+#cc-main a,
+#cc-main b,
+#cc-main em,
+#cc-main strong {
+  font-weight: 700;
+}
+
+/* -------------------------
+ * Module — Consent Modal Buttons
+ * Uppercase, small-caps style matching site button conventions
+ * ------------------------- */
+#cc-main .cm__btn {
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+}
+
+/* -------------------------
+ * Module — Preferences Modal Buttons
+ * Same button style as consent modal
+ * ------------------------- */
+#cc-main .pm__btn {
+  background: var(--cc-btn-primary-bg);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+}
+
+/* -------------------------
+ * Module — Section Titles
+ * Dark text for section headings in preferences modal
+ * ------------------------- */
+#cc-main .pm__section--toggle .pm__section-title {
+  color: var(--color-surface-900);
+}
+
+/* -------------------------
+ * Module — Table Headers
+ * Dark text for cookie table headers
+ * ------------------------- */
+#cc-main thead {
+  color: var(--color-surface-900);
+}
+
+/* -------------------------
+ * Module — Link
+ * Underlined links for consistency with site prose links
+ * ------------------------- */
+.cc-link {
+  text-decoration: underline;
+}
+```
+
+And import it inside `astro` (BaseLayout.astro or Header.astro) file.
+
+```astro ins={3}
+import "@/styles/reset.css"; import "@/styles/global.css"; import "@/styles/cookie.css";
+```
+
+## How It Works
+
+### Consent Flow
+
+1. **Page Load**: Inline script immediately sets all consent to `denied`
+2. **Cookie Banner**: Users see consent banner at bottom right
+3. **User Accepts**: When analytics accepted:
+   - `loadGoogleAnalytics()` dynamically injects GA script
+   - Consent state updates to `granted` for all storage types
+   - `url_passthrough` enables GA to track page views
+4. **User Rejects**: Consent remains `denied`, GA never loads
+5. **Preferences Changed**: If user changes preferences, consent updates immediately
+
+### GitHub Pages Fix
+
+The `cookie_domain` configuration fixes a common issue on GitHub Pages where cookies are rejected for invalid domains:
+
+```typescript
+cookie_domain: isLocalhost ? "none" : location.hostname;
+```
+
+- `localhost`/`127.0.0.1`: Uses `"none"` (no domain)
+- Production: Uses actual hostname from URL
+
+## Resources
+
+- [Google Analytics 4 Documentation](https://support.google.com/analytics/answer/9304153)
+- [vanilla-cookieconsent Documentation](https://vanilla-cookieconsent.com/)
+- [Astro Environment Variables](https://docs.astro.build/en/guides/environment-variables/)
+
+---
+
+That's the complete GDPR-compliant Google Analytics 4 setup for Astro. This implementation is running on this site right now.
