@@ -4,6 +4,7 @@ import { SOCIAL } from "@/constants";
 const githubIcon = await import("@/assets/icons/github.svg?raw");
 const linkedinIcon = await import("@/assets/icons/linkedin.svg?raw");
 const mailIcon = await import("@/assets/icons/mail.svg?raw");
+const fileIcon = await import("@/assets/icons/file.svg?raw");
 
 interface Props {
   iconStyle?: "default" | "large";
@@ -30,6 +31,12 @@ const links = [
     icon: mailIcon.default,
     label: "Email",
     external: false,
+  },
+  {
+    href: SOCIAL.resume,
+    icon: fileIcon.default,
+    label: "Resume",
+    external: true,
   },
 ];
 ---

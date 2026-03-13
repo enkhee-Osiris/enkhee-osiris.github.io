@@ -29,6 +29,7 @@ export interface Social {
   github: string;
   linkedin: string;
   email: string;
+  resume: string;
 }
 
 export interface Urls {
@@ -125,6 +126,7 @@ export const SOCIAL: Social = {
   github: "https://github.com/enkhee-Osiris",
   linkedin: "https://www.linkedin.com/in/enkherdene-bolormaa",
   email: "mailto:enkhee.ag@gmail.com",
+  resume: "https://enkhee-osiris.github.io/resume/enkherdene_bolormaa.pdf",
 };
 
 export const URLS: Urls = {
