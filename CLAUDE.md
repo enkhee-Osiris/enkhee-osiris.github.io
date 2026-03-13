@@ -6,6 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a personal website built with Astro 6, using the [kanso](https://github.com/enkhee-Osiris/kanso) theme as a base. The site features a minimal, content-focused design with writings, tags, about page, full-text search, and GDPR-compliant analytics.
 
+**Current version:** v2.0.0 — Complete rewrite with Astro 6, search, and analytics.
+
+## Documentation
+
+- `README.md` — Project overview, features, tech stack, and getting started guide
+- This file (`CLAUDE.md`) — Detailed architecture and development guidance
+
 ## Commands
 
 - `npm run dev` — Start dev server at localhost:4321
