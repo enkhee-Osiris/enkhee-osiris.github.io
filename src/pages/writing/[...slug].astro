@@ -1,6 +1,6 @@
 ---
 import { Font } from "astro:assets";
-import { type CollectionEntry, render } from "astro:content";
+import { render } from "astro:content";
 
 import BackLink from "@/components/BackLink.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
@@ -17,15 +17,14 @@ export async function getStaticPaths() {
 
   return writings.map(writing => ({
     params: { slug: writing.id },
-    props: writing,
+    props: { writing },
   }));
 }
 
-type Props = CollectionEntry<"writing">;
+const { writing } = Astro.props;
 
-const writing = Astro.props;
 const publishedDate = writing.data.pubDatetime;
-const ogImageUrl = new URL(`og/${writing.id}.png`, FULL_URL).href;
+const ogImageUrl = new URL(`og/writing/${writing.id}.png`, FULL_URL).href;
 const allWritings = await getPublishedWritings();
 const relatedWritings = getRelatedWritings(writing, allWritings, RELATED_WRITINGS_LIMIT);
 

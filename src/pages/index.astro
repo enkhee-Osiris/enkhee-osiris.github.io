@@ -20,7 +20,12 @@ const featuredWritings = getFeaturedWritings(allWritings, HOME_FEATURED_WRITINGS
 const latestWritings = getNonFeaturedWritings(allWritings, HOME_LATEST_WRITINGS_LIMIT);
 ---
 
-<BaseLayout title={TITLES.home} description={DESCRIPTIONS.home} pagefindIgnore={true}>
+<BaseLayout
+  title={TITLES.home}
+  description={DESCRIPTIONS.home}
+  image="/og/index.png"
+  pagefindIgnore={true}
+>
   <div class="container">
     <section class="intro" aria-label="Introduction">
       <div class="intro-content">

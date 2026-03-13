@@ -10,8 +10,7 @@ process.env.FONTCONFIG_PATH = resolve("src/assets/og");
 
 interface OgImageData {
   title: string;
-  pubDatetime: Date;
-  tags: string[];
+  label: string;
 }
 
 function escapeXml(str: string): string {
@@ -86,7 +85,7 @@ function wrapTitle(title: string, charsPerLine: number, maxLines: number): strin
 }
 
 function buildSvg(data: OgImageData): string {
-  const { title, pubDatetime } = data;
+  const { title, label } = data;
 
   let fontSize: number;
   let charsPerLine: number;
@@ -104,12 +103,6 @@ function buildSvg(data: OgImageData): string {
 
   const lineHeight = fontSize * 1.25;
   const titleLines = wrapTitle(title, charsPerLine, 3);
-
-  const formattedDate = pubDatetime.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
 
   const titleSpans = titleLines
     .map((line, i) => `<tspan x="120" dy="${i === 0 ? 0 : lineHeight}">${escapeXml(line)}</tspan>`)
@@ -140,7 +133,7 @@ function buildSvg(data: OgImageData): string {
       font-size="17"
       fill="white"
       fill-opacity="0.6"
-    >${escapeXml(formattedDate)}</text>
+    >${escapeXml(label)}</text>
     <text
       x="783"
       y="560"

@@ -3,17 +3,11 @@ import BackLink from "@/components/BackLink.astro";
 import WritingsByYear from "@/components/WritingsByYear.astro";
 import { DESCRIPTIONS, TITLES, URLS } from "@/constants";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import {
-  getPublishedWritings,
-  getSortedWritings,
-  getTagsWithWritings,
-  getWritingsByYear,
-} from "@/utils/data";
+import { getPublishedWritings, getTagsWithWritings, getWritingsByYear } from "@/utils/data";
 
 export async function getStaticPaths() {
   const allWritings = await getPublishedWritings();
-  const sortedWritings = getSortedWritings(allWritings);
-  const tagsWithWritings = getTagsWithWritings(sortedWritings);
+  const tagsWithWritings = getTagsWithWritings(allWritings);
 
   return tagsWithWritings.map(({ tag, writings }) => ({
     params: { tag },
@@ -25,7 +19,11 @@ const { tag, writings, tagsWithWritings } = Astro.props;
 const writingsByYear = getWritingsByYear(writings);
 ---
 
-<BaseLayout title={TITLES.tag(tag)} description={DESCRIPTIONS.tag(tag)}>
+<BaseLayout
+  title={TITLES.tag(tag)}
+  description={DESCRIPTIONS.tag(tag)}
+  image={`/og/tag/${tag}.png`}
+>
   <section class="container" aria-label={`Writings tagged with ${tag}`}>
     <div class="tags-meta">
       <BackLink href={URLS.tags} label="Back to tags" />

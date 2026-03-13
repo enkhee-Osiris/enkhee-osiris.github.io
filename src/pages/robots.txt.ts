@@ -1,5 +1,3 @@
-import type { APIRoute } from "astro";
-
 import { FULL_URL } from "@/constants";
 
 const base = FULL_URL.pathname;
@@ -13,10 +11,10 @@ Disallow: ${base}pagefind/
 Sitemap: ${new URL("sitemap-index.xml", FULL_URL).href}
 `.trim();
 
-export const GET: APIRoute = () => {
+export async function GET() {
   return new Response(robotsTxt, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
     },
   });
-};
+}

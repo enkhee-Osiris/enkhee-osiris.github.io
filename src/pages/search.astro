@@ -6,7 +6,7 @@ const searchIcon = await import("@/assets/icons/search.svg?raw");
 const svgDataUri = `url("data:image/svg+xml,${encodeURIComponent(searchIcon.default)}")`;
 ---
 
-<BaseLayout title={TITLES.search} description={DESCRIPTIONS.search}>
+<BaseLayout title={TITLES.search} description={DESCRIPTIONS.search} image="/og/search.png">
   <slot slot="head">
     <style set:html={`.pagefind-ui__form::before { mask-image: ${svgDataUri}; }`}></style>
   </slot>

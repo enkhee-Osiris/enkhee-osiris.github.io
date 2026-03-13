@@ -1,3 +1,82 @@
+import type { CollectionEntry } from "astro:content";
+
+// Types
+type Writing = CollectionEntry<"writing">;
+type Tag = Writing["data"]["tags"][number];
+
+type Pages = "index" | "about" | "search" | "writing" | "writings" | "tags" | "tag";
+
+type DynamicDataMap = {
+  writing: (writing: Writing) => string;
+  tag: (tag: Tag) => string;
+};
+
+type DynamicPages = keyof DynamicDataMap;
+
+type OGImageTitleMap = {
+  [K in Exclude<Pages, DynamicPages>]: string;
+} & {
+  [K in DynamicPages]: DynamicDataMap[K];
+};
+
+type OGImageLabelMap = {
+  [K in Exclude<Pages, DynamicPages>]: string;
+} & {
+  [K in DynamicPages]: DynamicDataMap[K];
+};
+
+export interface Social {
+  github: string;
+  linkedin: string;
+  email: string;
+}
+
+export interface Urls {
+  home: string;
+  writings: string;
+  writing(slug: string): string;
+  tags: string;
+  tag(slug: string): string;
+  search: string;
+  about: string;
+}
+
+export interface Titles {
+  home: string;
+  writings: string;
+  writing(title: string): string;
+  tags: string;
+  tag(tag: string): string;
+  search: string;
+  about: string;
+}
+
+export interface Descriptions {
+  home: string;
+  writings: string;
+  writing(description: string): string;
+  tags: string;
+  tag(tag: string): string;
+  search: string;
+  about: string;
+}
+
+export interface Experience {
+  company: string;
+  role: string;
+  start: string;
+  end: string | null;
+  description: string;
+  icon?: string;
+}
+
+export interface Project {
+  name: string;
+  description: string;
+  url: string;
+  tags: string[];
+}
+
 const BASE = import.meta.env.BASE_URL;
 const SITE = import.meta.env.SITE;
 
@@ -18,13 +97,47 @@ export const HOME_FEATURED_WRITINGS_LIMIT = 2;
 export const RELATED_WRITINGS_LIMIT = 5;
 export const AUTHOR = "Enkherdene Bolormaa";
 
-export const SOCIAL = {
+export const OG_IMAGE_TITLE: OGImageTitleMap = {
+  index: `${AUTHOR} is a software engineer living in Ulaanbaatar Mongolia`,
+  about: `Learn more about ${AUTHOR}`,
+  search: "Search through all writings by title, description, or content",
+  writings: `A collection of writings on design, engineering, and code by ${AUTHOR}`,
+  writing(writing) {
+    return writing.data.title;
+  },
+  tags: "Explore all tags used across writings",
+  tag(tag) {
+    return `All writings tagged with ${tag}`;
+  },
+};
+
+export const OG_IMAGE_LABEL: OGImageLabelMap = {
+  index: "/",
+  about: "/about/",
+  search: "/search/",
+  writings: "/writing/",
+  writing(writing) {
+    const formattedDate = writing.data.pubDatetime.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+
+    return formattedDate;
+  },
+  tags: "/tag/",
+  tag(tag) {
+    return `/tag/${tag}/`;
+  },
+};
+
+export const SOCIAL: Social = {
   github: "https://github.com/enkhee-Osiris",
   linkedin: "https://www.linkedin.com/in/enkherdene-bolormaa",
   email: "mailto:enkhee.ag@gmail.com",
 };
 
-export const URLS = {
+export const URLS: Urls = {
   home: `${CLEAN_BASE}/`,
   writings: `${CLEAN_BASE}/writing${URL_ENDING}`,
   writing(slug: string) {
@@ -38,7 +151,7 @@ export const URLS = {
   about: `${CLEAN_BASE}/about${URL_ENDING}`,
 };
 
-export const TITLES = {
+export const TITLES: Titles = {
   home: SITE_TITLE,
   writings: "Writings",
   writing(title: string) {
@@ -52,7 +165,7 @@ export const TITLES = {
   about: `About ${AUTHOR}`,
 };
 
-export const DESCRIPTIONS = {
+export const DESCRIPTIONS: Descriptions = {
   home: SITE_DESCRIPTION,
   writings: `A collection of writings on design, engineering, and code by ${AUTHOR}. Exploring ideas around minimal interfaces, thoughtful typography, and building for the web.`,
   writing(description: string) {
@@ -66,22 +179,6 @@ export const DESCRIPTIONS = {
     "Search through all writings by title, description, or content. Find specific topics, techniques, or ideas.",
   about: `Learn more about ${AUTHOR}, their background, interests, and what drives their work.`,
 };
-
-interface Experience {
-  company: string;
-  role: string;
-  start: string;
-  end: string | null;
-  description: string;
-  icon?: string;
-}
-
-interface Project {
-  name: string;
-  description: string;
-  url: string;
-  tags: string[];
-}
 
 export const EXPERIENCES: Experience[] = [
   {

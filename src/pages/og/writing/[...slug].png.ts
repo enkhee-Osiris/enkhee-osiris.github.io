@@ -1,15 +1,16 @@
-import type { APIRoute, GetStaticPaths } from "astro";
+import type { APIContext } from "astro";
 
+import { OG_IMAGE_TITLE, OG_IMAGE_LABEL } from "@/constants";
 import { getPublishedWritings } from "@/utils/data";
 import { generateOgImage } from "@/utils/og-image";
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export async function getStaticPaths() {
   const writings = await getPublishedWritings();
 
   return writings.map(w => ({ params: { slug: w.id } }));
-};
+}
 
-export const GET: APIRoute = async ({ params }) => {
+export async function GET({ params }: APIContext) {
   const writings = await getPublishedWritings();
 
   const writing = writings.find(w => w.id === params.slug);
@@ -17,9 +18,8 @@ export const GET: APIRoute = async ({ params }) => {
   if (!writing) return new Response("Not found", { status: 404 });
 
   const png = await generateOgImage({
-    title: writing.data.title,
-    pubDatetime: writing.data.pubDatetime,
-    tags: writing.data.tags,
+    title: OG_IMAGE_TITLE.writing(writing),
+    label: OG_IMAGE_LABEL.writing(writing),
   });
 
   return new Response(png, {
@@ -28,4 +28,4 @@ export const GET: APIRoute = async ({ params }) => {
       "Cache-Control": "public, max-age=31536000, immutable",
     },
   });
-};
+}

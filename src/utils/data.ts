@@ -27,6 +27,7 @@ export function getNonFeaturedWritings(writings: Writing[], limit?: number) {
 }
 
 export function getRelatedWritings(current: Writing, writings: Writing[], limit = 5) {
+  // TODO: check for tags undefined or empty
   const currentTags = new Set(current.data.tags);
 
   return writings
@@ -39,6 +40,20 @@ export function getRelatedWritings(current: Writing, writings: Writing[], limit 
     .toSorted((a, b) => b.shared - a.shared || byDateDesc(a.writing, b.writing))
     .slice(0, limit)
     .map(w => w.writing);
+}
+
+export function getTags(writings: Writing[]) {
+  const tags = new Set<string>();
+
+  for (const writing of writings) {
+    if (writing.data.tags === undefined || writing.data.tags.length === 0) continue;
+
+    for (const tag of writing.data.tags) {
+      tags.add(tag);
+    }
+  }
+
+  return Array.from(tags);
 }
 
 export function getTagsWithWritings(writings: Writing[]) {
