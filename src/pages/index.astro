@@ -3,6 +3,7 @@ import FormattedDate from "@/components/FormattedDate.astro";
 import SocialLinks from "@/components/SocialLinks.astro";
 import {
   DESCRIPTIONS,
+  FULL_URL,
   HOME_FEATURED_WRITINGS_LIMIT,
   HOME_LATEST_WRITINGS_LIMIT,
   TITLES,
@@ -18,14 +19,11 @@ const allWritings = await getPublishedWritings();
 const featuredWritings = getFeaturedWritings(allWritings, HOME_FEATURED_WRITINGS_LIMIT);
 
 const latestWritings = getNonFeaturedWritings(allWritings, HOME_LATEST_WRITINGS_LIMIT);
+
+const ogImageUrl = new URL(`og/index.png`, FULL_URL).href;
 ---
 
-<BaseLayout
-  title={TITLES.home}
-  description={DESCRIPTIONS.home}
-  image="/og/index.png"
-  pagefindIgnore={true}
->
+<BaseLayout pagefindIgnore title={TITLES.index} description={DESCRIPTIONS.index} image={ogImageUrl}>
   <div class="container">
     <section class="intro" aria-label="Introduction">
       <div class="intro-content">

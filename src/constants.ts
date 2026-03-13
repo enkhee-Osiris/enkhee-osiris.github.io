@@ -41,25 +41,19 @@ export interface Urls {
   about: string;
 }
 
-export interface Titles {
-  home: string;
-  writings: string;
-  writing(title: string): string;
-  tags: string;
-  tag(tag: string): string;
-  search: string;
-  about: string;
-}
+type TitleMap = {
+  [K in Exclude<Pages, "writing" | "tag">]: string;
+} & {
+  writing: (writing: Writing) => string;
+  tag: (tag: Tag) => string;
+};
 
-export interface Descriptions {
-  home: string;
-  writings: string;
-  writing(description: string): string;
-  tags: string;
-  tag(tag: string): string;
-  search: string;
-  about: string;
-}
+type DescriptionMap = {
+  [K in Exclude<Pages, "writing" | "tag">]: string;
+} & {
+  writing: (writing: Writing) => string;
+  tag: (tag: Tag) => string;
+};
 
 export interface Experience {
   company: string;
@@ -151,33 +145,33 @@ export const URLS: Urls = {
   about: `${CLEAN_BASE}/about${URL_ENDING}`,
 };
 
-export const TITLES: Titles = {
-  home: SITE_TITLE,
+export const TITLES: TitleMap = {
+  index: SITE_TITLE,
+  about: `About ${AUTHOR}`,
+  search: "Search",
   writings: "Writings",
-  writing(title: string) {
-    return title;
+  writing(writing) {
+    return writing.data.title;
   },
   tags: "Tags",
-  tag(tag: string) {
+  tag(tag) {
     return `Writings tagged with ${tag}`;
   },
-  search: "Search",
-  about: `About ${AUTHOR}`,
 };
 
-export const DESCRIPTIONS: Descriptions = {
-  home: SITE_DESCRIPTION,
-  writings: `A collection of writings on design, engineering, and code by ${AUTHOR}. Exploring ideas around minimal interfaces, thoughtful typography, and building for the web.`,
-  writing(description: string) {
-    return description;
-  },
-  tags: "Explore all tags used across writings. Each tag groups related pieces on design, engineering, CSS, and more.",
-  tag(tag: string) {
-    return `All writings tagged with "${tag}". Browse related thoughts and ideas on this topic.`;
-  },
+export const DESCRIPTIONS: DescriptionMap = {
+  index: SITE_DESCRIPTION,
+  about: `Learn more about ${AUTHOR}, their background, interests, and what drives their work.`,
   search:
     "Search through all writings by title, description, or content. Find specific topics, techniques, or ideas.",
-  about: `Learn more about ${AUTHOR}, their background, interests, and what drives their work.`,
+  writings: `A collection of writings on design, engineering, and code by ${AUTHOR}. Exploring ideas around minimal interfaces, thoughtful typography, and building for the web.`,
+  writing(writing) {
+    return writing.data.description;
+  },
+  tags: "Explore all tags used across writings. Each tag groups related pieces on design, engineering, CSS, and more.",
+  tag(tag) {
+    return `All writings tagged with "${tag}". Browse related thoughts and ideas on this topic.`;
+  },
 };
 
 export const EXPERIENCES: Experience[] = [

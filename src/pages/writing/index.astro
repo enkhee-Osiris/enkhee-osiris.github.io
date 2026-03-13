@@ -1,14 +1,22 @@
 ---
 import WritingsByYear from "@/components/WritingsByYear.astro";
-import { DESCRIPTIONS, TITLES } from "@/constants";
+import { DESCRIPTIONS, FULL_URL, TITLES } from "@/constants";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getPublishedWritings, getWritingsByYear } from "@/utils/data";
 
 const allWritings = await getPublishedWritings();
+
 const writingsByYear = getWritingsByYear(allWritings);
+
+const ogImageUrl = new URL(`og/writing.png`, FULL_URL).href;
 ---
 
-<BaseLayout title={TITLES.writings} description={DESCRIPTIONS.writings} image="/og/writing.png">
+<BaseLayout
+  pagefindIgnore
+  title={TITLES.writings}
+  description={DESCRIPTIONS.writings}
+  image={ogImageUrl}
+>
   <section class="container" aria-label="All writings">
     <h1 class="heading">Writings</h1>
 

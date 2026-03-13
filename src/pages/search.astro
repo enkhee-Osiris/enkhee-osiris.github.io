@@ -1,12 +1,20 @@
 ---
-import { DESCRIPTIONS, TITLES } from "@/constants";
+import { DESCRIPTIONS, FULL_URL, TITLES } from "@/constants";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const searchIcon = await import("@/assets/icons/search.svg?raw");
+
 const svgDataUri = `url("data:image/svg+xml,${encodeURIComponent(searchIcon.default)}")`;
+
+const ogImageUrl = new URL(`og/search.png`, FULL_URL).href;
 ---
 
-<BaseLayout title={TITLES.search} description={DESCRIPTIONS.search} image="/og/search.png">
+<BaseLayout
+  pagefindIgnore
+  title={TITLES.search}
+  description={DESCRIPTIONS.search}
+  image={ogImageUrl}
+>
   <slot slot="head">
     <style set:html={`.pagefind-ui__form::before { mask-image: ${svgDataUri}; }`}></style>
   </slot>

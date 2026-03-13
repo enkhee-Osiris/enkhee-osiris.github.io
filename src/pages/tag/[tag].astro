@@ -1,7 +1,7 @@
 ---
 import BackLink from "@/components/BackLink.astro";
 import WritingsByYear from "@/components/WritingsByYear.astro";
-import { DESCRIPTIONS, TITLES, URLS } from "@/constants";
+import { DESCRIPTIONS, FULL_URL, TITLES, URLS } from "@/constants";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getPublishedWritings, getTagsWithWritings, getWritingsByYear } from "@/utils/data";
 
@@ -16,13 +16,16 @@ export async function getStaticPaths() {
 }
 
 const { tag, writings, tagsWithWritings } = Astro.props;
+
 const writingsByYear = getWritingsByYear(writings);
+const ogImageUrl = new URL(`og/tag/${tag}.png`, FULL_URL).href;
 ---
 
 <BaseLayout
+  pagefindIgnore
   title={TITLES.tag(tag)}
   description={DESCRIPTIONS.tag(tag)}
-  image={`/og/tag/${tag}.png`}
+  image={ogImageUrl}
 >
   <section class="container" aria-label={`Writings tagged with ${tag}`}>
     <div class="tags-meta">

@@ -1,10 +1,12 @@
 ---
 import SocialLinks from "@/components/SocialLinks.astro";
-import { AUTHOR, DESCRIPTIONS, EXPERIENCES, PROJECTS, TITLES } from "@/constants";
+import { AUTHOR, DESCRIPTIONS, EXPERIENCES, FULL_URL, PROJECTS, TITLES } from "@/constants";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const ogImageUrl = new URL(`og/about.png`, FULL_URL).href;
 ---
 
-<BaseLayout title={TITLES.about} description={DESCRIPTIONS.about} image="/og/about.png">
+<BaseLayout pagefindIgnore title={TITLES.about} description={DESCRIPTIONS.about} image={ogImageUrl}>
   <div class="container">
     <section class="section" aria-label="About me">
       <h1 class="name">{AUTHOR}</h1>

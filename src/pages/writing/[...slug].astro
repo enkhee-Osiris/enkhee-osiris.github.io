@@ -24,19 +24,22 @@ export async function getStaticPaths() {
 const { writing } = Astro.props;
 
 const publishedDate = writing.data.pubDatetime;
-const ogImageUrl = new URL(`og/writing/${writing.id}.png`, FULL_URL).href;
+
 const allWritings = await getPublishedWritings();
+
 const relatedWritings = getRelatedWritings(writing, allWritings, RELATED_WRITINGS_LIMIT);
+
+const ogImageUrl = new URL(`og/writing/${writing.id}.png`, FULL_URL).href;
 
 const { Content } = await render(writing);
 ---
 
 <BaseLayout
-  title={TITLES.writing(writing.data.title)}
-  description={DESCRIPTIONS.writing(writing.data.description)}
-  image={ogImageUrl}
+  includeFooter
   pagefindIgnore={false}
-  includeFooter={true}
+  title={TITLES.writing(writing)}
+  description={DESCRIPTIONS.writing(writing)}
+  image={ogImageUrl}
 >
   <slot slot="head">
     <Font cssVariable="--font-jetbrains-mono" preload />
