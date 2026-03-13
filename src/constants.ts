@@ -78,16 +78,17 @@ export const FULL_URL = new URL(BASE, SITE);
 
 export const GA_ID = "G-8EMCLEMQCQ";
 
-export const SITE_TITLE = "Enkherdene Bolormaa";
+export const SITE_TITLE = "Enkh-Erdene Bolormaa";
 export const SITE_DESCRIPTION =
-  "Enkherdene Bolormaa is a software engineer living in Ulaanbaatar Mongolia, currently focusing on designing things.";
+  "Enkh-Erdene is a software engineer born and raised in Ulaanbaatar, Mongolia. Enjoys exploring modern technologies, continuously learning new things, and building applications that solve real problems";
+
 export const HOME_LATEST_WRITINGS_LIMIT = 5;
 export const HOME_FEATURED_WRITINGS_LIMIT = 2;
 export const RELATED_WRITINGS_LIMIT = 5;
-export const AUTHOR = "Enkherdene Bolormaa";
+export const AUTHOR = "Enkh-Erdene Bolormaa";
 
 export const OG_IMAGE_TITLE: OGImageTitleMap = {
-  index: `${AUTHOR} is a software engineer living in Ulaanbaatar Mongolia`,
+  index: `${AUTHOR} is a software engineer living in Ulaanbaatar, Mongolia`,
   about: `Learn more about ${AUTHOR}`,
   search: "Search through all writings by title, description, or content",
   writings: `A collection of writings on design, engineering, and code by ${AUTHOR}`,
@@ -171,28 +172,43 @@ export const DESCRIPTIONS: DescriptionMap = {
 
 export const EXPERIENCES: Experience[] = [
   {
-    company: "Acme Corp",
+    company: "Zero Technology LLC",
     role: "Senior Software Engineer",
-    start: "2022",
-    end: null,
+    start: "Feb 2023",
+    end: "Feb 2025",
     description:
-      "Leading frontend architecture and design system development. Building tools that bridge design and engineering.",
+      "Built multiple web and mobile applications, including financial systems, ordering platforms, and internal tools. Developed several admin dashboards for managing transactions, employees, salaries, and operations. Also created an internal framework to standardize and speed up admin panel development.",
   },
   {
-    company: "Design Studio",
-    role: "Software Engineer",
-    start: "2019",
-    end: "2022",
+    company: "Xyyp Music Group",
+    role: "Senior Front-end Engineer",
+    start: "Aug 2021",
+    end: "Mar 2022",
     description:
-      "Developed interactive web experiences and component libraries for clients in fintech and media.",
+      "Developed web and mobile applications using React Native and Next.js. Built projects with modern tools including Tailwind CSS, Material UI, and GraphQL, and wrote unit and integration tests using Jest.",
   },
   {
-    company: "Startup Inc",
-    role: "Junior Developer",
-    start: "2017",
-    end: "2019",
+    company: "ANDSystems",
+    role: "Front-end Developer",
+    start: "Oct 2018",
+    end: "Jul 2021",
     description:
-      "Built and maintained React applications. Contributed to product design and accessibility improvements.",
+      "Developed multiple mobile and web applications using React Native, React, and Next.js. Built internal tools including a Node.js PDF table scraper CLI and several Slack bots, while helping improve code quality standards and development practices.",
+  },
+  {
+    company: "Nomadays",
+    role: "Front-end Developer",
+    start: "Jul 2018",
+    end: "Oct 2018",
+    description: "Migrated an Angular app to React.",
+  },
+  {
+    company: "EYS-Style",
+    role: "Front-end Developer",
+    start: "Jan 2017",
+    end: "Jul 2018",
+    description:
+      "Worked on web development using Ruby on Rails, built a custom Slack bot, and improved development workflows with Google Apps Script.",
   },
 ];
 
@@ -205,10 +221,10 @@ export const PROJECTS: Project[] = [
     tags: ["Astro", "TypeScript", "CSS"],
   },
   {
-    name: "Project Two",
+    name: "IPTV",
     description:
-      "An open-source component library with accessible, theme-aware UI primitives for React.",
-    url: "https://github.com/enkhee-Osiris",
-    tags: ["React", "TypeScript"],
+      "IPTV stream list and EPG generator for Mongolian TV channels. Automatically updates daily with ready-to-use M3U and XMLTV files.",
+    url: "https://github.com/enkhee-Osiris/iptv",
+    tags: ["TypeScript"],
   },
 ];
