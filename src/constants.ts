@@ -128,16 +128,16 @@ export const SOCIAL: Social = {
 
 export const URLS: Urls = {
   home: `/`,
-  writings: `/writing`,
+  writings: `/writing/`,
   writing(slug: string) {
-    return `/writing/${slug}`;
+    return `/writing/${slug}/`;
   },
-  tags: `/tag`,
+  tags: `/tag/`,
   tag(slug: string) {
-    return `/tag/${slug}`;
+    return `/tag/${slug}/`;
   },
-  search: `/search`,
-  about: `/about`,
+  search: `/search/`,
+  about: `/about/`,
 };
 
 export const TITLES: TitleMap = {

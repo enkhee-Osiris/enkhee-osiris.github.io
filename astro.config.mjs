@@ -12,7 +12,7 @@ import { defineConfig, fontProviders } from "astro/config";
 
 export default defineConfig({
   site: "https://enkhee-Osiris.github.io",
-  trailingSlash: "never",
+  trailingSlash: "always",
   integrations: [expressiveCode(), mdx(), sitemap()],
   fonts: [
     {
