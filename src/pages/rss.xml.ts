@@ -16,7 +16,7 @@ export const GET: APIRoute = async context => {
     site: context.site!,
     items: sortedWritings.map(writing => ({
       ...writing.data,
-      link: `/writing/${writing.id}/`,
+      link: `/writing/${writing.id}`,
     })),
   });
 };

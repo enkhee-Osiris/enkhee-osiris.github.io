@@ -76,11 +76,6 @@ const SITE = import.meta.env.SITE;
 
 export const FULL_URL = new URL(BASE, SITE);
 
-const hasTrailingSlash = BASE.endsWith("/");
-
-const CLEAN_BASE = hasTrailingSlash ? BASE.slice(0, -1) : BASE;
-const URL_ENDING = hasTrailingSlash ? "/" : "";
-
 export const GA_ID = "G-8EMCLEMQCQ";
 
 export const SITE_TITLE = "Enkherdene Bolormaa";
@@ -132,17 +127,17 @@ export const SOCIAL: Social = {
 };
 
 export const URLS: Urls = {
-  home: `${CLEAN_BASE}/`,
-  writings: `${CLEAN_BASE}/writing${URL_ENDING}`,
+  home: `/`,
+  writings: `/writing`,
   writing(slug: string) {
-    return `${CLEAN_BASE}/writing/${slug}${URL_ENDING}`;
+    return `/writing/${slug}`;
   },
-  tags: `${CLEAN_BASE}/tag${URL_ENDING}`,
+  tags: `/tag`,
   tag(slug: string) {
-    return `${CLEAN_BASE}/tag/${slug}${URL_ENDING}`;
+    return `/tag/${slug}`;
   },
-  search: `${CLEAN_BASE}/search${URL_ENDING}`,
-  about: `${CLEAN_BASE}/about${URL_ENDING}`,
+  search: `/search`,
+  about: `/about`,
 };
 
 export const TITLES: TitleMap = {
