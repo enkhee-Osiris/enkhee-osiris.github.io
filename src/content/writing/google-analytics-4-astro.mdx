@@ -315,9 +315,10 @@ This ensures vanilla-cookieconsent is properly bundled and handled during SSR.
 
 You can directly import `css` files in `astro` (BaseLayout.astro or Header.astro) file.
 
-```astro ins={1}
-import "vanilla-cookieconsent/dist/cookieconsent.css" import "@/styles/reset.css"; import
-"@/styles/global.css";
+```jsx ins={1}
+import "vanilla-cookieconsent/dist/cookieconsent.css";
+import "@/styles/reset.css";
+import "@/styles/global.css";
 ```
 
 Or you can create `src/styles/cookie.css` to style the cookie consent banners and modals:
@@ -495,8 +496,10 @@ html[data-theme="dark"] {
 
 And import it inside `astro` (BaseLayout.astro or Header.astro) file.
 
-```astro ins={3}
-import "@/styles/reset.css"; import "@/styles/global.css"; import "@/styles/cookie.css";
+```jsx ins={3}
+import "@/styles/reset.css";
+import "@/styles/global.css";
+import "@/styles/cookie.css";
 ```
 
 ## How It Works
