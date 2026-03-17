@@ -174,7 +174,7 @@ export const DESCRIPTIONS: DescriptionMap = {
 
 export const EXPERIENCES: Experience[] = [
   {
-    company: "Zero Technology LLC",
+    company: "Zero Technology",
     role: "Senior Software Engineer",
     start: "Feb 2023",
     end: "Feb 2025",
