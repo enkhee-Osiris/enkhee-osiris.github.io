@@ -220,6 +220,12 @@ export const EXPERIENCES: Experience[] = [
 
 export const PROJECTS: Project[] = [
   {
+    name: "Sambar",
+    description: "Trello like web app, Built with Tanstack Start, Drizzle and ReactJS",
+    url: "https://github.com/enkhee-Osiris/sambar-client",
+    tags: ["TypeScript", "ReactJS", "ViteJS", "Tanstack"],
+  },
+  {
     name: "Kanso",
     description:
       "A minimal writing theme for Astro. Focused on typography, clean reading experience, and accessibility.",

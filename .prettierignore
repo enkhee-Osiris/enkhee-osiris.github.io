@@ -5,3 +5,5 @@ package-lock.json
 
 .agents/
 .claude/
+
+public/
