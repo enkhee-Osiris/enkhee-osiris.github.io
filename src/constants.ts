@@ -239,4 +239,11 @@ export const PROJECTS: Project[] = [
     url: "https://github.com/enkhee-Osiris/iptv",
     tags: ["TypeScript"],
   },
+  {
+    name: "MorningPress",
+    description:
+      "Simple email service for news lovers. It crawls popular and trendy news then sends to subscribed users.",
+    url: "https://github.com/enkhee-Osiris/morningpress",
+    tags: ["TypeScript", "Firebase", "AWS"],
+  },
 ];
