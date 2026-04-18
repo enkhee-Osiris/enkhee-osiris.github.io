@@ -149,7 +149,7 @@ Focus shape conventions: circular elements (FloatingNav buttons, TagChip) use `b
 - `src/pages/tag/index.astro` — all tags as pill-shaped chips (`#name` + count badge), sorted by count desc then alphabetical; includes `WritingsByYear` section below with all writings.
 - `src/pages/tag/[tag].astro` — same layout as tag index (all tag chips + `WritingsByYear` for filtered writings), with the active tag chip highlighted via `aria-current="page"` (inverted colors, `order: -1` to appear first). Includes BackLink component and referrer-aware script.
 - `src/pages/search.astro` — search page using `PagefindUI` with `?q=` URL param sync on load and input. `<main data-pagefind-ignore="all">` excludes it from the index. Pagefind CSS variables overridden with site tokens via `head` slot.
-- `src/pages/about.astro` — bio section (name, paragraphs, social links), experience list (icon badge or company initial + company/role/period with `<time>`), and projects list (bordered cards with title link, description, tech tags). Uses `pagefindIgnore={true}`.
+- `src/pages/about.astro` — bio section (name, paragraphs, social links), experience list (icon badge or company initial + company/role/period with `<time>`, project entries with `**name** — description` and disc-bulleted highlights, optional additional bullet items), and projects list (bordered cards with title link, description, tech tags). Uses `pagefindIgnore={true}`. Content width: 44rem.
 - `src/pages/robots.txt.ts` — API route generating `robots.txt`; disallows `${base}search/` and `${base}pagefind/`; uses `FULL_URL.pathname` for the base path prefix.
 - `src/pages/rss.xml.ts` — RSS feed at `/rss.xml` using `@astrojs/rss`.
 - `src/pages/og/*.png.ts` — OG image generation routes:
@@ -176,7 +176,9 @@ Focus shape conventions: circular elements (FloatingNav buttons, TagChip) use `b
 - `DESCRIPTIONS` — uses `DescriptionMap` mapped type: static pages have `string` values, dynamic pages (`writing`, `tag`) have functions
 - `OG_IMAGE_TITLE` — uses `OGImageTitleMap` mapped type for OG image titles
 - `OG_IMAGE_LABEL` — uses `OGImageLabelMap` mapped type for OG image labels (URLs or dates)
-- TypeScript interfaces: `Social`, `Urls`, `Experience`, `Project` for type safety
+- TypeScript interfaces: `Social`, `Urls`, `Experience`, `ExperienceProject`, `Project` for type safety
+- `EXPERIENCES` — array of `Experience` objects with `company`, `role`, `start`, `end`, `projects` (array of `ExperienceProject` with `name`, `description`, `highlights[]`), optional `additional[]`, and optional `icon` (SVG string)
+- `PROJECTS` — array of `Project` objects for the open-source projects section
 
 **Type declarations:** `src/env.d.ts` holds the `/// <reference types="astro/client" />` triple-slash and any third-party module declarations that lack `@types` packages. Includes:
 
